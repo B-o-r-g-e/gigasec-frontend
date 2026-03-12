@@ -1,0 +1,146 @@
+"use client";
+
+import { useRef, useState } from "react";
+import { useInView } from "framer-motion";
+import { ArrowRight, Shield } from "lucide-react";
+import Image from "next/image";
+
+function BlogSection() {
+    const ref = useRef(null);
+    const inView = useInView(ref, { amount: 0.1, once: true });
+
+    const posts = [
+        {
+            cat: "Surveillance",
+            title: "How to Choose the Right CCTV System for a Warehouse in 2025",
+            date: "Feb 18, 2025",
+            read: "6 min read",
+            image: "/blog images/cctv.me_+94076403"
+        },
+        {
+            cat: "Fiber Optic",
+            title: "Fiber Optic vs. Copper: What Nigerian Enterprises Need to Know",
+            date: "Feb 5, 2025",
+            read: "8 min read",
+            image: "/blog images/FIBER.jpeg"
+        },
+        {
+            cat: "ICT Infrastructure",
+            title: "Building a Resilient Office Network: A Practical Guide for Lagos Businesses",
+            date: "Jan 22, 2025",
+            read: "7 min read",
+            image: undefined
+        },
+    ];
+
+    return (
+        <section ref={ref} className="bg-white py-[100px]">
+            <div className="mx-auto max-w-[1280px] px-8">
+                <div
+                    className={`mb-14 flex items-end justify-between transition-all duration-500 ${
+                        inView ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
+                    }`}
+                >
+                    <div>
+                        <div className="mb-3 font-['Space_Mono',monospace] text-[11px] tracking-[3px] text-[#0099CC]">
+                            INSIGHTS & RESOURCES
+                        </div>
+
+                        <h2 className="font-['Syne',sans-serif] text-[clamp(2rem,4vw,3rem)] font-extrabold tracking-[-0.5px] text-[#003366]">
+                            Latest Articles
+                        </h2>
+                    </div>
+
+                    <a
+                        href="#"
+                        className="flex items-center gap-1.5 font-['DM_Sans',sans-serif] text-[14px] font-semibold text-[#0099CC] no-underline"
+                    >
+                        View All Articles
+                        <ArrowRight size={16} color="#0099CC" />
+                    </a>
+                </div>
+
+                <div className="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-6">
+                    {posts.map((p, i) => (
+                        <BlogCard key={p.title} {...p} delay={i * 100} inView={inView} />
+                    ))}
+                </div>
+            </div>
+        </section>
+    );
+}
+
+function BlogCard({
+    cat,
+    title,
+    date,
+    read,
+    delay,
+    inView,
+    image,
+}: {
+    cat: string;
+    title: string;
+    date: string;
+    read: string;
+    delay: number;
+    inView: boolean;
+    image?: string;
+}) {
+    const [hovered, setHovered] = useState(false);
+
+    return (
+        <div
+            onMouseEnter={() => setHovered(true)}
+            onMouseLeave={() => setHovered(false)}
+            className={`cursor-pointer overflow-hidden rounded-2xl transition-all duration-300 ${
+                inView ? "opacity-100" : "opacity-0"
+            }`}
+            style={{
+                background: "#f8fafc",
+                border: `1.5px solid ${hovered ? "#0099CC" : "transparent"}`,
+                transform: hovered ? "translateY(-4px)" : "none",
+                boxShadow: hovered ? "0 16px 40px rgba(0,51,102,0.12)" : "none",
+                transitionDelay: `${delay}ms`,
+            }}
+        >
+            <div className="relative flex h-40 items-center justify-center bg-[linear-gradient(135deg,#003366,#0099CC)]">
+                {image ? (
+                    <Image
+                        src={image}
+                        alt={title}
+                        fill
+                        sizes="(min-width: 1024px) 360px, 100vw"
+                        className="object-cover"
+                    />
+                ) : (
+                    <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-white/10">
+                        <Shield size={28} color="rgba(255,255,255,0.7)" />
+                    </div>
+                )}
+            </div>
+
+            <div className="p-7">
+                <div className="mb-[14px] flex items-center justify-between">
+                    <span className="rounded-full bg-[rgba(0,153,204,0.1)] px-[10px] py-[3px] font-['Space_Mono',monospace] text-[10px] tracking-[2px] text-[#0099CC]">
+                      {cat}
+                    </span>
+
+                    <span className="font-['DM_Sans',sans-serif] text-[12px] text-[#667085]">
+                        {read}
+                    </span>
+                    </div>
+
+                    <h3 className="mb-4 font-['Syne',sans-serif] text-[16px] font-bold leading-[1.4] tracking-[-0.2px] text-[#003366]">
+                        {title}
+                    </h3>
+
+                    <div className="font-['DM_Sans',sans-serif] text-[13px] text-[#667085]">
+                        {date}
+                    </div>
+            </div>
+        </div>
+    );
+}
+
+export default BlogSection;
