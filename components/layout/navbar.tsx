@@ -83,3 +83,12 @@ export default function Navbar() {
         </nav>
     );
 }
+
+
+export function SideBar() {
+    const [isOpen, setIsOpen] = useState(false)
+    return (
+        <div className="md:hidden fixed inset-0 bg-white">
+        </div>
+    )
+}
