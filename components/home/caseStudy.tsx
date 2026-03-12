@@ -12,7 +12,7 @@ const sectionVariants = {
         y: 0,
         transition: {
             duration: 0.75,
-            ease: [0.22, 1, 0.36, 1],
+            ease: [0.22, 1, 0.36, 1] as const,
             when: "beforeChildren",
             staggerChildren: 0.12,
         },
@@ -24,7 +24,7 @@ const headerVariants = {
     visible: {
         opacity: 1,
         y: 0,
-        transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] },
+        transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] as const },
     },
 };
 
@@ -34,7 +34,7 @@ const cardVariants = {
         opacity: 1,
         y: 0,
         scale: 1,
-        transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] },
+        transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] as const },
     },
 };
 
