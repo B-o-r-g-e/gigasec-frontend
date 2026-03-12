@@ -26,7 +26,7 @@ export default function StatCard() {
       {stats.map((stat) => (
         <div
           key={stat.label}
-          className={`${spaceMono.className} animate-floatCard border border-cyan-300/15 bg-cyan-300/[0.04] px-6 py-[14px] [animation-fill-mode:both] [clip-path:polygon(0_0,calc(100%_-_10px)_0,100%_10px,100%_100%,10px_100%,0_calc(100%_-_10px))] ${stat.delayClass}`}
+          className={`${spaceMono.className} animate-floatCard border border-cyan-300/15 bg-cyan-300/4 px-6 py-[14px] [animation-fill-mode:both] [clip-path:polygon(0_0,calc(100%_-_10px)_0,100%_10px,100%_100%,10px_100%,0_calc(100%_-_10px))] ${stat.delayClass}`}
         >
           <div className="text-[22px] leading-none font-bold text-cyan-400 drop-shadow-[0_0_18px_rgba(0,200,255,0.65)]">
             {stat.val}

@@ -7,8 +7,8 @@ export default function Badge(
                 visible ? "translate-y-0 opacity-100" : "translate-y-5 opacity-0"
             }`}
         >
-            <div className="h-1.75 w-1.75 rounded-full bg-[#0099cc] animate-pulse" />
-            <span className="font-['Space_Mono',monospace] text-[11px] tracking-[2px] text-[#0099cc]">
+            <div className="h-1.75 w-1.75 rounded-full bg-[#339a99] animate-pulse" />
+            <span className="font-['Space_Mono',monospace] text-[11px] tracking-[2px] text-[#339a99]">
                 {text}
             </span>
         </div>

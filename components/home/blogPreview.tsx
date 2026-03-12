@@ -42,21 +42,21 @@ function BlogSection() {
                     }`}
                 >
                     <div>
-                        <div className="mb-3 font-['Space_Mono',monospace] text-[11px] tracking-[3px] text-[#0099CC]">
+                        <div className="mb-3 font-['Space_Mono',monospace] text-[11px] tracking-[3px] text-[#339a99]">
                             INSIGHTS & RESOURCES
                         </div>
 
-                        <h2 className="font-['Syne',sans-serif] text-[clamp(2rem,4vw,3rem)] font-extrabold tracking-[-0.5px] text-[#003366]">
+                        <h2 className="font-['Syne',sans-serif] text-[clamp(2rem,4vw,3rem)] font-extrabold tracking-[-0.5px] text-[#0d3d3d]">
                             Latest Articles
                         </h2>
                     </div>
 
                     <a
                         href="#"
-                        className="flex items-center gap-1.5 font-['DM_Sans',sans-serif] text-[14px] font-semibold text-[#0099CC] no-underline"
+                        className="flex items-center gap-1.5 font-['DM_Sans',sans-serif] text-[14px] font-semibold text-[#339a99] no-underline"
                     >
                         View All Articles
-                        <ArrowRight size={16} color="#0099CC" />
+                        <ArrowRight size={16} color="#339a99" />
                     </a>
                 </div>
 
@@ -98,13 +98,13 @@ function BlogCard({
             }`}
             style={{
                 background: "#f8fafc",
-                border: `1.5px solid ${hovered ? "#0099CC" : "transparent"}`,
+                border: `1.5px solid ${hovered ? "#339a99" : "transparent"}`,
                 transform: hovered ? "translateY(-4px)" : "none",
                 boxShadow: hovered ? "0 16px 40px rgba(0,51,102,0.12)" : "none",
                 transitionDelay: `${delay}ms`,
             }}
         >
-            <div className="relative flex h-40 items-center justify-center bg-[linear-gradient(135deg,#003366,#0099CC)]">
+            <div className="relative flex h-40 items-center justify-center bg-[linear-gradient(135deg,#0d3d3d,#339a99)]">
                 {image ? (
                     <Image
                         src={image}
@@ -122,7 +122,7 @@ function BlogCard({
 
             <div className="p-7">
                 <div className="mb-[14px] flex items-center justify-between">
-                    <span className="rounded-full bg-[rgba(0,153,204,0.1)] px-[10px] py-[3px] font-['Space_Mono',monospace] text-[10px] tracking-[2px] text-[#0099CC]">
+                    <span className="rounded-full bg-[rgba(0,153,204,0.1)] px-[10px] py-[3px] font-['Space_Mono',monospace] text-[10px] tracking-[2px] text-[#339a99]">
                       {cat}
                     </span>
 
@@ -131,7 +131,7 @@ function BlogCard({
                     </span>
                     </div>
 
-                    <h3 className="mb-4 font-['Syne',sans-serif] text-[16px] font-bold leading-[1.4] tracking-[-0.2px] text-[#003366]">
+                    <h3 className="mb-4 font-['Syne',sans-serif] text-[16px] font-bold leading-[1.4] tracking-[-0.2px] text-[#0d3d3d]">
                         {title}
                     </h3>
 

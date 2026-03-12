@@ -130,7 +130,7 @@ export default function ServicesSection() {
           group relative cursor-pointer overflow-hidden rounded-2xl border px-8 py-9
           transition-all duration-300 ease-out
           ${hovered
-                    ? 'border-[#0099CC] bg-[#003366] shadow-[0_24px_48px_rgba(0,51,102,0.18)]'
+                    ? 'border-[#339a99] bg-[#0d3d3d] shadow-[0_24px_48px_rgba(0,51,102,0.18)]'
                     : 'border-[#e8edf3] bg-white shadow-[0_2px_8px_rgba(0,0,0,0.05)]'
                 }
         `}
@@ -148,7 +148,7 @@ export default function ServicesSection() {
                         className={`
               absolute right-5 top-5 rounded-full border px-[10px] py-1
               text-[9px] tracking-[2px]
-              font-mono text-[#0099CC]
+              font-mono text-[#339a99]
               ${hovered ? 'bg-[rgba(0,153,204,0.2)]' : 'bg-[rgba(0,153,204,0.1)]'}
             `}
                         animate={{ y: hovered ? -2 : 0 }}
@@ -169,7 +169,7 @@ export default function ServicesSection() {
                     }}
                     transition={{ duration: 0.25, ease: 'easeOut' }}
                 >
-                    <div className={hovered ? 'text-[#66CCFF]' : 'text-[#003366]'}>
+                    <div className={hovered ? 'text-[#339a99]' : 'text-[#0d3d3d]'}>
                         {icon}
                     </div>
                 </motion.div>
@@ -178,7 +178,7 @@ export default function ServicesSection() {
                     className={`
             relative mb-3 text-[20px] font-bold tracking-[-0.3px]
             font-['Syne',sans-serif]
-            ${hovered ? 'text-white' : 'text-[#003366]'}
+            ${hovered ? 'text-white' : 'text-[#0d3d3d]'}
           `}
                     animate={{ x: hovered ? 4 : 0 }}
                     transition={{ duration: 0.22, ease: 'easeOut' }}
@@ -196,7 +196,7 @@ export default function ServicesSection() {
                 </p>
 
                 <motion.div
-                    className="relative mt-6 flex items-center gap-1.5 text-[13px] font-semibold tracking-[0.3px] text-[#0099CC] font-['DM_Sans',sans-serif]"
+                    className="relative mt-6 flex items-center gap-1.5 text-[13px] font-semibold tracking-[0.3px] text-[#339a99] font-['DM_Sans',sans-serif]"
                     animate={{ x: hovered ? 6 : 0 }}
                     transition={{ duration: 0.22, ease: 'easeOut' }}
                 >
@@ -226,11 +226,11 @@ export default function ServicesSection() {
                     variants={headerVariants}
                     className="mb-16 text-center"
                 >
-                    <div className="mb-3 font-mono text-[11px] tracking-[3px] text-[#0099CC]">
+                    <div className="mb-3 font-mono text-[11px] tracking-[3px] text-[#339a99]">
                         WHAT WE DO
                     </div>
 
-                    <h2 className="font-['Syne',sans-serif] text-[clamp(2rem,4vw,3rem)] font-extrabold tracking-[-0.5px] text-[#003366]">
+                    <h2 className="font-['Syne',sans-serif] text-[clamp(2rem,4vw,3rem)] font-extrabold tracking-[-0.5px] text-[#0d3d3d]">
                         End-to-End Security & ICT Services
                     </h2>
 

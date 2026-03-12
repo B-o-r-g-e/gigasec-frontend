@@ -47,21 +47,21 @@ export default function CaseStudiesSection() {
             tag: "Banking",
             title: "Nationwide CCTV Upgrade for Tier-1 Bank",
             result: "340 branches secured in 8 months",
-            color: "#003366",
+            color: "#0d3d3d",
             href: "#",
         },
         {
             tag: "Oil & Gas",
             title: "Fiber Optic Backbone — Offshore Platform",
             result: "99.99% uptime over 24 months",
-            color: "#004080",
+            color: "#1c5856",
             href: "#",
         },
         {
             tag: "Government",
             title: "Smart City Surveillance Network — Lagos",
             result: "2,400 IP cameras deployed",
-            color: "#002244",
+            color: "#0d3d3d",
             href: "#",
         },
     ];
@@ -80,11 +80,11 @@ export default function CaseStudiesSection() {
                     <motion.div
                         variants={headerVariants}
                     >
-                        <div className="mb-3 font-['Space_Mono',monospace] text-[11px] tracking-[3px] text-[#0099CC]">
+                        <div className="mb-3 font-['Space_Mono',monospace] text-[11px] tracking-[3px] text-[#339a99]">
                             PROVEN RESULTS
                         </div>
 
-                        <h2 className="font-['Syne',sans-serif] text-[clamp(2rem,4vw,3rem)] font-extrabold tracking-[-0.5px] text-[#003366]">
+                        <h2 className="font-['Syne',sans-serif] text-[clamp(2rem,4vw,3rem)] font-extrabold tracking-[-0.5px] text-[#0d3d3d]">
                             Case Studies
                         </h2>
                     </motion.div>
@@ -94,10 +94,10 @@ export default function CaseStudiesSection() {
                         variants={headerVariants}
                         whileHover={{ x: 6 }}
                         transition={{ duration: 0.22, ease: "easeOut" }}
-                        className="flex items-center gap-1.5 font-['DM_Sans',sans-serif] text-[14px] font-semibold text-[#0099CC]"
+                        className="flex items-center gap-1.5 font-['DM_Sans',sans-serif] text-[14px] font-semibold text-[#339a99]"
                     >
                         View All Projects
-                        <ArrowRight size={16} color="#0099CC" />
+                        <ArrowRight size={16} color="#339a99" />
                     </motion.a>
                 </div>
 
@@ -155,8 +155,8 @@ function CaseCard({
                 transition={{ duration: 0.25, ease: "easeOut" }}
                 style={{
                     background: hovered
-                        ? "linear-gradient(90deg, #0099CC, rgba(0,153,204,0.4))"
-                        : "linear-gradient(90deg, #003366, #0099CC)",
+                        ? "linear-gradient(90deg, #339a99, rgba(0,153,204,0.4))"
+                        : "linear-gradient(90deg, #0d3d3d, #339a99)",
                 }}
             />
 
@@ -166,7 +166,7 @@ function CaseCard({
                     animate={{ y: hovered ? -2 : 0 }}
                     transition={{ duration: 0.22, ease: "easeOut" }}
                     style={{
-                        color: "#0099CC",
+                        color: "#339a99",
                         background: hovered
                             ? "rgba(0,153,204,0.15)"
                             : "rgba(0,51,102,0.07)",
@@ -182,7 +182,7 @@ function CaseCard({
                     className="mb-6 font-['Syne',sans-serif] text-[19px] font-bold leading-[1.3] tracking-[-0.3px]"
                     animate={{ x: hovered ? 4 : 0 }}
                     transition={{ duration: 0.22, ease: "easeOut" }}
-                    style={{ color: hovered ? "#fff" : "#003366" }}
+                    style={{ color: hovered ? "#fff" : "#0d3d3d" }}
                 >
                     {title}
                 </motion.h3>
@@ -195,17 +195,17 @@ function CaseCard({
                         background: hovered ? "rgba(0,153,204,0.12)" : "#f8fafc",
                     }}
                 >
-                    <Check size={16} color="#0099CC" />
+                    <Check size={16} color="#339a99" />
                     <span
                         className="font-['DM_Sans',sans-serif] text-[14px] font-semibold"
-                        style={{ color: hovered ? "#fff" : "#003366" }}
+                        style={{ color: hovered ? "#fff" : "#0d3d3d" }}
                     >
             {result}
           </span>
                 </motion.div>
 
                 <motion.div
-                    className="mt-5 flex items-center gap-1.5 font-['DM_Sans',sans-serif] text-[13px] font-semibold text-[#0099CC]"
+                    className="mt-5 flex items-center gap-1.5 font-['DM_Sans',sans-serif] text-[13px] font-semibold text-[#339a99]"
                     animate={{ x: hovered ? 6 : 0 }}
                     transition={{ duration: 0.22, ease: "easeOut" }}
                 >
@@ -214,7 +214,7 @@ function CaseCard({
                         animate={{ x: hovered ? 4 : 0 }}
                         transition={{ duration: 0.22, ease: "easeOut" }}
                     >
-                        <ArrowRight size={14} color="#0099CC" />
+                        <ArrowRight size={14} color="#339a99" />
                     </motion.div>
                 </motion.div>
             </div>

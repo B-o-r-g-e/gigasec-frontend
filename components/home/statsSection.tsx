@@ -53,7 +53,7 @@ export default function StatsSection() {
     return (
         <section
             ref={ref}
-            className="relative overflow-hidden bg-[linear-gradient(135deg,#003366,#002244)] py-20"
+            className="relative overflow-hidden bg-[linear-gradient(135deg,#0d3d3d,#0d3d3d)] py-20"
         >
             <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(rgba(0,153,204,0.1)_1px,transparent_1px)] bg-[size:30px_30px]" />
 
@@ -99,7 +99,7 @@ function StatCard({
                 {label}
             </div>
 
-            <div className="mx-auto mt-3 h-[2px] w-10 rounded-[2px] bg-[#0099CC]" />
+            <div className="mx-auto mt-3 h-[2px] w-10 rounded-[2px] bg-[#339a99]" />
         </div>
     );
 }

@@ -39,11 +39,11 @@ export default function Typewriter({ words, speed = 80 }: TypewriterProps) {
   }, [txt, del, idx, words, speed]);
 
   return (
-    <span className="inline-flex items-center text-[#66ccff]">
+    <span className="inline-flex items-center text-[#339a99]">
       <span>{txt}</span>
       <span
         aria-hidden="true"
-        className="ml-1 inline-block h-[0.9em] w-[2px] rounded-full bg-[#66ccff] animate-[blink_0.8s_step-end_infinite]"
+        className="ml-1 inline-block h-[0.9em] w-[2px] rounded-full bg-[#339a99] animate-[blink_0.8s_step-end_infinite]"
       />
     </span>
   );

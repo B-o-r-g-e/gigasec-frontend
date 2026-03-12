@@ -46,13 +46,13 @@ export default function TestimonialsSection() {
     return (
         <section
             ref={ref}
-    className="relative overflow-hidden bg-[linear-gradient(135deg,#000d1a,#003366)] py-[100px]"
+    className="relative overflow-hidden bg-[linear-gradient(135deg,#000d1a,#0d3d3d)] py-[100px]"
     >
     <div className="pointer-events-none absolute left-1/2 top-1/2 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 bg-[radial-gradient(circle,rgba(0,153,204,0.08)_0%,transparent_70%)]" />
 
     <div className="relative mx-auto max-w-[900px] px-8 text-center">
     <div
-        className={`mb-12 font-['Space_Mono',monospace] text-[11px] tracking-[3px] text-[#0099CC] transition-all duration-500 ease-out ${
+        className={`mb-12 font-['Space_Mono',monospace] text-[11px] tracking-[3px] text-[#339a99] transition-all duration-500 ease-out ${
         inView ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
     }`}
 >
@@ -75,7 +75,7 @@ export default function TestimonialsSection() {
 
     <div className="relative mb-10">
     <div className="absolute left-1/2 top-[-20px] -translate-x-1/2 opacity-20">
-        <Quote size={48} color="#0099CC" />
+        <Quote size={48} color="#339a99" />
         </div>
 
         <p
@@ -90,7 +90,7 @@ export default function TestimonialsSection() {
     <div className="font-['Syne',sans-serif] text-[16px] font-bold text-white">
         {t.name}
         </div>
-        <div className="mt-1 font-['DM_Sans',sans-serif] text-[14px] text-[#0099CC]">
+        <div className="mt-1 font-['DM_Sans',sans-serif] text-[14px] text-[#339a99]">
         {t.role}
         </div>
         </div>
@@ -103,7 +103,7 @@ export default function TestimonialsSection() {
             onClick={() => setActive(i)}
     className={`h-2 rounded-[4px] border-none p-0 transition-all duration-300 ${
         i === active
-            ? "w-7 bg-[#0099CC]"
+            ? "w-7 bg-[#339a99]"
             : "w-2 bg-white/20"
     }`}
     />

@@ -9,6 +9,7 @@ import PrimaryButton from "@/components/ui/PrimaryButton";
 import SecondaryButton from "@/components/ui/SecondaryButton";
 import SecurityBackground from "@/components/backgrounds/SecurityBackround";
 
+
 export default function Hero() {
     const [visible, setVisible] = useState(false);
     useEffect(() => { setTimeout(() => setVisible(true), 100); }, []);
@@ -29,7 +30,7 @@ export default function Hero() {
                                 }`}
                             >
                                 Tailored{" "}
-                                <span className="bg-[linear-gradient(135deg,#0099cc,#66ccff)] bg-clip-text text-transparent">
+                                <span className="bg-[linear-gradient(135deg,#339a99,#339a99)] bg-clip-text text-transparent">
                                     engineering & technology solutions
                                 </span>{" "}
                                 with <Typewriter words={["Control", "Insight", "Precision", "Safety", "Focus", "Trust"]} />
@@ -102,7 +103,7 @@ export default function Hero() {
                     </div>
                 </div>
             </SecurityBackground>
-            <div className="absolute bottom-0 left-0 right-0 h-25 bg-linear-to-t from-[#f5f7fa] to-transparent" />
+            {/*<div className="absolute bottom-0 left-0 right-0 h-25 bg-linear-to-t from-[#f5f7fa] to-transparent" />*/}
         </>
     )
 }

@@ -3,7 +3,7 @@
 import { useRef } from "react";
 import { useInView } from "framer-motion";
 
-export default function CertificationsSection() {
+export default function Certifications() {
     const ref = useRef(null);
     const inView = useInView(ref, { amount: 0.2, once: true });
 
@@ -38,7 +38,7 @@ export default function CertificationsSection() {
                     {certs.map((c) => (
                         <div
                             key={c}
-                            className="rounded-full border-[1.5px] border-[#e8edf3] bg-white px-5 py-[10px] font-['DM_Sans',sans-serif] text-[13px] font-semibold text-[#003366] transition-all duration-200 hover:border-[#0099CC] hover:text-[#0099CC]"
+                            className="rounded-full border-[1.5px] border-[#e8edf3] bg-white px-5 py-[10px] font-['DM_Sans',sans-serif] text-[13px] font-semibold text-[#0d3d3d] transition-all duration-200 hover:border-[#339a99] hover:text-[#339a99]"
                         >
                             {c}
                         </div>

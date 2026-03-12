@@ -2,7 +2,7 @@ import ParticleField from "@/components/home/particleField";
 
 export default function SecurityBackground({ children }: { children: React.ReactNode }) {
     return (
-        <section className="min-h-screen relative flex items-center overflow-hidden bg-linear-to-br from-[#000d1a] via-[#003366] to-[#004080]">
+            <section className="min-h-screen relative flex items-center overflow-hidden bg-linear-to-br from-[#000d1a] via-[#0d3d3d] to-[#339a99]">
 
             {/* Grid overlay */}
             <div className="absolute inset-0 bg-[linear-gradient(rgba(0,153,204,0.07)_1px,transparent_1px),linear-gradient(90deg,rgba(0,153,204,0.07)_1px,transparent_1px)] bg-[length:60px_60px] animate-gridPulse" />
@@ -24,7 +24,7 @@ export default function SecurityBackground({ children }: { children: React.React
             </div>
 
             {/* Bottom fade */}
-            {/*<div className="absolute bottom-0 left-0 right-0 h-25 bg-linear-to-t from-[#f5f7fa] to-transparent" />*/}
+            <div className="absolute bottom-0 left-0 right-0 h-25 bg-linear-to-t from-[#f5f7fa] to-transparent" />
 
         </section>
     );

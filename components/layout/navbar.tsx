@@ -12,31 +12,30 @@ const navlinks = [
     { text: "Shop", url: "#" },
 ];
 
+const BRAND = {
+    navy: "#0d3d3d",
+    electric: "#339a99",
+    orange: "#FF6600",
+    white: "#FFFFFF",
+    offwhite: "#F5F7FA",
+    charcoal: "#1A1A2E",
+    gray: "#6B7280",
+};
+
 export default function Navbar() {
     const [scrolled, setScrolled] = useState(false);
 
     useEffect(() => {
-        const scrollContainer = document.getElementById("marketing-scroll-container");
-
-        const updateScrolled = () => {
-            const scrollTop = scrollContainer ? scrollContainer.scrollTop : window.scrollY;
-            setScrolled(scrollTop > 40);
+        const handleScroll = () => {
+            setScrolled(window.scrollY > 40);
         };
 
-        updateScrolled();
+        handleScroll(); // run once on mount
 
-        if (scrollContainer) {
-            scrollContainer.addEventListener("scroll", updateScrolled);
-        }
-
-        window.addEventListener("scroll", updateScrolled);
+        window.addEventListener("scroll", handleScroll);
 
         return () => {
-            if (scrollContainer) {
-                scrollContainer.removeEventListener("scroll", updateScrolled);
-            }
-
-            window.removeEventListener("scroll", updateScrolled);
+            window.removeEventListener("scroll", handleScroll);
         };
     }, []);
 
@@ -44,17 +43,19 @@ export default function Navbar() {
         <nav
             className={`fixed left-0 right-0 top-0 z-50 border-b px-8 py-4 transition-all duration-300 ease-in-out ${
                 scrolled
-                    ? "border-[#0099cc]/20 bg-[#001433]/95 backdrop-blur-md shadow-[0_10px_30px_rgba(0,20,51,0.18)]"
+                        ? "border-[#0099cc]/20 backdrop-blur-md shadow-[0_10px_30px_rgba(0,20,51,0.18)]"
                     : "border-transparent bg-transparent"
             }`}
+            style={{ backgroundColor: scrolled ? BRAND.navy : 'transparent' }}
         >
-            <div className="mx-auto flex max-w-7xl items-center justify-between">
+            <div className="mx-auto flex max-w-7xl items-center justify-between ">
                 <Link href="/">
                     <Image
                         src="/logo.jpeg"
                         width={150}
                         height={1000}
                         alt="Gigasec Logo"
+                        className="bg-white"
                     />
                 </Link>
 
@@ -73,7 +74,7 @@ export default function Navbar() {
 
                     <Link
                         href="#contact"
-                        className={`${dMSans.className} rounded-[6px] bg-[#0099cc] px-[22px] py-[10px] text-[14px] font-semibold tracking-[0.5px] text-white shadow-[0_4px_16px_rgba(0,153,204,0.35)] transition-all duration-200 hover:-translate-y-[1px] hover:bg-[#007aaa]`}
+                        className={`${dMSans.className} rounded-[6px] bg-[#339a99] px-[22px] py-[10px] text-[14px] font-semibold tracking-[0.5px] text-white shadow-[0_4px_16px_rgba(0,153,204,0.35)] transition-all duration-200 hover:-translate-y-[1px] hover:bg-[#007aaa]`}
                     >
                         Get a Quote
                     </Link>

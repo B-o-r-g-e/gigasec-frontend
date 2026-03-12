@@ -16,7 +16,7 @@ export default function Footer() {
             <div className="border-b border-white/10 py-16">
                 <div className="mx-auto grid max-w-[1280px] grid-cols-1 items-center gap-16 px-8 md:grid-cols-2">
                     <div>
-                        <div className="mb-4 font-['Space_Mono',monospace] text-[10px] tracking-[3px] text-[#0099CC]">
+                        <div className="mb-4 font-['Space_Mono',monospace] text-[10px] tracking-[3px] text-[#339a99]">
                             CONTACT US
                         </div>
 
@@ -27,7 +27,7 @@ export default function Footer() {
                         <div className="flex flex-col gap-[14px]">
                             {contactItems.map(({ icon: ContactIcon, text }) => (
                                 <div key={text} className="flex items-center gap-3">
-                                    <ContactIcon size={18} color="#0099CC" />
+                                    <ContactIcon size={18} color="#339a99" />
                                     <span className="font-['DM_Sans',sans-serif] text-[15px] text-white/70">
                     {text}
                   </span>
@@ -42,11 +42,11 @@ export default function Footer() {
                             <input
                                 key={placeholder}
                                 placeholder={placeholder}
-                                className="rounded-[8px] border border-white/10 bg-white/5 px-[18px] py-[14px] font-['DM_Sans',sans-serif] text-[14px] text-white outline-none transition-colors duration-200 placeholder:text-white/40 focus:border-[#0099CC]"
+                                className="rounded-[8px] border border-white/10 bg-white/5 px-[18px] py-[14px] font-['DM_Sans',sans-serif] text-[14px] text-white outline-none transition-colors duration-200 placeholder:text-white/40 focus:border-[#339a99]"
                             />
                         ))}
 
-                        <button className="flex items-center justify-center gap-2 rounded-[8px] bg-[#0099CC] px-4 py-[15px] font-['DM_Sans',sans-serif] text-[15px] font-bold text-white shadow-[0_8px_24px_rgba(0,153,204,0.35)] transition-all duration-200 hover:-translate-y-[2px]">
+                        <button className="flex items-center justify-center gap-2 rounded-[8px] bg-[#339a99] px-4 py-[15px] font-['DM_Sans',sans-serif] text-[15px] font-bold text-white shadow-[0_8px_24px_rgba(0,153,204,0.35)] transition-all duration-200 hover:-translate-y-[2px]">
                             Send Message
                             <ArrowRight size={16} color="#fff" />
                         </button>
@@ -110,7 +110,7 @@ export default function Footer() {
                                 <div key={l} className="mb-[10px]">
                                     <a
                                         href="#"
-                                        className="font-['DM_Sans',sans-serif] text-[14px] text-white/50 no-underline transition-colors duration-200 hover:text-[#0099CC]"
+                                        className="font-['DM_Sans',sans-serif] text-[14px] text-white/50 no-underline transition-colors duration-200 hover:text-[#339a99]"
                                     >
                                         {l}
                                     </a>
