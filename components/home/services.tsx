@@ -2,40 +2,40 @@
 
 import { ReactNode } from 'react';
 import { useRef, useState } from 'react';
-import { motion, useInView } from 'framer-motion';
+import { motion, useInView, type Variants } from 'framer-motion';
 import {ArrowRight, BriefcaseBusiness, Cctv, Globe, LensConvex, Lock, Palette, Shield, Sun} from 'lucide-react';
 import Link from "next/link";
 
-const sectionVariants = {
+const sectionVariants: Variants = {
     hidden: { opacity: 0, y: 42 },
     visible: {
         opacity: 1,
         y: 0,
         transition: {
             duration: 0.75,
-            ease: [0.22, 1, 0.36, 1],
-            when: 'beforeChildren',
+            ease: [0.22, 1, 0.36, 1] as const,
+            when: 'beforeChildren' as const,
             staggerChildren: 0.12,
         },
     },
 };
 
-const headerVariants = {
+const headerVariants: Variants = {
     hidden: { opacity: 0, y: 22 },
     visible: {
         opacity: 1,
         y: 0,
-        transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
+        transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as const },
     },
 };
 
-const cardVariants = {
+const cardVariants: Variants = {
     hidden: { opacity: 0, y: 32, scale: 0.96 },
     visible: {
         opacity: 1,
         y: 0,
         scale: 1,
-        transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] },
+        transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] as const },
     },
 };
 

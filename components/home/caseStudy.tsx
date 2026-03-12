@@ -73,9 +73,9 @@ export default function CaseStudiesSection() {
             variants={sectionVariants}
             initial="hidden"
             animate={inView ? "visible" : "hidden"}
-            className="bg-[#f8fafc] py-[100px]"
+            className="bg-[#f8fafc] py-25"
         >
-            <div className="mx-auto max-w-[1280px] px-8">
+            <div className="mx-auto max-w-7xl px-8">
                 <div className="mb-14 flex items-end justify-between">
                     <motion.div
                         variants={headerVariants}
@@ -118,14 +118,12 @@ function CaseCard({
                       title,
                       result,
                       color,
-                      href,
                       inView,
                   }: {
     tag: string;
     title: string;
     result: string;
     color: string;
-    href: string;
     inView: boolean;
 }) {
     const [hovered, setHovered] = useState(false);
