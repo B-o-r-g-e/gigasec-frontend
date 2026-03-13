@@ -58,7 +58,8 @@ export function MobileMenu() {
 
 function Sidebar() {
     const [isOpen, setIsOpen] = useState(false);
-    const [isLogedIn, setIsLogedIn] = useState(false)
+    const [isVisible, setIsVisible] = useState(false);
+    const [isActive, setIsActive] = useState(false);
     useEffect(() => {
         if (isOpen) {
             document.body.style.overflow = "hidden";
@@ -71,45 +72,79 @@ function Sidebar() {
         };
     }, [isOpen]);
 
+    useEffect(() => {
+        if (isOpen) {
+            setIsVisible(true);
+            const raf = requestAnimationFrame(() => {
+                setIsActive(true);
+            });
+            return () => cancelAnimationFrame(raf);
+        }
+
+        setIsActive(false);
+        const timeout = setTimeout(() => {
+            setIsVisible(false);
+        }, 450);
+
+        return () => clearTimeout(timeout);
+    }, [isOpen]);
+
     return (
         <div className="md:hidden">
             <Menu
                 color="white"
                 className="cursor-pointer"
                 onClick={() => {
-                    setIsOpen(prev => !prev)
+                    setIsOpen((prev) => !prev)
                     console.log("Clicked")
                 }}
             />
-            {isOpen && (
-                <div className="fixed bg-white inset-0 z-40 /*bg-white/10 backdrop-blur-xl shadow-2xl*/">
-                    <div className="py-8 px-8 flex justify-end border-b border-b-gray-100 mb-5">
-                        <X
-                            className="cursor-pointer"
-                            onClick={() => setIsOpen(false)}
-                        />
-                    </div>
-                    <div className="flex flex-col px-5 mb-10">
-                        {navlinks.map((link) => (
-                            <Link
-                                key={link.text}
-                                href={link.url}
-                                className="py-6 font-bold tracking-[0.5px] transition-colors duration-200 hover:text-[#0099cc] border-b flex justify-between items-center"
+            {isVisible && (
+                <div
+                    className={`fixed inset-0 z-40 transition-opacity duration-500 ease-out ${
+                        isActive ? "opacity-100" : "opacity-0 pointer-events-none"
+                    }`}
+                >
+                    <div
+                        className={`absolute inset-0 bg-black/30 transition-opacity duration-500 ${
+                            isActive ? "opacity-100" : "opacity-0"
+                        }`}
+                        onClick={() => setIsOpen(false)}
+                    />
+                    <div
+                        className={`absolute right-0 top-0 h-full w-80 bg-white transition-transform duration-500 ease-out backdrop-blur-sm ${
+                            isActive ? "translate-x-0" : "translate-x-full"
+                        }`}
+                    >
+                        <div className="py-8 px-8 flex justify-end border-b border-b-gray-100 mb-5">
+                            <X
+                                className="cursor-pointer"
+                                onClick={() => setIsOpen(false)}
+                            />
+                        </div>
+                        <div className="flex flex-col px-5 mb-10">
+                            {navlinks.map((link) => (
+                                <Link
+                                    key={link.text}
+                                    href={link.url}
+                                    className="py-6 font-bold tracking-[0.5px] transition-colors duration-200 hover:text-[#0099cc] border-b flex justify-between items-center"
+                                    onClick={() => setIsOpen(false)}
+                                >
+                                    {link.text}
+                                    <ChevronRight size={15} />
+                                </Link>
+                            ))}
+                        </div>
+                        <div className="px-6">
+                            <a
+                                className="inline-flex items-center gap-2 rounded-full border-[1.5px]  px-5 py-3.75 font-[DM_Sans] text-[15px] font-semibold tracking-[0.3px] no-underline transition-all duration-200 hover:border-[#339a99] hover:text-[#339a99]"
+                                href="#"
                                 onClick={() => setIsOpen(false)}
                             >
-                                {link.text}
-                                <ChevronRight size={15} />
-                            </Link>
-                        ))}
-                    </div>
-                    <div className="px-6">
-                        <a
-                            className="inline-flex items-center gap-2 rounded-full border-[1.5px]  px-5 py-3.75 font-[DM_Sans] text-[15px] font-semibold tracking-[0.3px] no-underline transition-all duration-200 hover:border-[#339a99] hover:text-[#339a99]"
-                            href="#"
-                        >
-                            Log in
-                            <ArrowUpRight size={15} />
-                        </a>
+                                Log in
+                                <ArrowUpRight size={15} />
+                            </a>
+                        </div>
                     </div>
                 </div>
             )}
