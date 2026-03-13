@@ -213,11 +213,20 @@
 }
 
 @layer base {
+  *,
+  *::before,
+  *::after {
+    @apply box-border;
+  }
   * {
     @apply border-border outline-ring/50;
   }
+  html,
   body {
-    @apply bg-background text-foreground;
+    @apply w-full overflow-x-hidden;
+  }
+  body {
+    @apply bg-background text-foreground m-0;
   }
   html {
     @apply font-sans;
