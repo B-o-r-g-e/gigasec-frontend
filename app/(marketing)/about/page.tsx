@@ -1,11 +1,11 @@
-import SecurityBackground from "@/components/backgrounds/SecurityBackround";
+import AboutHero from "@/components/about/hero";
 
 export default function Home() {
   return (
       <>
-          <SecurityBackground>
-              <h1>Hello There</h1>
-          </SecurityBackground>
+          <section>
+              <AboutHero />
+          </section>
       </>
   )
 }

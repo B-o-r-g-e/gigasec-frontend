@@ -6,10 +6,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <div className="relative">
             <div><Navbar /></div>
             <MobileMenu />
-            {/*<div><Sidebar /></div>*/}
-            {/*<div className="w-full flex-none md:w-64">*/}
-            {/*    <SideNav />*/}
-            {/*</div>*/}
             <div id="marketing-scroll-container" className="grow">{children}</div>
         </div>
     );
