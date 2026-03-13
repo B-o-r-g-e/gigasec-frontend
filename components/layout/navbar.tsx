@@ -3,7 +3,14 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { dMSans } from "@/app/ui/fonts";
-import {Menu, X} from "lucide-react";
+import {ArrowUpRight, ChevronRight, Menu, X} from "lucide-react";
+const navlinks = [
+    { text: "Services", url: "#" },
+    { text: "Case Studies", url: "#" },
+    { text: "About", url: "/about" },
+    { text: "Blog", url: "#" },
+    { text: "Shop", url: "#" },
+];
 
 export function MobileMenu() {
     const [scrolled, setScrolled] = useState(false);
@@ -51,6 +58,7 @@ export function MobileMenu() {
 
 function Sidebar() {
     const [isOpen, setIsOpen] = useState(false);
+    const [isLogedIn, setIsLogedIn] = useState(false)
     useEffect(() => {
         if (isOpen) {
             document.body.style.overflow = "hidden";
@@ -75,46 +83,39 @@ function Sidebar() {
             />
             {isOpen && (
                 <div className="fixed bg-white inset-0 z-40 /*bg-white/10 backdrop-blur-xl shadow-2xl*/">
-                    <div className="py-8 px-4 flex justify-end border-b border-b-gray-100">
+                    <div className="py-8 px-8 flex justify-end border-b border-b-gray-100 mb-5">
                         <X
                             className="cursor-pointer"
                             onClick={() => setIsOpen(false)}
                         />
                     </div>
-                    <div>
-                        <div>somethig </div>
-                        <div>somethig </div>
-                        <div>somethig </div>
-                        <div>somethig </div>
-                        <div>somethig </div>
-                        <div>somethig </div>
-                        <div>somethig </div>
-                        <div>somethig </div>
-                        <div>somethig </div>
-                        <div>somethig </div>
-                        <div>somethig </div>
-                        <div>somethig </div>
-                        <div>somethig </div>
-                        <div>somethig </div>
-                        <div>somethig </div>
-                        <div>somethig </div>
-                        <div>somethig </div>
-                        <div>somethig </div>
-                        <div>somethig </div>
+                    <div className="flex flex-col px-5 mb-10">
+                        {navlinks.map((link) => (
+                            <Link
+                                key={link.text}
+                                href={link.url}
+                                className="py-6 font-bold tracking-[0.5px] transition-colors duration-200 hover:text-[#0099cc] border-b flex justify-between items-center"
+                                onClick={() => setIsOpen(false)}
+                            >
+                                {link.text}
+                                <ChevronRight size={15} />
+                            </Link>
+                        ))}
+                    </div>
+                    <div className="px-6">
+                        <a
+                            className="inline-flex items-center gap-2 rounded-full border-[1.5px]  px-5 py-3.75 font-[DM_Sans] text-[15px] font-semibold tracking-[0.3px] no-underline transition-all duration-200 hover:border-[#339a99] hover:text-[#339a99]"
+                            href="#"
+                        >
+                            Log in
+                            <ArrowUpRight size={15} />
+                        </a>
                     </div>
                 </div>
             )}
         </div>
     )
 }
-
-const navlinks = [
-    { text: "Services", url: "#" },
-    { text: "Case Studies", url: "#" },
-    { text: "About", url: "/about" },
-    { text: "Blog", url: "#" },
-    { text: "Shop", url: "#" },
-];
 
 const BRAND = {
     navy: "#0d3d3d",
