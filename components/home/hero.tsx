@@ -25,8 +25,8 @@ export default function Hero() {
 
                             {/* H1 */}
                             <h1
-                                className={`${syne.className} antialiased mb-6 text-[clamp(2.5rem,5.5vw,4.2rem)] font-extrabold leading-[1.1] tracking-[-1px] text-white transition-all duration-[800ms] ease-[cubic-bezier(0.4,0,0.2,1)] delay-[150ms] ${
-                                    visible ? "translate-y-0 opacity-100" : "translate-y-[30px] opacity-0"
+                                className={`${syne.className} antialiased mb-6 text-[clamp(2rem,5.5vw,4.2rem)] md:text-[clamp(2.5rem,5.5vw,4.2rem)] font-extrabold leading-[1.1] tracking-[-1px] text-white transition-all duration-[800ms] ease-[cubic-bezier(0.4,0,0.2,1)] delay-[150ms] ${
+                                    visible ? "translate-y-0 opacity-100" : "translate-y-7.5 opacity-0"
                                 }`}
                             >
                                 Tailored{" "}
@@ -44,7 +44,7 @@ export default function Hero() {
 
                             {/* CTAs */}
                             <div
-                                className={`flex flex-wrap gap-4 transition-all duration-[800ms] ease-[cubic-bezier(0.4,0,0.2,1)] delay-[450ms] ${
+                                className={`flex flex-wrap gap-4 transition-all duration-800 ease-in-out delay-[450ms] ${
                                     visible ? "translate-y-0 opacity-100" : "translate-y-5 opacity-0"
                                 }`}
                             >

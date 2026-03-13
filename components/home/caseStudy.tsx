@@ -76,7 +76,7 @@ export default function CaseStudiesSection() {
             className="bg-[#f8fafc] py-25"
         >
             <div className="mx-auto max-w-7xl px-8">
-                <div className="mb-14 flex items-end justify-between">
+                <div className="mb-14 flex items-center md:items-end justify-between">
                     <motion.div
                         variants={headerVariants}
                     >

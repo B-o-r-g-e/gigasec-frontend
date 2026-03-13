@@ -34,10 +34,10 @@ function BlogSection() {
     ];
 
     return (
-        <section ref={ref} className="bg-white py-[100px]">
-            <div className="mx-auto max-w-[1280px] px-8">
+        <section ref={ref} className="bg-white py-25">
+            <div className="mx-auto max-w-7xl px-8">
                 <div
-                    className={`mb-14 flex items-end justify-between transition-all duration-500 ${
+                    className={`mb-14 flex items-center md:items-end justify-between transition-all duration-500 ${
                         inView ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
                     }`}
                 >
