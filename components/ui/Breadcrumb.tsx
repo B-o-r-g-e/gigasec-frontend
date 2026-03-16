@@ -20,7 +20,7 @@ export default function Breadcrumb({trail}: {trail: string[]}) {
                   <span
                       className={`font-[DM_Sans] text-[13px] ${
                           i === 1
-                              ? "font-semibold text-[#0d3d3d]"
+                              ? "font-semibold text-[#339a99]"
                               : "font-normal text-white/40"
                       }`}
                   >

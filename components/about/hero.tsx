@@ -1,12 +1,51 @@
+"use client"
 import AboutBackground from "@/components/backgrounds/AboutBackground";
 import Breadcrumb from "@/components/ui/Breadcrumb";
+import Badge from "@/components/ui/Badge";
+import {useEffect, useState} from "react";
+import StatPills from "@/components/about/StatPills";
+import WaveBottom from "@/components/about/WaveBottom";
 
 export default function AboutHero() {
+    const [vis, setVis] = useState(false);
+    useEffect(() => { setTimeout(() => setVis(true), 100); }, []);
+
     const trail = ["Home", "About Us"]
     return (
         <AboutBackground>
-            <div className="relative z-5 max-w-7xl mx-auto px-10 pt-20 pb-24 w-full">
-                <Breadcrumb trail={trail} />
+            <div className="relative z-5 w-full">
+                <div className="max-w-7xl mx-auto px-10 pt-40 pb-24 w-full">
+                    <Breadcrumb trail={trail} />
+                    <Badge visible={vis} text="EST. 2013 — RIVERS, NIGERIA" />
+                    <h1
+                        className={`font-[Syne] font-extrabold text-[clamp(3rem,7vw,5.8rem)] leading-none text-white mb-8 tracking-[-2px] max-w-205 transition-all duration-1100 delay-200 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+                            vis
+                                ? "opacity-100 translate-y-0 skew-y-0"
+                                : "opacity-0 translate-y-20 skew-y-3"
+                        }`}
+                    >
+                        Built to Protect <br />
+
+                        <span
+                            className="bg-[linear-gradient(90deg,#339a99_0%,#339a99_50%,#99ddff_100%)] bg-clip-text text-transparent"
+                        >
+                            Nigeria&#39;s
+                        </span>
+
+                        <br />
+                        Most Critical Assets.
+                    </h1>
+
+                    <p
+                        className={`font-[DM_Sans] text-[1.2rem] leading-[1.75] text-white/70 max-w-140 transition-all duration-900 delay-[450ms] ease-[cubic-bezier(0.22,1,0.36,1)] ${
+                            vis ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-15"
+                        }`}
+                    >
+                        Gigasec Services is Nigeria&#39;s leading security technology and ICT infrastructure company — delivering precision-engineered solutions to enterprises, governments, and industrial operators since 2009.
+                    </p>
+                    <StatPills vis={vis} />
+                </div>
+                <WaveBottom />
             </div>
         </AboutBackground>
     )
