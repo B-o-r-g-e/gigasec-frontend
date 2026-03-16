@@ -6,7 +6,7 @@ import BottomGlowingOrbLight from "@/components/ui/BottomGlowingOrbLight";
 
 export default function SecurityBackground({ children }: { children: React.ReactNode }) {
     return (
-        <section className="min-h-screen relative flex items-center overflow-x-hidden overflow-y-hidden bg-linear-to-br from-[#000d1a] via-[#0d3d3d] to-[#339a99]">
+        <section className="min-h-screen relative flex w-full items-center overflow-x-hidden overflow-y-hidden bg-linear-to-br from-[#000d1a] via-[#0d3d3d] to-[#339a99]">
 
             {/* Grid overlay */}
             {/*<div className="absolute inset-0 bg-[linear-gradient(rgba(0,153,204,0.07)_1px,transparent_1px),linear-gradient(90deg,rgba(0,153,204,0.07)_1px,transparent_1px)] bg-size-[60px_60px] animate-gridPulse" />*/}

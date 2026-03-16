@@ -13,7 +13,7 @@ import TestimonialsSection from "@/components/home/testimonials";
 export default function Home() {
   return (
       <>
-          <section>
+          <section className="w-full overflow-x-hidden">
               <Hero />
               <TrustedByStrip />
               <ServicesSection />
