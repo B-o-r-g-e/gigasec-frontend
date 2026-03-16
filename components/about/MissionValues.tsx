@@ -17,8 +17,8 @@ export default function MissionValues() {
             ref={ref}
             className="bg-white py-30 overflow-hidden"
         >
-            <div className="max-w-7xl mx-auto px-10">
-                <div className="grid grid-cols-2 gap-24 items-center">
+            <div className="max-w-7xl mx-auto px-6 sm:px-10">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
 
                     {/* Left — mission text */}
                     <div

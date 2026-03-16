@@ -20,7 +20,7 @@ export default function Certifications() {
             ref={ref}
             className="bg-white py-[100px]"
         >
-            <div className="max-w-[1280px] mx-auto px-10">
+            <div className="max-w-[1280px] mx-auto px-6 sm:px-10">
 
                 {/* Header */}
                 <div
@@ -47,7 +47,7 @@ export default function Certifications() {
                 </div>
 
                 {/* Certification grid */}
-                <div className="grid grid-cols-4 gap-5">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
                     {certs.map((c, i) => (
                         <CertCard key={c.name} cert={c} i={i} vis={vis} />
                     ))}

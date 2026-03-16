@@ -1,6 +1,5 @@
 'use client'
-import {useRef} from "react";
-import {useInView} from "framer-motion";
+import {useInView} from "@/hooks/useInView";
 import MilestoneItem from "@/components/about/Milestone";
 
 const B = {
@@ -17,8 +16,7 @@ const B = {
 };
 
 export default function OurStory() {
-    const ref = useRef(null);
-    const vis = useInView(ref, { amount: 0.1, once: true });
+    const [ref, vis] = useInView(0.1);
 
     const milestones = [
         { year: "2009", title: "Company Founded", desc: "Gigasec Services incorporated in Rivers with a focus on CCTV and access control systems." },
@@ -67,8 +65,8 @@ export default function OurStory() {
                                 WebkitTextFillColor: "transparent",
                             }}
                         >
-          to West Africa&#39;s Largest
-        </span>
+                          to West Africa&#39;s Largest
+                        </span>
 
                         <br />
                         Security Integrator.
@@ -80,7 +78,7 @@ export default function OurStory() {
 
                     {/* Center line */}
                     <div
-                        className="absolute left-1/2 top-0 bottom-0 w-[2px] -translate-x-1/2"
+                        className="absolute left-1/2 top-0 bottom-0 w-[2px] -translate-x-1/2 hidden md:block"
                         style={{
                             background: `linear-gradient(to bottom, ${B.electric}, rgba(51,154,153,0.1))`,
                             transformOrigin: "top",

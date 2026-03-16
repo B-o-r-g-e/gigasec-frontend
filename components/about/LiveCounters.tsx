@@ -33,7 +33,7 @@ export default function LiveCounters() {
                 }}
             />
 
-            <div className="relative z-[2] max-w-[1280px] mx-auto px-10">
+            <div className="relative z-[2] max-w-[1280px] mx-auto px-6 sm:px-10">
                 {/* Header */}
                 <div
                     className="text-center mb-[72px]"
@@ -49,7 +49,7 @@ export default function LiveCounters() {
                 </div>
 
                 {/* Counters grid */}
-                <div className="grid grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                     {counters.map((c) => (
                         <CounterCard key={c.label} {...c} active={vis} />
                     ))}

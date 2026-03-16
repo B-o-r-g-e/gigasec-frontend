@@ -11,12 +11,12 @@ export default function AboutCTA(){
     return (
         <section
             ref={ref}
-            className="py-[100px]"
+            className="py-[80px] md:py-[100px]"
             style={{ background: B.offwhite }}
         >
-            <div className="max-w-[1280px] mx-auto px-10">
+            <div className="max-w-[1280px] mx-auto px-6 sm:px-10">
                 <div
-                    className="relative overflow-hidden rounded-[28px] px-[72px] py-[80px]"
+                    className="relative overflow-hidden rounded-[24px] md:rounded-[28px] px-6 sm:px-10 lg:px-[72px] py-12 sm:py-16 lg:py-[80px]"
                     style={{
                         background: `linear-gradient(135deg, ${B.navy}, #1a5958)`,
                         opacity: vis ? 1 : 0,
@@ -51,10 +51,11 @@ export default function AboutCTA(){
                         }}
                     />
 
-                    <div className="relative z-[2] flex flex-wrap items-center justify-between gap-12">
+                    <div className="relative z-[2] flex flex-col lg:flex-row items-start lg:items-center justify-between gap-10 lg:gap-12">
 
                         {/* Left text */}
                         <div
+                            className="text-center lg:text-left w-full lg:w-auto"
                             style={{
                                 opacity: vis ? 1 : 0,
                                 transform: vis ? "translateX(0)" : "translateX(-40px)",
@@ -75,7 +76,7 @@ export default function AboutCTA(){
                                 Exceptional Together.
                             </h2>
 
-                            <p className="font-['DM_Sans',sans-serif] text-[16px] text-white/70 max-w-[480px]">
+                            <p className="font-['DM_Sans',sans-serif] text-[16px] text-white/70 max-w-[480px] mx-auto lg:mx-0">
                                 Whether you&#39;re securing a single site or engineering
                                 infrastructure for a national rollout — Gigasec has the
                                 team, technology, and track record to deliver.
@@ -84,7 +85,7 @@ export default function AboutCTA(){
 
                         {/* Buttons */}
                         <div
-                            className="flex flex-col gap-[14px]"
+                            className="flex flex-col gap-[14px] w-full sm:w-auto"
                             style={{
                                 opacity: vis ? 1 : 0,
                                 transform: vis ? "translateX(0)" : "translateX(40px)",
@@ -97,7 +98,7 @@ export default function AboutCTA(){
                                 href="#contact"
                                 onMouseEnter={() => setHov1(true)}
                                 onMouseLeave={() => setHov1(false)}
-                                className="inline-flex items-center gap-[10px] whitespace-nowrap rounded-[10px] px-[36px] py-[17px] font-['DM_Sans',sans-serif] font-bold text-[16px] text-white no-underline"
+                                className="inline-flex items-center justify-center gap-[10px] whitespace-nowrap rounded-[10px] px-[36px] py-[17px] font-['DM_Sans',sans-serif] font-bold text-[16px] text-white no-underline w-full sm:w-auto"
                                 style={{
                                     background: B.electric,
                                     transform: hov1
@@ -119,7 +120,7 @@ export default function AboutCTA(){
                                 href="tel:+2341234567"
                                 onMouseEnter={() => setHov2(true)}
                                 onMouseLeave={() => setHov2(false)}
-                                className="inline-flex items-center justify-center gap-[10px] whitespace-nowrap rounded-[10px] px-[36px] py-[17px] font-['DM_Sans',sans-serif] font-semibold text-[16px] no-underline border"
+                                className="inline-flex items-center justify-center gap-[10px] whitespace-nowrap rounded-[10px] px-[36px] py-[17px] font-['DM_Sans',sans-serif] font-semibold text-[16px] no-underline border w-full sm:w-auto"
                                 style={{
                                     background: "transparent",
                                     border: "1.5px solid rgba(255,255,255,0.3)",

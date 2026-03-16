@@ -20,7 +20,7 @@ export default function Team() {
             className="py-[120px]"
             style={{ background: B.offwhite }}
         >
-            <div className="max-w-[1280px] mx-auto px-10">
+            <div className="max-w-[1280px] mx-auto px-6 sm:px-10">
 
                 {/* Header */}
                 <div
@@ -50,7 +50,7 @@ export default function Team() {
                 </div>
 
                 {/* Team grid */}
-                <div className="grid grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                     {members.map((m, i) => (
                         <TeamCard key={m.name} member={m} i={i} vis={vis} />
                     ))}
