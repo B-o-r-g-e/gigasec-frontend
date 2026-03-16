@@ -82,7 +82,7 @@ export default function OurStory() {
                         style={{
                             background: `linear-gradient(to bottom, ${B.electric}, rgba(51,154,153,0.1))`,
                             transformOrigin: "top",
-                            scaleY: vis ? 1 : 0,
+                            transform: vis ? "scaleY(1)" : "scaleY(0)",
                             animation: vis ? "lineGrow 1.5s ease forwards" : "none",
                         }}
                     />

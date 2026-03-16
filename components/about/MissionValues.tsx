@@ -2,10 +2,11 @@
 import {useInView} from "@/hooks/useInView";
 import {B} from "@/colors/Colors";
 import ValueCard from "@/components/about/ValueCard";
+import type {IconName} from "@/icons/Icon";
 
 export default function MissionValues() {
     const [ref, vis] = useInView(0.08);
-    const values = [
+    const values: Array<{ icon: IconName; title: string; desc: string }> = [
         { icon: "shield",  title: "Integrity", desc: "We deliver exactly what we promise, every single project. No shortcuts, no hidden costs." },
         { icon: "zap",     title: "Excellence", desc: "World-class engineering standards applied to every installation, regardless of project size." },
         { icon: "users",   title: "Partnership",desc: "We build long-term relationships, not one-off transactions. Your success is our benchmark." },

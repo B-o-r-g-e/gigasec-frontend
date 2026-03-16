@@ -37,7 +37,7 @@ export default function CounterCard({ target, suffix, label, icon, delay, active
             </div>
             <div style={{
                 fontFamily: "'Syne',sans-serif", fontWeight: 800,
-                fontSize: "3.5rem", color: "#fff", lineHeight: 1, letterSpacing: -2,
+                fontSize: "3.5rem", lineHeight: 1, letterSpacing: -2,
                 transition: "color 0.3s",
                 color: hov ? B.bright : "#fff",
                 textShadow: hov ? `0 0 30px rgba(51,154,153,0.6)` : "none",

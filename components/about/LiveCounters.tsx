@@ -1,12 +1,13 @@
 'use client'
 import {useInView} from "@/hooks/useInView";
 import CounterCard from "@/components/about/CounterCard";
+import type {IconName} from "@/icons/Icon";
 import {B} from "@/colors/Colors";
 
 export default function LiveCounters() {
     const [ref, vis] = useInView(0.25);
 
-    const counters = [
+    const counters: Array<{ target: number; suffix: string; label: string; icon: IconName; delay: number }> = [
         { target: 13, suffix: "+", label: "Years in Business", icon: "award", delay: 0 },
         { target: 500, suffix: "+", label: "Installations Completed", icon: "zap", delay: 100 },
         { target: 200, suffix: "+", label: "Enterprise Clients", icon: "users", delay: 200 },
