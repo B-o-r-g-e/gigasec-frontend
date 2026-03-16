@@ -31,12 +31,15 @@ export function MobileMenu() {
 
     return (
         <nav
-            className={`md:hidden fixed left-0 right-0 top-0 z-50 border-b px-8 py-4 transition-all duration-300 ease-in-out bg-[#0d3d3d]/95 ${
+            className={`md:hidden fixed left-0 right-0 top-0 z-50 border-b px-8 py-4 transition-all duration-300 ease-in-out bg-[#0d3d3d] ${
                 scrolled
-                    ? "border-[#0099cc]/20 backdrop-blur-md shadow-[0_10px_30px_rgba(0,20,51,0.18)]"
+                    ? "border-[#0099cc]/20 shadow-[0_10px_30px_rgba(0,20,51,0.18)]"
                     : "border-transparent"
             }`}
-            style={{ backgroundColor: "rgba(13,61,61,0.95)" }}
+            style={{
+                backgroundColor: "#0d3d3d",
+                backdropFilter: scrolled ? "blur(12px)" : "none",
+            }}
         >
             <div className="flex justify-between items-center">
                 <div className="inline-flex items-center rounded-lg bg-white/90 px-3 py-2 backdrop-blur-sm">
