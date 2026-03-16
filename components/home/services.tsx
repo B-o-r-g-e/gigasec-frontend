@@ -221,7 +221,7 @@ export default function ServicesSection() {
             animate={inView ? 'visible' : 'hidden'}
             className="bg-[#f8fafc] py-[100px]"
         >
-            <div className="mx-auto max-w-[1280px] px-8">
+            <div className="mx-auto max-w-[1280px] px-6 sm:px-8">
                 <motion.div
                     variants={headerVariants}
                     className="mb-16 text-center"
@@ -240,7 +240,7 @@ export default function ServicesSection() {
                     </p>
                 </motion.div>
 
-                <div className="grid grid-cols-[repeat(auto-fit,minmax(320px,1fr))] gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-[repeat(auto-fit,minmax(320px,1fr))] gap-6">
                     {services.map((s) => (
                         <Link key={s.title} href={s.href}>
                             <ServiceCard {...s} inView={inView} />
