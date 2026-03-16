@@ -36,6 +36,7 @@ export function MobileMenu() {
                     ? "border-[#0099cc]/20 backdrop-blur-md shadow-[0_10px_30px_rgba(0,20,51,0.18)]"
                     : "border-transparent"
             }`}
+            style={{ backgroundColor: "rgba(13,61,61,0.95)" }}
         >
             <div className="flex justify-between items-center">
                 <div className="inline-flex items-center rounded-lg bg-white/90 px-3 py-2 backdrop-blur-sm">
