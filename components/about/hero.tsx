@@ -16,7 +16,7 @@ export default function AboutHero() {
             <div className="relative z-5 w-full">
                 <div className="max-w-7xl mx-auto px-10 pt-40 pb-24 w-full">
                     <Breadcrumb trail={trail} />
-                    <Badge visible={vis} text="EST. 2013 — RIVERS, NIGERIA" />
+                    <Badge visible={vis} text="EST. 2013 — NIGERIA" />
                     <h1
                         className={`font-[Syne] font-extrabold text-[clamp(3rem,7vw,5.8rem)] leading-none text-white mb-8 tracking-[-2px] max-w-205 transition-all duration-1100 delay-200 ease-[cubic-bezier(0.22,1,0.36,1)] ${
                             vis
@@ -24,16 +24,17 @@ export default function AboutHero() {
                                 : "opacity-0 translate-y-20 skew-y-3"
                         }`}
                     >
-                        Built to Protect <br />
+                        Empowering Operational
+                        <br />
 
                         <span
                             className="bg-[linear-gradient(90deg,#339a99_0%,#339a99_50%,#99ddff_100%)] bg-clip-text text-transparent"
                         >
-                            Nigeria&#39;s
+                            Excellence
                         </span>
 
                         <br />
-                        Most Critical Assets.
+                        Through Integrated Technology.
                     </h1>
 
                     <p
@@ -41,7 +42,9 @@ export default function AboutHero() {
                             vis ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-15"
                         }`}
                     >
-                        Gigasec Services is Nigeria&#39;s leading security technology and ICT infrastructure company — delivering precision-engineered solutions to enterprises, governments, and industrial operators since 2009.
+                        Gigasec Services Limited is a global systems integration and industrial technology leader,
+                        empowering industries, governments, enterprises, and individuals with innovative remote monitoring,
+                        automation, and energy solutions since 2013.
                     </p>
                     <StatPills vis={vis} />
                 </div>

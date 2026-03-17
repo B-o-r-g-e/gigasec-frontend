@@ -44,24 +44,45 @@ export default function CaseStudiesSection() {
 
     const cases = [
         {
-            tag: "Banking",
-            title: "Nationwide CCTV Upgrade for Tier-1 Bank",
-            result: "340 branches secured in 8 months",
+            tag: "Renewable Energy",
+            title: "Solar Energy Solutions",
+            result: "Experience Gallery",
             color: "#0d3d3d",
             href: "#",
         },
         {
-            tag: "Oil & Gas",
-            title: "Fiber Optic Backbone — Offshore Platform",
-            result: "99.99% uptime over 24 months",
+            tag: "Perimeter Security",
+            title: "Barrier & Autogate Solution",
+            result: "Access Control Deployment",
             color: "#1c5856",
             href: "#",
         },
         {
-            tag: "Government",
-            title: "Smart City Surveillance Network — Lagos",
-            result: "2,400 IP cameras deployed",
+            tag: "IP Security",
+            title: "Hazardous Environment CCTV",
+            result: "15m Perimeter Light Solution",
             color: "#0d3d3d",
+            href: "#",
+        },
+        {
+            tag: "Digital Oilfield",
+            title: "Realtime Data Visualization",
+            result: "Industrial Monitoring",
+            color: "#1c5856",
+            href: "#",
+        },
+        {
+            tag: "Industrial Services",
+            title: "Movable Yard Solution Design",
+            result: "Petrolink Drilling Data Transmission",
+            color: "#0d3d3d",
+            href: "#",
+        },
+        {
+            tag: "ICT Services",
+            title: "Video Conference",
+            result: "WiFi Networking",
+            color: "#1c5856",
             href: "#",
         },
     ];
@@ -81,11 +102,11 @@ export default function CaseStudiesSection() {
                         variants={headerVariants}
                     >
                         <div className="mb-3 font-['Space_Mono',monospace] text-[11px] tracking-[3px] text-[#339a99]">
-                            PROVEN RESULTS
+                            EXPERIENCE GALLERY
                         </div>
 
                         <h2 className="font-['Syne',sans-serif] text-[clamp(2rem,4vw,3rem)] font-extrabold tracking-[-0.5px] text-[#0d3d3d]">
-                            Case Studies
+                            Project Highlights
                         </h2>
                     </motion.div>
 
@@ -96,7 +117,7 @@ export default function CaseStudiesSection() {
                         transition={{ duration: 0.22, ease: "easeOut" }}
                         className="flex items-center gap-1.5 font-['DM_Sans',sans-serif] text-[14px] font-semibold text-[#339a99]"
                     >
-                        View All Projects
+                        View More
                         <ArrowRight size={16} color="#339a99" />
                     </motion.a>
                 </div>
@@ -209,7 +230,7 @@ function CaseCard({
                     animate={{ x: hovered ? 6 : 0 }}
                     transition={{ duration: 0.22, ease: "easeOut" }}
                 >
-                    Read Case Study
+                    View Project
                     <motion.div
                         animate={{ x: hovered ? 4 : 0 }}
                         transition={{ duration: 0.22, ease: "easeOut" }}

@@ -8,12 +8,12 @@ export default function Certifications() {
     const inView = useInView(ref, { amount: 0.2, once: true });
 
     const certs = [
-        "Hikvision Authorized Partner",
-        "Dahua Certified Dealer",
-        "Cisco Partner Network",
-        "Huawei Enterprise Partner",
-        "ISO 9001 Compliant",
-        "CSIA Member",
+        "ISO 9001 Certified Practices",
+        "ISO 27001 Certified Practices",
+        "NCC AVTS Licensed Service Provider",
+        "Best Location-Based Technology Services Provider — Nigeria",
+        "Innovation in Vehicle Monitoring Solutions (2020)",
+        "100% Nigerian Company",
     ];
 
     return (

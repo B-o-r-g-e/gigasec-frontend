@@ -71,15 +71,14 @@ export default function AboutCTA(){
                             </div>
 
                             <h2 className="font-['Syne',sans-serif] font-extrabold text-[clamp(1.8rem,4vw,2.8rem)] tracking-[-0.5px] text-white mb-4">
-                                Let&#39;s Build Something
+                                Let&apos;s Build Tomorrow
                                 <br />
-                                Exceptional Together.
+                                Together.
                             </h2>
 
                             <p className="font-['DM_Sans',sans-serif] text-[16px] text-white/70 max-w-[480px] mx-auto lg:mx-0">
-                                Whether you&#39;re securing a single site or engineering
-                                infrastructure for a national rollout — Gigasec has the
-                                team, technology, and track record to deliver.
+                                Discover how Gigasec&apos;s blend of engineering excellence and digital
+                                innovation can transform your operations.
                             </p>
                         </div>
 
@@ -111,13 +110,13 @@ export default function AboutCTA(){
                                         : "0 8px 24px rgba(51,154,153,0.35)",
                                 }}
                             >
-                                Start a Project
+                                Contact Us
                                 <Icon name="arrow" size={20} color="#fff" />
                             </a>
 
                             {/* Call */}
                             <a
-                                href="tel:+2341234567"
+                                href="tel:+2348154442732"
                                 onMouseEnter={() => setHov2(true)}
                                 onMouseLeave={() => setHov2(false)}
                                 className="inline-flex items-center justify-center gap-[10px] whitespace-nowrap rounded-[10px] px-[36px] py-[17px] font-['DM_Sans',sans-serif] font-semibold text-[16px] no-underline border w-full sm:w-auto"
@@ -132,7 +131,7 @@ export default function AboutCTA(){
                                 }}
                             >
                                 <Icon name="phone" size={18} color="currentColor" />
-                                Call Now
+                                Call +234 815 444 2732
                             </a>
                         </div>
                     </div>

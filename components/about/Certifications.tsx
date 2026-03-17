@@ -6,14 +6,12 @@ import CertCard from "@/components/about/CertCard";
 export default function Certifications() {
     const [ref, vis] = useInView(0.1);
     const certs = [
-        { name: "Hikvision Authorized Partner", tier: "Diamond" },
-        { name: "Dahua Certified Dealer", tier: "Gold" },
-        { name: "Cisco Partner Network", tier: "Select" },
-        { name: "Huawei Enterprise Partner", tier: "Silver" },
-        { name: "ISO 9001:2015", tier: "Certified" },
-        { name: "CSIA Member", tier: "Active" },
-        { name: "ATEX Certified", tier: "Zone 1 & 2" },
-        { name: "IEC 61511 SIL", tier: "Assessed" },
+        { name: "ISO 9001", tier: "Certified Practices" },
+        { name: "ISO 27001", tier: "Certified Practices" },
+        { name: "NCC AVTS", tier: "Licensed Provider" },
+        { name: "Best Location-Based Technology Services Provider", tier: "Nigeria" },
+        { name: "Innovation in Vehicle Monitoring Solutions", tier: "2020 Award" },
+        { name: "100% Nigerian Company", tier: "Local Leadership" },
     ];
     return (
         <section

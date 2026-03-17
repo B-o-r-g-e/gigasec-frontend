@@ -17,12 +17,12 @@ export default function CTAStrip() {
                     }`}
                 >
                     <h2 className="mb-2 font-['Syne',sans-serif] text-[clamp(1.8rem,3.5vw,2.6rem)] font-extrabold tracking-[-0.5px] text-white">
-                        Ready to Secure Your Facility?
+                        Let&apos;s Build Tomorrow Together
                     </h2>
 
                     <p className="font-['DM_Sans',sans-serif] text-[16px] text-white/85">
-                        Talk to our experts — free site survey available for qualified
-                        projects.
+                        Discover how Gigasec&apos;s engineering excellence and digital innovation can
+                        transform your operations.
                     </p>
                 </div>
 
@@ -36,16 +36,16 @@ export default function CTAStrip() {
                         href="#contact"
                         className="flex items-center gap-2 rounded-[8px] bg-white px-[30px] py-[15px] font-['DM_Sans',sans-serif] text-[15px] font-bold text-[#0d3d3d] no-underline shadow-[0_8px_24px_rgba(0,0,0,0.15)] transition-all duration-200 hover:-translate-y-[2px]"
                     >
-                        Get a Free Consultation
+                        Contact Us
                         <ArrowRight size={16} color="#0d3d3d" />
                     </a>
 
                     <a
-                        href="#"
+                        href="tel:+2348154442732"
                         className="flex items-center gap-2 rounded-[8px] border-[1.5px] border-white/50 bg-transparent px-[30px] py-[15px] font-['DM_Sans',sans-serif] text-[15px] font-semibold text-white no-underline transition-all duration-200 hover:border-white"
                     >
                         <Phone size={16} color="#fff" />
-                        Call Us Now
+                        Call +234 815 444 2732
                     </a>
                 </div>
             </div>

@@ -1,30 +1,15 @@
 'use client'
 import {useInView} from "@/hooks/useInView";
 import MilestoneItem from "@/components/about/Milestone";
-
-const B = {
-    navy:     "#0d3d3d",
-    navyDark: "#061e1e",
-    electric: "#339a99",
-    bright:   "#4dbdbc",
-    orange:   "#FF6600",
-    offwhite: "#F5F7FA",
-    white:    "#FFFFFF",
-    charcoal: "#1a2332",
-    gray:     "#6B7280",
-    lightgray:"#e8edf3",
-};
+import {B} from "@/colors/Colors";
 
 export default function OurStory() {
     const [ref, vis] = useInView(0.1);
 
     const milestones = [
-        { year: "2009", title: "Company Founded", desc: "Gigasec Services incorporated in Rivers with a focus on CCTV and access control systems." },
-        { year: "2012", title: "Fiber Optic Division", desc: "Expanded into enterprise fiber optic installation following growing demand from telecoms operators." },
-        { year: "2016", title: "Oil & Gas Certified", desc: "Achieved ATEX and IEC 61511 certification, opening the door to offshore and upstream energy clients." },
-        { year: "2019", title: "ICT Infrastructure", desc: "Launched full ICT division covering structured cabling, LAN/WAN, and data center services." },
-        { year: "2022", title: "Pan-West Africa", desc: "Extended operations to Ghana and Côte d'Ivoire. Client base grew past 150 active accounts." },
-        { year: "2025", title: "Smart Cities", desc: "Lead integrator for a 2,400-camera smart city deployment across Greater Lagos." },
+        { year: "2013", title: "Company Founded", desc: "Established to deliver tailored engineering and technology systems for complex industrial challenges." },
+        { year: "2020", title: "Innovation Recognition", desc: "Awarded Best Location-Based Technology Services Provider in Nigeria and Innovation in Vehicle Monitoring Solutions." },
+        { year: "2025", title: "Global Systems Integration Leader", desc: "ISO 9001 and 27001-certified practices delivering integrated solutions across Africa and beyond." },
     ];
     return(
         <section
@@ -54,7 +39,7 @@ export default function OurStory() {
                         className="font-['Syne',sans-serif] font-extrabold text-[clamp(2.2rem,5vw,3.8rem)] tracking-[-1px] leading-[1.1]"
                         style={{ color: B.navy }}
                     >
-                        From One Office in Lagos
+                        From Local Roots
                         <br />
 
                         <span
@@ -65,11 +50,11 @@ export default function OurStory() {
                                 WebkitTextFillColor: "transparent",
                             }}
                         >
-                          to West Africa&#39;s Largest
+                          to Global Systems Integration
                         </span>
 
                         <br />
-                        Security Integrator.
+                        and Industrial Technology Leadership.
                     </h2>
                 </div>
 

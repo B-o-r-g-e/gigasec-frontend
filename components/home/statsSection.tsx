@@ -44,10 +44,10 @@ export default function StatsSection() {
     const inView = useInView(ref, { amount: 0.3, once: true });
 
     const stats = [
-        { value: 13, suffix: "+", label: "Years in Business" },
-        { value: 500, suffix: "+", label: "Installations Completed" },
-        { value: 200, suffix: "+", label: "Enterprise Clients" },
-        { value: 99, suffix: ".9%", label: "Network Uptime SLA" },
+        { value: 2013, suffix: "", label: "Founded" },
+        { value: 2, suffix: "", label: "ISO Certifications" },
+        { value: 5, suffix: "", label: "Nigeria Hubs" },
+        { value: 2020, suffix: "", label: "Innovation Award" },
     ];
 
     return (

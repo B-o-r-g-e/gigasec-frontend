@@ -11,25 +11,46 @@ function BlogSection() {
 
     const posts = [
         {
-            cat: "Surveillance",
-            title: "How to Choose the Right CCTV System for a Warehouse in 2025",
-            date: "Feb 18, 2025",
-            read: "6 min read",
-            image: "/blog images/cctv.me_+94076403"
+            cat: "Step 1",
+            title: "Review & Analyze the Requirement",
+            date: "Discovery",
+            read: "Milestone 1",
+            image: undefined,
         },
         {
-            cat: "Fiber Optic",
-            title: "Fiber Optic vs. Copper: What Nigerian Enterprises Need to Know",
-            date: "Feb 5, 2025",
-            read: "8 min read",
-            image: "/blog images/FIBER.jpeg"
+            cat: "Step 2",
+            title: "Process Development & Approval",
+            date: "Planning",
+            read: "Milestone 1",
+            image: undefined,
         },
         {
-            cat: "ICT Infrastructure",
-            title: "Building a Resilient Office Network: A Practical Guide for Lagos Businesses",
-            date: "Jan 22, 2025",
-            read: "7 min read",
-            image: undefined
+            cat: "Step 3",
+            title: "Solution Design & Approvals",
+            date: "Design",
+            read: "Milestone 1",
+            image: undefined,
+        },
+        {
+            cat: "Step 4",
+            title: "Design, Implementation & Configuration",
+            date: "Execution",
+            read: "Milestone 2",
+            image: undefined,
+        },
+        {
+            cat: "Step 5",
+            title: "Change Management & Deployment",
+            date: "Deployment",
+            read: "Milestone 2",
+            image: undefined,
+        },
+        {
+            cat: "Step 6",
+            title: "Simulation, Testing, Training & Handover",
+            date: "Delivery",
+            read: "Milestone 3",
+            image: undefined,
         },
     ];
 
@@ -43,11 +64,11 @@ function BlogSection() {
                 >
                     <div>
                         <div className="mb-3 font-['Space_Mono',monospace] text-[11px] tracking-[3px] text-[#339a99]">
-                            INSIGHTS & RESOURCES
+                            OUR METHOD
                         </div>
 
                         <h2 className="font-['Syne',sans-serif] text-[clamp(2rem,4vw,3rem)] font-extrabold tracking-[-0.5px] text-[#0d3d3d]">
-                            Latest Articles
+                            From Requirement to Handover
                         </h2>
                     </div>
 
@@ -55,7 +76,7 @@ function BlogSection() {
                         href="#"
                         className="flex items-center gap-1.5 font-['DM_Sans',sans-serif] text-[14px] font-semibold text-[#339a99] no-underline"
                     >
-                        View All Articles
+                        See the Process
                         <ArrowRight size={16} color="#339a99" />
                     </a>
                 </div>

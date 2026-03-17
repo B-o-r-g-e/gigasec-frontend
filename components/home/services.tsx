@@ -3,7 +3,7 @@
 import { ReactNode } from 'react';
 import { useRef, useState } from 'react';
 import { motion, useInView, type Variants } from 'framer-motion';
-import {ArrowRight, BriefcaseBusiness, Cctv, Globe, LensConvex, Lock, Palette, Shield, Sun} from 'lucide-react';
+import {ArrowRight, BriefcaseBusiness, Cctv, Globe, LensConvex, Sun} from 'lucide-react';
 import Link from "next/link";
 
 const sectionVariants: Variants = {
@@ -45,59 +45,38 @@ export default function ServicesSection() {
 
     const services = [
         {
-            icon: <Cctv />,
-            title: 'CCTV & Surveillance',
-            desc: 'IP and analog camera systems, video analytics, 24/7 remote monitoring for facilities of any scale.',
-            tag: 'Most Popular',
+            icon: <Globe />,
+            title: 'Location Based Services',
+            desc: 'NCC AVTS licensed provider for vehicle, asset, and people tracking with command & control, GPS, and IoT devices.',
+            tag: 'Licensed',
             href: '#',
         },
         {
-            icon: <Lock />,
-            title: 'Access Control',
-            desc: 'Biometric, card-based, and smart access solutions integrated with security management systems.',
+            icon: <BriefcaseBusiness />,
+            title: 'Digital Oilfield & Industrial Services',
+            desc: 'SCADA, instrumentation, automation, real-time data acquisition, and remote monitoring for critical operations.',
+            tag: null,
+            href: '#',
+        },
+        {
+            icon: <Cctv />,
+            title: 'IP Security Solutions',
+            desc: 'CCTV, access control, time & attendance, auto gate, perimeter protection, fire alarm, smart home, and building automation.',
+            tag: 'Core',
+            href: '#',
+        },
+        {
+            icon: <Sun />,
+            title: 'Engineering Services',
+            desc: 'Renewable energy, electrical installations, fabrication, and RFID-driven systems for industrial environments.',
             tag: null,
             href: '#',
         },
         {
             icon: <LensConvex />,
-            title: 'Fiber Optic Solutions',
-            desc: 'Enterprise-grade fiber optic installation, splicing, and network infrastructure across Nigeria.',
+            title: 'ICT & Systems Integration',
+            desc: 'Software and hardware, web applications, networks, fiber optics, solution design, R&D, and consulting.',
             tag: null,
-            href: '#',
-        },
-        {
-            icon: <Sun />,
-            title: 'ICT Infrastructure',
-            desc: 'Structured cabling, LAN/WAN design, data center buildout, and managed network services.',
-            tag: null,
-            href: '#',
-        },
-        {
-            icon: <Shield />,
-            title: 'Security Engineering',
-            desc: 'Bespoke security system design, project management, and end-to-end installation for complex sites.',
-            tag: null,
-            href: '#',
-        },
-        {
-            icon: <Globe />,
-            title: 'Website Development',
-            desc: 'Responsive business websites, landing pages, and web platforms built to support growth and visibility.',
-            tag: null,
-            href: '#',
-        },
-        {
-            icon: <Palette />,
-            title: 'Brand Development',
-            desc: 'Brand identity systems, visual direction, and digital assets that help businesses present themselves clearly.',
-            tag: null,
-            href: '#',
-        },
-        {
-            icon: <BriefcaseBusiness />,
-            title: 'Industrial Safety',
-            desc: 'Oil & gas, manufacturing, and critical infrastructure protection with certified engineering teams.',
-            tag: 'Enterprise',
             href: '#',
         },
     ];
@@ -227,16 +206,16 @@ export default function ServicesSection() {
                     className="mb-16 text-center"
                 >
                     <div className="mb-3 font-mono text-[11px] tracking-[3px] text-[#339a99]">
-                        WHAT WE DO
+                        OUR SERVICES
                     </div>
 
                     <h2 className="font-['Syne',sans-serif] text-[clamp(2rem,4vw,3rem)] font-extrabold tracking-[-0.5px] text-[#0d3d3d]">
-                        End-to-End Security & ICT Services
+                        Integrated Technology Solutions
                     </h2>
 
                     <p className="mx-auto mt-4 max-w-[520px] font-['DM_Sans',sans-serif] text-[17px] text-[#667085]">
-                        From design to deployment and ongoing support — we deliver integrated
-                        technology solutions built for Nigeria&apos;s most demanding environments.
+                        From design to deployment and ongoing support — we deliver secure, scalable systems
+                        for industries, governments, enterprises, and smart communities.
                     </p>
                 </motion.div>
 

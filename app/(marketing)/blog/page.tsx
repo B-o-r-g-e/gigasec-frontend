@@ -1,7 +1,11 @@
-export default function Home() {
+import MethodSection from "@/components/home/blogPreview";
+import Footer from "@/components/home/footer";
+
+export default function MethodPage() {
   return (
       <>
-        <h1>Hello There</h1>
+          <MethodSection />
+          <Footer />
       </>
   )
 }

@@ -36,7 +36,7 @@ export default function Footer() {
                     </div>
 
                     <div className="font-['DM_Sans',sans-serif] text-[12px] text-white/40">
-                        © 2025 Gigasec Services Ltd.
+                        © 2025 Gigasec Services Ltd. • info@gigasecintl.com • +234 815 444 2732
                     </div>
                 </div>
             </div>

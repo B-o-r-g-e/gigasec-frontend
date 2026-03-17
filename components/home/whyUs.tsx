@@ -11,23 +11,33 @@ export default function WhySection() {
     const points = [
         {
             icon: "check",
-            title: "Certified Engineers",
-            desc: "Our team holds internationally recognized security and ICT certifications.",
+            title: "Customer First",
+            desc: "We prioritize client requirements at every stage of delivery.",
         },
         {
             icon: "check",
-            title: "End-to-End Delivery",
-            desc: "From survey and design through installation, commissioning, and ongoing support.",
+            title: "100% Nigerian Company",
+            desc: "Global expertise delivered with local precision across Nigeria and beyond.",
         },
         {
             icon: "check",
-            title: "Nigerian Market Expertise",
-            desc: "15+ years navigating Nigeria's unique infrastructure challenges.",
+            title: "No Hidden Charges",
+            desc: "Cost-effective solutions with transparent, upfront pricing.",
         },
         {
             icon: "check",
-            title: "International Standards",
-            desc: "All systems designed to global best practices — ISO, IEC, and industry standards.",
+            title: "Durable & Reliable Systems",
+            desc: "Hardware and software engineered for demanding environments.",
+        },
+        {
+            icon: "check",
+            title: "Scalable Best-Practice Design",
+            desc: "Solutions built to scale seamlessly across borders.",
+        },
+        {
+            icon: "check",
+            title: "Reliable Support",
+            desc: "Quick, responsive support for solutions and systems.",
         },
     ];
 
@@ -49,17 +59,17 @@ export default function WhySection() {
                             </div>
 
                             <div className="mb-2 font-['Syne',sans-serif] text-[2.8rem] font-extrabold leading-[1.1] text-white">
-                                13+
+                                2013
                             </div>
 
                             <div className="mb-8 font-['DM_Sans',sans-serif] text-[16px] text-white/70">
-                                Years of industry-leading security deployments
+                                Founded to lead integrated security and technology delivery
                             </div>
 
                             {[
-                                { label: "Lagos Projects", pct: 85 },
-                                { label: "Industrial Sites", pct: 72 },
-                                { label: "Government / Public", pct: 60 },
+                                { label: "ISO 9001 Certified", pct: 100 },
+                                { label: "ISO 27001 Certified", pct: 100 },
+                                { label: "NCC AVTS Licensed Provider", pct: 100 },
                             ].map(({ label, pct }) => (
                                 <div key={label} className="mb-[18px]">
                                     <div className="mb-[6px] flex justify-between">
@@ -97,13 +107,12 @@ export default function WhySection() {
                         </div>
 
                         <h2 className="mb-5 font-['Syne',sans-serif] text-[clamp(1.8rem,3.5vw,2.8rem)] font-extrabold tracking-[-0.5px] text-[#0d3d3d]">
-                            Nigeria&apos;s Most Trusted Security Technology Partner
+                            We Listen. We Think. We Act.
                         </h2>
 
                         <p className="mb-9 font-['DM_Sans',sans-serif] text-[16px] leading-[1.7] text-[#667085]">
-                            Gigasec has been engineering security and ICT infrastructure
-                            solutions for Nigeria&apos;s most demanding clients across banking,
-                            oil & gas, government, and commercial sectors.
+                            Gigasec blends engineering excellence and digital innovation to secure assets,
+                            optimize operations, and drive sustainability for industries and governments.
                         </p>
 
                         <div className="flex flex-col gap-5">

@@ -8,12 +8,10 @@ export default function LiveCounters() {
     const [ref, vis] = useInView(0.25);
 
     const counters: Array<{ target: number; suffix: string; label: string; icon: IconName; delay: number }> = [
-        { target: 13, suffix: "+", label: "Years in Business", icon: "award", delay: 0 },
-        { target: 500, suffix: "+", label: "Installations Completed", icon: "zap", delay: 100 },
-        { target: 200, suffix: "+", label: "Enterprise Clients", icon: "users", delay: 200 },
-        { target: 50, suffix: "+", label: "Certified Engineers", icon: "target", delay: 300 },
-        { target: 6, suffix: "", label: "Service Verticals", icon: "globe", delay: 400 },
-        { target: 99, suffix: ".9%", label: "Network Uptime SLA", icon: "heart", delay: 500 },
+        { target: 2013, suffix: "", label: "Founded", icon: "award", delay: 0 },
+        { target: 2, suffix: "", label: "ISO Certifications", icon: "shield", delay: 100 },
+        { target: 5, suffix: "", label: "Nigeria Hubs", icon: "globe", delay: 200 },
+        { target: 2020, suffix: "", label: "Innovation Award", icon: "target", delay: 300 },
     ];
 
     return (

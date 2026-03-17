@@ -2,10 +2,10 @@ export default function StatPills({vis}: {vis: boolean}) {
     return (
     <div style={{ display: "flex", gap: 20, marginTop: 56, flexWrap: "wrap" }}>
         {[
-            { val: "15+", label: "Years Operating" },
-            { val: "500+", label: "Projects Completed" },
-            { val: "200+", label: "Active Clients" },
-            { val: "50+", label: "Certified Engineers" },
+            { val: "2013", label: "Founded" },
+            { val: "ISO 9001", label: "Quality Management" },
+            { val: "ISO 27001", label: "Information Security" },
+            { val: "NCC AVTS", label: "Licensed Provider" },
         ].map((s, i) => (
             <div key={s.label} style={{
                 background: "rgba(255,255,255,0.06)",

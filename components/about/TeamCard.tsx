@@ -110,7 +110,7 @@ export default function TeamCard({ member, i, vis }: {member:memberItem, i: numb
                     className="font-['Space_Mono',monospace] text-[10px] tracking-[1px]"
                     style={{ color: hov ? B.bright : B.electric }}
                 >
-                  {member.exp} experience
+                  {member.exp}
                 </span>
             </div>
 

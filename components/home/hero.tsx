@@ -21,7 +21,7 @@ export default function Hero() {
                     <div className="max-w-190">
                         <div className="max-w-190">
                             {/* Badge */}
-                            <Badge visible={visible} text="TRUSTED SECURITY TECHNOLOGY PARTNER" />
+                            <Badge visible={visible} text="INTEGRATED TECHNOLOGY & SYSTEMS INTEGRATION" />
 
                             {/* H1 */}
                             <h1
@@ -29,17 +29,17 @@ export default function Hero() {
                                     visible ? "translate-y-0 opacity-100" : "translate-y-7.5 opacity-0"
                                 }`}
                             >
-                                Tailored{" "}
+                                Empowering{" "}
                                 <span className="bg-[linear-gradient(135deg,#339a99,#339a99)] bg-clip-text text-transparent">
-                                    engineering & technology solutions
+                                    operational excellence
                                 </span>{" "}
-                                with <Typewriter words={["Control", "Insight", "Precision", "Safety", "Focus", "Trust"]} />
+                                with <Typewriter words={["Security", "Automation", "Remote Monitoring", "Energy", "Sustainability"]} />
                             </h1>
 
                             {/* Subheading */}
-                            <Subheading visible={visible} text="Gigasec Services delivers IP-based systems for monitoring and controlling
-                                assets from anywhere, with every solution tailored to the client&apos;s
-                                exact needs and built to reduce operational risk."
+                            <Subheading visible={visible} text="Gigasec Services Limited is a global systems integration and industrial technology leader,
+                                empowering industries, governments, enterprises, and individuals with innovative
+                                remote monitoring, automation, and energy solutions since 2013."
                             />
 
                             {/* CTAs */}
@@ -48,8 +48,8 @@ export default function Hero() {
                                     visible ? "translate-y-0 opacity-100" : "translate-y-5 opacity-0"
                                 }`}
                             >
-                                <PrimaryButton link={"#"} text="Get a Free Quote" />
-                                <SecondaryButton link={"#"} text="View Our Services" />
+                                <PrimaryButton link={"#contact"} text="Contact Us" />
+                                <SecondaryButton link={"#services"} text="View Our Services" />
                             </div>
                         </div>
                     </div>
@@ -69,10 +69,10 @@ export default function Hero() {
 
                             <div>
                                 <p className="font-[DM_Sans] text-sm font-semibold text-white">
-                                    Tailored Systems
+                                    Integrated Solutions
                                 </p>
                                 <p className="font-[DM_Sans] text-xs text-white/60">
-                                    Designed around client requirements
+                                    Engineered for complex environments
                                 </p>
                             </div>
                         </div>
@@ -81,23 +81,23 @@ export default function Hero() {
 
                         <div className="grid grid-cols-2 gap-4">
                             <div className="rounded-xl border border-white/10 bg-black/10 p-4">
-                                <p className="font-[Syne] text-2xl font-bold text-white">IP</p>
+                                <p className="font-[Syne] text-2xl font-bold text-white">IoT</p>
                                 <p className="mt-1 text-xs tracking-wide text-white/60">
                                     Remote Monitoring
                                 </p>
                             </div>
 
                             <div className="rounded-xl border border-white/10 bg-black/10 p-4">
-                                <p className="font-[Syne] text-2xl font-bold text-white">Fit</p>
+                                <p className="font-[Syne] text-2xl font-bold text-white">Auto</p>
                                 <p className="mt-1 text-xs tracking-wide text-white/60">
-                                    Client Specific Design
+                                    Intelligent Automation
                                 </p>
                             </div>
                         </div>
 
                         <div className="rounded-xl border border-cyan-400/15 bg-cyan-500/10 p-4">
                             <p className="text-sm font-medium text-cyan-300">
-                                Monitoring • Control • Virtual Boundaries
+                                Security • Automation • Energy • Sustainability
                             </p>
                         </div>
                     </div>

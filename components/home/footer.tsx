@@ -6,8 +6,9 @@ import Link from "next/link";
 
 export default function Footer() {
     const contactItems = [
-        { icon: Phone, text: "+234 (0) 815 444 2732" },
-        { icon: Mail, text: "hello@gigasecintl.com" },
+        { icon: Phone, text: "+234 815 444 2732" },
+        { icon: Phone, text: "+234 706 418 3475" },
+        { icon: Mail, text: "info@gigasecintl.com" },
     ];
 
     return (
@@ -21,7 +22,7 @@ export default function Footer() {
                         </div>
 
                         <h2 className="mb-6 font-['Syne',sans-serif] text-[2.2rem] font-extrabold tracking-[-0.5px] text-white">
-                            Start a Conversation
+                            Let&apos;s Get Started
                         </h2>
 
                         <div className="flex flex-col gap-[14px]">
@@ -33,6 +34,12 @@ export default function Footer() {
                   </span>
                                 </div>
                             ))}
+                        </div>
+
+                        <div className="mt-6 space-y-2 text-[13px] text-white/55 font-['DM_Sans',sans-serif]">
+                            <div>Lagos | Port Harcourt | Uyo | Benin | Abuja</div>
+                            <div>Port Harcourt: 46 Ordinance Road, Off Trans Amadi Industrial Layout.</div>
+                            <div>Lagos: 7 Atunwa Street, Off Unity Road, Ikeja, Lagos.</div>
                         </div>
                     </div>
 
@@ -69,9 +76,9 @@ export default function Footer() {
                             </Link>
                         </div>
 
-                        <p className="max-w-[260px] font-['DM_Sans',sans-serif] text-[14px] leading-[1.7] text-white/50">
-                            Nigeria&apos;s leading security technology and ICT infrastructure
-                            partner. Building safer, smarter environments since 2009.
+                        <p className="max-w-[300px] font-['DM_Sans',sans-serif] text-[14px] leading-[1.7] text-white/50">
+                            Global systems integration and industrial technology leader delivering
+                            remote monitoring, automation, and energy solutions since 2013.
                         </p>
                     </div>
 
@@ -79,11 +86,11 @@ export default function Footer() {
                         {
                             title: "Services",
                             links: [
-                                "CCTV & Surveillance",
-                                "Access Control",
-                                "Fiber Optic",
-                                "ICT Infrastructure",
-                                "Security Engineering",
+                                "Location Based Services",
+                                "Digital Oilfield & Industrial",
+                                "IP Security Solutions",
+                                "Engineering Services",
+                                "ICT & Systems Integration",
                             ],
                         },
                         {
@@ -126,7 +133,7 @@ export default function Footer() {
           </span>
 
                     <span className="font-['Space_Mono',monospace] text-[11px] tracking-[1px] text-white/25">
-            gigasecintl.com
+            gigasecintl.com • @gigasecintl
           </span>
                 </div>
             </div>

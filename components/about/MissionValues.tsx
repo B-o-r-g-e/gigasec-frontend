@@ -7,10 +7,10 @@ import type {IconName} from "@/icons/Icon";
 export default function MissionValues() {
     const [ref, vis] = useInView(0.08);
     const values: Array<{ icon: IconName; title: string; desc: string }> = [
-        { icon: "shield",  title: "Integrity", desc: "We deliver exactly what we promise, every single project. No shortcuts, no hidden costs." },
-        { icon: "zap",     title: "Excellence", desc: "World-class engineering standards applied to every installation, regardless of project size." },
-        { icon: "users",   title: "Partnership",desc: "We build long-term relationships, not one-off transactions. Your success is our benchmark." },
-        { icon: "globe",   title: "Innovation", desc: "We continuously adopt new technologies to give clients the most future-proof solutions available." },
+        { icon: "zap",    title: "Innovative Technology", desc: "We deliver cutting-edge solutions that bridge industrial challenges and digital transformation." },
+        { icon: "shield", title: "Quality Service Delivery", desc: "ISO 9001 and 27001-certified practices that exceed expectations." },
+        { icon: "users",  title: "Quick Support", desc: "Responsive, reliable support from design through deployment and beyond." },
+        { icon: "globe",  title: "Customer First", desc: "We prioritize client requirements at every stage of the journey." },
     ];
 
     return (
@@ -40,17 +40,16 @@ export default function MissionValues() {
                             className="font-['Syne',sans-serif] font-extrabold text-[clamp(2rem,4vw,3rem)] tracking-[-0.5px] leading-[1.2] mb-7"
                             style={{ color: B.navy }}
                         >
-                            To make every space in Nigeria
-                            <span style={{ color: B.electric }}> measurably safer</span> through technology.
+                            To advance the convergence of IP security, industrial technology, and
+                            <span style={{ color: B.electric }}> digital innovation</span>.
                         </h2>
 
                         <p
                             className="font-['DM_Sans',sans-serif] text-[16px] leading-[1.75] mb-10"
                             style={{ color: B.gray }}
                         >
-                            We believe security is a right, not a luxury. Our mission drives us to bring
-                            enterprise-grade protection to businesses of every size, from a single-branch
-                            retailer to a nationwide bank — with the same precision, care, and engineering rigor.
+                            We deliver best-in-class products and services that secure assets, optimize operations,
+                            and drive sustainability for industries, governments, enterprises, and smart communities.
                         </p>
 
                         {/* Vision box */}
@@ -71,8 +70,8 @@ export default function MissionValues() {
                             </div>
 
                             <p className="font-['DM_Sans',sans-serif] text-[15px] leading-[1.7] text-white/85">
-                                To be West Africa&#39;s most trusted integrated security and ICT partner —
-                                recognized for engineering excellence, client focus, and technology leadership.
+                                To lead the global transition toward intelligent, interconnected systems — where
+                                security, sustainability, and technology unite to redefine what&apos;s possible.
                             </p>
                         </div>
                     </div>
