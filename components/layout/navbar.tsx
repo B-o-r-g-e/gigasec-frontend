@@ -4,6 +4,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { dMSans } from "@/app/ui/fonts";
 import {ArrowUpRight, ChevronRight, Menu, X} from "lucide-react";
+
+const BRAND = {
+    navy: "#0d3d3d",
+    electric: "#339a99",
+    charcoal: "#1A1A2E",
+    gray: "#6B7280",
+};
 const navlinks = [
     { text: "Services", url: "#" },
     { text: "Case Studies", url: "#" },
@@ -31,13 +38,13 @@ export function MobileMenu() {
 
     return (
         <nav
-            className={`md:hidden fixed left-0 right-0 top-0 z-50 border-b px-8 py-4 transition-all duration-300 ease-in-out bg-[#0d3d3d] ${
+            className={`md:hidden fixed left-0 right-0 top-0 z-50 border-b px-8 py-4 transition-all duration-300 ease-in-out ${
                 scrolled
                     ? "border-[#0099cc]/20 shadow-[0_10px_30px_rgba(0,20,51,0.18)]"
-                    : "border-transparent"
+                    : "border-transparent bg-transparent"
             }`}
             style={{
-                backgroundColor: "#0d3d3d",
+                backgroundColor: scrolled ? BRAND.navy : "transparent",
                 backdropFilter: scrolled ? "blur(12px)" : "none",
             }}
         >
@@ -64,10 +71,12 @@ function Sidebar() {
     const [isVisible, setIsVisible] = useState(false);
     const [isActive, setIsActive] = useState(false);
     useEffect(() => {
+        document.documentElement.style.overflow = isOpen ? "hidden" : "";
         document.body.style.overflowX = "hidden";
         document.body.style.overflowY = isOpen ? "hidden" : "auto";
 
         return () => {
+            document.documentElement.style.overflow = "";
             document.body.style.overflowX = "hidden";
             document.body.style.overflowY = "auto";
         };
@@ -113,9 +122,10 @@ function Sidebar() {
                         onClick={() => setIsOpen(false)}
                     />
                     <div
-                        className={`absolute right-0 top-0 h-full w-80 bg-white transition-transform duration-500 ease-out backdrop-blur-sm ${
+                        className={`absolute right-0 top-0 h-full w-80 bg-white bg-opacity-100 transition-transform duration-500 ease-out ${
                             isActive ? "translate-x-0" : "translate-x-full"
                         }`}
+                        style={{ backgroundColor: "#ffffff" }}
                     >
                         <div className="py-8 px-8 flex justify-end border-b border-b-gray-100 mb-5">
                             <X
@@ -152,13 +162,6 @@ function Sidebar() {
         </div>
     )
 }
-
-const BRAND = {
-    navy: "#0d3d3d",
-    electric: "#339a99",
-    charcoal: "#1A1A2E",
-    gray: "#6B7280",
-};
 
 export default function Navbar() {
     const [scrolled, setScrolled] = useState(false);
