@@ -90,7 +90,7 @@ function StatCard({
             }`}
             style={{ transitionDelay: `${delay}ms` }}
         >
-            <div className="font-['Syne',sans-serif] text-[3.2rem] font-extrabold leading-none tracking-[-2px] text-white">
+            <div className="font-['Syne',sans-serif] text-[2.4rem] sm:text-[3.2rem] font-extrabold leading-none tracking-[-2px] text-white">
                 {count}
                 {suffix}
             </div>

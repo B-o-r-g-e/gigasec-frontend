@@ -12,11 +12,12 @@ export default function CounterCard({ target, suffix, label, icon, delay, active
     return (
         <div
             onMouseEnter={() => setHov(true)} onMouseLeave={() => setHov(false)}
+            className="rounded-[20px] px-6 py-9 sm:px-9 sm:py-11"
             style={{
                 background: hov ? "rgba(51,154,153,0.15)" : "rgba(255,255,255,0.04)",
                 border: `1px solid ${hov ? "rgba(51,154,153,0.6)" : "rgba(51,154,153,0.18)"}`,
-                borderRadius: 20, padding: "44px 36px",
-                cursor: "default", transition: "all 0.45s cubic-bezier(0.4,0,0.2,1)",
+                cursor: "default",
+                transition: "all 0.45s cubic-bezier(0.4,0,0.2,1)",
                 transform: active
                     ? (hov ? "translateY(-10px) scale(1.03)" : "translateY(0) scale(1)")
                     : "translateY(60px) scale(0.8)",
@@ -36,8 +37,11 @@ export default function CounterCard({ target, suffix, label, icon, delay, active
                 <Icon name={icon} size={26} color={B.electric} />
             </div>
             <div style={{
-                fontFamily: "'Syne',sans-serif", fontWeight: 800,
-                fontSize: "3.5rem", lineHeight: 1, letterSpacing: -2,
+                fontFamily: "'Syne',sans-serif",
+                fontWeight: 800,
+                fontSize: "clamp(2.2rem, 7vw, 3.5rem)",
+                lineHeight: 1,
+                letterSpacing: -2,
                 transition: "color 0.3s",
                 color: hov ? B.bright : "#fff",
                 textShadow: hov ? `0 0 30px rgba(51,154,153,0.6)` : "none",

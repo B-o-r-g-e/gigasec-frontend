@@ -25,7 +25,7 @@ export default function Hero() {
 
                             {/* H1 */}
                             <h1
-                                className={`${syne.className} wrap-break-word antialiased mb-6 text-[clamp(2rem,5.5vw,4.2rem)] md:text-[clamp(2.5rem,5.5vw,4.2rem)] font-extrabold leading-[1.1] tracking-[-1px] text-white transition-all duration-[800ms] ease-[cubic-bezier(0.4,0,0.2,1)] delay-[150ms] ${
+                                className={`${syne.className} wrap-break-word antialiased mb-6 text-[clamp(1.9rem,6vw,4.2rem)] md:text-[clamp(2.3rem,5.5vw,4.2rem)] font-extrabold leading-[1.08] md:leading-[1.1] tracking-[-1px] text-white transition-all duration-[800ms] ease-[cubic-bezier(0.4,0,0.2,1)] delay-[150ms] ${
                                     visible ? "translate-y-0 opacity-100" : "translate-y-7.5 opacity-0"
                                 }`}
                             >
