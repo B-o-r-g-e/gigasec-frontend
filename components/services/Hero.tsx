@@ -29,7 +29,7 @@ export default function Hero() {
                         Every Service
                         <br/>
                         <span style={{ background: `linear-gradient(135deg, ${B.electric} 0%, ${B.bright} 50%, #ffffff 100%)`, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
-                            Your Businesses
+                            Your Business
                         </span><br />
                         Will Ever Need.
                     </h1>
