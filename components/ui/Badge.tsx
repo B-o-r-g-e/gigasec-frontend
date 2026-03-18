@@ -8,7 +8,7 @@ export default function Badge(
             }`}
         >
             <div className="h-1.75 w-1.75 rounded-full bg-[#339a99] animate-pulse" />
-            <span className="font-['Space_Mono',monospace] text-[8px] md:text-[11px] tracking-[2px] text-[#339a99]">
+            <span className="font-['Space_Mono',monospace] text-[8px] md:text-[11px] tracking-[2px] text-[#339a99] font-semibold">
                 {text}
             </span>
         </div>

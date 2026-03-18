@@ -9,4 +9,5 @@ export const B = {
     charcoal: "#1a2332",
     gray:     "#6B7280",
     lightgray:"#e8edf3",
+    deep:    "#040f0f",
 };

@@ -8,7 +8,7 @@ import TestimonialsSection from "@/components/home/testimonials";
 import AboutCTA from "@/components/about/CTA";
 import Footer from "@/components/about/Footer";
 
-export default function Home() {
+export default function AboutPage() {
   return (
       <>
           <section>

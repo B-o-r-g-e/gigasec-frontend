@@ -11,7 +11,7 @@ export default function AboutBackground({children}: {children: ReactNode}) {
             <FloatingParticles />
             <TopGlowingOrbLight />
             <BottomGlowingOrbLight />
-            
+
             <div className="relative z-10 w-full">
                 {children}
             </div>
