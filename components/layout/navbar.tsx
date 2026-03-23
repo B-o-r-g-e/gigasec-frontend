@@ -12,10 +12,11 @@ const BRAND = {
     gray: "#6B7280",
 };
 const navlinks = [
+    { text: "Home", url: "/" },
     { text: "Services", url: "/services" },
-    { text: "Experience", url: "#case-studies" },
+    // { text: "Experience", url: "#case-studies" },
     { text: "About", url: "/about" },
-    { text: "Method", url: "/blog" },
+    { text: "Blog", url: "/blog" },
     { text: "Contact", url: "/contact" },
 ];
 

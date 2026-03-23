@@ -21,7 +21,12 @@ export type IconName =
     | "network"
     | "industrial"
     | "chevron"
-    | "plus";
+    | "plus"
+    | "bookmark"
+    | "share"
+    | "clock"
+    | "tag"
+    | "search"
 
 type IconProps = {
     name: IconName;
@@ -52,6 +57,11 @@ export const Icon = ({ name, size = 24, color = "currentColor" }: IconProps) => 
         industrial: <><rect x="2" y="7" width="20" height="14" rx="2" fill="none" stroke={color} strokeWidth="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2" stroke={color} strokeWidth="2" fill="none"/></>,
         chevron:    <polyline points="9 18 15 12 9 6" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none"/>,
         plus:       <><line x1="12" y1="5" x2="12" y2="19" stroke={color} strokeWidth="2" strokeLinecap="round"/><line x1="5" y1="12" x2="19" y2="12" stroke={color} strokeWidth="2" strokeLinecap="round"/></>,
+        bookmark:   <path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2z" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>,
+        share:   <><circle cx="18" cy="5" r="3" fill="none" stroke={color} strokeWidth="2"/><circle cx="6" cy="12" r="3" fill="none" stroke={color} strokeWidth="2"/><circle cx="18" cy="19" r="3" fill="none" stroke={color} strokeWidth="2"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49" stroke={color} strokeWidth="2"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49" stroke={color} strokeWidth="2"/></>,
+        clock:   <><circle cx="12" cy="12" r="10" fill="none" stroke={color} strokeWidth="2"/><polyline points="12 6 12 12 16 14" stroke={color} strokeWidth="2" strokeLinecap="round" fill="none"/></>,
+        tag:     <><path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z" fill="none" stroke={color} strokeWidth="2"/><line x1="7" y1="7" x2="7.01" y2="7" stroke={color} strokeWidth="2" strokeLinecap="round"/></>,
+        search:  <><circle cx="11" cy="11" r="7" fill="none" stroke={color} strokeWidth="2"/><line x1="16.65" y1="16.65" x2="21" y2="21" stroke={color} strokeWidth="2" strokeLinecap="round"/></>,
 };
     return (
         <svg width={size} height={size} viewBox="0 0 24 24" fill="none">

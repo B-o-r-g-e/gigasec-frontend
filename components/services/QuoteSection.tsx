@@ -25,7 +25,7 @@ export default function QuoteSection() {
                             className="font-[DM_Sans] text-[12px] tracking-widest mb-3 font-semibold uppercase"
                             style={{color: B.electric}}
                         >
-                            LET'S BUILD TOMORROW TOGETHER
+                            LET&#39;S BUILD TOMORROW TOGETHER
                         </div>
                         <h2
                             className="font-[Syne] font-extrabold text-[clamp(2rem,3.5vw,2.8rem)] -tracking-[0.5px] mb-5"
