@@ -24,10 +24,10 @@ export function FeaturedCardBig({vis, post, delay}: {vis: boolean|RefObject<null
             onMouseEnter={() => setHov(true)}
             onMouseLeave={() => setHov(false)}
             className={`rounded-[20px] overflow-hidden cursor-pointer
-    transition-all duration-[400ms]
-    ${vis ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-[60px]"}
-    ${hov && vis ? "-translate-y-[8px]" : ""}
-  `}
+            transition-all duration-[400ms]
+            ${vis ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-[60px]"}
+            ${hov && vis ? "-translate-y-[8px]" : ""}
+        `}
             style={{
                 background: hov ? B.navy : "#fff",
                 border: `1.5px solid ${hov ? B.electric : B.lightgray}`,
