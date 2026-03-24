@@ -1,11 +1,6 @@
 'use client'
-import dynamic from "next/dynamic";
 import { useInView } from "@/hooks/useInView";
 import { B } from "@/colors/Colors";
-
-const MapClient = dynamic(() => import("@/components/contact/MapSectionClient"), {
-    ssr: false,
-});
 
 export default function MapSection() {
     const [ref, vis] = useInView(0.1);
@@ -27,7 +22,14 @@ export default function MapSection() {
                         className="relative h-[360px] sm:h-[420px]"
                         style={{ background: B.navyDark }}
                     >
-                        <MapClient />
+                        <iframe
+                            title="Gigasec coverage map"
+                            className="absolute inset-0 w-full h-full"
+                            src="https://www.openstreetmap.org/export/embed.html?bbox=2.6%2C4.0%2C14.7%2C13.9&amp;layer=mapnik&amp;marker=6.5244%2C3.3792"
+                            style={{ border: 0 }}
+                            loading="lazy"
+                            referrerPolicy="no-referrer-when-downgrade"
+                        />
                         <div
                             className="absolute inset-0 pointer-events-none"
                             style={{
