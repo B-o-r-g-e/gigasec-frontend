@@ -3,14 +3,9 @@ import {Icon} from "@/icons/Icon";
 import {B} from "@/colors/Colors";
 import {useState} from "react";
 import {dMSans, spaceMono, syne} from "@/app/ui/fonts";
+import type { Product } from "@/components/shop/products";
 
-type CartItemData = {
-    id: number;
-    brand: string;
-    name: string;
-    sku?: string;
-    tags: string[];
-    price: number;
+type CartItemData = Product & {
     qty: number;
 };
 

@@ -193,6 +193,8 @@ export default function Navbar() {
         };
     }, []);
 
+
+
     return (
         <nav
             id="hero"

@@ -1,6 +1,6 @@
 'use client'
+import type {Product} from "@/components/shop/products";
 import {CATEGORIES, PRODUCTS} from "@/components/shop/products";
-import type { Product } from "@/components/shop/products";
 import {useState} from "react";
 import {useInView} from "@/hooks/useInView";
 import ProductCard from "@/components/shop/ProductCard";
@@ -49,9 +49,9 @@ export default function ProductsGrid() {
                                     onClick={() => setCat(c)}
                                     className={`text-[13px] px-4 py-[7px] rounded-lg border transition-all duration-300
                                         ${active
-                                            ? "bg-[#0d3d3d] text-white border-[#339a99] scale-105 shadow-[0_4px_16px_rgba(13,61,61,0.2)] font-bold"
-                                            : "bg-white text-gray-500 border-[#e8edf3] font-medium hover:border-[#339a99]/40"
-                                        }
+                                        ? "bg-[#0d3d3d] text-white border-[#339a99] scale-105 shadow-[0_4px_16px_rgba(13,61,61,0.2)] font-bold"
+                                        : "bg-white text-gray-500 border-[#e8edf3] font-medium hover:border-[#339a99]/40"
+                                    }
                                     `}
                                 >
                                     {c}

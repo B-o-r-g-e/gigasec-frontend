@@ -9,30 +9,19 @@ import StepIndicator from "@/components/cart/StepIndicator";
 import CheckoutForm from "@/components/cart/Checkout";
 import EmptyCart from "@/components/cart/EmptyCart";
 import OrderSuccess from "@/components/cart/Ordersuccess";
+import {useCart} from "@/context/CartContext";
 
-const DEMO_CART = [
-    { id: 1, brand: "Hikvision", name: "DS-2CD2143G2-I AcuSense 4MP Fixed Dome Camera", sku: "HIK-DS2CD2143G2", price: 48500, qty: 4, tags: ["4MP", "IR 40m", "IP67"] },
-    { id: 2, brand: "Cisco",     name: "CBS350-24T-4G Managed 24-Port Gigabit Switch",   sku: "CSC-CBS35024T",   price: 285000, qty: 1, tags: ["24-Port", "PoE", "Managed"] },
-    { id: 3, brand: "ZKTeco",   name: "SF300 Fingerprint & RFID Door Access Reader",    sku: "ZKT-SF300",       price: 34500, qty: 2, tags: ["Biometric", "RFID"] },
-];
 
 export default function CartMain() {
     const [ref, vis] = useInView(0.04);
-    const [items, setItems] = useState(DEMO_CART);
     const [coupon, setCoupon] = useState("");
     const [couponApplied, setCouponApplied] = useState(false);
     const [couponError, setCouponError] = useState(false);
     const [checkoutStep, setCheckoutStep] = useState(1); // 1=cart, 2=details, 3=success
 
-    const updateQty = (id: number, delta: number) => {
-        setItems(prev => prev.map(item => item.id === id
-            ? {...item, qty: Math.max(1, item.qty + delta)}
-            : item
-        ));
-    };
-    const removeItem = (id: number) => setItems(prev => prev.filter(item => item.id !== id));
 
-    const subtotal = items.reduce((sum, i) => sum + i.price * i.qty, 0);
+    const {cart, updateQty, removeFromCart} = useCart();
+    const subtotal = cart.reduce((sum, i) => sum + i.price * i.qty, 0);
     const discount = couponApplied ? subtotal * 0.1 : 0;
     const shipping = subtotal > 100000 ? 0 : 5000;
     const vat = (subtotal - discount) * 0.075;
@@ -64,13 +53,13 @@ export default function CartMain() {
                                     {/* Step indicator */}
                                     <StepIndicator step={1}/>
 
-                                    {items.length > 0 ? (
+                                    {cart.length > 0 ? (
                                         <div className="flex flex-col gap-4 mt-6">
-                                            {items.map((item, i) => (
+                                            {cart.map((item, i) => (
                                                 <CartItem key={item.id} item={item} vis={vis} i={i}
                                                           onIncrease={() => updateQty(item.id, 1)}
                                                           onDecrease={() => updateQty(item.id, -1)}
-                                                          onRemove={() => removeItem(item.id)}/>
+                                                          onRemove={() => removeFromCart(item.id)}/>
                                             ))}
                                         </div>
                                     ) : (
@@ -78,7 +67,7 @@ export default function CartMain() {
                                     )}
 
                                     {/* Continue shopping */}
-                                    {items.length > 0 && (
+                                    {cart.length > 0 && (
                                         <a href="/shop"
                                            className={`${dMSans.className} inline-flex items-center gap-2 mt-6 no-underline transition-all duration-200`}
                                            style={{fontWeight: 600, fontSize: 14, color: B.electric}}
@@ -115,7 +104,7 @@ export default function CartMain() {
                                 {/* Line items */}
                                 <div className="flex flex-col gap-3 mb-5 pb-5"
                                      style={{borderBottom: `1px solid ${B.lightgray}`}}>
-                                    {items.map(item => (
+                                    {cart.map(item => (
                                         <div key={item.id} className="flex justify-between items-start gap-3">
                                             <div>
                                                 <span className={`${dMSans.className}`}
@@ -256,7 +245,7 @@ export default function CartMain() {
                                 </div>
 
                                 {/* Checkout button */}
-                                {checkoutStep === 1 && items.length > 0 && (
+                                {checkoutStep === 1 && cart.length > 0 && (
                                     <button onClick={() => setCheckoutStep(2)}
                                             className={`${syne.className} w-full flex items-center justify-center gap-3 py-4 rounded-xl text-white border-none cursor-pointer transition-all duration-300`}
                                             style={{
