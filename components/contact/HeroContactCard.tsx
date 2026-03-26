@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Icon, type IconName } from "@/icons/Icon";
 import { B } from "@/colors/Colors";
+import {dMSans, spaceMono, syne} from "@/app/ui/fonts";
 
 type ContactItem = {
     icon: IconName;
@@ -53,22 +54,20 @@ export default function HeroContactCard({ item, i = 0, vis }: HeroContactCardPro
             {/* Text */}
             <div>
                 <div
-                    className="text-[9px] tracking-[2px] mb-[3px]"
-                    style={{ fontFamily: "'Space Mono', monospace", color: B.electric }}
+                    className={`${spaceMono.className} text-[9px] tracking-[2px] mb-[3px]`}
+                    style={{ color: B.electric }}
                 >
                     {item.label}
                 </div>
 
                 <div
-                    className="text-[14px] font-bold text-white"
-                    style={{ fontFamily: "'Syne', sans-serif" }}
+                    className={`${syne.className} text-[14px] font-bold text-white`}
                 >
                     {item.value}
                 </div>
 
                 <div
-                    className="text-[12px] text-white/50 mt-[2px]"
-                    style={{ fontFamily: "'DM Sans', sans-serif" }}
+                    className={`${dMSans.className} text-[12px] text-white/50 mt-[2px]`}
                 >
                     {item.sub}
                 </div>

@@ -1,6 +1,7 @@
 import type { ChangeEventHandler, FocusEventHandler, HTMLInputTypeAttribute } from "react";
 
 import { B } from "@/colors/Colors";
+import {dMSans} from "@/app/ui/fonts";
 
 type FormFieldProps = {
     label: string;
@@ -38,9 +39,8 @@ export default function FormField({
         >
             {/* Label */}
             <label
-                className="block text-[13px] font-semibold mb-2"
+                className={`${dMSans.className} block text-[13px] font-semibold mb-2`}
                 style={{
-                    fontFamily: "'DM Sans', sans-serif",
                     color: B.charcoal,
                 }}
             >
@@ -55,12 +55,11 @@ export default function FormField({
                 onChange={onChange}
                 onFocus={onFocus}
                 onBlur={onBlur}
-                className="w-full px-[18px] py-[13px] rounded-lg text-[14px] outline-none transition-all duration-[250ms]"
+                className={`${dMSans.className} w-full px-[18px] py-[13px] rounded-lg text-[14px] outline-none transition-all duration-[250ms]`}
                 style={{
                     border: `1.5px solid ${focused ? B.electric : B.lightgray}`,
                     background: B.offwhite,
                     color: B.charcoal,
-                    fontFamily: "'DM Sans', sans-serif",
                     boxShadow: focused ? "0 0 0 3px rgba(51,154,153,0.15)" : "none",
                 }}
             />

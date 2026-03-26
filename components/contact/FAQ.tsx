@@ -3,6 +3,7 @@ import {useInView} from "@/hooks/useInView";
 import {useState} from "react";
 import {B} from "@/colors/Colors";
 import FAQItem from "@/components/contact/FAQItem";
+import {spaceMono, syne} from "@/app/ui/fonts";
 
 export default function FAQ() {
     const [ref, vis] = useInView(0.1);
@@ -46,9 +47,8 @@ export default function FAQ() {
                     }}
                 >
                     <div
-                        className="text-[11px] tracking-[3px] mb-3"
+                        className={`${spaceMono.className} text-[11px] tracking-[3px] mb-3`}
                         style={{
-                            fontFamily: "'Space Mono', monospace",
                             color: B.electric,
                         }}
                     >
@@ -56,9 +56,8 @@ export default function FAQ() {
                     </div>
 
                     <h2
-                        className="font-extrabold text-[clamp(1.8rem,3.5vw,2.6rem)] tracking-[-0.5px]"
+                        className={`${syne.className} font-extrabold text-[clamp(1.8rem,3.5vw,2.6rem)] tracking-[-0.5px]`}
                         style={{
-                            fontFamily: "'Syne', sans-serif",
                             color: B.navy,
                         }}
                     >

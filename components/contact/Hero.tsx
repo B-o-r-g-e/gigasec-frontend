@@ -1,12 +1,15 @@
 'use client'
-import { B } from "@/colors/Colors";
-import { useEffect, useState } from "react";
+import {B} from "@/colors/Colors";
+import {useEffect, useState} from "react";
 import HeroContactCard from "@/components/contact/HeroContactCard";
-import type { IconName } from "@/icons/Icon";
+import type {IconName} from "@/icons/Icon";
+import {dMSans, spaceMono, syne} from "@/app/ui/fonts";
 
 export default function ContactHero() {
     const [vis, setVis] = useState(false);
-    useEffect(() => { setTimeout(() => setVis(true), 80); }, []);
+    useEffect(() => {
+        setTimeout(() => setVis(true), 80);
+    }, []);
 
     return (
         <section className="min-h-[52vh] relative flex items-center overflow-hidden pt-[72px]"
@@ -43,8 +46,8 @@ export default function ContactHero() {
                     >
                         <div className="w-[7px] h-[7px] rounded-full bg-[#00d97e] animate-[blink_2s_infinite]"/>
                         <span
-                            className="text-[11px] tracking-[2px]"
-                            style={{fontFamily: "'Space Mono', monospace", color: B.electric}}
+                            className={`${spaceMono.className} text-[11px] tracking-[2px]`}
+                            style={{color: B.electric}}
                         >
         READY TO TALK
       </span>
@@ -52,14 +55,13 @@ export default function ContactHero() {
 
                     {/* Heading */}
                     <h1
-                        className={`font-extrabold leading-[1] text-white mb-6 tracking-[-2px] transition-all duration-[1100ms] delay-[200ms] [transition-timing-function:cubic-bezier(0.22,1,0.36,1)]
+                        className={`${syne.className} font-extrabold leading-[1] text-white mb-6 tracking-[-2px] transition-all duration-[1100ms] delay-[200ms] [transition-timing-function:cubic-bezier(0.22,1,0.36,1)]
       ${vis ? "opacity-100 translate-y-0" : "opacity-0 translate-y-[60px]"}`}
                         style={{
-                            fontFamily: "'Syne', sans-serif",
                             fontSize: "clamp(2.5rem,5.5vw,4.5rem)",
                         }}
                     >
-                        Let's Build<br/>
+                        Let&#39;s Build<br/>
                         <span
                             style={{
                                 background: `linear-gradient(90deg, ${B.electric}, ${B.bright})`,
@@ -75,9 +77,8 @@ export default function ContactHero() {
 
                     {/* Paragraph */}
                     <p
-                        className={`text-[1.1rem] leading-[1.75] text-white/65 transition-all duration-[900ms] delay-[450ms]
+                        className={`${dMSans.className} text-[1.1rem] leading-[1.75] text-white/65 transition-all duration-[900ms] delay-[450ms]
       ${vis ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-[40px]"}`}
-                        style={{fontFamily: "'DM Sans', sans-serif"}}
                     >
                         Whether you need a quote, have a technical question, or want to explore a partnership — our team
                         is ready to help.
@@ -96,14 +97,14 @@ export default function ContactHero() {
                             value: "+234 (0) 815 444 2732",
                             sub: "Mon – Fri, 8am – 4pm WAT",
                         },
-                        { icon: "mail", label: "Email Us", value: "info@gigasecintl.com", sub: "Response within 24hrs" },
+                        {icon: "mail", label: "Email Us", value: "info@gigasecintl.com", sub: "Response within 24hrs"},
                         {
                             icon: "whatsapp",
                             label: "WhatsApp",
                             value: "+234 (0) 801 234 5678",
                             sub: "Quick questions & quotes",
                         },
-                        { icon: "pin", label: "Head Office", value: "Port Harcourt, Rivers", sub: "By appointment" },
+                        {icon: "pin", label: "Head Office", value: "Port Harcourt, Rivers", sub: "By appointment"},
                     ] as Array<{ icon: IconName; label: string; value: string; sub: string }>).map((item, i) => (
                         <HeroContactCard key={item.label} item={item} i={i} vis={vis}/>
                     ))}

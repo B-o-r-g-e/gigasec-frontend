@@ -3,6 +3,7 @@ import {useInView} from "@/hooks/useInView";
 import {POSTS} from "@/components/blog/blogs";
 import {B} from "@/colors/Colors";
 import {FeaturedCardBig, FeaturedCardSmall} from "@/components/blog/blogCards";
+import {spaceMono, syne} from "@/app/ui/fonts";
 
 export default function FeaturedPosts() {
     const [ref, vis] = useInView(0.08);
@@ -24,9 +25,8 @@ export default function FeaturedPosts() {
                 >
                     <div>
                         <div
-                            className="text-[11px] tracking-[3px] mb-[10px]"
+                            className={`${spaceMono.className} text-[11px] tracking-[3px] mb-[10px]`}
                             style={{
-                                fontFamily: "'Space Mono', monospace",
                                 color: B.electric
                             }}
                         >
@@ -34,10 +34,9 @@ export default function FeaturedPosts() {
                         </div>
 
                         <h2
-                            className="font-extrabold tracking-[-0.5px]
-                     text-[clamp(1.8rem,3.5vw,2.6rem)]"
+                            className={`${syne.className} font-extrabold tracking-[-0.5px]
+                                text-[clamp(1.8rem,3.5vw,2.6rem)]`}
                             style={{
-                                fontFamily: "'Syne', sans-serif",
                                 color: B.navy
                             }}
                         >

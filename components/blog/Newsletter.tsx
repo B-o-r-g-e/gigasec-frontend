@@ -3,6 +3,7 @@ import {useInView} from "@/hooks/useInView";
 import {useState} from "react";
 import {Icon} from "@/icons/Icon";
 import {B} from "@/colors/Colors";
+import {dMSans} from "@/app/ui/fonts";
 
 export default function Newsletter() {
     const [ref, vis] = useInView(0.2);
@@ -63,12 +64,11 @@ export default function Newsletter() {
                                 value={email}
                                 onChange={e => setEmail(e.target.value)}
                                 placeholder="your@company.com"
-                                className="w-full flex-1 rounded-[8px] px-5 py-3 outline-none transition-all"
+                                className={`${dMSans.className} w-full flex-1 rounded-[8px] px-5 py-3 outline-none transition-all`}
                                 style={{
                                     border: "1.5px solid rgba(51,154,153,0.3)",
                                     background: "rgba(255,255,255,0.05)",
                                     color: "#fff",
-                                    fontFamily: "'DM Sans', sans-serif",
                                     fontSize: "14px"
                                 }}
                                 onFocus={e => {

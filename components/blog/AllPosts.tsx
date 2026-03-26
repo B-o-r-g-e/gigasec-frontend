@@ -4,6 +4,7 @@ import {useState} from "react";
 import {CATEGORIES, POSTS} from "@/components/blog/blogs";
 import {B} from "@/colors/Colors";
 import PostCard from "@/components/blog/PostCard";
+import {dMSans} from "@/app/ui/fonts";
 
 export default function AllPosts() {
     const [ref, vis] = useInView(0.05);
@@ -21,20 +22,19 @@ export default function AllPosts() {
                 {/* Category tabs */}
                 <div
                     className={`flex flex-wrap gap-2.5 mb-10 sm:mb-14 pb-5 border-b-2 transition-all duration-700 ease
-        ${vis ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-[20px]"}
-      `}
+                                ${vis ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-[20px]"}
+                              `}
                     style={{ borderColor: B.lightgray }}
                 >
                     {CATEGORIES.map((c, i) => (
                         <button
                             key={c}
                             onClick={() => setCat(c)}
-                            className={`text-[13px] sm:text-[14px] px-[14px] sm:px-[18px] py-[7px] sm:py-[8px] rounded-[8px] border-none cursor-pointer
-            transition-all duration-300
-            ${cat === c ? "font-bold scale-[1.05] shadow-[0_4px_16px_rgba(51,154,153,0.35)]" : "font-medium scale-100"}
-          `}
+                            className={`${dMSans.className} text-[13px] sm:text-[14px] px-[14px] sm:px-[18px] py-[7px] sm:py-[8px] rounded-[8px] border-none cursor-pointer
+                                        transition-all duration-300
+                                        ${cat === c ? "font-bold scale-[1.05] shadow-[0_4px_16px_rgba(51,154,153,0.35)]" : "font-medium scale-100"}
+                                      `}
                             style={{
-                                fontFamily: "'DM Sans', sans-serif",
                                 background: cat === c ? B.electric : "transparent",
                                 color: cat === c ? "#fff" : B.gray,
                                 opacity: vis ? 1 : 0,

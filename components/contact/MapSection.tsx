@@ -1,6 +1,7 @@
 'use client'
 import { useInView } from "@/hooks/useInView";
 import { B } from "@/colors/Colors";
+import {dMSans} from "@/app/ui/fonts";
 
 export default function MapSection() {
     const [ref, vis] = useInView(0.1);
@@ -38,9 +39,8 @@ export default function MapSection() {
                             }}
                         />
                         <div
-                            className="absolute bottom-4 right-5 pointer-events-none"
+                            className={`${dMSans.className} absolute bottom-4 right-5 pointer-events-none`}
                             style={{
-                                fontFamily: "'DM Sans',sans-serif",
                                 fontSize: 12,
                                 color: "rgba(255,255,255,0.65)",
                                 letterSpacing: 2,

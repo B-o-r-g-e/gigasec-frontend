@@ -1,6 +1,7 @@
 import {CSSProperties, RefObject, useState} from "react";
 import {B} from "@/colors/Colors";
 import {Icon} from "@/icons/Icon";
+import {dMSans, spaceMono, syne} from "@/app/ui/fonts";
 
 type postStype = {
     id: number;
@@ -69,9 +70,8 @@ export default function PostCard({post, i, vis}: { vis: boolean | RefObject<null
             {/* Category & read */}
             <div className="flex items-center gap-2.5 mb-4">
     <span
-        className="text-[9px] tracking-[2px] px-[10px] py-[3px] rounded-full"
+        className={`${spaceMono.className} text-[9px] tracking-[2px] px-[10px] py-[3px] rounded-full`}
         style={{
-            fontFamily: "'Space Mono', monospace",
             color: B.electric,
             background: "rgba(51,154,153,0.1)"
         }}
@@ -79,10 +79,9 @@ export default function PostCard({post, i, vis}: { vis: boolean | RefObject<null
       {post.cat}
     </span>
                 <span
-                    className="flex items-center gap-1.5 text-[12px]
-                    text-[color:var(--meta-color)] group-hover:text-white/60"
+                    className={`${dMSans.className} flex items-center gap-1.5 text-[12px]
+                        text-(--meta-color) group-hover:text-white/60`}
                     style={{
-                        fontFamily: "'DM Sans', sans-serif",
                         "--meta-color": B.gray
                     } as CSSProperties}
                 >
@@ -92,16 +91,16 @@ export default function PostCard({post, i, vis}: { vis: boolean | RefObject<null
 
             {/* Title & excerpt */}
             <h3
-                className="text-[1.05rem] font-bold leading-[1.4] mb-3 tracking-[-0.2px] transition-colors duration-300
-                text-[color:var(--title-color)] group-hover:text-white"
-                style={{fontFamily: "'Syne', sans-serif", "--title-color": B.navy} as CSSProperties}
+                className={`${syne.className} text-[1.05rem] font-bold leading-[1.4] mb-3 tracking-[-0.2px] transition-colors duration-300
+                    text-[color:var(--title-color)] group-hover:text-white`}
+                style={{"--title-color": B.navy} as CSSProperties}
             >
                 {post.title}
             </h3>
             <p
-                className="text-[13px] leading-[1.65] mb-5 transition-colors duration-300
-                text-[color:var(--excerpt-color)] group-hover:text-white/60"
-                style={{fontFamily: "'DM Sans', sans-serif", "--excerpt-color": B.gray} as CSSProperties}
+                className={`${dMSans.className} text-[13px] leading-[1.65] mb-5 transition-colors duration-300
+                    text-[color:var(--excerpt-color)] group-hover:text-white/60`}
+                style={{"--excerpt-color": B.gray} as CSSProperties}
             >
                 {post.excerpt.slice(0, 110)}...
             </p>
@@ -111,11 +110,10 @@ export default function PostCard({post, i, vis}: { vis: boolean | RefObject<null
                 {post.tags.map(t => (
                     <span
                         key={t}
-                        className="text-[11px] px-[10px] py-[3px] rounded-full border transition-all duration-300
-                        text-[color:var(--tag-color)] bg-[color:var(--tag-bg)] border-[color:var(--tag-border)]
-                        group-hover:text-white/70 group-hover:bg-[rgba(255,255,255,0.08)] group-hover:border-[rgba(255,255,255,0.2)]"
+                        className={`${dMSans.className} text-[11px] px-2.5 py-0.75 rounded-full border transition-all duration-300
+                            text-(--tag-color) bg-(--tag-bg) border-(--tag-border)
+                            group-hover:text-white/70 group-hover:bg-[rgba(255,255,255,0.08)] group-hover:border-[rgba(255,255,255,0.2)]`}
                         style={{
-                            fontFamily: "'DM Sans', sans-serif",
                             "--tag-color": B.gray,
                             "--tag-bg": "#fff",
                             "--tag-border": B.lightgray
@@ -132,20 +130,23 @@ export default function PostCard({post, i, vis}: { vis: boolean | RefObject<null
                 style={{borderColor: B.lightgray}}
             >
                 <div>
-                    <div className="text-[12px] font-semibold transition-colors duration-300
-                    text-[color:var(--author-color)] group-hover:text-white"
-                         style={{fontFamily: "'DM Sans', sans-serif", "--author-color": B.charcoal} as CSSProperties}>
+                    <div className={`${dMSans.className} text-[12px] font-semibold transition-colors duration-300
+                        text-[color:var(--author-color)] group-hover:text-white`}
+                         style={{"--author-color": B.charcoal} as CSSProperties}>
                         {post.author}
                     </div>
-                    <div className="text-[11px] transition-colors duration-300
-                    text-[color:var(--date-color)] group-hover:text-white/50"
-                         style={{fontFamily: "'DM Sans', sans-serif", "--date-color": B.gray, marginTop: "2px"} as CSSProperties}>
+                    <div className={`${dMSans.className} text-[11px] transition-colors duration-300
+                        text-[color:var(--date-color)] group-hover:text-white/50`}
+                         style={{
+                             "--date-color": B.gray,
+                             marginTop: "2px"
+                         } as CSSProperties}>
                         {post.date}
                     </div>
                 </div>
-                <div className="flex items-center gap-1.5 text-[12px] font-semibold transition-colors duration-300
-                text-[color:var(--read-color)] group-hover:text-white"
-                     style={{fontFamily: "'DM Sans', sans-serif", "--read-color": B.electric} as CSSProperties}>
+                <div className={`${dMSans.className} flex items-center gap-1.5 text-[12px] font-semibold transition-colors duration-300
+                    text-[color:var(--read-color)] group-hover:text-white`}
+                     style={{"--read-color": B.electric} as CSSProperties}>
                     Read <Icon name="arrow" size={13} color="var(--read-color)"/>
                 </div>
             </div>

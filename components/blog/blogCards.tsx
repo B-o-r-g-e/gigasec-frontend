@@ -2,7 +2,7 @@
 import {CSSProperties, RefObject, useState} from "react";
 import {B} from "@/colors/Colors";
 import {Icon} from "@/icons/Icon";
-import {dMSans, syne} from "@/app/ui/fonts";
+import {dMSans, spaceMono, syne} from "@/app/ui/fonts";
 
 type postStype = {
     id: number;
@@ -16,7 +16,11 @@ type postStype = {
     tags: string[];
 }
 
-export function FeaturedCardBig({vis, post, delay}: {vis: boolean|RefObject<null>, post: postStype, delay?: number}) {
+export function FeaturedCardBig({vis, post, delay}: {
+    vis: boolean | RefObject<null>,
+    post: postStype,
+    delay?: number
+}) {
     const [hov, setHov] = useState(false);
 
     return (
@@ -62,10 +66,9 @@ export function FeaturedCardBig({vis, post, delay}: {vis: boolean|RefObject<null
                 />
 
                 <div
-                    className="absolute top-[20px] left-[20px] px-[14px] py-[5px] rounded-full text-[10px] tracking-[1.5px]"
+                    className={`${spaceMono.className} absolute top-[20px] left-[20px] px-[14px] py-[5px] rounded-full text-[10px] tracking-[1.5px]`}
                     style={{
                         background: "rgba(51,154,153,0.9)",
-                        fontFamily: "'Space Mono', monospace",
                         color: "#fff"
                     }}
                 >
@@ -76,9 +79,8 @@ export function FeaturedCardBig({vis, post, delay}: {vis: boolean|RefObject<null
             {/* Content */}
             <div className="p-8">
                 <h3
-                    className="font-bold text-[1.3rem] leading-[1.35] mb-[14px] tracking-[-0.3px] transition-colors duration-300"
+                    className={`${syne.className} font-bold text-[1.3rem] leading-[1.35] mb-[14px] tracking-[-0.3px] transition-colors duration-300`}
                     style={{
-                        fontFamily: "'Syne', sans-serif",
                         color: hov ? "#fff" : B.navy
                     }}
                 >
@@ -86,9 +88,8 @@ export function FeaturedCardBig({vis, post, delay}: {vis: boolean|RefObject<null
                 </h3>
 
                 <p
-                    className="text-[14px] leading-[1.7] mb-6"
+                    className={`${dMSans.className} text-[14px] leading-[1.7] mb-6`}
                     style={{
-                        fontFamily: "'DM Sans', sans-serif",
                         color: hov ? "rgba(255,255,255,0.65)" : B.gray
                     }}
                 >
@@ -98,9 +99,8 @@ export function FeaturedCardBig({vis, post, delay}: {vis: boolean|RefObject<null
                 <div className="flex justify-between items-center">
                     <div>
                         <div
-                            className="text-[13px] font-semibold"
+                            className={`${dMSans.className} text-[13px] font-semibold`}
                             style={{
-                                fontFamily: "'DM Sans', sans-serif",
                                 color: hov ? "#fff" : B.charcoal
                             }}
                         >
@@ -108,16 +108,15 @@ export function FeaturedCardBig({vis, post, delay}: {vis: boolean|RefObject<null
                         </div>
 
                         <div
-                            className="flex items-center gap-[6px] text-[12px] mt-[2px]"
+                            className={`${dMSans.className} flex items-center gap-[6px] text-[12px] mt-[2px]`}
                             style={{
-                                fontFamily: "'DM Sans', sans-serif",
                                 color: hov
                                     ? "rgba(255,255,255,0.5)"
                                     : B.gray
                             }}
                         >
                             {post.date} ·
-                            <Icon name="clock" size={12} color={B.electric} />
+                            <Icon name="clock" size={12} color={B.electric}/>
                             {post.read} read
                         </div>
                     </div>
@@ -131,7 +130,7 @@ export function FeaturedCardBig({vis, post, delay}: {vis: boolean|RefObject<null
                             color: B.electric
                         }}
                     >
-                        Read <Icon name="arrow" size={14} color={B.electric} />
+                        Read <Icon name="arrow" size={14} color={B.electric}/>
                     </div>
                 </div>
             </div>
@@ -139,9 +138,9 @@ export function FeaturedCardBig({vis, post, delay}: {vis: boolean|RefObject<null
     )
 }
 
-export function FeaturedCardSmall({delay, vis, post}: {delay: number, vis: boolean, post: postStype}) {
+export function FeaturedCardSmall({delay, vis, post}: { delay: number, vis: boolean, post: postStype }) {
     const [hov, setHov] = useState(false);
-    return(
+    return (
         <div
             className={`group flex rounded-[16px] overflow-hidden cursor-pointer
     transition-all duration-[400ms]
@@ -181,10 +180,9 @@ export function FeaturedCardSmall({delay, vis, post}: {delay: number, vis: boole
             <div className="flex-1 px-[24px] py-[24px] pl-[20px]">
 
     <span
-        className="text-[9px] tracking-[2px] px-[10px] py-[3px] rounded-full
-                 group-hover:text-[color:var(--bright)]"
+        className={`${spaceMono.className} text-[9px] tracking-[2px] px-[10px] py-[3px] rounded-full
+            group-hover:text-[color:var(--bright)]`}
         style={{
-            fontFamily: "'Space Mono', monospace",
             color: B.electric,
             background: "rgba(51,154,153,0.08)"
         }}
@@ -222,7 +220,7 @@ export function FeaturedCardSmall({delay, vis, post}: {delay: number, vis: boole
                         "--gray": B.gray
                     } as CSSProperties}
                 >
-                    <Icon name="clock" size={12} color={B.electric} />
+                    <Icon name="clock" size={12} color={B.electric}/>
                     {post.read} read · {post.date}
                 </div>
             </div>

@@ -1,12 +1,13 @@
 'use client'
-import { B } from "@/colors/Colors";
-import { useInView } from "@/hooks/useInView";
-import type { ChangeEvent } from "react";
-import { useState } from "react";
+import {B} from "@/colors/Colors";
+import {useInView} from "@/hooks/useInView";
+import type {ChangeEvent} from "react";
+import {useState} from "react";
 import FormField from "@/components/contact/FormField";
-import { Icon, type IconName } from "@/icons/Icon";
-import { SidebarCard } from "@/components/contact/SideBarCard";
-import { SocialBtn } from "@/components/contact/SocialBtn";
+import {Icon, type IconName} from "@/icons/Icon";
+import {SidebarCard} from "@/components/contact/SideBarCard";
+import {SocialBtn} from "@/components/contact/SocialBtn";
+import {dMSans, spaceMono, syne} from "@/app/ui/fonts";
 
 type FormState = {
     name: string;
@@ -37,15 +38,15 @@ export default function ContactForm() {
         (k: keyof FormState) =>
             (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
                 const value = e.target.value;
-                setForm((f) => ({ ...f, [k]: value }));
-                setErrors((prev) => (prev[k] ? { ...prev, [k]: undefined } : prev));
+                setForm((f) => ({...f, [k]: value}));
+                setErrors((prev) => (prev[k] ? {...prev, [k]: undefined} : prev));
             };
 
     const services = ["CCTV & Surveillance", "Access Control", "Fiber Optic", "ICT Infrastructure", "Security Engineering", "Industrial Safety", "Other / General Enquiry"];
     const socials: Array<{ icon: IconName; label: string; url: string }> = [
-        { icon: "linkedin", label: "LinkedIn", url: "https://www.linkedin.com/company/gigasec-services/" },
-        { icon: "twitter", label: "Twitter", url: "https://x.com/Gigasecintl" },
-        { icon: "whatsapp", label: "WhatsApp", url: "#" },
+        {icon: "linkedin", label: "LinkedIn", url: "https://www.linkedin.com/company/gigasec-services/"},
+        {icon: "twitter", label: "Twitter", url: "https://x.com/Gigasecintl"},
+        {icon: "whatsapp", label: "WhatsApp", url: "#"},
     ];
 
     const handleSubmit = () => {
@@ -68,7 +69,8 @@ export default function ContactForm() {
             className="py-[100px]"
             style={{background: B.offwhite}}
         >
-            <div className="max-w-[1280px] mx-auto px-6 sm:px-10 grid grid-cols-1 lg:grid-cols-[1.4fr_1fr] gap-10 lg:gap-16 items-start">
+            <div
+                className="max-w-[1280px] mx-auto px-6 sm:px-10 grid grid-cols-1 lg:grid-cols-[1.4fr_1fr] gap-10 lg:gap-16 items-start">
 
                 {/* FORM CARD */}
                 <div
@@ -81,22 +83,22 @@ export default function ContactForm() {
                 >
                     {/* Header */}
                     <div
-                        className="text-[11px] tracking-[3px] mb-[10px]"
-                        style={{fontFamily: "'Space Mono', monospace", color: B.electric}}
+                        className={`${spaceMono.className} text-[11px] tracking-[3px] mb-[10px]`}
+                        style={{color: B.electric}}
                     >
                         START A CONVERSATION
                     </div>
 
                     <h2
-                        className="text-[1.8rem] font-extrabold mb-2 tracking-[-0.5px]"
-                        style={{fontFamily: "'Syne', sans-serif", color: B.navy}}
+                        className={`${syne.className} text-[1.8rem] font-extrabold mb-2 tracking-[-0.5px]`}
+                        style={{color: B.navy}}
                     >
                         Tell Us About Your Project
                     </h2>
 
                     <p
-                        className="text-[14px] leading-[1.7] mb-9"
-                        style={{fontFamily: "'DM Sans', sans-serif", color: B.gray}}
+                        className={`${dMSans.className} text-[14px] leading-[1.7] mb-9`}
+                        style={{color: B.gray}}
                     >
                         Fill in the form below and one of our engineers will get back to you within 24 hours.
                     </p>
@@ -182,8 +184,8 @@ export default function ContactForm() {
                                 }}
                             >
                                 <label
-                                    className="block text-[13px] font-semibold mb-2"
-                                    style={{fontFamily: "'DM Sans', sans-serif", color: B.charcoal}}
+                                    className={`${dMSans.className} block text-[13px] font-semibold mb-2`}
+                                    style={{color: B.charcoal}}
                                 >
                                     Service Required
                                 </label>
@@ -193,12 +195,11 @@ export default function ContactForm() {
                                     onChange={set("service")}
                                     onFocus={() => setFocused("service")}
                                     onBlur={() => setFocused(null)}
-                                    className="w-full px-[18px] py-[13px] rounded-lg text-[14px] outline-none transition-all cursor-pointer"
+                                    className={`${dMSans.className} w-full px-[18px] py-[13px] rounded-lg text-[14px] outline-none transition-all cursor-pointer`}
                                     style={{
                                         border: `1.5px solid ${focused === "service" ? B.electric : B.lightgray}`,
                                         background: B.offwhite,
                                         color: form.service ? B.charcoal : B.gray,
-                                        fontFamily: "'DM Sans', sans-serif",
                                     }}
                                 >
                                     <option value="">Select a service...</option>
@@ -298,10 +299,14 @@ export default function ContactForm() {
                 <div className="flex flex-col gap-5">
                     <SidebarCard title="Office Locations" icon="pin" vis={vis} delay={200}>
                         {[
-                            {city: "Port Harcourt (HQ)", addr: "46 Ordinance Road, Off Trans\n" +
-                                    "Amadi Industrial Layout."},
-                            {city: "Lagos", addr: "7 Atunwa Street, Off Unity Road, Ikeja,\n" +
-                                    "Lagos"},
+                            {
+                                city: "Port Harcourt (HQ)", addr: "46 Ordinance Road, Off Trans\n" +
+                                    "Amadi Industrial Layout."
+                            },
+                            {
+                                city: "Lagos", addr: "7 Atunwa Street, Off Unity Road, Ikeja,\n" +
+                                    "Lagos"
+                            },
                             {city: "Abuja", addr: "27 Karaye Close, Behind Old CBN Garki, Abuja."},
                         ].map((o, i) => (
                             <div

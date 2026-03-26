@@ -2,8 +2,11 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { dMSans } from "@/app/ui/fonts";
 import {ArrowUpRight, ChevronRight, Menu, X} from "lucide-react";
+import {Icon} from "@/icons/Icon";
+import {useCart} from "@/context/CartContext";
 
 const BRAND = {
     navy: "#0d3d3d",
@@ -14,7 +17,7 @@ const BRAND = {
 const navlinks = [
     { text: "Home", url: "/" },
     { text: "Services", url: "/services" },
-    // { text: "Experience", url: "#case-studies" },
+    { text: "Shop", url: "/shop" },
     { text: "About", url: "/about" },
     { text: "Blog", url: "/blog" },
     { text: "Contact", url: "/contact" },
@@ -71,6 +74,7 @@ function Sidebar() {
     const [isOpen, setIsOpen] = useState(false);
     const [isVisible, setIsVisible] = useState(false);
     const [isActive, setIsActive] = useState(false);
+    const pathname = usePathname();
     useEffect(() => {
         document.documentElement.style.overflow = isOpen ? "hidden" : "";
         document.body.style.overflowX = "hidden";
@@ -135,17 +139,22 @@ function Sidebar() {
                             />
                         </div>
                         <div className="flex flex-col px-5 mb-10">
-                            {navlinks.map((link) => (
+                            {navlinks.map((link) => {
+                                const isCurrent = pathname === link.url;
+                                return (
                                 <Link
                                     key={link.text}
                                     href={link.url}
-                                    className="py-6 font-bold tracking-[0.5px] transition-colors duration-200 hover:text-[#0099cc] border-b flex justify-between items-center"
+                                    className={`py-6 font-bold tracking-[0.5px] transition-colors duration-200 border-b flex justify-between items-center ${
+                                        isCurrent ? "text-[#0099cc]" : "hover:text-[#0099cc]"
+                                    }`}
                                     onClick={() => setIsOpen(false)}
                                 >
                                     {link.text}
                                     <ChevronRight size={15} />
                                 </Link>
-                            ))}
+                                );
+                            })}
                         </div>
                         <div className="px-6">
                             <a
@@ -166,6 +175,9 @@ function Sidebar() {
 
 export default function Navbar() {
     const [scrolled, setScrolled] = useState(false);
+    const {cart} = useCart();
+    const cartCount = cart.reduce((total, item) => total + item.qty, 0);
+    const pathname = usePathname();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -203,25 +215,47 @@ export default function Navbar() {
                     </Link>
                 </div>
 
-                <div className="md:flex hidden items-center gap-10">
-                    <div className={`${dMSans.className} flex gap-10 antialiased`}>
-                        {navlinks.map((link) => (
+                <div className="md:flex hidden items-center gap-1">
+                    <div className={`${dMSans.className} flex gap-1 antialiased`}>
+                        {navlinks.map((link) => {
+                            const isCurrent = pathname === link.url;
+                            return (
                             <Link
                                 key={link.text}
                                 href={link.url}
-                                className="text-[14px] font-medium tracking-[0.5px] text-white/85 transition-colors duration-200 hover:text-[#0099cc]"
+                                className={`text-[14px] font-medium tracking-[0.5px] transition-all duration-200 px-4 py-2 rounded-lg border ${
+                                    isCurrent
+                                        ? "text-[#35c9c3] bg-[#0b2f31] border-[#1a6b6b]"
+                                        : "text-white/85 border-transparent hover:text-[#0099cc]"
+                                }`}
                             >
                                 {link.text}
                             </Link>
-                        ))}
+                            );
+                        })}
                     </div>
 
-                    <Link
-                        href="#contact"
-                        className={`${dMSans.className} rounded-[6px] bg-[#339a99] px-[22px] py-[10px] text-[14px] font-semibold tracking-[0.5px] text-white shadow-[0_4px_16px_rgba(0,153,204,0.35)] transition-all duration-200 hover:-translate-y-[1px] hover:bg-[#007aaa]`}
-                    >
-                        Get a Quote
-                    </Link>
+                    <div className="flex items-center gap-1">
+                        <Link
+                            href="#contact"
+                            className={`${dMSans.className} rounded-[6px] bg-[#339a99] px-[22px] py-[10px] text-[14px] font-semibold tracking-[0.5px] text-white shadow-[0_4px_16px_rgba(0,153,204,0.35)] transition-all duration-200 hover:-translate-y-[1px] hover:bg-[#007aaa]`}
+                        >
+                            Get a Quote
+                        </Link>
+                        <div className="relative ml-2 px-3 py-2 rounded-md cursor-pointer transition-all duration-200"
+                             style={{ background: "rgba(51,154,153,0.12)", border: "1px solid rgba(51,154,153,0.3)" }}
+                             onMouseEnter={e => e.currentTarget.style.background = "rgba(51,154,153,0.2)"}
+                             onMouseLeave={e => e.currentTarget.style.background = "rgba(51,154,153,0.12)"}>
+                            <Icon name="cart" size={20} color="#339a99" />
+                            {cartCount > 0 && (
+                                <div className={`${dMSans.className} absolute -top-1.5 -right-1.5 w-5 h-5 rounded-full flex items-center justify-center text-white font-bold text-[11px]`}
+                                     style={{ background: "#FF6600", animation: "cartBounce 0.5s cubic-bezier(0.34,1.56,0.64,1)" }}>
+                                    {cartCount}
+                                </div>
+                            )}
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </nav>

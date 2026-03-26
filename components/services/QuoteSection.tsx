@@ -4,6 +4,7 @@ import {useState} from "react";
 import {SERVICES} from "@/components/services/services";
 import {Icon, type IconName} from "@/icons/Icon";
 import {B} from "@/colors/Colors";
+import {syne} from "@/app/ui/fonts";
 
 export default function QuoteSection() {
     const [ref, vis] = useInView(0.1);
@@ -169,11 +170,11 @@ export default function QuoteSection() {
                                 }}
                             />
                             <button
-                                className="w-full"
+                                className={`${syne.className} w-full`}
                                 style={{
                                 background: `linear-gradient(135deg, ${B.electric}, #227a79)`,
                                 color: "#fff", border: "none", borderRadius: 10, padding: "16px",
-                                fontFamily: "'Syne',sans-serif", fontWeight: 700, fontSize: 15,
+                                fontWeight: 700, fontSize: 15,
                                 cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", gap: 8,
                                 boxShadow: `0 8px 32px ${B.electric}50`,
                                 transition: "all 0.3s cubic-bezier(0.34,1.56,0.64,1)",

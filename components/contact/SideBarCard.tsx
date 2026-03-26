@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 import { useState } from "react";
 import { Icon, type IconName } from "@/icons/Icon";
 import { B } from "@/colors/Colors";
+import {syne} from "@/app/ui/fonts";
 
 type SidebarCardProps = {
     title: string;
@@ -47,8 +48,8 @@ export function SidebarCard({ title, icon, children, vis, delay }: SidebarCardPr
                 </div>
 
                 <h3
-                    className="text-[15px] font-bold"
-                    style={{ fontFamily: "'Syne', sans-serif", color: B.navy }}
+                    className={`${syne.className} text-[15px] font-bold`}
+                    style={{ color: B.navy }}
                 >
                     {title}
                 </h3>

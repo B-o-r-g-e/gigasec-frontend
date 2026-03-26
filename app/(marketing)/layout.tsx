@@ -1,12 +1,7 @@
-import Navbar, {MobileMenu} from "@/components/layout/navbar";
-import {Sidebar} from "lucide-react";
+import MarketingShell from "@/components/layout/MarketingShell";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
     return (
-        <div className="relative overflow-x-hidden">
-            <div><Navbar /></div>
-            <MobileMenu />
-            <div id="marketing-scroll-container" className="grow overflow-x-hidden">{children}</div>
-        </div>
+        <MarketingShell>{children}</MarketingShell>
     );
 }
