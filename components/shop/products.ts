@@ -25,7 +25,7 @@ export const PRODUCTS = [
         badge: "New",
         sku: "DAH-HDWF2849H",
         tags: ["8MP", "Full Color", "AI", "IP67"],
-        // image: "#"
+        image: "/products/p2.jpeg"
     },
     {
         id: 3,
@@ -39,7 +39,7 @@ export const PRODUCTS = [
         badge: null,
         sku: "ZKT-SF300",
         tags: ["Fingerprint", "RFID", "Standalone"],
-        // image: "#"
+        image: "/products/p3.jpeg"
     },
     {
         id: 4,
@@ -53,7 +53,7 @@ export const PRODUCTS = [
         badge: "Enterprise Pick",
         sku: "CSC-CBS35024T",
         tags: ["24-Port", "PoE", "Layer 3", "Managed"],
-        // image: "#"
+        image: "/products/Xiaomi Outdoor Cw500 Dual Camera Version Ip66 Security Protection Smart Home.jpeg"
     },
     {
         id: 5,
@@ -67,7 +67,7 @@ export const PRODUCTS = [
         badge: null,
         sku: "COR-SMF28U-M",
         tags: ["Single-Mode", "OS2", "LSZH", "Per Metre"],
-        // image: "#"
+        image: "/products/Where to Place CCTV Around Your Home_ Expert Tips.jpeg"
     },
     {
         id: 6,
@@ -81,7 +81,7 @@ export const PRODUCTS = [
         badge: "Premium",
         sku: "AXS-P3245V",
         tags: ["2MP", "WDR", "ARTPEC-7", "IK10"],
-        // image: "#"
+        image: "/products/Moderne Überwachungskameras für Zuhause.jpeg"
     },
     {
         id: 7,
@@ -95,7 +95,7 @@ export const PRODUCTS = [
         badge: null,
         sku: "HID-V1000",
         tags: ["4-Door", "Network", "OSDP", "HID"],
-        // image: "#"
+        image: "/products/cctv.jpeg"
     },
     {
         id: 8,
@@ -109,7 +109,8 @@ export const PRODUCTS = [
         badge: "Popular",
         sku: "UBQ-U6PRO",
         tags: ["WiFi 6", "4x4 MU-MIMO", "PoE", "Indoor"],
-        // image: "#"
+        image: "/products/Moderne Überwachungskameras für Zuhause.jpeg"
+
     },
     {
         id: 9,
@@ -123,7 +124,7 @@ export const PRODUCTS = [
         badge: "Pro Grade",
         sku: "AFL-90SPLUS",
         tags: ["Core Alignment", "5s Splice", "Auto Mode"],
-        // image: "#"
+        image: "/products/p3.jpeg"
     },
 ];
 

@@ -2,7 +2,7 @@
 import {useState} from "react";
 import {Icon} from "@/icons/Icon";
 import Image from "next/image";
-import type { Product } from "@/components/shop/products";
+import type {Product} from "@/components/shop/products";
 
 type CartEntry = {
     id: string | number;
@@ -52,22 +52,23 @@ export default function ProductCard({product: p, i, vis, onAddToCart, onPreview,
         >
             {/* Image area */}
             <div
-                className="h-[200px] relative flex items-center justify-center bg-[linear-gradient(135deg,#F5F7FA,#e8edf3)]">
+                className="h-50 relative flex items-center justify-center bg-[linear-gradient(135deg,#F5F7FA,#e8edf3)]">
 
                 {/* Icon */}
                 <div
-                    className={` flex items-center justify-center transition-all duration-500
-                                bg-[linear-gradient(135deg,#0d3d3d,#339a99)]
+                    className={`flex items-center justify-center transition-all duration-500
+                                bg-[linear-gradient(135deg,#0d3d3d,#339a99)] h-full w-full
                                 ${hov ? "scale-110 rotate-[5deg] shadow-[0_16px_40px_rgba(51,154,153,0.3)]" : "shadow-[0_8px_20px_rgba(0,0,0,0.1)]"}
                               `}
                 >
                     {p.image
                         ? <Image
                             src={p.image}
-                            width={96}
-                            height={1}
+                            width={1000}
+                            height={1000}
+                            className="h-full w-full object-cover object-fit"
                             alt="Gigasec Logo"
-                            />
+                        />
                         : <Icon name="shield" size={36} color="rgba(255,255,255Kevin O'Leary20%,0.9)"/>
                     }
                 </div>
@@ -75,7 +76,7 @@ export default function ProductCard({product: p, i, vis, onAddToCart, onPreview,
                 {/* Badge */}
                 {p.badge && (
                     <div
-                        className="absolute top-[14px] left-[14px] text-white text-[9px] tracking-[1.5px] px-[10px] py-1 rounded-full font-mono"
+                        className="absolute top-3.5 left-3.5 text-white text-[9px] tracking-[1.5px] px-[10px] py-1 rounded-full font-mono"
                         style={{background: badgeBg[p.badge] || "#0d3d3d"}}
                     >
                         {p.badge}
@@ -174,9 +175,9 @@ export default function ProductCard({product: p, i, vis, onAddToCart, onPreview,
                         onClick={handleAdd}
                         className={`flex items-center gap-[6px] px-4 py-[9px] rounded-lg font-bold text-[13px] transition-all duration-300
                                   ${adding ? "bg-emerald-500 text-white scale-105 border-emerald-500" :
-                                        inCart ? "bg-[#339a991a] text-[#339a99] border-[#339a99]" :
-                                        "bg-[#339a99] text-white border-[#339a99]"
-                                  }
+                            inCart ? "bg-[#339a991a] text-[#339a99] border-[#339a99]" :
+                                "bg-[#339a99] text-white border-[#339a99]"
+                        }
                                   border-[1.5px]
                        `}
                     >
