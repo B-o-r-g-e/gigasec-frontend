@@ -237,23 +237,25 @@ export default function Navbar() {
 
                     <div className="flex items-center gap-1">
                         <Link
-                            href="#contact"
+                            href="/contact"
                             className={`${dMSans.className} rounded-[6px] bg-[#339a99] px-[22px] py-[10px] text-[14px] font-semibold tracking-[0.5px] text-white shadow-[0_4px_16px_rgba(0,153,204,0.35)] transition-all duration-200 hover:-translate-y-[1px] hover:bg-[#007aaa]`}
                         >
                             Get a Quote
                         </Link>
-                        <div className="relative ml-2 px-3 py-2 rounded-md cursor-pointer transition-all duration-200"
-                             style={{ background: "rgba(51,154,153,0.12)", border: "1px solid rgba(51,154,153,0.3)" }}
-                             onMouseEnter={e => e.currentTarget.style.background = "rgba(51,154,153,0.2)"}
-                             onMouseLeave={e => e.currentTarget.style.background = "rgba(51,154,153,0.12)"}>
-                            <Icon name="cart" size={20} color="#339a99" />
-                            {cartCount > 0 && (
-                                <div className={`${dMSans.className} absolute -top-1.5 -right-1.5 w-5 h-5 rounded-full flex items-center justify-center text-white font-bold text-[11px]`}
-                                     style={{ background: "#FF6600", animation: "cartBounce 0.5s cubic-bezier(0.34,1.56,0.64,1)" }}>
-                                    {cartCount}
-                                </div>
-                            )}
-                        </div>
+                        <Link href="/cart">
+                            <div className="relative ml-2 px-3 py-2 rounded-md cursor-pointer transition-all duration-200"
+                                 style={{ background: "rgba(51,154,153,0.12)", border: "1px solid rgba(51,154,153,0.3)" }}
+                                 onMouseEnter={e => e.currentTarget.style.background = "rgba(51,154,153,0.2)"}
+                                 onMouseLeave={e => e.currentTarget.style.background = "rgba(51,154,153,0.12)"}>
+                                <Icon name="cart" size={20} color="#339a99" />
+                                {cartCount > 0 && (
+                                    <div className={`${dMSans.className} absolute -top-1.5 -right-1.5 w-5 h-5 rounded-full flex items-center justify-center text-white font-bold text-[11px]`}
+                                         style={{ background: "#FF6600", animation: "cartBounce 0.5s cubic-bezier(0.34,1.56,0.64,1)" }}>
+                                        {cartCount}
+                                    </div>
+                                )}
+                            </div>
+                        </Link>
                     </div>
 
                 </div>

@@ -10,4 +10,5 @@ export const B = {
     gray:     "#6B7280",
     lightgray:"#e8edf3",
     deep:    "#040f0f",
+    green:     "#10b981",
 };
