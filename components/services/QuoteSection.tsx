@@ -9,7 +9,114 @@ import {syne} from "@/app/ui/fonts";
 export default function QuoteSection() {
     const [ref, vis] = useInView(0.1);
     const [hoveredService, setHoveredService] = useState<string | null>(null);
+    const [form, setForm] = useState({
+        name: "",
+        company: "",
+        email: "",
+        phone: "",
+        message: "",
+    });
+    const [touched, setTouched] = useState({
+        name: false,
+        company: false,
+        email: false,
+        phone: false,
+        message: false,
+    });
+    const [errors, setErrors] = useState({
+        name: "",
+        company: "",
+        email: "",
+        phone: "",
+        message: "",
+    });
     const services = SERVICES.map(s => s.title);
+
+    const normalizeSpaces = (value: string) => value.replace(/\s+/g, " ").trim();
+    const isValidEmail = (value: string) =>
+        /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(value);
+    const isValidName = (value: string) =>
+        /^[A-Za-z][A-Za-z'\-.\s]{1,59}$/.test(value);
+    const isValidCompany = (value: string) =>
+        /^[A-Za-z0-9][A-Za-z0-9'&.,/\-\s]{2,79}$/.test(value);
+    const isValidPhone = (value: string) => {
+        const digits = value.replace(/\D/g, "");
+        if (!digits) return true;
+        return digits.length >= 10 && digits.length <= 15;
+    };
+    const validateField = (
+        field: "name" | "company" | "email" | "phone" | "message",
+        value: string
+    ) => {
+        const trimmed = normalizeSpaces(value);
+        if (field !== "phone" && !trimmed) return "This field is required.";
+        if (field === "name") {
+            return isValidName(trimmed)
+                ? ""
+                : "Use 2–60 letters. Only letters, spaces, apostrophes, hyphens, and periods.";
+        }
+        if (field === "company") {
+            return isValidCompany(trimmed)
+                ? ""
+                : "Use 3–80 characters. Letters, numbers, spaces, and basic punctuation only.";
+        }
+        if (field === "email") {
+            return isValidEmail(trimmed) ? "" : "Enter a valid email address.";
+        }
+        if (field === "phone") {
+            if (!trimmed) return "";
+            return isValidPhone(trimmed) ? "" : "Phone number must be 10–15 digits.";
+        }
+        if (field === "message") {
+            if (trimmed.length < 10) return "Please provide at least 10 characters.";
+            if (trimmed.length > 500) return "Message must be 500 characters or fewer.";
+            return "";
+        }
+        return "";
+    };
+    const handleChange =
+        (field: "name" | "company" | "email" | "phone" | "message") =>
+            (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+                const value = e.target.value;
+                setForm((prev) => ({ ...prev, [field]: value }));
+                if (touched[field]) {
+                    setErrors((prev) => ({ ...prev, [field]: validateField(field, value) }));
+                }
+            };
+    const handleBlur =
+        (field: "name" | "company" | "email" | "phone" | "message") =>
+            (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+                setTouched((prev) => ({ ...prev, [field]: true }));
+                setErrors((prev) => ({ ...prev, [field]: validateField(field, e.target.value) }));
+                e.currentTarget.style.borderColor = "#e5e7eb";
+                e.currentTarget.style.background = "#f4f7fb";
+                e.currentTarget.style.boxShadow = "none";
+            };
+    const handleSubmit = () => {
+        const nextErrors = {
+            name: validateField("name", form.name),
+            company: validateField("company", form.company),
+            email: validateField("email", form.email),
+            phone: validateField("phone", form.phone),
+            message: validateField("message", form.message),
+        };
+        setErrors(nextErrors);
+        setTouched({
+            name: true,
+            company: true,
+            email: true,
+            phone: true,
+            message: true,
+        });
+        if (Object.values(nextErrors).some(Boolean)) return;
+        setForm({
+            name: normalizeSpaces(form.name),
+            company: normalizeSpaces(form.company),
+            email: normalizeSpaces(form.email),
+            phone: normalizeSpaces(form.phone),
+            message: normalizeSpaces(form.message),
+        });
+    };
 
     return (
         <section id="quote" ref={ref} className="bg-[#f5f7fa] py-20 sm:py-24">
@@ -116,46 +223,55 @@ export default function QuoteSection() {
                         </h3>
                         <div className="flex flex-col gap-4.5">
                             {[
-                                { placeholder: "Full Name *", type: "text" },
-                                { placeholder: "Company Name *", type: "text" },
-                                { placeholder: "Email Address *", type: "email" },
-                                { placeholder: "Phone Number", type: "tel" },
-                            ].map(({ placeholder, type }, i) => (
-                                <input
-                                    key={placeholder}
-                                    type={type}
-                                    placeholder={placeholder}
-                                    className={`rounded-lg px-4 py-3 font-[DM_Sans] text-sm outline-none transition-all duration-250 ${
-                                        vis ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"
-                                    }`}
-                                    style={{
-                                        background: "#f4f7fb",
-                                        borderColor: "#e5e7eb",
-                                        color: B.charcoal,
-                                        borderWidth: "1px",
-                                        transitionDelay: `${i * 60 + 300}ms`,
-                                    }}
-                                    onFocus={e => {
-                                        e.currentTarget.style.borderColor = B.electric;
-                                        e.currentTarget.style.background = `${B.electric}0D`;
-                                        e.currentTarget.style.boxShadow = "0 0 0 3px rgba(66,153,225,0.15)";
-                                    }}
-                                    onBlur={e => {
-                                        e.currentTarget.style.borderColor = "#e5e7eb";
-                                        e.currentTarget.style.background = "#f4f7fb";
-                                        e.currentTarget.style.boxShadow = "none";
-                                    }}
-                                />
+                                { key: "name", placeholder: "Full Name *", type: "text" },
+                                { key: "company", placeholder: "Company Name *", type: "text" },
+                                { key: "email", placeholder: "Email Address *", type: "email" },
+                                { key: "phone", placeholder: "Phone Number", type: "tel" },
+                            ].map(({ key, placeholder, type }, i) => (
+                                <div key={key}>
+                                    <input
+                                        type={type}
+                                        placeholder={placeholder}
+                                        value={form[key as keyof typeof form]}
+                                        onChange={handleChange(key as keyof typeof form)}
+                                        onBlur={handleBlur(key as keyof typeof form)}
+                                        aria-invalid={Boolean(errors[key as keyof typeof errors])}
+                                        className={`w-full rounded-lg px-4 py-3 font-[DM_Sans] text-sm outline-none transition-all duration-250 ${
+                                            vis ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"
+                                        }`}
+                                        style={{
+                                            background: "#f4f7fb",
+                                            borderColor: errors[key as keyof typeof errors] ? "#ef4444" : "#e5e7eb",
+                                            color: B.charcoal,
+                                            borderWidth: "1px",
+                                            transitionDelay: `${i * 60 + 300}ms`,
+                                        }}
+                                        onFocus={e => {
+                                            e.currentTarget.style.borderColor = B.electric;
+                                            e.currentTarget.style.background = `${B.electric}0D`;
+                                            e.currentTarget.style.boxShadow = "0 0 0 3px rgba(66,153,225,0.15)";
+                                        }}
+                                    />
+                                    {touched[key as keyof typeof touched] && errors[key as keyof typeof errors] && (
+                                        <div className="mt-2 font-[DM_Sans] text-[12px] text-red-500">
+                                            {errors[key as keyof typeof errors]}
+                                        </div>
+                                    )}
+                                </div>
                             ))}
                             <textarea
                                 placeholder="Briefly describe your requirements *"
                                 rows={4}
+                                value={form.message}
+                                onChange={handleChange("message")}
+                                onBlur={handleBlur("message")}
+                                aria-invalid={Boolean(errors.message)}
                                 className={`rounded-lg px-4 py-3 font-[DM_Sans] text-sm outline-none resize-vertical transition-all duration-250 ${
                                     vis ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"
                                 }`}
                                 style={{
                                     background: "#f4f7fb",
-                                    borderColor: "#e5e7eb",
+                                    borderColor: errors.message ? "#ef4444" : "#e5e7eb",
                                     color: B.charcoal,
                                     borderWidth: "1px",
                                     transitionDelay: "540ms",
@@ -164,11 +280,12 @@ export default function QuoteSection() {
                                     e.currentTarget.style.borderColor = B.electric;
                                     e.currentTarget.style.boxShadow = "0 0 0 3px rgba(66,153,225,0.15)";
                                 }}
-                                onBlur={e => {
-                                    e.currentTarget.style.borderColor = "#e5e7eb";
-                                    e.currentTarget.style.boxShadow = "none";
-                                }}
                             />
+                            {touched.message && errors.message && (
+                                <div className="mt-2 font-[DM_Sans] text-[12px] text-red-500">
+                                    {errors.message}
+                                </div>
+                            )}
                             <button
                                 className={`${syne.className} w-full`}
                                 style={{
@@ -183,6 +300,7 @@ export default function QuoteSection() {
                             }}
                                     onMouseEnter={e => { e.currentTarget.style.transform = "scale(1.03) translateY(-2px)"; e.currentTarget.style.boxShadow = `0 12px 40px ${B.electric}60`; }}
                                     onMouseLeave={e => { e.currentTarget.style.transform = "scale(1)"; e.currentTarget.style.boxShadow = `0 8px 32px ${B.electric}50`; }}
+                                    onClick={handleSubmit}
                             >
                                 Contact Us <Icon name="arrow" size={18} color="#fff" />
                             </button>

@@ -14,6 +14,7 @@ type FormFieldProps = {
     onBlur: FocusEventHandler<HTMLInputElement>;
     vis: boolean;
     delay: number;
+    error?: string;
 };
 
 export default function FormField({
@@ -27,6 +28,7 @@ export default function FormField({
     onBlur,
     vis,
     delay,
+    error,
 }: FormFieldProps) {
     return (
         <div
@@ -55,9 +57,10 @@ export default function FormField({
                 onChange={onChange}
                 onFocus={onFocus}
                 onBlur={onBlur}
+                aria-invalid={Boolean(error)}
                 className={`${dMSans.className} w-full px-[18px] py-[13px] rounded-lg text-[14px] outline-none transition-all duration-[250ms]`}
                 style={{
-                    border: `1.5px solid ${focused ? B.electric : B.lightgray}`,
+                    border: `1.5px solid ${error ? "#ef4444" : focused ? B.electric : B.lightgray}`,
                     background: B.offwhite,
                     color: B.charcoal,
                     boxShadow: focused ? "0 0 0 3px rgba(51,154,153,0.15)" : "none",

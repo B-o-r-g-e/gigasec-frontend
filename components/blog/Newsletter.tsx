@@ -9,6 +9,26 @@ export default function Newsletter() {
     const [ref, vis] = useInView(0.2);
     const [email, setEmail] = useState("");
     const [sent, setSent] = useState(false);
+    const [touched, setTouched] = useState(false);
+    const [error, setError] = useState("");
+
+    const normalizeSpaces = (value: string) => value.replace(/\s+/g, " ").trim();
+    const isValidEmail = (value: string) =>
+        /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(value);
+    const validateEmail = (value: string) => {
+        const trimmed = normalizeSpaces(value);
+        if (!trimmed) return "Email is required.";
+        if (!isValidEmail(trimmed)) return "Enter a valid email address.";
+        return "";
+    };
+    const handleSubmit = () => {
+        const nextError = validateEmail(email);
+        setError(nextError);
+        setTouched(true);
+        if (nextError) return;
+        setEmail(normalizeSpaces(email));
+        setSent(true);
+    };
 
     return (
         <section
@@ -58,30 +78,43 @@ export default function Newsletter() {
 
                     {/* Form */}
                     {!sent ? (
-                        <div className="flex flex-col sm:flex-row gap-3">
-                            <input
-                                type="email"
-                                value={email}
-                                onChange={e => setEmail(e.target.value)}
-                                placeholder="your@company.com"
-                                className={`${dMSans.className} w-full flex-1 rounded-[8px] px-5 py-3 outline-none transition-all`}
-                                style={{
-                                    border: "1.5px solid rgba(51,154,153,0.3)",
-                                    background: "rgba(255,255,255,0.05)",
-                                    color: "#fff",
-                                    fontSize: "14px"
-                                }}
-                                onFocus={e => {
-                                    e.target.style.borderColor = B.electric;
-                                    e.target.style.background = "rgba(51,154,153,0.08)";
-                                }}
-                                onBlur={e => {
-                                    e.target.style.borderColor = "rgba(51,154,153,0.3)";
-                                    e.target.style.background = "rgba(255,255,255,0.05)";
-                                }}
-                            />
+                        <div className="flex flex-col sm:flex-row gap-3 sm:items-start">
+                            <div className="flex-1 min-w-0">
+                                <input
+                                    type="email"
+                                    value={email}
+                                    onChange={e => {
+                                        setEmail(e.target.value);
+                                        if (touched) setError(validateEmail(e.target.value));
+                                    }}
+                                    onBlur={e => {
+                                        setTouched(true);
+                                        setError(validateEmail(email));
+                                        e.target.style.borderColor = "rgba(51,154,153,0.3)";
+                                        e.target.style.background = "rgba(255,255,255,0.05)";
+                                    }}
+                                    placeholder="your@company.com"
+                                    className={`${dMSans.className} w-full rounded-[8px] px-5 py-3 outline-none transition-all`}
+                                    style={{
+                                        border: `1.5px solid ${error ? "rgba(239,68,68,0.85)" : "rgba(51,154,153,0.3)"}`,
+                                        background: "rgba(255,255,255,0.05)",
+                                        color: "#fff",
+                                        fontSize: "14px"
+                                    }}
+                                    aria-invalid={Boolean(error)}
+                                    onFocus={e => {
+                                        e.target.style.borderColor = B.electric;
+                                        e.target.style.background = "rgba(51,154,153,0.08)";
+                                    }}
+                                />
+                                {touched && error && (
+                                    <div className={`${dMSans.className} mt-2 text-[12px] text-red-400 text-left leading-tight`}>
+                                        {error}
+                                    </div>
+                                )}
+                            </div>
                             <button
-                                onClick={() => setSent(true)}
+                                onClick={handleSubmit}
                                 className="w-full sm:w-auto rounded-[8px] px-[28px] py-[14px] font-dm font-bold text-[14px] text-white cursor-pointer transition-all"
                                 style={{
                                     background: B.electric,

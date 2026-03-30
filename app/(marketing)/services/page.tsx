@@ -17,7 +17,7 @@ export default function ServicesPage() {
             <Hero />
             <FilterBar active={filter} setActive={setFilter} />
             <section className="bg-[#f5f7fa] py-16 sm:py-20">
-                <div className="max-w-[1300px] mx-auto px-4 sm:px-6 lg:px-10 flex flex-col gap-6">
+                <div className="max-w-325 mx-auto px-4 sm:px-6 lg:px-10 flex flex-col gap-6">
                     {SERVICES.map((svc, i) => (
                         <ServiceBlock key={svc.id} svc={svc} index={i} filter={filter} />
                     ))}

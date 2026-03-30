@@ -19,6 +19,7 @@ type FormState = {
 };
 
 type FocusedField = "name" | "company" | "email" | "phone" | "service" | "msg" | null;
+type FormErrors = Partial<Record<keyof FormState, string>>;
 
 export default function ContactForm() {
     const [ref, vis] = useInView(0.06);
@@ -32,15 +33,85 @@ export default function ContactForm() {
     });
     const [submitted, setSubmitted] = useState(false);
     const [focused, setFocused] = useState<FocusedField>(null);
-    const [errors, setErrors] = useState<Partial<Record<keyof FormState, string>>>({});
+    const [errors, setErrors] = useState<FormErrors>({});
+    const [touched, setTouched] = useState<Partial<Record<keyof FormState, boolean>>>({});
+    const [submitAttempted, setSubmitAttempted] = useState(false);
 
+    const normalizeSpaces = (value: string) => value.replace(/\s+/g, " ").trim();
+    const isValidEmail = (value: string) =>
+        /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(value);
+    const isValidName = (value: string) =>
+        /^[A-Za-z][A-Za-z'\-.\s]{1,59}$/.test(value);
+    const isValidCompany = (value: string) =>
+        /^[A-Za-z0-9][A-Za-z0-9'&.,/\-\s]{2,79}$/.test(value);
+    const validateField = (k: keyof FormState, value: string): string | null => {
+        const trimmed = normalizeSpaces(value);
+        if (k !== "phone" && !trimmed) return "This field is required.";
+        if (k === "name") {
+            return isValidName(trimmed)
+                ? null
+                : "Use 2–60 letters. Only letters, spaces, apostrophes, hyphens, and periods.";
+        }
+        if (k === "company") {
+            if (!trimmed) return null;
+            return isValidCompany(trimmed)
+                ? null
+                : "Use 3–80 characters. Letters, numbers, spaces, and basic punctuation only.";
+        }
+        if (k === "email") {
+            return isValidEmail(trimmed) ? null : "Enter a valid email address.";
+        }
+        if (k === "phone") {
+            if (!trimmed) return null;
+            const digits = trimmed.replace(/\D/g, "");
+            return digits.length >= 10 && digits.length <= 15
+                ? null
+                : "Phone number must be 10–15 digits.";
+        }
+        if (k === "service") {
+            return trimmed ? null : "Please select a service.";
+        }
+        if (k === "message") {
+            if (trimmed.length < 20) return "Please provide at least 20 characters.";
+            if (trimmed.length > 500) return "Message must be 500 characters or fewer.";
+            return null;
+        }
+        return null;
+    };
+    const validateAll = (state: FormState): FormErrors => {
+        const next: FormErrors = {};
+        (Object.keys(state) as (keyof FormState)[]).forEach((k) => {
+            const err = validateField(k, state[k]);
+            if (err) next[k] = err;
+        });
+        return next;
+    };
     const set =
         (k: keyof FormState) =>
             (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
                 const value = e.target.value;
                 setForm((f) => ({...f, [k]: value}));
-                setErrors((prev) => (prev[k] ? {...prev, [k]: undefined} : prev));
+                if (touched[k] || submitAttempted) {
+                    setErrors((prev) => {
+                        const next = {...prev};
+                        const err = validateField(k, value);
+                        if (err) next[k] = err;
+                        else delete next[k];
+                        return next;
+                    });
+                }
             };
+    const handleBlur = (k: keyof FormState) => {
+        setFocused(null);
+        setTouched((t) => ({...t, [k]: true}));
+        setErrors((prev) => {
+            const next = {...prev};
+            const err = validateField(k, form[k]);
+            if (err) next[k] = err;
+            else delete next[k];
+            return next;
+        });
+    };
 
     const services = ["CCTV & Surveillance", "Access Control", "Fiber Optic", "ICT Infrastructure", "Security Engineering", "Industrial Safety", "Other / General Enquiry"];
     const socials: Array<{ icon: IconName; label: string; url: string }> = [
@@ -50,17 +121,28 @@ export default function ContactForm() {
     ];
 
     const handleSubmit = () => {
-        const nextErrors: Partial<Record<keyof FormState, string>> = {};
-        if (!form.name.trim()) nextErrors.name = "Full name is required.";
-        if (!form.email.trim()) {
-            nextErrors.email = "Email is required.";
-        } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {
-            nextErrors.email = "Enter a valid email address.";
-        }
-        if (!form.message.trim()) nextErrors.message = "Project description is required.";
-
+        setSubmitAttempted(true);
+        const normalized: FormState = {
+            name: normalizeSpaces(form.name),
+            company: normalizeSpaces(form.company),
+            email: normalizeSpaces(form.email),
+            phone: normalizeSpaces(form.phone),
+            service: normalizeSpaces(form.service),
+            message: normalizeSpaces(form.message),
+        };
+        const nextErrors = validateAll(normalized);
         setErrors(nextErrors);
-        if (Object.keys(nextErrors).length === 0) setSubmitted(true);
+        setTouched({
+            name: true,
+            company: true,
+            email: true,
+            phone: true,
+            service: true,
+            message: true,
+        });
+        if (Object.keys(nextErrors).length > 0) return;
+        setForm(normalized);
+        setSubmitted(true);
     };
     return (
         <section
@@ -116,11 +198,12 @@ export default function ContactForm() {
                                         onChange: set("name"),
                                         focused: focused === "name",
                                         onFocus: () => setFocused("name"),
-                                        onBlur: () => setFocused(null),
+                                        onBlur: () => handleBlur("name"),
+                                        error: errors.name,
                                         vis,
                                         delay: 0
                                     }} />
-                                    {errors.name ? (
+                                    {(touched.name || submitAttempted) && errors.name ? (
                                         <p className="mt-2 text-[12px] text-red-600">{errors.name}</p>
                                     ) : null}
                                 </div>
@@ -132,10 +215,14 @@ export default function ContactForm() {
                                         onChange: set("company"),
                                         focused: focused === "company",
                                         onFocus: () => setFocused("company"),
-                                        onBlur: () => setFocused(null),
+                                        onBlur: () => handleBlur("company"),
+                                        error: errors.company,
                                         vis,
                                         delay: 60
                                     }} />
+                                    {(touched.company || submitAttempted) && errors.company ? (
+                                        <p className="mt-2 text-[12px] text-red-600">{errors.company}</p>
+                                    ) : null}
                                 </div>
                             </div>
 
@@ -150,11 +237,12 @@ export default function ContactForm() {
                                         onChange: set("email"),
                                         focused: focused === "email",
                                         onFocus: () => setFocused("email"),
-                                        onBlur: () => setFocused(null),
+                                        onBlur: () => handleBlur("email"),
+                                        error: errors.email,
                                         vis,
                                         delay: 120
                                     }} />
-                                    {errors.email ? (
+                                    {(touched.email || submitAttempted) && errors.email ? (
                                         <p className="mt-2 text-[12px] text-red-600">{errors.email}</p>
                                     ) : null}
                                 </div>
@@ -167,10 +255,14 @@ export default function ContactForm() {
                                         onChange: set("phone"),
                                         focused: focused === "phone",
                                         onFocus: () => setFocused("phone"),
-                                        onBlur: () => setFocused(null),
+                                        onBlur: () => handleBlur("phone"),
+                                        error: errors.phone,
                                         vis,
                                         delay: 180
                                     }} />
+                                    {(touched.phone || submitAttempted) && errors.phone ? (
+                                        <p className="mt-2 text-[12px] text-red-600">{errors.phone}</p>
+                                    ) : null}
                                 </div>
                             </div>
 
@@ -194,19 +286,23 @@ export default function ContactForm() {
                                     value={form.service}
                                     onChange={set("service")}
                                     onFocus={() => setFocused("service")}
-                                    onBlur={() => setFocused(null)}
+                                    onBlur={() => handleBlur("service")}
                                     className={`${dMSans.className} w-full px-[18px] py-[13px] rounded-lg text-[14px] outline-none transition-all cursor-pointer`}
                                     style={{
-                                        border: `1.5px solid ${focused === "service" ? B.electric : B.lightgray}`,
+                                        border: `1.5px solid ${errors.service ? "#ef4444" : focused === "service" ? B.electric : B.lightgray}`,
                                         background: B.offwhite,
                                         color: form.service ? B.charcoal : B.gray,
                                     }}
+                                    aria-invalid={Boolean(errors.service)}
                                 >
                                     <option value="">Select a service...</option>
                                     {services.map((s) => (
                                         <option key={s} value={s}>{s}</option>
                                     ))}
                                 </select>
+                                {(touched.service || submitAttempted) && errors.service ? (
+                                    <p className="mt-2 text-[12px] text-red-600">{errors.service}</p>
+                                ) : null}
                             </div>
 
                             {/* TEXTAREA */}
@@ -227,17 +323,18 @@ export default function ContactForm() {
                                     value={form.message}
                                     onChange={set("message")}
                                     onFocus={() => setFocused("msg")}
-                                    onBlur={() => setFocused(null)}
+                                    onBlur={() => handleBlur("message")}
                                     placeholder="Briefly describe your requirements — site size, number of locations, timeline, budget range..."
                                     className="w-full px-[18px] py-[13px] rounded-lg text-[14px] resize-y outline-none transition-all"
                                     style={{
-                                        border: `1.5px solid ${focused === "msg" ? B.electric : B.lightgray}`,
+                                        border: `1.5px solid ${errors.message ? "#ef4444" : focused === "msg" ? B.electric : B.lightgray}`,
                                         background: B.offwhite,
                                         color: B.charcoal,
                                         boxShadow: focused === "msg" ? "0 0 0 3px rgba(51,154,153,0.15)" : "none",
                                     }}
+                                    aria-invalid={Boolean(errors.message)}
                                 />
-                                {errors.message ? (
+                                {(touched.message || submitAttempted) && errors.message ? (
                                     <p className="mt-2 text-[12px] text-red-600">{errors.message}</p>
                                 ) : null}
                             </div>

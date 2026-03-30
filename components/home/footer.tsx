@@ -1,10 +1,80 @@
 "use client";
 
+import { useState } from "react";
 import { ArrowRight, Mail, Phone, Shield } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
 export default function Footer() {
+    const [form, setForm] = useState({
+        name: "",
+        email: "",
+        service: "",
+    });
+    const [touched, setTouched] = useState({
+        name: false,
+        email: false,
+        service: false,
+    });
+    const [errors, setErrors] = useState({
+        name: "",
+        email: "",
+        service: "",
+    });
+
+    const normalizeSpaces = (value: string) => value.replace(/\s+/g, " ").trim();
+    const isValidEmail = (value: string) =>
+        /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(value);
+    const isValidName = (value: string) =>
+        /^[A-Za-z][A-Za-z'\-.\s]{1,49}$/.test(value);
+    const isValidService = (value: string) =>
+        /^[A-Za-z0-9][A-Za-z0-9'&.,/\-\s]{2,79}$/.test(value);
+    const validateField = (field: "name" | "email" | "service", value: string) => {
+        const trimmed = normalizeSpaces(value);
+        if (!trimmed) return "This field is required.";
+        if (field === "name") {
+            return isValidName(trimmed)
+                ? ""
+                : "Use 2–50 letters. Only letters, spaces, apostrophes, hyphens, and periods.";
+        }
+        if (field === "email") {
+            return isValidEmail(trimmed) ? "" : "Enter a valid email address.";
+        }
+        if (field === "service") {
+            return isValidService(trimmed)
+                ? ""
+                : "Use 3–80 characters. Letters, numbers, spaces, and basic punctuation only.";
+        }
+        return "";
+    };
+    const handleChange =
+        (field: "name" | "email" | "service") =>
+            (e: React.ChangeEvent<HTMLInputElement>) => {
+                const value = e.target.value;
+                setForm((prev) => ({ ...prev, [field]: value }));
+                if (touched[field]) {
+                    setErrors((prev) => ({ ...prev, [field]: validateField(field, value) }));
+                }
+            };
+    const handleBlur = (field: "name" | "email" | "service") => () => {
+        setTouched((prev) => ({ ...prev, [field]: true }));
+        setErrors((prev) => ({ ...prev, [field]: validateField(field, form[field]) }));
+    };
+    const handleSubmit = () => {
+        const nextErrors = {
+            name: validateField("name", form.name),
+            email: validateField("email", form.email),
+            service: validateField("service", form.service),
+        };
+        setErrors(nextErrors);
+        setTouched({ name: true, email: true, service: true });
+        if (nextErrors.name || nextErrors.email || nextErrors.service) return;
+        setForm({
+            name: normalizeSpaces(form.name),
+            email: normalizeSpaces(form.email),
+            service: normalizeSpaces(form.service),
+        });
+    };
     const contactItems = [
         { icon: Phone, text: "+234 815 444 2732" },
         { icon: Phone, text: "+234 706 418 3475" },
@@ -45,15 +115,64 @@ export default function Footer() {
 
                     {/* Quick form */}
                     <div className="flex flex-col gap-[14px]">
-                        {["Your Name", "Email Address", "Service Interest"].map((placeholder) => (
+                        <div>
                             <input
-                                key={placeholder}
-                                placeholder={placeholder}
-                                className="rounded-[8px] border border-white/10 bg-white/5 px-[18px] py-[14px] font-['DM_Sans',sans-serif] text-[14px] text-white outline-none transition-colors duration-200 placeholder:text-white/40 focus:border-[#339a99]"
+                                placeholder="Your Name"
+                                value={form.name}
+                                onChange={handleChange("name")}
+                                onBlur={handleBlur("name")}
+                                aria-invalid={Boolean(errors.name)}
+                                className={`w-full rounded-[8px] border bg-white/5 px-[18px] py-[14px] font-['DM_Sans',sans-serif] text-[14px] text-white outline-none transition-colors duration-200 placeholder:text-white/40 focus:border-[#339a99] ${
+                                    errors.name ? "border-red-500/70" : "border-white/10"
+                                }`}
                             />
-                        ))}
+                            {touched.name && errors.name && (
+                                <div className="mt-2 font-['DM_Sans',sans-serif] text-[12px] text-red-400">
+                                    {errors.name}
+                                </div>
+                            )}
+                        </div>
 
-                        <button className="flex items-center justify-center gap-2 rounded-[8px] bg-[#339a99] px-4 py-[15px] font-['DM_Sans',sans-serif] text-[15px] font-bold text-white shadow-[0_8px_24px_rgba(0,153,204,0.35)] transition-all duration-200 hover:-translate-y-[2px]">
+                        <div>
+                            <input
+                                placeholder="Email Address"
+                                value={form.email}
+                                onChange={handleChange("email")}
+                                onBlur={handleBlur("email")}
+                                aria-invalid={Boolean(errors.email)}
+                                className={`w-full rounded-[8px] border bg-white/5 px-[18px] py-[14px] font-['DM_Sans',sans-serif] text-[14px] text-white outline-none transition-colors duration-200 placeholder:text-white/40 focus:border-[#339a99] ${
+                                    errors.email ? "border-red-500/70" : "border-white/10"
+                                }`}
+                            />
+                            {touched.email && errors.email && (
+                                <div className="mt-2 font-['DM_Sans',sans-serif] text-[12px] text-red-400">
+                                    {errors.email}
+                                </div>
+                            )}
+                        </div>
+
+                        <div>
+                            <input
+                                placeholder="Service Interest"
+                                value={form.service}
+                                onChange={handleChange("service")}
+                                onBlur={handleBlur("service")}
+                                aria-invalid={Boolean(errors.service)}
+                                className={`w-full rounded-[8px] border bg-white/5 px-[18px] py-[14px] font-['DM_Sans',sans-serif] text-[14px] text-white outline-none transition-colors duration-200 placeholder:text-white/40 focus:border-[#339a99] ${
+                                    errors.service ? "border-red-500/70" : "border-white/10"
+                                }`}
+                            />
+                            {touched.service && errors.service && (
+                                <div className="mt-2 font-['DM_Sans',sans-serif] text-[12px] text-red-400">
+                                    {errors.service}
+                                </div>
+                            )}
+                        </div>
+
+                        <button
+                            onClick={handleSubmit}
+                            className="flex items-center justify-center gap-2 rounded-[8px] bg-[#339a99] px-4 py-[15px] font-['DM_Sans',sans-serif] text-[15px] font-bold text-white shadow-[0_8px_24px_rgba(0,153,204,0.35)] transition-all duration-200 hover:-translate-y-[2px]"
+                        >
                             Send Message
                             <ArrowRight size={16} color="#fff" />
                         </button>

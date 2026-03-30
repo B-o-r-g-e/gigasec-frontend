@@ -6,10 +6,29 @@ import {B} from "@/colors/Colors";
 import PostCard from "@/components/blog/PostCard";
 import {dMSans} from "@/app/ui/fonts";
 
-export default function AllPosts() {
+type AllPostsProps = {
+    query: string;
+};
+
+export default function AllPosts({query}: AllPostsProps) {
     const [ref, vis] = useInView(0.05);
     const [cat, setCat] = useState("All Topics");
-    const filtered = cat === "All Topics" ? POSTS : POSTS.filter(p => p.cat === cat);
+    const normalizedQuery = query.trim().toLowerCase();
+    const byCategory = cat === "All Topics" ? POSTS : POSTS.filter(p => p.cat === cat);
+    const filtered = normalizedQuery
+        ? byCategory.filter(p => {
+            const haystack = [
+                p.title,
+                p.excerpt,
+                p.author,
+                p.cat,
+                ...p.tags
+            ]
+                .join(" ")
+                .toLowerCase();
+            return haystack.includes(normalizedQuery);
+        })
+        : byCategory;
 
     return (
         <section

@@ -13,12 +13,12 @@ export default function CartHeader({ itemCount }: { itemCount: number }) {
 
     return (
         <section
-            className="pt-[72px]"
+            className="pt-[64px] sm:pt-[72px]"
             style={{ background: "linear-gradient(145deg,#061e1e,#0d3d3d)" }}
         >
-            <div className="max-w-[1280px] mx-auto px-10 py-14">
+            <div className="max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-10 py-10 sm:py-12 lg:py-14">
                 {/* Breadcrumb */}
-                <div className="flex items-center gap-2 mb-6 transition-all duration-700"
+                <div className="flex flex-wrap items-center gap-2 mb-6 transition-all duration-700"
                      style={{ opacity: vis ? 1 : 0, transform: vis ? "none" : "translateY(-16px)" }}>
                     {["Home", "Shop", "Cart"].map((c, i) => (
                         <span key={c} className="flex items-center gap-2">
@@ -40,13 +40,13 @@ export default function CartHeader({ itemCount }: { itemCount: number }) {
                         </p>
                     </div>
                     {/* Trust badges */}
-                    <div className="flex items-center gap-4">
+                    <div className="flex flex-wrap items-center gap-3">
                         {([
                             { icon: "lock",  text: "Secure Checkout" },
                             { icon: "truck", text: "Nationwide Delivery" },
                             { icon: "check", text: "Genuine Products" },
                         ] as const satisfies { icon: IconName; text: string }[]).map(b => (
-                            <div key={b.text} className="flex items-center gap-2 px-4 py-2 rounded-full"
+                            <div key={b.text} className="flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full"
                                  style={{ background: "rgba(51,154,153,0.12)", border: "1px solid rgba(51,154,153,0.25)" }}>
                                 <Icon name={b.icon} size={14} color={B.electric} />
                                 <span className={`${dMSans.className}`} style={{ fontSize: 12, color: "rgba(255,255,255,0.75)", fontWeight: 500 }}>{b.text}</span>

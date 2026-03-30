@@ -38,12 +38,12 @@ export default function CartMain() {
     };
 
     return (
-        <section ref={ref} className="py-16" style={{background: B.offwhite}}>
-            <div className="max-w-[1280px] mx-auto px-10">
+        <section ref={ref} className="py-12 md:py-16" style={{background: B.offwhite}}>
+            <div className="max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-10">
                 {checkoutStep === 3 ? (
                     <OrderSuccess/>
                 ) : (
-                    <div className="grid gap-8" style={{gridTemplateColumns: "1fr 380px"}}>
+                    <div className="grid grid-cols-1 gap-6 lg:grid-cols-[1fr_380px] lg:gap-8">
 
                         {/* Left — Cart items or Checkout form */}
                         <div className="transition-all duration-700"
@@ -57,8 +57,11 @@ export default function CartMain() {
                                         <div className="flex flex-col gap-4 mt-6">
                                             {cart.map((item, i) => (
                                                 <CartItem key={item.id} item={item} vis={vis} i={i}
-                                                          onIncrease={() => updateQty(item.id, 1)}
-                                                          onDecrease={() => updateQty(item.id, -1)}
+                                                          onIncrease={() => updateQty(item.id, item.qty + 1)}
+                                                          onDecrease={() => {
+                                                              if (item.qty > 1)
+                                                                  updateQty(item.id, item.qty - 1);
+                                                          }}
                                                           onRemove={() => removeFromCart(item.id)}/>
                                             ))}
                                         </div>
@@ -165,7 +168,7 @@ export default function CartMain() {
                                                   }}>GIGASEC10 applied — 10% off!</span>
                                         </div>
                                     ) : (
-                                        <div className="flex gap-2">
+                                        <div className="flex flex-col gap-2 sm:flex-row">
                                             <input value={coupon} onChange={e => setCoupon(e.target.value)}
                                                    placeholder="Enter promo code"
                                                    className={`${dMSans.className} flex-1 px-4 py-[10px] rounded-lg outline-none text-[13px] transition-all duration-200`}
@@ -177,7 +180,7 @@ export default function CartMain() {
                                                    onFocus={e => e.target.style.borderColor = B.electric}
                                                    onBlur={e => !couponError && (e.target.style.borderColor = B.lightgray)}/>
                                             <button onClick={applyCoupon}
-                                                    className={`${dMSans.className} px-4 py-[10px] rounded-lg text-white border-none cursor-pointer transition-all duration-200`}
+                                                    className={`${dMSans.className} w-full sm:w-auto px-4 py-[10px] rounded-lg text-white border-none cursor-pointer transition-all duration-200`}
                                                     style={{
                                                         fontWeight: 600,
                                                         fontSize: 13,

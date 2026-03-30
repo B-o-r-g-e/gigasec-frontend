@@ -4,9 +4,13 @@ import {B} from "@/colors/Colors";
 import {dMSans, spaceMono, syne} from "@/app/ui/fonts";
 import {Icon} from "@/icons/Icon";
 
-export default function Hero() {
+type HeroProps = {
+    query: string;
+    onQueryChange: (value: string) => void;
+};
+
+export default function Hero({query, onQueryChange}: HeroProps) {
     const [vis, setVis] = useState(false);
-    const [query, setQuery] = useState("");
     useEffect(() => {
         setTimeout(() => setVis(true), 80);
     }, []);
@@ -113,7 +117,7 @@ export default function Hero() {
                 >
                     <input
                         value={query}
-                        onChange={e => setQuery(e.target.value)}
+                        onChange={e => onQueryChange(e.target.value)}
                         placeholder="Search articles, topics, or keywords..."
                         className={`${dMSans.className} w-full py-[18px] pl-[24px] pr-[56px] rounded-[12px] outline-none text-[15px] text-white
                             border border-[rgba(51,154,153,0.25)]

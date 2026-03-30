@@ -13,7 +13,7 @@ export default function Hero() {
 
     return (
         <section
-            className="relative flex items-center overflow-hidden pt-[72px] min-h-[56vh]"
+            className="relative flex items-center overflow-hidden pt-[64px] sm:pt-[72px] min-h-[56vh]"
             style={{
                 background: `linear-gradient(145deg, ${B.navyDark} 0%, ${B.navy} 55%, #1a5958 100%)`,
             }}
@@ -43,13 +43,13 @@ export default function Hero() {
 
             {/* Content */}
             <div
-                className="relative z-[5] max-w-[1280px] mx-auto w-full px-10 py-[80px] pb-[100px] grid grid-cols-1 md:grid-cols-2 gap-60 items-center">
+                className="relative z-[5] max-w-[1280px] mx-auto w-full px-5 sm:px-8 lg:px-10 py-14 sm:py-[80px] pb-16 sm:pb-[100px] grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-28 items-center">
 
                 {/* Left */}
                 <div>
                     {/* Badge */}
                     <div
-                        className={`inline-flex items-center gap-2 rounded-full px-[18px] py-[6px] mb-7 border
+                        className={`inline-flex items-center gap-2 rounded-full px-[14px] py-[6px] sm:px-[18px] mb-6 sm:mb-7 border
         bg-[rgba(51,154,153,0.12)] border-[rgba(51,154,153,0.4)]
         transition-all duration-[800ms]`}
                         style={{
@@ -63,7 +63,7 @@ export default function Hero() {
                             className="w-[7px] h-[7px] rounded-full animate-blink"
                             style={{background: B.electric}}
                         />
-                        <span className="font-mono text-[11px] tracking-[2px]" style={{color: B.electric}}>
+                        <span className="font-mono text-[10px] sm:text-[11px] tracking-[2px]" style={{color: B.electric}}>
           OFFICIAL DISTRIBUTOR — NIGERIA
         </span>
                     </div>
@@ -94,7 +94,7 @@ export default function Hero() {
 
                     {/* Paragraph */}
                     <p
-                        className={`${dMSans.className} text-[1.05rem] leading-[1.75] mb-9 text-white/65
+                        className={`${dMSans.className} text-[1rem] sm:text-[1.05rem] leading-[1.75] mb-8 sm:mb-9 text-white/65
                             transition-all duration-900`}
                         style={{
                             opacity: vis ? 1 : 0,
@@ -113,7 +113,7 @@ export default function Hero() {
                         {/* Primary */}
                         <a
                             href="#products"
-                            className="inline-flex items-center gap-2 px-7 py-[14px] rounded-md text-white font-bold text-sm transition-all duration-300 shadow-lg"
+                            className="inline-flex w-full sm:w-auto items-center justify-center gap-2 px-6 sm:px-7 py-[14px] rounded-md text-white font-bold text-sm transition-all duration-300 shadow-lg"
                             style={{
                                 background: B.electric,
                                 boxShadow: "0 8px 28px rgba(51,154,153,0.4)",
@@ -135,7 +135,7 @@ export default function Hero() {
                         {/* Secondary */}
                         <a
                             href="#contact"
-                            className="inline-flex items-center gap-2 px-7 py-[14px] rounded-md text-white font-semibold text-sm border border-white/30 transition-all duration-200"
+                            className="inline-flex w-full sm:w-auto items-center justify-center gap-2 px-6 sm:px-7 py-[14px] rounded-md text-white font-semibold text-sm border border-white/30 transition-all duration-200"
                             onMouseEnter={(e) => {
                                 e.currentTarget.style.borderColor = B.electric;
                                 e.currentTarget.style.color = B.electric;
@@ -153,7 +153,7 @@ export default function Hero() {
 
                 {/* Right (badges) */}
                 <div
-                    className="grid grid-cols-2 gap-4 transition-all duration-900"
+                    className="grid grid-cols-1 sm:grid-cols-2 gap-4 transition-all duration-900"
                     style={{
                         opacity: vis ? 1 : 0,
                         transform: vis ? "none" : "translateX(60px)",

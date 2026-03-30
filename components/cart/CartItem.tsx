@@ -1,4 +1,5 @@
 'use client'
+import Image from "next/image";
 import {Icon} from "@/icons/Icon";
 import {B} from "@/colors/Colors";
 import {useState} from "react";
@@ -30,11 +31,23 @@ export default function CartItem({item, vis, i, onIncrease, onDecrease, onRemove
                  transitionDelay: `${i * 80}ms`,
                  boxShadow: hov ? "0 12px 32px rgba(13,61,61,0.1)" : "none"
              }}>
-            <div className="flex gap-5 items-start">
+            <div className="flex flex-col gap-4 sm:flex-row sm:gap-5 sm:items-start">
                 {/* Product image placeholder */}
-                <div className="w-[80px] h-[80px] rounded-xl flex items-center justify-center flex-shrink-0"
-                     style={{background: "linear-gradient(135deg,#0d3d3d,#339a99)"}}>
-                    <Icon name="shield" size={32} color="rgba(255,255,255,0.8)"/>
+                <div
+                    className="w-[80px] h-[80px] rounded-xl flex items-center justify-center flex-shrink-0 overflow-hidden"
+                    style={{background: "linear-gradient(135deg,#0d3d3d,#339a99)"}}
+                >
+                    {item.image ? (
+                        <Image
+                            src={item.image}
+                            width={80}
+                            height={80}
+                            className="h-full w-full object-cover"
+                            alt={item.name}
+                        />
+                    ) : (
+                        <Icon name="shield" size={32} color="rgba(255,255,255,0.8)"/>
+                    )}
                 </div>
 
                 {/* Product info */}
@@ -87,10 +100,10 @@ export default function CartItem({item, vis, i, onIncrease, onDecrease, onRemove
                     </div>
 
                     {/* Qty + Price row */}
-                    <div className="flex items-center justify-between mt-4 pt-4"
+                    <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between mt-4 pt-4"
                          style={{borderTop: `1px solid ${B.lightgray}`}}>
                         {/* Qty control */}
-                        <div className="flex items-center rounded-lg overflow-hidden"
+                        <div className="flex items-center rounded-lg overflow-hidden w-full sm:w-auto"
                              style={{border: `1.5px solid ${B.lightgray}`}}>
                             <button onClick={onDecrease}
                                     className="w-9 h-9 flex items-center justify-center border-none cursor-pointer transition-all duration-200"
@@ -122,7 +135,7 @@ export default function CartItem({item, vis, i, onIncrease, onDecrease, onRemove
                         </div>
 
                         {/* Price */}
-                        <div className="text-right">
+                        <div className="text-left sm:text-right">
                             <div className={`${syne.className}`} style={{
                                 fontWeight: 800,
                                 fontSize: 20,

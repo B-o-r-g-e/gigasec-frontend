@@ -101,8 +101,8 @@ export default function ProductsGrid() {
                 <ProductPreview
                     product={preview}
                     onClose={() => setPreview(null)}
-                    onAddToCart={() => {
-                        addToCart(preview, 1);
+                    onAddToCart={(qty) => {
+                        addToCart(preview, qty);
                         setPreview(null);
                     }}
                 />

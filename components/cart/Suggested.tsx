@@ -14,8 +14,8 @@ const SUGGESTED = [
 export default function Suggested() {
     const [ref, vis] = useInView(0.1);
     return (
-        <section ref={ref} className="py-20" style={{background: "#fff"}}>
-            <div className="max-w-[1280px] mx-auto px-10">
+        <section ref={ref} className="py-14 md:py-20" style={{background: "#fff"}}>
+            <div className="max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-10">
                 <div className={`${spaceMono.className}`} style={{
                     fontSize: 11,
                     color: B.electric,
@@ -29,7 +29,7 @@ export default function Suggested() {
                     color: B.navy,
                     letterSpacing: -0.5
                 }}>Frequently Bought Together</h2>
-                <div className="grid grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
                     {SUGGESTED.map((p, i) => {
                         const [hov, setHov] = useState(false);
                         return (
