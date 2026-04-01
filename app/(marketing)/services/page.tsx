@@ -1,13 +1,13 @@
 'use client'
-import Hero from "@/components/services/Hero";
+import Hero from "@/app/(marketing)/services/components/Hero";
 import {useState} from "react";
-import FilterBar from "@/components/services/ServiceFilterBar";
-import ServiceBlock from "@/components/services/ServiceBlock";
-import TestimonialsSection from "@/components/home/testimonials";
-import ComparisonTable from "@/components/services/ConparisonTable";
-import {SERVICES} from "@/components/services/services";
-import QuoteSection from "@/components/services/QuoteSection";
-import Footer from "@/components/about/Footer";
+import FilterBar from "@/app/(marketing)/services/components/ServiceFilterBar";
+import ServiceBlock from "@/app/(marketing)/services/components/ServiceBlock";
+import TestimonialsSection from "@/app/components/testimonials";
+import ComparisonTable from "@/app/(marketing)/services/components/ConparisonTable";
+import {SERVICES} from "@/app/(marketing)/services/components/services";
+import QuoteSection from "@/app/(marketing)/services/components/QuoteSection";
+import Footer from "@/app/(marketing)/about/components/Footer";
 
 export default function ServicesPage() {
     const [filter, setFilter] = useState("All Services");

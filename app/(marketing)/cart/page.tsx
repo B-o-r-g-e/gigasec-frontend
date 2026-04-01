@@ -1,9 +1,9 @@
 'use client'
-import CartHeader from "@/components/cart/Header";
+import CartHeader from "@/app/(marketing)/cart/components/Header";
 import {useCart} from "@/context/CartContext";
-import CartMain from "@/components/cart/CartMain";
-import {dMSans} from "@/app/ui/fonts";
-import Suggested from "@/components/cart/Suggested";
+import CartMain from "@/app/(marketing)/cart/components/CartMain";
+import {dMSans} from "@/theme/fonts";
+import Suggested from "@/app/(marketing)/cart/components/Suggested";
 
 export default function CartPage() {
     const {cart } = useCart();

@@ -1,5 +1,5 @@
 import AnimatedGrid from "@/components/ui/AnimatedGrid";
-import FloatingParticles from "@/components/about/FloatingParticle";
+import FloatingParticles from "@/app/(marketing)/about/components/FloatingParticle";
 import {ReactNode} from "react";
 import TopGlowingOrbLight from "@/components/ui/TopGlowingOrbLight";
 import BottomGlowingOrbLight from "@/components/ui/BottomGlowingOrbLight";

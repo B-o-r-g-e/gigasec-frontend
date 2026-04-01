@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { dMSans } from "@/app/ui/fonts";
+import { dMSans } from "@/theme/fonts";
 import {ArrowUpRight, ChevronRight, Menu, X} from "lucide-react";
 import {Icon} from "@/icons/Icon";
 import {useCart} from "@/context/CartContext";

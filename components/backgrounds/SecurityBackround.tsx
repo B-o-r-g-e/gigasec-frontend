@@ -1,6 +1,6 @@
-import ParticleField from "@/components/home/particleField";
+import ParticleField from "@/app/components/particleField";
 import AnimatedGrid from "@/components/ui/AnimatedGrid";
-import FloatingParticles from "@/components/about/FloatingParticle";
+import FloatingParticles from "@/app/(marketing)/about/components/FloatingParticle";
 import TopGlowingOrbLight from "@/components/ui/TopGlowingOrbLight";
 import BottomGlowingOrbLight from "@/components/ui/BottomGlowingOrbLight";
 

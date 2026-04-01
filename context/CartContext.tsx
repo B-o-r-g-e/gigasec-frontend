@@ -1,7 +1,7 @@
 'use client'
 import { createContext, useContext, useEffect, useState } from "react";
 
-import type { Product } from "@/components/shop/products";
+import type { Product } from "@/app/(marketing)/shop/components/products";
 
 type CartItem = Product & {
     qty: number;
@@ -18,15 +18,8 @@ type CartContextValue = {
 const CartContext = createContext<CartContextValue | null>(null);
 
 export const CartProvider = ({ children }: { children: React.ReactNode }) => {
-    const [cart, setCart] = useState<CartItem[]>(() => {
-        if (typeof window === "undefined") return [];
-        try {
-            const raw = window.localStorage.getItem("cartItem");
-            return raw ? (JSON.parse(raw) as CartItem[]) : [];
-        } catch {
-            return [];
-        }
-    });
+    const [cart, setCart] = useState<CartItem[]>([]);
+    const [hasLoaded, setHasLoaded] = useState(false);
 
     const addToCart = (product: Product, qty = 1) => {
         setCart((prev) => {
@@ -58,16 +51,31 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
 
     const clearCart = () => {
         setCart([]);
-        localStorage.removeItem("cartItem");
+        if (typeof window !== "undefined") {
+            localStorage.removeItem("cartItem");
+        }
     };
 
     useEffect(() => {
+        if (typeof window === "undefined") return;
+        try {
+            const raw = window.localStorage.getItem("cartItem");
+            setCart(raw ? (JSON.parse(raw) as CartItem[]) : []);
+        } catch {
+            setCart([]);
+        } finally {
+            setHasLoaded(true);
+        }
+    }, []);
+
+    useEffect(() => {
+        if (!hasLoaded) return;
         try {
             window.localStorage.setItem("cartItem", JSON.stringify(cart));
         } catch {
             // ignore write failures (e.g., private mode)
         }
-    }, [cart]);
+    }, [cart, hasLoaded]);
 
     return (
         <CartContext.Provider

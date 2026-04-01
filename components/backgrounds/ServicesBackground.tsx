@@ -1,6 +1,6 @@
 import {ReactNode} from "react";
-import {B} from "@/colors/Colors";
-import OrbBg from "@/components/services/OrbBg";
+import {B} from "@/theme/Colors";
+import OrbBg from "@/app/(marketing)/services/components/OrbBg";
 
 export default function ServicesBackground({children}: { children: ReactNode }) {
     return (
