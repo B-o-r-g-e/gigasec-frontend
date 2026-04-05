@@ -9,6 +9,9 @@ import {dMSans, spaceMono, syne} from "@/theme/fonts";
 type BlogSection = {
     heading: string;
     body: string;
+};
+
+type BlogSectionWithId = BlogSection & {
     id: string;
 };
 
@@ -19,14 +22,14 @@ type BlogType = {
 
 type AuthorType = {
     name: string;
-    role: string;
+    postion: string;
 };
 
 type EachBlogBodyProps = {
     blog: BlogType;
     avatar?: string;
     author?: AuthorType;
-    iDSection: BlogSection[];
+    iDSection: BlogSectionWithId[];
 };
 
 const SHARE_OPTIONS: { icon: IconName; label: string }[] = [
@@ -138,7 +141,7 @@ export default function EachBlogBody({blog, avatar, author, iDSection}: EachBlog
                                              fontSize: 13,
                                              color: "rgba(255,255,255,0.55)",
                                              marginBottom: 12
-                                         }}>{author?.role}, Gigasec Services
+                                         }}>{author?.postion}, Gigasec Services
                                     </div>
                                     <p className={`${dMSans.className}`}
                                        style={{

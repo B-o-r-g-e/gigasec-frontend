@@ -14,7 +14,7 @@ type ArticleSectionProps = {
 };
 
 export default function ArticleSection({section, i, vis, sectionId}: ArticleSectionProps) {
-    const [ref, inView] = useInView(0.15);
+    const [ref, inView] = useInView<HTMLDivElement>(0.15);
     return (
         <div id={sectionId} ref={ref} className="mb-12 transition-all duration-700"
              style={{

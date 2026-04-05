@@ -6,24 +6,28 @@ import {B} from "@/theme/Colors";
 import {dMSans, spaceMono, syne} from "@/theme/fonts";
 import {slugify} from "@/app/(marketing)/blog/[slug]/components/functions";
 
-// type topRelatedProps = {
-//     matchCount: number
-//     id: number
-//     cat: string
-//     title: string
-//     excerpt: string
-//     authorId: number
-//     date: string
-//     read: string
-//     featured: boolean
-//     tags: string[]
-//     sections: {
-//         heading: string
-//         body: string
-//     }[]
-// }
+type TopRelatedProps = {
+    matchCount: number
+    id: number
+    cat: string
+    title: string
+    excerpt: string
+    authorId: number
+    date: string
+    read: string
+    featured: boolean
+    tags: string[]
+    sections: {
+        heading: string
+        body: string
+    }[]
+}
 
-export default function RelatedPosts({topRelated}) {
+type RelatedPostsProps = {
+    topRelated: TopRelatedProps[]
+}
+
+export default function RelatedPosts({topRelated}: RelatedPostsProps) {
     const [ref, vis] = useInView(0.1);
     const [hov, setHov] = useState(false);
 
