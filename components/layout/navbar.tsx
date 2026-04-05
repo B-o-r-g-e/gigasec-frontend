@@ -56,7 +56,7 @@ export function MobileMenu() {
                 <div className="inline-flex items-center rounded-lg bg-white/90 px-3 py-2 backdrop-blur-sm">
                     <Link className="" href="/">
                         <Image
-                            src="/logo.jpeg"
+                            src="/gigasec white logo.png"
                             width={96}
                             height={1}
                             alt="Gigasec Logo"
@@ -206,10 +206,10 @@ export default function Navbar() {
             style={{ backgroundColor: scrolled ? BRAND.navy : 'transparent' }}
         >
             <div className="mx-auto flex max-w-7xl items-center justify-between ">
-                <div className="inline-flex items-center rounded-lg bg-white/90 px-3 py-2 backdrop-blur-sm">
+                <div className="inline-flex items-center rounded-lg  py-2 backdrop-blur-sm">
                     <Link className="" href="/">
                         <Image
-                            src="/logo.jpeg"
+                            src="/gigasec white logo.png"
                             width={96}
                             height={1}
                             alt="Gigasec Logo"

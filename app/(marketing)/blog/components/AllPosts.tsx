@@ -6,6 +6,7 @@ import {B} from "@/theme/Colors";
 import PostCard from "@/app/(marketing)/blog/components/PostCard";
 import {dMSans} from "@/theme/fonts";
 import Link from "next/link";
+import {slugify} from "@/app/(marketing)/blog/[slug]/components/functions";
 
 type AllPostsProps = {
     query: string;
@@ -86,7 +87,7 @@ export default function AllPosts({query}: AllPostsProps) {
                     style={{ gridTemplateColumns: "repeat(auto-fill,minmax(280px,1fr))" }}
                 >
                     {filtered.map((p, i) => (
-                        <Link key={p.slug} href={`/blog/${p.slug}`}>
+                        <Link key={p.id} href={`/blog/${slugify(p.title)}`}>
                             <PostCard post={p} i={i} vis={vis} />
                         </Link>
                     ))}

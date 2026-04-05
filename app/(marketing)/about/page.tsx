@@ -6,7 +6,7 @@ import Team from "@/app/(marketing)/about/components/Team";
 import Certifications from "@/app/(marketing)/about/components/Certifications";
 import TestimonialsSection from "@/app/components/testimonials";
 import AboutCTA from "@/app/(marketing)/about/components/CTA";
-import Footer from "@/app/(marketing)/about/components/Footer";
+import MiniFooter from "@/components/layout/MiniFooter";
 
 export default function AboutPage() {
   return (
@@ -20,7 +20,7 @@ export default function AboutPage() {
               <Certifications />
               <TestimonialsSection />
               <AboutCTA />
-              <Footer />
+              <MiniFooter />
           </section>
       </>
   )

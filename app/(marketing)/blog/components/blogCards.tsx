@@ -7,7 +7,6 @@ import {AUTHORS} from "@/app/(marketing)/blog/components/blogs";
 
 type postStype = {
     id: number;
-    slug: string;
     cat: string;
     title: string;
     excerpt: string;

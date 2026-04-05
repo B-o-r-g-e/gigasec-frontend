@@ -4,6 +4,7 @@ import {useCart} from "@/context/CartContext";
 import CartMain from "@/app/(marketing)/cart/components/CartMain";
 import {dMSans} from "@/theme/fonts";
 import Suggested from "@/app/(marketing)/cart/components/Suggested";
+import MiniFooter from "@/components/layout/MiniFooter";
 
 export default function CartPage() {
     const {cart } = useCart();
@@ -14,6 +15,7 @@ export default function CartPage() {
             <CartHeader itemCount={cartCount} />
             <CartMain />
             <Suggested />
+            <MiniFooter />
         </div>
     )
 }

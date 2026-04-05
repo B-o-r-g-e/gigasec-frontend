@@ -187,7 +187,7 @@ export default function Footer() {
                         <div className="-ml-5">
                             <Link href="/public">
                                 <Image
-                                    src="/logo.jpeg"
+                                    src="/gigasec white logo.png"
                                     width={150}
                                     height={1000}
                                     alt="Gigasec Logo"

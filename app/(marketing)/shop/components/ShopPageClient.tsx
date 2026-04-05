@@ -3,7 +3,7 @@ import Hero from "@/app/(marketing)/shop/components/Hero";
 import TrustBar from "@/app/(marketing)/shop/components/TrustBar";
 import ProductsGrid from "@/app/(marketing)/shop/components/ProductsGrid";
 import BulkCTA from "@/app/(marketing)/shop/components/BulkCTA";
-import Footer from "@/app/components/footer";
+import MiniFooter from "@/components/layout/MiniFooter";
 
 export default function ShopPageClient() {
     return (
@@ -12,7 +12,7 @@ export default function ShopPageClient() {
             <TrustBar />
             <ProductsGrid />
             <BulkCTA />
-            <Footer />
+            <MiniFooter />
         </>
     );
 }

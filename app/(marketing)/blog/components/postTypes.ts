@@ -2,7 +2,6 @@ export type PostSummary = {
     id: number;
     cat: string;
     title: string;
-    slug: string;
     excerpt: string;
     authorId: number;
     date: string;

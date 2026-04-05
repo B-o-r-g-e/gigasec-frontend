@@ -7,7 +7,7 @@ import TestimonialsSection from "@/app/components/testimonials";
 import ComparisonTable from "@/app/(marketing)/services/components/ConparisonTable";
 import {SERVICES} from "@/app/(marketing)/services/components/services";
 import QuoteSection from "@/app/(marketing)/services/components/QuoteSection";
-import Footer from "@/app/(marketing)/about/components/Footer";
+import MiniFooter from "@/components/layout/MiniFooter";
 
 export default function ServicesPage() {
     const [filter, setFilter] = useState("All Services");
@@ -26,7 +26,7 @@ export default function ServicesPage() {
             <ComparisonTable />
             <TestimonialsSection />
             <QuoteSection />
-            <Footer />
+            <MiniFooter />
         </section>
     );
 }
