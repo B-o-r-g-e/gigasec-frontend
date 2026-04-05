@@ -3,6 +3,8 @@ import {useState} from "react";
 import {Icon} from "@/icons/Icon";
 import Image from "next/image";
 import type {Product} from "@/app/(marketing)/shop/components/products";
+import Link from "next/link";
+import {slugify} from "@/app/(marketing)/blog/[slug]/components/functions";
 
 type CartEntry = {
     id: string | number;
@@ -108,92 +110,95 @@ export default function ProductCard({product: p, i, vis, onAddToCart, onPreview,
             </div>
 
             {/* Content */}
-            <div className="p-6">
+            <Link href={`/shop/${slugify(p.name)}`}>
+                <div className="p-6">
 
-                {/* Brand + Category */}
-                <div className="flex items-center gap-2 mb-[10px]">
+                    {/* Brand + Category */}
+                    <div className="flex items-center gap-2 mb-[10px]">
                   <span
                       className="text-[9px] tracking-[1.5px] px-[10px] py-[3px] rounded-full font-mono text-[#339a99] bg-[#339a991a]">
                     {p.brand}
                   </span>
-                    <span className="text-[9px] tracking-[1px] font-mono text-gray-500">
+                        <span className="text-[9px] tracking-[1px] font-mono text-gray-500">
                         {p.cat}
                     </span>
-                </div>
-
-                {/* Title */}
-                <h3 className="font-bold text-[14px] leading-[1.4] mb-[10px] tracking-[-0.2px] text-[#0d3d3d] font-['Syne',sans-serif]">
-                    {p.name}
-                </h3>
-
-                {/* Rating */}
-                <div className="flex items-center gap-[6px] mb-[14px]">
-                    <div className="flex gap-[2px]">
-                        {[1, 2, 3, 4, 5].map((s) => (
-                            <Icon
-                                key={s}
-                                name="star"
-                                size={13}
-                                color={s <= Math.round(p.rating) ? "#FFB800" : "#e8edf3"}
-                            />
-                        ))}
                     </div>
-                    <span className="text-[12px] text-gray-500 font-['DM_Sans',sans-serif]">
+
+                    {/* Title */}
+                    <h3 className="font-bold text-[14px] leading-[1.4] mb-[10px] tracking-[-0.2px] text-[#0d3d3d] font-['Syne',sans-serif]">
+                        {p.name}
+                    </h3>
+
+                    {/* Rating */}
+                    <div className="flex items-center gap-[6px] mb-[14px]">
+                        <div className="flex gap-[2px]">
+                            {[1, 2, 3, 4, 5].map((s) => (
+                                <Icon
+                                    key={s}
+                                    name="star"
+                                    size={13}
+                                    color={s <= Math.round(p.rating) ? "#FFB800" : "#e8edf3"}
+                                />
+                            ))}
+                        </div>
+                        <span className="text-[12px] text-gray-500 font-['DM_Sans',sans-serif]">
                         {p.rating} ({p.reviews})
                     </span>
-                </div>
-
-                {/* Tags */}
-                <div className="flex flex-wrap gap-[6px] mb-[18px]">
-                    {p.tags.map((t) => (
-                        <span
-                            key={t}
-                            className="text-[11px] px-[9px] py-[2px] rounded-full border bg-[#F5F7FA] border-[#e8edf3] text-gray-500 font-['DM_Sans',sans-serif]"
-                        >
-                          {t}
-                        </span>
-                    ))}
-                </div>
-
-                {/* Price + CTA */}
-                <div className="flex items-center justify-between pt-4 border-t border-[#e8edf3]">
-
-                    {/* Price */}
-                    <div>
-                        <div className="font-black text-[1.3rem] leading-none text-[#0d3d3d] font-['Syne',sans-serif]">
-                            ₦{p.price.toLocaleString()}
-                        </div>
-                        {p.oldPrice && (
-                            <div className="text-[12px] mt-1 line-through text-gray-500 font-['DM_Sans',sans-serif]">
-                                ₦{p.oldPrice.toLocaleString()}
-                            </div>
-                        )}
                     </div>
 
-                    {/* Button */}
-                    <button
-                        onClick={handleAdd}
-                        className={`flex items-center gap-[6px] px-4 py-[9px] rounded-lg font-bold text-[13px] transition-all duration-300
+                    {/* Tags */}
+                    <div className="flex flex-wrap gap-[6px] mb-[18px]">
+                        {p.tags.map((t) => (
+                            <span
+                                key={t}
+                                className="text-[11px] px-[9px] py-[2px] rounded-full border bg-[#F5F7FA] border-[#e8edf3] text-gray-500 font-['DM_Sans',sans-serif]"
+                            >
+                          {t}
+                        </span>
+                        ))}
+                    </div>
+
+                    {/* Price + CTA */}
+                    <div className="flex items-center justify-between pt-4 border-t border-[#e8edf3]">
+
+                        {/* Price */}
+                        <div>
+                            <div className="font-black text-[1.3rem] leading-none text-[#0d3d3d] font-['Syne',sans-serif]">
+                                ₦{p.price.toLocaleString()}
+                            </div>
+                            {p.oldPrice && (
+                                <div className="text-[12px] mt-1 line-through text-gray-500 font-['DM_Sans',sans-serif]">
+                                    ₦{p.oldPrice.toLocaleString()}
+                                </div>
+                            )}
+                        </div>
+
+                        {/* Button */}
+                        <button
+                            onClick={handleAdd}
+                            className={`z-50 flex items-center gap-[6px] px-4 py-[9px] rounded-lg font-bold text-[13px] transition-all duration-300
                                   ${adding ? "bg-emerald-500 text-white scale-105 border-emerald-500" :
-                            inCart ? "bg-[#339a991a] text-[#339a99] border-[#339a99]" :
-                                "bg-[#339a99] text-white border-[#339a99]"
-                        }
+                                inCart ? "bg-[#339a991a] text-[#339a99] border-[#339a99]" :
+                                    "bg-[#339a99] text-white border-[#339a99]"
+                            }
                                   border-[1.5px]
                        `}
-                    >
-                        {adding ? (
-                            <>
-                                <Icon name="check" size={15} color="#fff"/> Added!
-                            </>
-                        ) : (
-                            <>
-                                <Icon name="cart" size={15} color="currentColor"/>
-                                {inCart ? "Add More" : "Add to Cart"}
-                            </>
-                        )}
-                    </button>
+                        >
+                            {adding ? (
+                                <>
+                                    <Icon name="check" size={15} color="#fff"/> Added!
+                                </>
+                            ) : (
+                                <>
+                                    <Icon name="cart" size={15} color="currentColor"/>
+                                    {inCart ? "Add More" : "Add to Cart"}
+                                </>
+                            )}
+                        </button>
+                    </div>
                 </div>
-            </div>
+            </Link>
+
         </div>
     )
 }

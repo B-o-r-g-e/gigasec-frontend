@@ -7,8 +7,6 @@ import ProductCard from "@/app/(marketing)/shop/components/ProductCard";
 import {Icon} from "@/icons/Icon";
 import ProductPreview from "@/app/(marketing)/shop/components/ProductPreview";
 import {useCart} from "@/context/CartContext";
-import Link from "next/link";
-import {slugify} from "@/app/(marketing)/blog/[slug]/components/functions";
 
 export default function ProductsGrid() {
     const {cart, addToCart} = useCart();
@@ -85,16 +83,15 @@ export default function ProductsGrid() {
                 {/* Product grid */}
                 <div className="grid gap-6 grid-cols-[repeat(auto-fill,minmax(300px,1fr))]">
                     {filtered.map((p, i) => (
-                        <Link key={p.id} href={`/shop/${slugify(p.name)}`}>
-                            <ProductCard
-                                product={p}
-                                i={i}
-                                vis={vis}
-                                onAddToCart={() => addToCart(p, 1)}
-                                onPreview={() => setPreview(p)}
-                                cart={cart}
-                            />
-                        </Link>
+                        <ProductCard
+                            product={p}
+                            key={p.id}
+                            i={i}
+                            vis={vis}
+                            onAddToCart={() => addToCart(p, 1)}
+                            onPreview={() => setPreview(p)}
+                            cart={cart}
+                        />
                     ))}
                 </div>
             </div>
