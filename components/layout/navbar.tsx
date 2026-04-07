@@ -215,9 +215,7 @@ export function MobileMenu() {
                     : "border-transparent"
             }`}
             style={{
-                backgroundColor: scrolled ? BRAND.navy : "rgba(13,61,61,0)",
-                // backdropFilter: scrolled ? "blur(12px)" : "none",
-                // WebkitBackdropFilter: scrolled ? "blur(12px)" : "none",
+                backgroundColor: scrolled ? BRAND.navy : "rgba(13,61,61,0)"
             }}
         >
             <div className="flex items-center justify-between">
