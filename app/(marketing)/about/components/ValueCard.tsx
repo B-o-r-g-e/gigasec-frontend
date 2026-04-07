@@ -16,7 +16,7 @@ export default function ValueCard({ v, i, vis }: {v: ValueItem; i: number; vis: 
         <div
             onMouseEnter={() => setHov(true)}
             onMouseLeave={() => setHov(false)}
-            className="flex items-start gap-5 px-7 py-6 rounded-[14px] cursor-pointer"
+            className="flex items-start gap-4 sm:gap-5 px-5 sm:px-7 py-5 sm:py-6 rounded-[14px] cursor-pointer"
             style={{
                 background: hov ? B.navy : B.offwhite,
                 border: `1.5px solid ${hov ? B.electric : B.lightgray}`,

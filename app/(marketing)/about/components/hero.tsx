@@ -14,11 +14,11 @@ export default function AboutHero() {
     return (
         <AboutBackground>
             <div className="relative z-5 w-full">
-                <div className="max-w-7xl mx-auto px-6 sm:px-10 pt-32 sm:pt-40 pb-20 sm:pb-24 w-full">
+                <div className="max-w-7xl mx-auto px-5 sm:px-10 pt-24 sm:pt-40 pb-16 sm:pb-24 w-full">
                     <Breadcrumb trail={trail} />
                     <Badge visible={vis} text="EST. 2013 — NIGERIA" />
                     <h1
-                        className={`font-[Syne] font-extrabold text-[clamp(2.2rem,7vw,5.2rem)] leading-[1.02] sm:leading-none text-white mb-6 sm:mb-8 tracking-[-1.5px] sm:tracking-[-2px] max-w-205 transition-all duration-1100 delay-200 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+                        className={`font-[Syne] font-extrabold text-[clamp(2rem,7vw,5.2rem)] leading-[1.05] sm:leading-none text-white mb-6 sm:mb-8 tracking-[-1px] sm:tracking-[-2px] max-w-205 transition-all duration-1100 delay-200 ease-[cubic-bezier(0.22,1,0.36,1)] ${
                             vis
                                 ? "opacity-100 translate-y-0 skew-y-0"
                                 : "opacity-0 translate-y-20 skew-y-3"
@@ -38,7 +38,7 @@ export default function AboutHero() {
                     </h1>
 
                     <p
-                        className={`font-[DM_Sans] text-[1.2rem] leading-[1.75] text-white/70 max-w-140 transition-all duration-900 delay-[450ms] ease-[cubic-bezier(0.22,1,0.36,1)] ${
+                        className={`font-[DM_Sans] text-[1rem] sm:text-[1.2rem] leading-[1.7] text-white/70 max-w-140 transition-all duration-900 delay-[450ms] ease-[cubic-bezier(0.22,1,0.36,1)] ${
                             vis ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-15"
                         }`}
                     >

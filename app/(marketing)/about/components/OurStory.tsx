@@ -14,14 +14,14 @@ export default function OurStory() {
     return(
         <section
             ref={ref}
-            className="relative overflow-hidden py-30"
+            className="relative overflow-hidden py-16 sm:py-24"
             style={{ background: B.offwhite }}
         >
-            <div className="max-w-7xl mx-auto px-10">
+            <div className="max-w-7xl mx-auto px-5 sm:px-10">
 
                 {/* Section header */}
                 <div
-                    className="text-center mb-24"
+                    className="text-center mb-14 sm:mb-24"
                     style={{
                         opacity: vis ? 1 : 0,
                         transform: vis ? "translateY(0)" : "translateY(-50px)",
@@ -36,7 +36,7 @@ export default function OurStory() {
                     </div>
 
                     <h2
-                        className="font-['Syne',sans-serif] font-extrabold text-[clamp(2.2rem,5vw,3.8rem)] tracking-[-1px] leading-[1.1]"
+                        className="font-['Syne',sans-serif] font-extrabold text-[clamp(1.8rem,6vw,3.8rem)] tracking-[-1px] leading-[1.1]"
                         style={{ color: B.navy }}
                     >
                         From Local Roots

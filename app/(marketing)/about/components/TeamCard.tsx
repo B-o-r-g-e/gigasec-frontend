@@ -20,7 +20,7 @@ export default function TeamCard({ member, i, vis }: {member:memberItem, i: numb
         <div
             onMouseEnter={() => setHov(true)}
             onMouseLeave={() => setHov(false)}
-            className="relative overflow-hidden cursor-pointer rounded-[20px] px-8 py-9"
+            className="relative overflow-hidden cursor-pointer rounded-[20px] px-6 sm:px-8 py-7 sm:py-9"
             style={{
                 background: hov ? B.navy : "#fff",
                 border: `1.5px solid ${hov ? B.electric : B.lightgray}`,

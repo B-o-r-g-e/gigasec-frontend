@@ -1,6 +1,6 @@
 export default function StatPills({vis}: {vis: boolean}) {
     return (
-    <div style={{ display: "flex", gap: 20, marginTop: 56, flexWrap: "wrap" }}>
+    <div className="mt-8 sm:mt-14 flex flex-wrap gap-3 sm:gap-5">
         {[
             { val: "2013", label: "Founded" },
             { val: "ISO 9001", label: "Quality Management" },
@@ -9,7 +9,7 @@ export default function StatPills({vis}: {vis: boolean}) {
         ].map((s, i) => (
             <div
                 key={s.label}
-                className="rounded-[12px] px-5 py-4 sm:px-7 sm:py-[18px] backdrop-blur-[10px]"
+                className="min-w-[140px] rounded-[12px] px-4 py-3 sm:px-7 sm:py-[18px] backdrop-blur-[10px]"
                 style={{
                     background: "rgba(255,255,255,0.06)",
                     border: "1px solid rgba(51,154,153,0.3)",

@@ -47,14 +47,14 @@ export default function Team() {
     return (
         <section
             ref={ref}
-            className="py-[120px]"
+            className="py-16 sm:py-24"
             style={{ background: B.offwhite }}
         >
             <div className="max-w-[1280px] mx-auto px-6 sm:px-10">
 
                 {/* Header */}
                 <div
-                    className="text-center mb-20"
+                    className="text-center mb-12 sm:mb-20"
                     style={{
                         opacity: vis ? 1 : 0,
                         transform: vis ? "translateY(0)" : "translateY(-40px)",
@@ -69,7 +69,7 @@ export default function Team() {
                     </div>
 
                     <h2
-                        className="font-['Syne',sans-serif] font-extrabold text-[clamp(2.2rem,5vw,3.5rem)] tracking-[-0.5px]"
+                        className="font-['Syne',sans-serif] font-extrabold text-[clamp(1.9rem,6vw,3.5rem)] tracking-[-0.5px]"
                         style={{ color: B.navy }}
                     >
                         Our People<br />

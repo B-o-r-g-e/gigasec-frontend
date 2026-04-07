@@ -17,7 +17,7 @@ export default function LiveCounters() {
     return (
         <section
             ref={ref}
-            className="relative overflow-hidden py-[100px]"
+            className="relative overflow-hidden py-16 sm:py-24"
             style={{
                 background: `linear-gradient(135deg, ${B.navyDark} 0%, ${B.navy} 50%, #1a5958 100%)`,
             }}
@@ -35,7 +35,7 @@ export default function LiveCounters() {
             <div className="relative z-[2] max-w-[1280px] mx-auto px-6 sm:px-10">
                 {/* Header */}
                 <div
-                    className="text-center mb-[72px]"
+                className="text-center mb-10 sm:mb-16"
                     style={{
                         opacity: vis ? 1 : 0,
                         transform: vis ? "scale(1)" : "scale(0.85)",

@@ -34,8 +34,8 @@ export default function ProductsGrid() {
     if (sort === "Rating") filtered = [...filtered].sort((a, b) => b.rating - a.rating);
 
     return (
-        <section id="products" ref={ref} className="bg-[#F5F7FA] py-20 pb-32">
-            <div className="max-w-[1280px] mx-auto px-10">
+        <section id="products" ref={ref} className="bg-[#F5F7FA] py-16 sm:py-20 pb-24 sm:pb-32">
+            <div className="max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-10">
 
                 {/* Filter + sort */}
                 <div
@@ -94,7 +94,7 @@ export default function ProductsGrid() {
                 </div>
 
                 {/* Product grid */}
-                <div className="grid gap-6 grid-cols-[repeat(auto-fill,minmax(300px,1fr))]">
+                <div className="grid gap-5 sm:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
                     {filtered.map((p, i) => (
                         <ProductCard
                             product={p}

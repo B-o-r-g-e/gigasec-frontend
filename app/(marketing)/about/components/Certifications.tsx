@@ -16,13 +16,13 @@ export default function Certifications() {
     return (
         <section
             ref={ref}
-            className="bg-white py-[100px]"
+            className="bg-white py-16 sm:py-24"
         >
             <div className="max-w-[1280px] mx-auto px-6 sm:px-10">
 
                 {/* Header */}
                 <div
-                    className="text-center mb-16"
+                    className="text-center mb-10 sm:mb-16"
                     style={{
                         opacity: vis ? 1 : 0,
                         transform: vis ? "none" : "scale(0.8)",
@@ -37,7 +37,7 @@ export default function Certifications() {
                     </div>
 
                     <h2
-                        className="font-['Syne',sans-serif] font-extrabold text-[clamp(2rem,4vw,3rem)] tracking-[-0.5px]"
+                        className="font-['Syne',sans-serif] font-extrabold text-[clamp(1.8rem,5vw,3rem)] tracking-[-0.5px]"
                         style={{ color: B.navy }}
                     >
                         Certifications & Partnerships

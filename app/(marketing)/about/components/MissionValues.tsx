@@ -16,9 +16,9 @@ export default function MissionValues() {
     return (
         <section
             ref={ref}
-            className="bg-white py-30 overflow-hidden"
+            className="bg-white py-16 sm:py-24 overflow-hidden"
         >
-            <div className="max-w-7xl mx-auto px-6 sm:px-10">
+            <div className="max-w-7xl mx-auto px-5 sm:px-10">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
 
                     {/* Left — mission text */}
@@ -37,7 +37,7 @@ export default function MissionValues() {
                         </div>
 
                         <h2
-                            className="font-['Syne',sans-serif] font-extrabold text-[clamp(2rem,4vw,3rem)] tracking-[-0.5px] leading-[1.2] mb-7"
+                        className="font-['Syne',sans-serif] font-extrabold text-[clamp(1.75rem,5vw,3rem)] tracking-[-0.5px] leading-[1.2] mb-6 sm:mb-7"
                             style={{ color: B.navy }}
                         >
                             To advance the convergence of IP security, industrial technology, and
@@ -45,7 +45,7 @@ export default function MissionValues() {
                         </h2>
 
                         <p
-                            className="font-['DM_Sans',sans-serif] text-[16px] leading-[1.75] mb-10"
+                            className="font-['DM_Sans',sans-serif] text-[15px] sm:text-[16px] leading-[1.7] mb-8 sm:mb-10"
                             style={{ color: B.gray }}
                         >
                             We deliver best-in-class products and services that secure assets, optimize operations,
@@ -54,7 +54,7 @@ export default function MissionValues() {
 
                         {/* Vision box */}
                         <div
-                            className="rounded-xl p-8"
+                            className="rounded-xl p-6 sm:p-8"
                             style={{
                                 background: `linear-gradient(135deg, ${B.navy}, #1a5958)`,
                                 opacity: vis ? 1 : 0,
