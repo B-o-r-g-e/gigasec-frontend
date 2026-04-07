@@ -53,7 +53,7 @@ export function MobileMenu() {
             }}
         >
             <div className="flex justify-between items-center">
-                <div className="inline-flex items-center rounded-lg bg-white/90 px-3 py-2 backdrop-blur-sm">
+                <div className="inline-flex items-center rounded-lg px-3 py-2 backdrop-blur-sm">
                     <Link className="" href="/">
                         <Image
                             src="/gigasec white logo.png"
@@ -75,6 +75,8 @@ function Sidebar() {
     const [isVisible, setIsVisible] = useState(false);
     const [isActive, setIsActive] = useState(false);
     const pathname = usePathname();
+    const {cart} = useCart();
+    const cartCount = cart.reduce((total, item) => total + item.qty, 0);
     useEffect(() => {
         document.documentElement.style.overflow = isOpen ? "hidden" : "";
         document.body.style.overflowX = "hidden";
@@ -111,7 +113,6 @@ function Sidebar() {
                 className="cursor-pointer"
                 onClick={() => {
                     setIsOpen((prev) => !prev)
-                    console.log("Clicked")
                 }}
             />
             {isVisible && (
@@ -127,26 +128,36 @@ function Sidebar() {
                         onClick={() => setIsOpen(false)}
                     />
                     <div
-                        className={`absolute right-0 top-0 h-full w-80 bg-white bg-opacity-100 transition-transform duration-500 ease-out ${
+                        className={`absolute right-0 top-0 h-full w-[86vw] max-w-[360px] bg-white opacity-100 transition-transform duration-500 ease-out shadow-2xl ${
                             isActive ? "translate-x-0" : "translate-x-full"
                         }`}
-                        style={{ backgroundColor: "#ffffff" }}
+                        style={{ backgroundColor: "#ffffff", opacity: 1 }}
                     >
-                        <div className="py-8 px-8 flex justify-end border-b border-b-gray-100 mb-5">
-                            <X
-                                className="cursor-pointer"
+                        <div className="px-6 py-5 flex items-center justify-between border-b border-b-gray-100">
+                            <Link className="inline-flex items-center" href="/" onClick={() => setIsOpen(false)}>
+                                <Image
+                                    src="/gigasec white logo.png"
+                                    width={96}
+                                    height={1}
+                                    alt="Gigasec Logo"
+                                />
+                            </Link>
+                            <button
+                                className="w-9 h-9 rounded-full flex items-center justify-center border border-gray-200"
                                 onClick={() => setIsOpen(false)}
-                            />
+                            >
+                                <X size={18} />
+                            </button>
                         </div>
-                        <div className="flex flex-col px-5 mb-10">
+                        <div className="flex flex-col px-6 py-4">
                             {navlinks.map((link) => {
                                 const isCurrent = pathname === link.url;
                                 return (
                                 <Link
                                     key={link.text}
                                     href={link.url}
-                                    className={`py-6 font-bold tracking-[0.5px] transition-colors duration-200 border-b flex justify-between items-center ${
-                                        isCurrent ? "text-[#0099cc]" : "hover:text-[#0099cc]"
+                                    className={`py-4 text-[15px] font-semibold tracking-[0.2px] transition-colors duration-200 border-b flex justify-between items-center ${
+                                        isCurrent ? "text-[#0099cc]" : "text-[#1a2332] hover:text-[#0099cc]"
                                     }`}
                                     onClick={() => setIsOpen(false)}
                                 >
@@ -156,9 +167,26 @@ function Sidebar() {
                                 );
                             })}
                         </div>
-                        <div className="px-6">
+                        <div className="px-6 pb-6 pt-2 flex flex-col gap-3">
+                            <Link href="/cart" onClick={() => setIsOpen(false)}>
+                                <div className="w-full relative flex items-center gap-3 px-4 py-3 rounded-lg cursor-pointer transition-all duration-200"
+                                     style={{ background: "rgba(51,154,153,0.12)", border: "1px solid rgba(51,154,153,0.3)" }}
+                                     onMouseEnter={e => e.currentTarget.style.background = "rgba(51,154,153,0.2)"}
+                                     onMouseLeave={e => e.currentTarget.style.background = "rgba(51,154,153,0.12)"}>
+                                    <Icon name="cart" size={20} color="#339a99" />
+                                    <span className={`${dMSans.className} text-[14px] font-semibold text-[#1a2332]`}>
+                                        Cart
+                                    </span>
+                                    {cartCount > 0 && (
+                                        <div className={`${dMSans.className} ml-auto w-6 h-6 rounded-full flex items-center justify-center text-white font-bold text-[11px]`}
+                                             style={{ background: "#FF6600", animation: "cartBounce 0.5s cubic-bezier(0.34,1.56,0.64,1)" }}>
+                                            {cartCount}
+                                        </div>
+                                    )}
+                                </div>
+                            </Link>
                             <a
-                                className="inline-flex items-center gap-2 rounded-full border-[1.5px]  px-5 py-3.75 font-[DM_Sans] text-[15px] font-semibold tracking-[0.3px] no-underline transition-all duration-200 hover:border-[#339a99] hover:text-[#339a99]"
+                                className="inline-flex items-center justify-center gap-2 rounded-lg border-[1.5px] px-5 py-3 font-[DM_Sans] text-[14px] font-semibold tracking-[0.3px] no-underline transition-all duration-200 hover:border-[#339a99] hover:text-[#339a99]"
                                 href="#"
                                 onClick={() => setIsOpen(false)}
                             >

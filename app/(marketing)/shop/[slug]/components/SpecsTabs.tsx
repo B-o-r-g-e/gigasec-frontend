@@ -17,10 +17,10 @@ export default function SpecsTabs({currentProduct}: SpecsTabsProps) {
     const tabs = ["specs", "reviews", "delivery"];
 
     return (
-        <section ref={ref} className="py-20 bg-white">
-            <div className="max-w-[1280px] mx-auto px-10">
+        <section ref={ref} className="py-16 sm:py-20 bg-white">
+            <div className="max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-10">
                 {/* Tab bar */}
-                <div className="flex gap-2 mb-12 border-b pb-4 transition-all duration-700"
+                <div className="flex flex-wrap gap-2 mb-10 sm:mb-12 border-b pb-4 transition-all duration-700"
                      style={{
                          borderColor: B.lightgray,
                          opacity: vis ? 1 : 0,
@@ -48,7 +48,7 @@ export default function SpecsTabs({currentProduct}: SpecsTabsProps) {
 
                 {/* Specs */}
                 {activeTab === "specs" && (
-                    <div className="grid grid-cols-2 gap-6 transition-all duration-500" style={{opacity: vis ? 1 : 0}}>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 transition-all duration-500" style={{opacity: vis ? 1 : 0}}>
                         {Object.entries(currentProduct.specs).map(([section, attrs], si) => (
                             <div key={section} className="rounded-[16px] overflow-hidden"
                                  style={{border: `1.5px solid ${B.lightgray}`}}>
@@ -87,7 +87,7 @@ export default function SpecsTabs({currentProduct}: SpecsTabsProps) {
                 {activeTab === "reviews" && (
                     <div id="reviews" className="transition-all duration-500" style={{opacity: vis ? 1 : 0}}>
                         {/* Rating summary */}
-                        <div className="flex items-center gap-10 mb-12 p-8 rounded-[20px]"
+                        <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-10 mb-10 sm:mb-12 p-6 sm:p-8 rounded-[20px]"
                              style={{background: B.offwhite, border: `1.5px solid ${B.lightgray}`}}>
                             <div className="text-center">
                                 <div className={`${syne.className}`}
@@ -108,7 +108,7 @@ export default function SpecsTabs({currentProduct}: SpecsTabsProps) {
                                 </div>
                             </div>
                             {/* Bar chart */}
-                            <div className="flex-1 flex flex-col gap-3">
+                            <div className="w-full flex-1 flex flex-col gap-3">
                                 {[5, 4, 3, 2, 1].map(s => {
                                     const pct = s === 5 ? 70 : s === 4 ? 20 : s === 3 ? 7 : 2;
                                     return (
@@ -203,7 +203,7 @@ export default function SpecsTabs({currentProduct}: SpecsTabsProps) {
 
                 {/* Delivery & Warranty */}
                 {activeTab === "delivery" && (
-                    <div className="grid grid-cols-2 gap-6 transition-all duration-500" style={{opacity: vis ? 1 : 0}}>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 transition-all duration-500" style={{opacity: vis ? 1 : 0}}>
                         {([
                             {
                                 icon: "truck", title: "Delivery Information", content: [

@@ -99,7 +99,7 @@ export default function ProductCard({product: p, i, vis, onAddToCart, onPreview,
                         e.stopPropagation();
                         onPreview();
                     }}
-                    className={`absolute bottom-3 right-3 flex items-center gap-[6px] px-3 py-[7px] rounded-lg font-semibold text-[12px]
+                    className={`absolute bottom-3 right-3 hidden sm:flex items-center gap-[6px] px-3 py-[7px] rounded-lg font-semibold text-[12px]
                                 bg-white/90 text-[#0d3d3d] shadow-md transition-all duration-300
                                 ${hov ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"}
                               `}
@@ -159,12 +159,12 @@ export default function ProductCard({product: p, i, vis, onAddToCart, onPreview,
                     </div>
 
                     {/* Price + CTA */}
-                    <div className="flex items-center justify-between pt-4 border-t border-[#e8edf3]">
+                    <div className="flex flex-col gap-3 pt-4 border-t border-[#e8edf3] sm:flex-row sm:items-center sm:justify-between">
 
                         {/* Price */}
                         <div>
                             <div
-                                className="font-black text-[1.3rem] leading-none text-[#0d3d3d] font-['Syne',sans-serif]">
+                                className="font-black text-[clamp(1.05rem,4vw,1.3rem)] leading-none text-[#0d3d3d] font-['Syne',sans-serif]">
                                 ₦{p.price.toLocaleString()}
                             </div>
                             {p.oldPrice && (
@@ -178,7 +178,7 @@ export default function ProductCard({product: p, i, vis, onAddToCart, onPreview,
                         {/* Button */}
                         <button
                             onClick={handleAdd}
-                            className={`z-50 flex items-center gap-[6px] px-4 py-[9px] rounded-lg font-bold text-[13px] transition-all duration-300
+                            className={`z-50 flex w-full items-center justify-center gap-[6px] px-3 py-[9px] rounded-lg font-bold text-[12px] sm:w-auto sm:px-4 sm:text-[13px] transition-all duration-300
                                   ${adding ? "bg-emerald-500 text-white scale-105 border-emerald-500" :
                                 inCart ? "bg-[#339a991a] text-[#339a99] border-[#339a99]" :
                                     "bg-[#339a99] text-white border-[#339a99]"

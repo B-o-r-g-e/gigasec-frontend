@@ -17,7 +17,7 @@ export default function Hero({query, onQueryChange}: HeroProps) {
 
     return (
         <section
-            className="min-h-[58vh] relative flex items-center overflow-hidden pt-[72px]"
+            className="min-h-[52vh] sm:min-h-[58vh] relative flex items-center overflow-hidden pt-[64px] sm:pt-[72px]"
             style={{
                 background: `linear-gradient(145deg,${B.navyDark} 0%,${B.navy} 55%,#1a5958 100%)`
             }}
@@ -34,7 +34,7 @@ export default function Hero({query, onQueryChange}: HeroProps) {
 
             {/* Glow Orb */}
             <div
-                className="absolute right-[-5%] top-[5%] w-[600px] h-[600px] rounded-full pointer-events-none"
+                className="absolute right-[-12%] top-[-6%] w-[420px] h-[420px] sm:w-[600px] sm:h-[600px] rounded-full pointer-events-none"
                 style={{
                     background: "radial-gradient(circle,rgba(51,154,153,0.18) 0%,transparent 65%)",
                     animation: "orbPulse 7s ease-in-out infinite"
@@ -42,10 +42,10 @@ export default function Hero({query, onQueryChange}: HeroProps) {
             />
 
             {/* Content */}
-            <div className="relative z-[5] max-w-[1280px] mx-auto w-full text-center px-[2.5rem] pt-[80px] pb-[100px]">
+            <div className="relative z-[5] max-w-[1280px] mx-auto w-full text-center px-5 sm:px-10 pt-[64px] sm:pt-[80px] pb-[72px] sm:pb-[100px]">
 
                 <div
-                    className={`inline-flex items-center gap-2 rounded-full px-[18px] py-[6px] mb-7 border transition-all duration-[800ms] ${
+                    className={`inline-flex items-center gap-2 rounded-full px-[14px] sm:px-[18px] py-[6px] mb-6 sm:mb-7 border transition-all duration-[800ms] ${
                         vis ? "opacity-100 scale-100" : "opacity-0 scale-[0.7]"
                     }`}
                     style={{
@@ -62,7 +62,7 @@ export default function Hero({query, onQueryChange}: HeroProps) {
                         }}
                     />
                     <span
-                        className={`${spaceMono.className} text-[11px] tracking-[2px] font-mono`}
+                        className={`${spaceMono.className} text-[10px] sm:text-[11px] tracking-[2px] font-mono`}
                         style={{
                             color: B.electric
                         }}
@@ -71,8 +71,8 @@ export default function Hero({query, onQueryChange}: HeroProps) {
                     </span>
                 </div>
                 <h1
-                    className={`${syne.className} font-extrabold leading-[1] text-white mb-6 tracking-[-2px]
-                    text-[clamp(2.8rem,6.5vw,5rem)]
+                    className={`${syne.className} font-extrabold leading-[1.05] sm:leading-[1] text-white mb-5 sm:mb-6 tracking-[-1px] sm:tracking-[-2px]
+                    text-[clamp(2.1rem,7vw,5rem)]
                     transition-all duration-[1100ms]
                     ${vis ? "opacity-100 translate-y-0" : "opacity-0 translate-y-[60px]"}
                 `}
@@ -93,7 +93,7 @@ export default function Hero({query, onQueryChange}: HeroProps) {
                     </span>
                 </h1>
                 <p
-                    className={`${dMSans.className} text-[1.1rem] leading-[1.75] max-w-[520px] mx-auto mb-10
+                    className={`${dMSans.className} text-[0.98rem] sm:text-[1.1rem] leading-[1.7] max-w-[520px] mx-auto mb-8 sm:mb-10
                     transition-all duration-[900ms] ease
                     ${vis ? "opacity-100 translate-y-0" : "opacity-0 translate-y-[20px]"}
                 `}
@@ -119,7 +119,7 @@ export default function Hero({query, onQueryChange}: HeroProps) {
                         value={query}
                         onChange={e => onQueryChange(e.target.value)}
                         placeholder="Search articles, topics, or keywords..."
-                        className={`${dMSans.className} w-full py-[18px] pl-[24px] pr-[56px] rounded-[12px] outline-none text-[15px] text-white
+                        className={`${dMSans.className} w-full py-[14px] sm:py-[18px] pl-[18px] sm:pl-[24px] pr-[48px] sm:pr-[56px] rounded-[12px] outline-none text-[14px] sm:text-[15px] text-white
                             border border-[rgba(51,154,153,0.25)]
                             bg-[rgba(8,45,48,0.45)] backdrop-blur-[10px]
                             placeholder:text-[rgba(255,255,255,0.45)]
@@ -130,7 +130,7 @@ export default function Hero({query, onQueryChange}: HeroProps) {
                             color: "rgba(255,255,255,0.85)"
                         }}
                     />
-                    <div className="absolute right-[18px] top-1/2 -translate-y-1/2">
+                    <div className="absolute right-[14px] sm:right-[18px] top-1/2 -translate-y-1/2">
                         <Icon name="search" size={20} color="rgba(255,255,255,0.55)"/>
                     </div>
                 </div>

@@ -64,9 +64,9 @@ export default function EachBlogBody({blog, avatar, author, iDSection}: EachBlog
     }, [iDSection]);
 
     return (
-        <section ref={ref} className="py-20" style={{background: B.offwhite}}>
-            <div className="max-w-7xl mx-auto px-10">
-                <div className="grid gap-16" style={{gridTemplateColumns: "1fr 320px"}}>
+        <section ref={ref} className="py-16 sm:py-20" style={{background: B.offwhite}}>
+            <div className="max-w-7xl mx-auto px-5 sm:px-10">
+                <div className="grid gap-12 lg:gap-16 lg:grid-cols-[minmax(0,1fr)_320px]">
 
                     {/* Article content */}
                     <article className="transition-all duration-700"
@@ -108,9 +108,9 @@ export default function EachBlogBody({blog, avatar, author, iDSection}: EachBlog
                         </div>
 
                         {/* Author card */}
-                        <div className="mt-12 p-8 rounded-[20px]"
+                        <div className="mt-12 p-6 sm:p-8 rounded-[20px]"
                              style={{background: B.navy, border: `1.5px solid ${B.electric}30`}}>
-                            <div className="flex items-start gap-6">
+                            <div className="flex flex-col sm:flex-row items-start gap-5 sm:gap-6">
                                 <div className="w-16 h-16 rounded-full flex items-center justify-center shrink-0"
                                      style={{background: "linear-gradient(135deg,#339a99,#1a5958)"}}>
                                     <span className={`${syne.className}`}
@@ -165,9 +165,9 @@ export default function EachBlogBody({blog, avatar, author, iDSection}: EachBlog
                         transform: vis ? "none" : "translateX(30px)",
                         transitionDelay: "200ms"
                     }}>
-                        <div className="sticky top-24 w-[320px] flex flex-col gap-6">
+                        <div className="flex flex-col gap-6 lg:sticky lg:top-24 lg:w-[320px]">
                             {/* TOC */}
-                            <div className={`${spaceMono.className} bg-white rounded-[20px] p-6`}
+                            <div className={`${spaceMono.className} bg-white rounded-[20px] p-6 hidden lg:block`}
                                  style={{border: `1.5px solid ${B.lightgray}`}}>
                                 <div style={{
                                     fontSize: 10,

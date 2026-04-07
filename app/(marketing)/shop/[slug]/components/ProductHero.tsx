@@ -43,10 +43,10 @@ export default function ProductHero({currentProduct}: ProductHeroProps) {
     };
 
     return (
-        <section className="pt-[72px] pb-0" style={{background: B.offwhite}}>
-            <div className="max-w-[1280px] mx-auto px-10 py-10">
+        <section className="pt-[64px] sm:pt-[72px] pb-0" style={{background: B.offwhite}}>
+            <div className="max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-10 py-8 sm:py-10">
                 {/* Breadcrumb */}
-                <div className="flex items-center gap-2 mb-8 transition-all duration-700"
+                <div className="flex flex-wrap items-center gap-2 mb-6 sm:mb-8 transition-all duration-700"
                      style={{opacity: vis ? 1 : 0, transform: vis ? "none" : "translateY(-16px)"}}>
                     {["Home", "Shop", "CCTV Cameras", currentProduct.brand].map((c, i) => (
                         <span key={c} className="flex items-center gap-2">
@@ -68,14 +68,13 @@ export default function ProductHero({currentProduct}: ProductHeroProps) {
                     ))}
                 </div>
 
-                <div className="grid grid-cols-2 gap-16 items-start">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
                     {/* Left — Image gallery */}
                     <div className="transition-all duration-700"
                          style={{opacity: vis ? 1 : 0, transform: vis ? "none" : "translateX(-40px)"}}>
                         {/* Main image */}
-                        <div className={`bg-cover relative rounded-[24px] overflow-hidden mb-4 flex items-center justify-center`}
+                        <div className={`bg-cover relative rounded-[24px] overflow-hidden mb-4 flex items-center justify-center h-[280px] sm:h-[360px] lg:h-[420px]`}
                              style={{
-                                 height: 420,
                                  backgroundImage: `url("${encodeURI(images[activeImg])}")`,
                                  boxShadow: "0 16px 48px rgba(13,61,61,0.18)"
                              }}
@@ -108,12 +107,11 @@ export default function ProductHero({currentProduct}: ProductHeroProps) {
                         </div>
 
                         {/* Thumbnails */}
-                        <div className="grid grid-cols-4 gap-3">
+                        <div className="grid grid-cols-4 gap-2 sm:gap-3">
                             {images.map((img, i) => (
                                 <button key={i} onClick={() => setActiveImg(i)}
-                                        className="rounded-xl border-none cursor-pointer overflow-hidden transition-all duration-300 flex items-center justify-center"
+                                        className="rounded-xl border-none cursor-pointer overflow-hidden transition-all duration-300 flex items-center justify-center h-16 sm:h-20"
                                         style={{
-                                            height: 80,
                                             border: `2px solid ${activeImg === i ? B.electric : "transparent"}`,
                                             opacity: activeImg === i ? 1 : 0.6,
                                             transform: activeImg === i ? "scale(1.05)" : "scale(1)"
@@ -163,7 +161,7 @@ export default function ProductHero({currentProduct}: ProductHeroProps) {
                         </h1>
 
                         {/* Rating */}
-                        <div className="flex items-center gap-3 mb-5 pb-5"
+                        <div className="flex flex-wrap items-center gap-3 mb-5 pb-5"
                              style={{borderBottom: `1px solid ${B.lightgray}`}}>
                             <div className="flex gap-1">
                                 {[1, 2, 3, 4, 5].map(s => <Icon key={s} name="star" size={16}
@@ -195,7 +193,7 @@ export default function ProductHero({currentProduct}: ProductHeroProps) {
                                 <span className={`${syne.className}`}
                                       style={{
                                           fontWeight: 800,
-                                          fontSize: "2.2rem",
+                                          fontSize: "clamp(1.6rem,6vw,2.2rem)",
                                           color: B.navy,
                                           lineHeight: 1,
                                           letterSpacing: -1
@@ -268,33 +266,49 @@ export default function ProductHero({currentProduct}: ProductHeroProps) {
                         </div>
 
                         {/* Qty + Add to Cart */}
-                        <div className="flex gap-4 items-center mb-5">
-                            <div className="flex items-center rounded-xl overflow-hidden"
-                                 style={{border: `1.5px solid ${B.lightgray}`}}>
-                                <button onClick={() => setQty(q => Math.max(1, q - 1))}
-                                        className="w-12 h-12 flex items-center justify-center border-none cursor-pointer transition-all duration-200"
-                                        style={{background: B.offwhite, color: B.charcoal}}
-                                        onMouseEnter={e => e.currentTarget.style.background = B.lightgray}
-                                        onMouseLeave={e => e.currentTarget.style.background = B.offwhite}>
-                                    <Icon name="minus" size={16} color={B.charcoal}/>
-                                </button>
-                                <span className={`${syne.className} w-12 text-center`}
-                                      style={{
-                                          fontWeight: 700,
-                                          fontSize: 16,
-                                          color: B.navy
-                                      }}>{qty}</span>
-                                <button onClick={() => setQty(q => q + 1)}
-                                        className="w-12 h-12 flex items-center justify-center border-none cursor-pointer transition-all duration-200"
-                                        style={{background: B.offwhite, color: B.charcoal}}
-                                        onMouseEnter={e => e.currentTarget.style.background = B.lightgray}
-                                        onMouseLeave={e => e.currentTarget.style.background = B.offwhite}>
-                                    <Icon name="plus" size={16} color={B.charcoal}/>
+                        <div className="flex flex-col gap-3 sm:flex-row sm:gap-4 sm:items-center mb-5">
+                            <div className="flex items-center justify-between gap-3 sm:gap-4">
+                                <div className="flex items-center rounded-xl overflow-hidden"
+                                     style={{border: `1.5px solid ${B.lightgray}`}}>
+                                    <button onClick={() => setQty(q => Math.max(1, q - 1))}
+                                            className="w-12 h-12 flex items-center justify-center border-none cursor-pointer transition-all duration-200"
+                                            style={{background: B.offwhite, color: B.charcoal}}
+                                            onMouseEnter={e => e.currentTarget.style.background = B.lightgray}
+                                            onMouseLeave={e => e.currentTarget.style.background = B.offwhite}>
+                                        <Icon name="minus" size={16} color={B.charcoal}/>
+                                    </button>
+                                    <span className={`${syne.className} w-12 text-center`}
+                                          style={{
+                                              fontWeight: 700,
+                                              fontSize: 16,
+                                              color: B.navy
+                                          }}>{qty}</span>
+                                    <button onClick={() => setQty(q => q + 1)}
+                                            className="w-12 h-12 flex items-center justify-center border-none cursor-pointer transition-all duration-200"
+                                            style={{background: B.offwhite, color: B.charcoal}}
+                                            onMouseEnter={e => e.currentTarget.style.background = B.lightgray}
+                                            onMouseLeave={e => e.currentTarget.style.background = B.offwhite}>
+                                        <Icon name="plus" size={16} color={B.charcoal}/>
+                                    </button>
+                                </div>
+
+                                <button
+                                    className="w-12 h-12 rounded-xl flex items-center justify-center border-none cursor-pointer transition-all duration-200 flex-shrink-0"
+                                    style={{background: B.offwhite, border: `1.5px solid ${B.lightgray}`}}
+                                    onMouseEnter={e => {
+                                        e.currentTarget.style.borderColor = B.electric;
+                                        e.currentTarget.style.background = "rgba(51,154,153,0.05)";
+                                    }}
+                                    onMouseLeave={e => {
+                                        e.currentTarget.style.borderColor = B.lightgray;
+                                        e.currentTarget.style.background = B.offwhite;
+                                    }}>
+                                    <Icon name="share" size={18} color={B.gray}/>
                                 </button>
                             </div>
 
                             <button onClick={() => handleAddToCart(currentProduct)}
-                                    className={`${syne.className} flex-1 flex items-center justify-center gap-3 py-4 rounded-xl text-white border-none cursor-pointer transition-all duration-300`}
+                                    className={`${syne.className} w-full sm:flex-1 flex items-center justify-center gap-3 py-4 rounded-xl text-white border-none cursor-pointer transition-all duration-300`}
                                     style={{
                                         fontWeight: 700,
                                         fontSize: 16,
@@ -314,20 +328,6 @@ export default function ProductHero({currentProduct}: ProductHeroProps) {
                                     }}>
                                 {adding ? <><Icon name="check" size={20} color="#fff"/> adding to Cart!</> : <><Icon
                                     name="cart" size={20} color="#fff"/> Add to Cart</>}
-                            </button>
-
-                            <button
-                                className="w-12 h-12 rounded-xl flex items-center justify-center border-none cursor-pointer transition-all duration-200 flex-shrink-0"
-                                style={{background: B.offwhite, border: `1.5px solid ${B.lightgray}`}}
-                                onMouseEnter={e => {
-                                    e.currentTarget.style.borderColor = B.electric;
-                                    e.currentTarget.style.background = "rgba(51,154,153,0.05)";
-                                }}
-                                onMouseLeave={e => {
-                                    e.currentTarget.style.borderColor = B.lightgray;
-                                    e.currentTarget.style.background = B.offwhite;
-                                }}>
-                                <Icon name="share" size={18} color={B.gray}/>
                             </button>
                         </div>
 
@@ -352,21 +352,24 @@ export default function ProductHero({currentProduct}: ProductHeroProps) {
                         </a>
 
                         {/* Trust row */}
-                        <div className="grid grid-cols-3 gap-3">
+                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                             {([
                                 {icon: "truck", text: "Free Delivery"},
                                 {icon: "lock", text: `${currentProduct.warranty}`},
                                 {icon: "info", text: "Datasheet (PDF)"},
                             ] satisfies {icon: IconName; text: string}[]).map(b => (
                                 <div key={b.text}
-                                     className="flex flex-col items-center gap-2 p-3 rounded-xl text-center"
+                                     className="flex items-center gap-3 p-4 rounded-xl text-left"
                                      style={{background: B.offwhite, border: `1px solid ${B.lightgray}`}}>
-                                    <Icon name={b.icon} size={18} color={B.electric}/>
+                                    <div className="w-9 h-9 rounded-full flex items-center justify-center"
+                                         style={{background: "rgba(51,154,153,0.12)"}}>
+                                        <Icon name={b.icon} size={16} color={B.electric}/>
+                                    </div>
                                     <span className={`${dMSans.className}`}
                                           style={{
-                                              fontSize: 12,
+                                              fontSize: 13,
                                               color: B.gray,
-                                              fontWeight: 500
+                                              fontWeight: 600
                                           }}>{b.text}</span>
                                 </div>
                             ))}

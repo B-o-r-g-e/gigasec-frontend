@@ -13,7 +13,7 @@ export default function Hero() {
 
     return (
         <section
-            className="relative flex items-center overflow-hidden pt-[64px] sm:pt-[72px] min-h-[56vh]"
+            className="relative flex items-center overflow-hidden pt-[64px] sm:pt-[72px] min-h-[52vh] sm:min-h-[56vh]"
             style={{
                 background: `linear-gradient(145deg, ${B.navyDark} 0%, ${B.navy} 55%, #1a5958 100%)`,
             }}
@@ -32,10 +32,10 @@ export default function Hero() {
             <div
                 className="absolute rounded-full pointer-events-none animate-orbPulse"
                 style={{
-                    right: "-5%",
-                    top: "5%",
-                    width: 600,
-                    height: 600,
+                    right: "-12%",
+                    top: "-6%",
+                    width: 420,
+                    height: 420,
                     background:
                         "radial-gradient(circle,rgba(51,154,153,0.18) 0%,transparent 65%)",
                 }}
@@ -43,7 +43,7 @@ export default function Hero() {
 
             {/* Content */}
             <div
-                className="relative z-[5] max-w-[1280px] mx-auto w-full px-5 sm:px-8 lg:px-10 py-14 sm:py-[80px] pb-16 sm:pb-[100px] grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-28 items-center">
+                className="relative z-[5] max-w-[1280px] mx-auto w-full px-5 sm:px-8 lg:px-10 py-12 sm:py-[80px] pb-12 sm:pb-[100px] grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-28 items-center">
 
                 {/* Left */}
                 <div>
@@ -70,8 +70,8 @@ export default function Hero() {
 
                     {/* Heading */}
                     <h1
-                        className={`${syne.className} font-extrabold leading-none text-white mb-6 tracking-[-2px]
-                            text-[clamp(2.5rem,5.5vw,4.2rem)]
+                        className={`${syne.className} font-extrabold leading-[1.05] sm:leading-none text-white mb-6 tracking-[-1px] sm:tracking-[-2px]
+                            text-[clamp(2.1rem,7vw,4.2rem)]
                             transition-all duration-[1100ms]`}
                         style={{
                             opacity: vis ? 1 : 0,

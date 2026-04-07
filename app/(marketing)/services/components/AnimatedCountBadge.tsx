@@ -5,16 +5,16 @@ export default function CountBadge({ value, suffix, label, delay = 0, active }: 
 
     return (
         <div
-            className={`text-center transition-all duration-700 ease-[cubic-bezier(0.34,1.56,0.64,1)]
+            className={`min-w-[140px] sm:min-w-0 text-center transition-all duration-700 ease-[cubic-bezier(0.34,1.56,0.64,1)]
         ${active ? "opacity-100 scale-100 translate-y-0" : "opacity-0 scale-75 translate-y-5"}
       `}
             style={{ transitionDelay: `${delay}ms` }}
         >
-            <div className="font-[Syne] font-extrabold text-[2.8rem] text-white leading-none tracking-[-2px]">
+            <div className="font-[Syne] font-extrabold text-[clamp(1.75rem,7vw,2.8rem)] text-white leading-none tracking-[-1px] sm:tracking-[-2px]">
                 {n}{suffix}
             </div>
 
-            <div className="font-[DM_Sans] text-[13px] text-white/60 mt-[6px]">
+            <div className="font-[DM_Sans] text-[12px] sm:text-[13px] text-white/60 mt-[6px]">
                 {label}
             </div>
         </div>

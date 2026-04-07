@@ -27,8 +27,8 @@ export default function RelatedProducts({relatedProduct}: RelatedProductsProps) 
     };
 
     return (
-        <section ref={ref} className="py-20" style={{background: B.offwhite}}>
-            <div className="max-w-7xl mx-auto px-10">
+        <section ref={ref} className="py-16 sm:py-20" style={{background: B.offwhite}}>
+            <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
                 <div className={`${spaceMono.className}`}
                      style={{
                          fontSize: 11,
@@ -44,7 +44,7 @@ export default function RelatedProducts({relatedProduct}: RelatedProductsProps) 
                         color: B.navy,
                         letterSpacing: -0.5
                     }}>Related Products</h2>
-                <div className="grid grid-cols-3 gap-6">
+                <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                     {relatedProduct.map((p, i) => {
                         return (
                             <div key={p.id}

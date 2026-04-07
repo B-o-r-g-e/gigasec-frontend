@@ -58,7 +58,7 @@ function BlogSection() {
         <section ref={ref} className="bg-white py-25">
             <div className="mx-auto max-w-7xl px-8">
                 <div
-                    className={`mb-14 flex items-center md:items-end justify-between transition-all duration-500 ${
+                    className={`mb-14 flex flex-col gap-6 items-start md:flex-row md:items-end md:justify-between transition-all duration-500 ${
                         inView ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
                     }`}
                 >
@@ -67,7 +67,7 @@ function BlogSection() {
                             OUR METHOD
                         </div>
 
-                        <h2 className="font-['Syne',sans-serif] text-[clamp(2rem,4vw,3rem)] font-extrabold tracking-[-0.5px] text-[#0d3d3d]">
+                        <h2 className="max-w-[32rem] font-['Syne',sans-serif] text-[clamp(1.75rem,6vw,3rem)] font-extrabold leading-[1.15] tracking-[-0.5px] text-[#0d3d3d]">
                             From Requirement to Handover
                         </h2>
                     </div>

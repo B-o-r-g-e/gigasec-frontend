@@ -1,7 +1,7 @@
 'use client'
 import type {Product} from "@/app/(marketing)/shop/components/products";
 import {CATEGORIES, PRODUCTS} from "@/app/(marketing)/shop/components/products";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {useInView} from "@/hooks/useInView";
 import ProductCard from "@/app/(marketing)/shop/components/ProductCard";
 import {Icon} from "@/icons/Icon";
@@ -14,6 +14,19 @@ export default function ProductsGrid() {
     const [cat, setCat] = useState<(typeof CATEGORIES)[number]>("All Products");
     const [sort, setSort] = useState("Default");
     const [preview, setPreview] = useState<Product | null>(null);
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const media = window.matchMedia("(max-width: 639px)");
+        const handleChange = () => setIsMobile(media.matches);
+        handleChange();
+        if (typeof media.addEventListener === "function") {
+            media.addEventListener("change", handleChange);
+            return () => media.removeEventListener("change", handleChange);
+        }
+        media.addListener(handleChange);
+        return () => media.removeListener(handleChange);
+    }, []);
 
     let filtered = cat === "All Products" ? PRODUCTS : PRODUCTS.filter(p => p.cat === cat);
     if (sort === "Price: Low") filtered = [...filtered].sort((a, b) => a.price - b.price);
@@ -89,7 +102,9 @@ export default function ProductsGrid() {
                             i={i}
                             vis={vis}
                             onAddToCart={() => addToCart(p, 1)}
-                            onPreview={() => setPreview(p)}
+                            onPreview={() => {
+                                if (!isMobile) setPreview(p);
+                            }}
                             cart={cart}
                         />
                     ))}
@@ -97,7 +112,7 @@ export default function ProductsGrid() {
             </div>
 
             {/* Preview modal */}
-            {preview && (
+            {preview && !isMobile && (
                 <ProductPreview
                     product={preview}
                     onClose={() => setPreview(null)}

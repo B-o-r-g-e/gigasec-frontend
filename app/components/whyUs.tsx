@@ -106,7 +106,7 @@ export default function WhySection() {
                             WHY CHOOSE US
                         </div>
 
-                        <h2 className="mb-5 font-['Syne',sans-serif] text-[clamp(1.8rem,3.5vw,2.8rem)] font-extrabold tracking-[-0.5px] text-[#0d3d3d]">
+                        <h2 className="mb-5 max-w-[26rem] font-['Syne',sans-serif] text-[clamp(1.6rem,6vw,2.8rem)] font-extrabold leading-[1.15] tracking-[-0.5px] text-[#0d3d3d]">
                             We Listen. We Think. We Act.
                         </h2>
 

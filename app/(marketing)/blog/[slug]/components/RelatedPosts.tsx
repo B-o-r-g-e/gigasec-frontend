@@ -32,11 +32,11 @@ export default function RelatedPosts({topRelated}: RelatedPostsProps) {
     const [hov, setHov] = useState(false);
 
     return (
-        <section ref={ref} className="py-20" style={{ background: "#fff" }}>
-            <div className="max-w-7xl mx-auto px-10">
-                <div className={`${spaceMono.className}`} style={{ fontSize: 11, color: B.electric, letterSpacing: 3, marginBottom: 12 }}>KEEP READING</div>
-                <h2 className={`${syne.className} mb-10`} style={{ fontWeight: 800, fontSize: "clamp(1.8rem,3.5vw,2.4rem)", color: B.navy, letterSpacing: -0.5 }}>Related Articles</h2>
-                <div className="grid grid-cols-3 gap-6">
+        <section ref={ref} className="py-16 sm:py-20" style={{ background: "#fff" }}>
+            <div className="max-w-7xl mx-auto px-5 sm:px-10">
+                <div className={`${spaceMono.className}`} style={{ fontSize: 10, color: B.electric, letterSpacing: 3, marginBottom: 10 }}>KEEP READING</div>
+                <h2 className={`${syne.className} mb-8 sm:mb-10`} style={{ fontWeight: 800, fontSize: "clamp(1.6rem,6vw,2.4rem)", color: B.navy, letterSpacing: -0.5 }}>Related Articles</h2>
+                <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                     {topRelated.map((p, i) => {
                         return (
                             <a key={p.title} href={`/blog/${slugify(topRelated[i].title)}`} onMouseEnter={() => setHov(true)} onMouseLeave={() => setHov(false)}

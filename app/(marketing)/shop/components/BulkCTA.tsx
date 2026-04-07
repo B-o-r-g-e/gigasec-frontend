@@ -7,10 +7,10 @@ export default function BulkCTA() {
     const [ref, vis] = useInView(0.2);
 
     return (
-        <section ref={ref} id="contact" className="bg-[#F5F7FA] py-20">
-            <div className="max-w-[900px] mx-auto px-10">
+        <section ref={ref} id="contact" className="bg-[#F5F7FA] py-16 sm:py-20">
+            <div className="max-w-[900px] mx-auto px-5 sm:px-10">
                 <div
-                    className="rounded-[24px] px-16 py-16 text-center relative overflow-hidden transition-all duration-[900ms]"
+                    className="rounded-2xl sm:rounded-[24px] px-6 sm:px-12 lg:px-16 py-10 sm:py-14 lg:py-16 text-center relative overflow-hidden transition-all duration-[900ms]"
                     style={{
                         background: "linear-gradient(135deg,#0d3d3d,#1a5958)",
                         opacity: vis ? 1 : 0,
@@ -30,20 +30,20 @@ export default function BulkCTA() {
                         animation: "orbPulse 6s ease-in-out infinite"
                     }}/>
                     <div className="relative z-[2]">
-                        <div className={`${spaceMono.className} text-[11px] tracking-[3px] mb-4`}
+                        <div className={`${spaceMono.className} text-[10px] sm:text-[11px] tracking-[3px] mb-3 sm:mb-4`}
                              style={{color: "#339a99"}}>TRADE & BULK ORDERS
                         </div>
                         <h2 className={`${syne.className} font-black text-white tracking-[-0.5px] mb-4`}
-                            style={{fontSize: "clamp(1.8rem,4vw,2.8rem)"}}>Ordering for
+                            style={{fontSize: "clamp(1.6rem,6vw,2.8rem)", lineHeight: 1.15}}>Ordering for
                             a Project or Business?</h2>
-                        <p className={`${dMSans.className} text-[16px] leading-[1.7] mb-9 max-w-[560px] mx-auto`}
+                        <p className={`${dMSans.className} text-[14px] sm:text-[16px] leading-[1.7] mb-8 sm:mb-9 max-w-[560px] mx-auto`}
                            style={{color: "rgba(255,255,255,0.7)"}}>
                             We offer trade pricing, volume discounts, credit facilities, and dedicated account
                             management for contractors, integrators, and enterprise buyers.
                         </p>
-                        <div className="flex gap-4 justify-center flex-wrap">
+                        <div className="flex gap-3 sm:gap-4 justify-center flex-wrap">
                             <a href="#"
-                               className={`${dMSans.className} inline-flex items-center gap-2 px-8 py-4 rounded-lg font-bold text-[15px] text-white no-underline transition-all duration-300`}
+                               className={`${dMSans.className} inline-flex w-full sm:w-auto items-center justify-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 rounded-lg font-bold text-[14px] sm:text-[15px] text-white no-underline transition-all duration-300`}
                                style={{
                                    background: "#339a99",
                                    boxShadow: "0 8px 28px rgba(51,154,153,0.4)"
@@ -59,7 +59,7 @@ export default function BulkCTA() {
                                 Request Trade Account <Icon name="arrow" size={16} color="#fff"/>
                             </a>
                             <a href="tel:+2341234567"
-                               className={`${dMSans.className} inline-flex items-center gap-2 px-8 py-4 rounded-lg font-semibold text-[15px] text-white no-underline transition-all duration-200`}
+                               className={`${dMSans.className} inline-flex w-full sm:w-auto items-center justify-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 rounded-lg font-semibold text-[14px] sm:text-[15px] text-white no-underline transition-all duration-200`}
                                style={{
                                    background: "transparent",
                                    border: "1.5px solid rgba(255,255,255,0.3)"

@@ -23,7 +23,7 @@ export default function ProductPreview({product: p, onClose, onAddToCart}: Produ
     return (
         <div
             onClick={handleClose}
-            className={`fixed inset-0 z-[2000] flex items-center justify-center p-8
+            className={`fixed inset-0 z-[2000] flex items-center justify-center p-4 sm:p-8
                         transition-opacity duration-500
                         ${open ? "opacity-100" : "opacity-0 pointer-events-none"}
                         bg-[rgba(6,30,30,0.85)] backdrop-blur-md
@@ -31,17 +31,17 @@ export default function ProductPreview({product: p, onClose, onAddToCart}: Produ
         >
             <div
                 onClick={(e) => e.stopPropagation()}
-                className={`bg-white rounded-[24px] w-full max-w-[760px] overflow-hidden
+                className={`bg-white rounded-2xl sm:rounded-[24px] w-full max-w-[760px] overflow-hidden
                           grid grid-cols-1 md:grid-cols-2
                           transition-all duration-500
                           ${open ? "scale-100 translate-y-0" : "scale-95 translate-y-10"}
                           shadow-[0_40px_80px_rgba(0,0,0,0.4)]
-                          max-h-[88vh]
+                          max-h-[92vh] sm:max-h-[88vh]
                         `}
             >
                 {/* Left */}
                 <div
-                    className="flex items-center justify-center relative min-h-[340px] bg-[linear-gradient(135deg,#F5F7FA,#e8edf3)] overflow-hidden">
+                    className="flex items-center justify-center relative min-h-[220px] sm:min-h-[340px] bg-[linear-gradient(135deg,#F5F7FA,#e8edf3)] overflow-hidden">
                     {p.image ? (
                         <Image
                             src={p.image}
@@ -68,7 +68,7 @@ export default function ProductPreview({product: p, onClose, onAddToCart}: Produ
                 </div>
 
                 {/* Right */}
-                <div className="p-9 overflow-y-auto">
+                <div className="p-6 sm:p-9 overflow-y-auto max-h-[56vh] md:max-h-none">
 
                     {/* Close */}
                     <button
@@ -85,7 +85,7 @@ export default function ProductPreview({product: p, onClose, onAddToCart}: Produ
                     </span>
 
                     {/* Title */}
-                    <h2 className="font-black text-[1.2rem] leading-[1.35] tracking-[-0.3px] mt-3 mb-2 text-[#0d3d3d] font-['Syne',sans-serif]">
+                    <h2 className="font-black text-[clamp(1.05rem,4.5vw,1.2rem)] leading-[1.35] tracking-[-0.3px] mt-3 mb-2 text-[#0d3d3d] font-['Syne',sans-serif]">
                         {p.name}
                     </h2>
 
@@ -110,7 +110,7 @@ export default function ProductPreview({product: p, onClose, onAddToCart}: Produ
                     </div>
 
                     {/* Price */}
-                    <div className="font-black text-[1.8rem] leading-none text-[#0d3d3d] font-['Syne',sans-serif]">
+                    <div className="font-black text-[clamp(1.4rem,6vw,1.8rem)] leading-none text-[#0d3d3d] font-['Syne',sans-serif]">
                         ₦{p.price.toLocaleString()}
                     </div>
 
@@ -167,8 +167,8 @@ export default function ProductPreview({product: p, onClose, onAddToCart}: Produ
                     {/* CTA */}
                     <button
                         onClick={() => onAddToCart(qty)}
-                        className="w-full flex items-center justify-center gap-2 py-[14px] rounded-[10px]
-                                  font-bold text-[15px] text-white
+                        className="w-full flex items-center justify-center gap-2 py-[12px] sm:py-[14px] rounded-[10px]
+                                  font-bold text-[14px] sm:text-[15px] text-white
                                   bg-[linear-gradient(135deg,#339a99,#227a79)]
                                   shadow-[0_8px_24px_rgba(51,154,153,0.35)]
                                   hover:scale-[1.02] hover:shadow-[0_12px_32px_rgba(51,154,153,0.5)]

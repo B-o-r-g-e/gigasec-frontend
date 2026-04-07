@@ -20,8 +20,8 @@ export default function Hero() {
                     <Breadcrumb trail={crumbs}/>
                     <Badge visible={vis} text="COMPANY PROFILE 2025"/>
                     <h1
-                        className={`font-[Syne] font-extrabold leading-none text-white mb-7 tracking-[-2px] max-w-[800px]
-                        text-[clamp(3rem,6.5vw,5.5rem)]
+                        className={`font-[Syne] font-extrabold leading-[1.05] sm:leading-none text-white mb-7 tracking-[-1px] sm:tracking-[-2px] max-w-[640px] lg:max-w-[800px]
+                        text-[clamp(2.25rem,7vw,5.5rem)]
                         transition-all duration-1000 ease-[cubic-bezier(0.22,1,0.36,1)] delay-200
                         ${vis ? "opacity-100 translate-y-0" : "opacity-0 translate-y-[60px]"}
                       `}
@@ -46,6 +46,7 @@ export default function Hero() {
                     </p>
                     <div
                         className={`flex flex-wrap gap-4 sm:gap-10 transition-all duration-1000 ease-in-out delay-[600ms]
+                        max-w-[520px] sm:max-w-none
                         ${vis ? "opacity-100" : "opacity-0"}
                         `}
                     >

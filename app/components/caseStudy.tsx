@@ -97,7 +97,7 @@ export default function CaseStudiesSection() {
             className="bg-[#f8fafc] py-25"
         >
             <div className="mx-auto max-w-7xl px-8">
-                <div className="mb-14 flex items-center md:items-end justify-between">
+                <div className="mb-14 flex flex-col gap-6 items-start md:flex-row md:items-end md:justify-between">
                     <motion.div
                         variants={headerVariants}
                     >
@@ -105,7 +105,7 @@ export default function CaseStudiesSection() {
                             EXPERIENCE GALLERY
                         </div>
 
-                        <h2 className="font-['Syne',sans-serif] text-[clamp(2rem,4vw,3rem)] font-extrabold tracking-[-0.5px] text-[#0d3d3d]">
+                        <h2 className="max-w-[28rem] font-['Syne',sans-serif] text-[clamp(1.75rem,6vw,3rem)] font-extrabold leading-[1.15] tracking-[-0.5px] text-[#0d3d3d]">
                             Project Highlights
                         </h2>
                     </motion.div>

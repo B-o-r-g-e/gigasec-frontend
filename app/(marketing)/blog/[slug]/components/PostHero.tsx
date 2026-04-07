@@ -24,7 +24,7 @@ export default function PostHero({POST, author}: { POST: PostSummary, author?: A
     }, []);
 
     return (
-        <header className="relative overflow-hidden pt-18"
+        <header className="relative overflow-hidden pt-16 sm:pt-20"
                 style={{background: "linear-gradient(145deg,#061e1e 0%,#0d3d3d 60%,#1a5958 100%)", paddingBottom: 0}}>
             <div className="absolute inset-0 pointer-events-none"
                  style={{
@@ -34,17 +34,17 @@ export default function PostHero({POST, author}: { POST: PostSummary, author?: A
                  }}/>
             <div className="absolute rounded-full pointer-events-none"
                  style={{
-                     right: "-10%",
-                     top: "-20%",
-                     width: 700,
-                     height: 700,
+                     right: "-18%",
+                     top: "-30%",
+                     width: 420,
+                     height: 420,
                      background: "radial-gradient(circle,rgba(51,154,153,0.15) 0%,transparent 65%)",
                      animation: "orbPulse 8s ease-in-out infinite"
                  }}/>
 
-            <div className="relative z-10 max-w-225 mx-auto px-10 py-16 pb-24">
+            <div className="relative z-10 max-w-225 mx-auto px-5 sm:px-10 py-12 sm:py-16 pb-16 sm:pb-24">
                 {/* Breadcrumb */}
-                <div className="flex items-center gap-2 mb-8 transition-all duration-700"
+                <div className="flex flex-wrap items-center gap-2 mb-6 sm:mb-8 transition-all duration-700"
                      style={{opacity: vis ? 1 : 0, transform: vis ? "none" : "translateY(-16px)"}}>
                     {["Home", "Blog", POST.cat].map((c, i) => (
                         <span key={i} className="flex items-center gap-2">
@@ -60,7 +60,7 @@ export default function PostHero({POST, author}: { POST: PostSummary, author?: A
                 </div>
 
                 {/* Category + read time */}
-                <div className="flex items-center gap-3 mb-6 transition-all duration-700"
+                <div className="flex flex-wrap items-center gap-3 mb-6 transition-all duration-700"
                      style={{
                          opacity: vis ? 1 : 0,
                          transform: vis ? "scale(1)" : "scale(0.8)",
@@ -80,12 +80,12 @@ export default function PostHero({POST, author}: { POST: PostSummary, author?: A
                 </div>
 
                 {/* Title */}
-                <h1 className={`${syne.className} text-white mb-6 transition-all duration-1100`}
+                <h1 className={`${syne.className} text-white mb-5 sm:mb-6 transition-all duration-1100`}
                     style={{
                         fontWeight: 800,
-                        fontSize: "clamp(2rem,4.5vw,3.5rem)",
-                        lineHeight: 1.1,
-                        letterSpacing: -1,
+                        fontSize: "clamp(1.75rem,6vw,3.5rem)",
+                        lineHeight: 1.15,
+                        letterSpacing: -0.7,
                         opacity: vis ? 1 : 0,
                         transform: vis ? "none" : "translateY(50px)",
                         transitionDelay: "200ms"
@@ -94,10 +94,10 @@ export default function PostHero({POST, author}: { POST: PostSummary, author?: A
                 </h1>
 
                 {/* Excerpt */}
-                <p className={`${dMSans.className} mb-10 transition-all duration-700`}
+                <p className={`${dMSans.className} mb-8 sm:mb-10 transition-all duration-700`}
                    style={{
-                       fontSize: 18,
-                       lineHeight: 1.75,
+                       fontSize: 15,
+                       lineHeight: 1.7,
                        color: "rgba(255,255,255,0.7)",
                        opacity: vis ? 1 : 0,
                        transform: vis ? "none" : "translateY(20px)",
@@ -107,12 +107,12 @@ export default function PostHero({POST, author}: { POST: PostSummary, author?: A
                 </p>
 
                 {/* Author + share row */}
-                <div className="flex items-center justify-between flex-wrap gap-4 transition-all duration-700"
+                <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between flex-wrap transition-all duration-700"
                      style={{
                          opacity: vis ? 1 : 0,
                          transform: vis ? "none" : "translateY(20px)",
                          transitionDelay: "450ms",
-                         paddingBottom: 24,
+                         paddingBottom: 20,
                          borderBottom: "1px solid rgba(51,154,153,0.2)"
                      }}>
                     <div className="flex items-center gap-4">
@@ -148,7 +148,7 @@ export default function PostHero({POST, author}: { POST: PostSummary, author?: A
                         </div>
                     </div>
                     {/* Share buttons */}
-                    <div className="flex items-center gap-3">
+                    <div className="flex flex-wrap items-center gap-3">
                         <span className={`${dMSans.className}`}
                               style={{fontSize: 12, color: "rgba(255,255,255,0.5)"}}>Share:</span>
                         {SHARE_OPTIONS.map(s => (
