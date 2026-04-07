@@ -114,24 +114,24 @@ export default function ProductCard({product: p, i, vis, onAddToCart, onPreview,
                 <div className="p-6">
 
                     {/* Brand + Category */}
-                    <div className="flex items-center gap-2 mb-[10px]">
-                  <span
-                      className="text-[9px] tracking-[1.5px] px-[10px] py-[3px] rounded-full font-mono text-[#339a99] bg-[#339a991a]">
-                    {p.brand}
-                  </span>
+                    <div className="flex items-center gap-2 mb-2.5">
+                      <span
+                          className="text-[9px] tracking-[1.5px] px-2.5 py-0.75 rounded-full font-mono text-[#339a99] bg-[#339a991a]">
+                        {p.brand}
+                      </span>
                         <span className="text-[9px] tracking-[1px] font-mono text-gray-500">
-                        {p.cat}
-                    </span>
+                            {p.cat}
+                        </span>
                     </div>
 
                     {/* Title */}
-                    <h3 className="font-bold text-[14px] leading-[1.4] mb-[10px] tracking-[-0.2px] text-[#0d3d3d] font-['Syne',sans-serif]">
+                    <h3 className="font-bold text-[14px] leading-[1.4] mb-2.5 tracking-[-0.2px] text-[#0d3d3d] font-['Syne',sans-serif]">
                         {p.name}
                     </h3>
 
                     {/* Rating */}
-                    <div className="flex items-center gap-[6px] mb-[14px]">
-                        <div className="flex gap-[2px]">
+                    <div className="flex items-center gap-1.5 mb-3.5">
+                        <div className="flex gap-0.5">
                             {[1, 2, 3, 4, 5].map((s) => (
                                 <Icon
                                     key={s}
@@ -147,7 +147,7 @@ export default function ProductCard({product: p, i, vis, onAddToCart, onPreview,
                     </div>
 
                     {/* Tags */}
-                    <div className="flex flex-wrap gap-[6px] mb-[18px]">
+                    <div className="flex flex-wrap gap-1.5 mb-4.5">
                         {p.tags.map((t) => (
                             <span
                                 key={t}
@@ -163,11 +163,13 @@ export default function ProductCard({product: p, i, vis, onAddToCart, onPreview,
 
                         {/* Price */}
                         <div>
-                            <div className="font-black text-[1.3rem] leading-none text-[#0d3d3d] font-['Syne',sans-serif]">
+                            <div
+                                className="font-black text-[1.3rem] leading-none text-[#0d3d3d] font-['Syne',sans-serif]">
                                 ₦{p.price.toLocaleString()}
                             </div>
                             {p.oldPrice && (
-                                <div className="text-[12px] mt-1 line-through text-gray-500 font-['DM_Sans',sans-serif]">
+                                <div
+                                    className="text-[12px] mt-1 line-through text-gray-500 font-['DM_Sans',sans-serif]">
                                     ₦{p.oldPrice.toLocaleString()}
                                 </div>
                             )}

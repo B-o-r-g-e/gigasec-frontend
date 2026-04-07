@@ -1,38 +1,45 @@
 'use client'
 import {useEffect, useState} from "react";
 import {Icon} from "@/icons/Icon";
+import type {IconName} from "@/icons/Icon";
 import {B} from "@/theme/Colors";
 import {dMSans, spaceMono, syne} from "@/theme/fonts";
 import {useCart} from "@/context/CartContext";
+import Image from "next/image";
+import type {Product} from "@/app/(marketing)/shop/components/products";
 
-export default function ProductHero({currentProduct}) {
+type ProductHeroProps = {
+    currentProduct: Product;
+};
+
+export default function ProductHero({currentProduct}: ProductHeroProps) {
     const {addToCart} = useCart();
     const [vis, setVis] = useState(false);
     const [qty, setQty] = useState(1);
     const [activeImg, setActiveImg] = useState(0);
     const [wishlist, setWishlist] = useState(false);
     const [adding, setAdding] = useState(false);
-    const [activeTab, setActiveTab] = useState("overview");
 
     useEffect(() => {
         setTimeout(() => setVis(true), 80);
     }, []);
 
-    // Image thumbnails (reusing the same icon placeholder in different color combos)
-    const imgVariants = [
-        {bg: "linear-gradient(135deg,#0d3d3d,#339a99)", label: "Front"},
-        {bg: "linear-gradient(135deg,#1a5958,#4dbdbc)", label: "Angle"},
-        {bg: "linear-gradient(135deg,#339a99,#0d3d3d)", label: "Rear"},
-        {bg: "linear-gradient(135deg,#061e1e,#339a99)", label: "Mount"},
-    ];
+    const images = [
+        "/products/cctv.jpeg",
+        "/products/HD Cameras Installer Orange County.jpeg",
+        "/products/Moderne Überwachungskameras für Zuhause.jpeg",
+        "/products/Xiaomi Outdoor Cw500 Dual Camera Version Ip66 Security Protection Smart Home.jpeg"
+    ]
 
-    const discount = Math.round((1 - currentProduct.price / currentProduct.oldPrice) * 100);
+    const oldPrice = currentProduct.oldPrice ?? currentProduct.price;
+    const discount = oldPrice > currentProduct.price
+        ? Math.round((1 - currentProduct.price / oldPrice) * 100)
+        : 0;
 
-    const handleAddToCart = (p) => {
+    const handleAddToCart = (p: Product) => {
         addToCart(p, qty)
         setAdding(true);
         setTimeout(() => setAdding(false), 1200);
-        console.log("product", p);
     };
 
     return (
@@ -51,9 +58,9 @@ export default function ProductHero({currentProduct}) {
                                    fontWeight: i === 3 ? 600 : 400
                                }}
                                onMouseEnter={e => {
-                                   if (i < 3) e.target.style.color = B.electric;
+                                   if (i < 3) e.currentTarget.style.color = B.electric;
                                }} onMouseLeave={e => {
-                                if (i < 3) e.target.style.color = B.gray;
+                                if (i < 3) e.currentTarget.style.color = B.gray;
                             }}>
                                 {c}
                             </a>
@@ -66,20 +73,13 @@ export default function ProductHero({currentProduct}) {
                     <div className="transition-all duration-700"
                          style={{opacity: vis ? 1 : 0, transform: vis ? "none" : "translateX(-40px)"}}>
                         {/* Main image */}
-                        <div className="relative rounded-[24px] overflow-hidden mb-4 flex items-center justify-center"
+                        <div className={`bg-cover relative rounded-[24px] overflow-hidden mb-4 flex items-center justify-center`}
                              style={{
                                  height: 420,
-                                 background: imgVariants[activeImg].bg,
+                                 backgroundImage: `url("${encodeURI(images[activeImg])}")`,
                                  boxShadow: "0 16px 48px rgba(13,61,61,0.18)"
-                             }}>
-                            <div className="absolute inset-0 pointer-events-none"
-                                 style={{
-                                     backgroundImage: "linear-gradient(rgba(51,154,153,0.08) 1px,transparent 1px),linear-gradient(90deg,rgba(51,154,153,0.08) 1px,transparent 1px)",
-                                     backgroundSize: "32px 32px"
-                                 }}/>
-                            <div style={{animation: "floatIcon 4s ease-in-out infinite"}}>
-                                <Icon name="shield" size={120} color="rgba(255,255,255,0.85)"/>
-                            </div>
+                             }}
+                        >
                             {/* Badges */}
                             {currentProduct.badge && (
                                 <div
@@ -89,10 +89,12 @@ export default function ProductHero({currentProduct}) {
                                 </div>
 
                             )}
-                            <div
-                                className={`${syne.className} absolute top-5 right-5 bg-red-500 text-white font-bold px-3 py-1 rounded-full`}
-                                style={{fontSize: 13}}>-{discount}%
-                            </div>
+                            {discount > 0 && (
+                                <div
+                                    className={`${syne.className} absolute top-5 right-5 bg-red-500 text-white font-bold px-3 py-1 rounded-full`}
+                                    style={{fontSize: 13}}>-{discount}%
+                                </div>
+                            )}
                             {/* Wishlist button */}
                             <button onClick={() => setWishlist(w => !w)}
                                     className="absolute bottom-5 right-5 w-11 h-11 rounded-full flex items-center justify-center border-none cursor-pointer transition-all duration-300"
@@ -107,17 +109,16 @@ export default function ProductHero({currentProduct}) {
 
                         {/* Thumbnails */}
                         <div className="grid grid-cols-4 gap-3">
-                            {imgVariants.map((img, i) => (
+                            {images.map((img, i) => (
                                 <button key={i} onClick={() => setActiveImg(i)}
                                         className="rounded-xl border-none cursor-pointer overflow-hidden transition-all duration-300 flex items-center justify-center"
                                         style={{
                                             height: 80,
-                                            background: img.bg,
                                             border: `2px solid ${activeImg === i ? B.electric : "transparent"}`,
                                             opacity: activeImg === i ? 1 : 0.6,
                                             transform: activeImg === i ? "scale(1.05)" : "scale(1)"
                                         }}>
-                                    <Icon name="shield" size={28} color="rgba(255,255,255,0.8)"/>
+                                    <Image src={img} alt={"product"} width={150} height={100}/>
                                 </button>
                             ))}
                         </div>
@@ -201,23 +202,27 @@ export default function ProductHero({currentProduct}) {
                                       }}>
                                   ₦{currentProduct.price.toLocaleString()}
                                 </span>
-                                <span className={`${dMSans.className}`}
-                                      style={{
-                                          fontSize: 16,
-                                          color: B.gray,
-                                          textDecoration: "line-through"
-                                      }}>
-                                    {/*₦{currentProduct.oldPrice.toLocaleString()}*/}
-                                    ₦{currentProduct.oldPrice}
-                                </span>
-                                <span className={`${syne.className} px-3 py-1 rounded-full text-white`}
-                                      style={{
-                                          fontWeight: 700,
-                                          fontSize: 14,
-                                          background: "#ef4444"
-                                      }}>
-                                    Save {discount}%
-                                </span>
+                                {discount > 0 && (
+                                    <>
+                                        <span className={`${dMSans.className}`}
+                                              style={{
+                                                  fontSize: 16,
+                                                  color: B.gray,
+                                                  textDecoration: "line-through"
+                                              }}>
+                                            {/*₦{currentProduct.oldPrice.toLocaleString()}*/}
+                                            ₦{oldPrice.toLocaleString()}
+                                        </span>
+                                        <span className={`${syne.className} px-3 py-1 rounded-full text-white`}
+                                              style={{
+                                                  fontWeight: 700,
+                                                  fontSize: 14,
+                                                  background: "#ef4444"
+                                              }}>
+                                            Save {discount}%
+                                        </span>
+                                    </>
+                                )}
                             </div>
                             <div className={`${dMSans.className}`}
                                  style={{fontSize: 13, color: B.gray}}>Excl. VAT (7.5%). Free delivery
@@ -348,11 +353,11 @@ export default function ProductHero({currentProduct}) {
 
                         {/* Trust row */}
                         <div className="grid grid-cols-3 gap-3">
-                            {[
+                            {([
                                 {icon: "truck", text: "Free Delivery"},
                                 {icon: "lock", text: `${currentProduct.warranty}`},
-                                {icon: "download", text: "Datasheet (PDF)"},
-                            ].map(b => (
+                                {icon: "info", text: "Datasheet (PDF)"},
+                            ] satisfies {icon: IconName; text: string}[]).map(b => (
                                 <div key={b.text}
                                      className="flex flex-col items-center gap-2 p-3 rounded-xl text-center"
                                      style={{background: B.offwhite, border: `1px solid ${B.lightgray}`}}>
