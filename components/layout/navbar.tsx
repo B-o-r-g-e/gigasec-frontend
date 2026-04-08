@@ -24,12 +24,6 @@ const navlinks = [
     { text: "Contact",      url: "/contact" },
 ];
 
-/* ─────────────────────────────────────────────────────────────
-   KEY FIX: initialise `scrolled` to true if the page is already
-   scrolled when it first renders (e.g. on refresh mid-page).
-   Also call handleScroll() *before* adding the event listener
-   so the very first render is always correct.
-───────────────────────────────────────────────────────────── */
 function useScrolled(threshold = 40) {
     const [scrolled, setScrolled] = useState(() => {
         // During SSR `window` is undefined — default to false.
