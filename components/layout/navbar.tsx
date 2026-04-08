@@ -168,8 +168,8 @@ function Sidebar() {
                                     <span
                                         className={`${dMSans.className} text-[14px] font-semibold text-[#1a2332]`}
                                     >
-                    Cart
-                  </span>
+                                        Cart
+                                    </span>
                                     {cartCount > 0 && (
                                         <div
                                             className={`${dMSans.className} ml-auto flex h-6 w-6 items-center justify-center rounded-full text-[11px] font-bold text-white`}
