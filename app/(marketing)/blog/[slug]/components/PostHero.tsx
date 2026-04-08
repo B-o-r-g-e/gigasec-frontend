@@ -25,7 +25,7 @@ export default function PostHero({POST, author}: { POST: PostSummary, author?: A
 
     return (
         <header className="relative overflow-hidden pt-16 sm:pt-20"
-                style={{background: "linear-gradient(145deg,#061e1e 0%,#0d3d3d 60%,#1a5958 100%)", paddingBottom: 0}}>
+                style={{background: "linear-gradient(145deg,#262626 0%,#333333 60%,#4d4d4d 100%)", paddingBottom: 0}}>
             <div className="absolute inset-0 pointer-events-none"
                  style={{
                      backgroundImage: "linear-gradient(rgba(51,154,153,0.09) 1px,transparent 1px),linear-gradient(90deg,rgba(51,154,153,0.09) 1px,transparent 1px)",
@@ -118,7 +118,7 @@ export default function PostHero({POST, author}: { POST: PostSummary, author?: A
                     <div className="flex items-center gap-4">
                         {/* Avatar */}
                         <div className="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0"
-                             style={{background: "linear-gradient(135deg,#339a99,#0d3d3d)"}}>
+                             style={{background: "linear-gradient(135deg,#00CCCC,#333333)"}}>
                             <span className={`${syne.className}`}
                                   style={{
                                       fontWeight: 800,
@@ -180,7 +180,7 @@ export default function PostHero({POST, author}: { POST: PostSummary, author?: A
             {/* Wave bottom */}
             <div className="absolute -bottom-px left-0 right-0">
                 <svg viewBox="0 0 1440 80" fill="none" className="block w-full">
-                    <path d="M0 80 L0 40 Q360 0 720 40 Q1080 80 1440 40 L1440 80 Z" fill="#F5F7FA"/>
+                    <path d="M0 80 L0 40 Q360 0 720 40 Q1080 80 1440 40 L1440 80 Z" fill="#FEFEFE"/>
                 </svg>
             </div>
         </header>

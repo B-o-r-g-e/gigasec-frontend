@@ -150,7 +150,7 @@ export default function SpecsTabs({currentProduct}: SpecsTabsProps) {
                                         <div className="flex items-center gap-3">
                                             <div
                                                 className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0"
-                                                style={{background: "linear-gradient(135deg,#339a99,#0d3d3d)"}}>
+                                                style={{background: "linear-gradient(135deg,#00CCCC,#333333)"}}>
                                                 <span className={`${syne.className}`}
                                                       style={{
                                                           fontWeight: 800,

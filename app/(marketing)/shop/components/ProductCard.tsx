@@ -33,12 +33,12 @@ export default function ProductCard({product: p, i, vis, onAddToCart, onPreview,
     };
 
     const badgeBg: Record<string, string> = {
-        "Best Seller": "#FF6600",
-        "New": "#10b981",
-        "Enterprise Pick": "#0d3d3d",
+        "Best Seller": "#00B8B8",
+        "New": "#00AFAF",
+        "Enterprise Pick": "#333333",
         "Premium": "#7c3aed",
-        "Popular": "#0d3d3d",
-        "Pro Grade": "#0d3d3d"
+        "Popular": "#333333",
+        "Pro Grade": "#333333"
     };
 
     return (
@@ -47,19 +47,19 @@ export default function ProductCard({product: p, i, vis, onAddToCart, onPreview,
             onMouseLeave={() => setHov(false)}
             className={`group bg-white rounded-[20px] overflow-hidden relative transition-all duration-500
                         ${vis ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-[50px] scale-[0.92]"}
-                        ${hov ? "shadow-[0_28px_56px_rgba(13,61,61,0.15)] border-[#339a99]" : "shadow-[0_4px_16px_rgba(0,0,0,0.05)] border-[#e8edf3]"}
+                        ${hov ? "shadow-[0_28px_56px_rgba(13,61,61,0.15)] border-[#00CCCC]" : "shadow-[0_4px_16px_rgba(0,0,0,0.05)] border-[#e8edf3]"}
                         border-[1.5px]
                       `}
             style={{transitionDelay: `${i * 60}ms`}}
         >
             {/* Image area */}
             <div
-                className="h-50 relative flex items-center justify-center bg-[linear-gradient(135deg,#F5F7FA,#e8edf3)]">
+                className="h-50 relative flex items-center justify-center bg-[linear-gradient(135deg,#FEFEFE,#e8edf3)]">
 
                 {/* Icon */}
                 <div
                     className={`flex items-center justify-center transition-all duration-500
-                                bg-[linear-gradient(135deg,#0d3d3d,#339a99)] h-full w-full
+                                bg-[linear-gradient(135deg,#333333,#00CCCC)] h-full w-full
                                 ${hov ? "scale-110 rotate-[5deg] shadow-[0_16px_40px_rgba(51,154,153,0.3)]" : "shadow-[0_8px_20px_rgba(0,0,0,0.1)]"}
                               `}
                 >
@@ -79,7 +79,7 @@ export default function ProductCard({product: p, i, vis, onAddToCart, onPreview,
                 {p.badge && (
                     <div
                         className="absolute top-3.5 left-3.5 text-white text-[9px] tracking-[1.5px] px-[10px] py-1 rounded-full font-mono"
-                        style={{background: badgeBg[p.badge] || "#0d3d3d"}}
+                        style={{background: badgeBg[p.badge] || "#333333"}}
                     >
                         {p.badge}
                     </div>
@@ -100,11 +100,11 @@ export default function ProductCard({product: p, i, vis, onAddToCart, onPreview,
                         onPreview();
                     }}
                     className={`absolute bottom-3 right-3 hidden sm:flex items-center gap-[6px] px-3 py-[7px] rounded-lg font-semibold text-[12px]
-                                bg-white/90 text-[#0d3d3d] shadow-md transition-all duration-300
+                                bg-white/90 text-[#333333] shadow-md transition-all duration-300
                                 ${hov ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"}
                               `}
                 >
-                    <Icon name="eye" size={14} color="#0d3d3d"/>
+                    <Icon name="eye" size={14} color="#333333"/>
                     Quick View
                 </button>
             </div>
@@ -116,7 +116,7 @@ export default function ProductCard({product: p, i, vis, onAddToCart, onPreview,
                     {/* Brand + Category */}
                     <div className="flex items-center gap-2 mb-2.5">
                       <span
-                          className="text-[9px] tracking-[1.5px] px-2.5 py-0.75 rounded-full font-mono text-[#339a99] bg-[#339a991a]">
+                          className="text-[9px] tracking-[1.5px] px-2.5 py-0.75 rounded-full font-mono text-[#00CCCC] bg-[#00CCCC1a]">
                         {p.brand}
                       </span>
                         <span className="text-[9px] tracking-[1px] font-mono text-gray-500">
@@ -125,7 +125,7 @@ export default function ProductCard({product: p, i, vis, onAddToCart, onPreview,
                     </div>
 
                     {/* Title */}
-                    <h3 className="font-bold text-[14px] leading-[1.4] mb-2.5 tracking-[-0.2px] text-[#0d3d3d] font-['Syne',sans-serif]">
+                    <h3 className="font-bold text-[14px] leading-[1.4] mb-2.5 tracking-[-0.2px] text-[#333333] font-['Syne',sans-serif]">
                         {p.name}
                     </h3>
 
@@ -151,7 +151,7 @@ export default function ProductCard({product: p, i, vis, onAddToCart, onPreview,
                         {p.tags.map((t) => (
                             <span
                                 key={t}
-                                className="text-[11px] px-[9px] py-[2px] rounded-full border bg-[#F5F7FA] border-[#e8edf3] text-gray-500 font-['DM_Sans',sans-serif]"
+                                className="text-[11px] px-[9px] py-[2px] rounded-full border bg-[#FEFEFE] border-[#e8edf3] text-gray-500 font-['DM_Sans',sans-serif]"
                             >
                           {t}
                         </span>
@@ -164,7 +164,7 @@ export default function ProductCard({product: p, i, vis, onAddToCart, onPreview,
                         {/* Price */}
                         <div>
                             <div
-                                className="font-black text-[clamp(1.05rem,4vw,1.3rem)] leading-none text-[#0d3d3d] font-['Syne',sans-serif]">
+                                className="font-black text-[clamp(1.05rem,4vw,1.3rem)] leading-none text-[#333333] font-['Syne',sans-serif]">
                                 ₦{p.price.toLocaleString()}
                             </div>
                             {p.oldPrice && (
@@ -180,8 +180,8 @@ export default function ProductCard({product: p, i, vis, onAddToCart, onPreview,
                             onClick={handleAdd}
                             className={`z-50 flex w-full items-center justify-center gap-[6px] px-3 py-[9px] rounded-lg font-bold text-[12px] sm:w-auto sm:px-4 sm:text-[13px] transition-all duration-300
                                   ${adding ? "bg-emerald-500 text-white scale-105 border-emerald-500" :
-                                inCart ? "bg-[#339a991a] text-[#339a99] border-[#339a99]" :
-                                    "bg-[#339a99] text-white border-[#339a99]"
+                                inCart ? "bg-[#00CCCC1a] text-[#00CCCC] border-[#00CCCC]" :
+                                    "bg-[#00CCCC] text-white border-[#00CCCC]"
                             }
                                   border-[1.5px]
                        `}

@@ -6,7 +6,7 @@ import BottomGlowingOrbLight from "@/components/ui/BottomGlowingOrbLight";
 
 export default function AboutBackground({children}: {children: ReactNode}) {
     return (
-        <section className="min-h-screen relative flex items-center overflow-hidden bg-linear-to-br from-[#000d1a] via-[#0d3d3d] to-[#339a99]">
+        <section className="min-h-screen relative flex items-center overflow-hidden bg-linear-to-br from-[#000d1a] via-[#333333] to-[#00CCCC]">
             <AnimatedGrid />
             <FloatingParticles />
             <TopGlowingOrbLight />

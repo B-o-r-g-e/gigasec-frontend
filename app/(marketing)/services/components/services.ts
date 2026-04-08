@@ -19,6 +19,7 @@ export interface ServiceData {
     industries: string[];
     accent: string;
     badge: string | null;
+    tag: string | null;
 }
 
 export const SERVICES: ServiceData[] = [
@@ -32,6 +33,7 @@ export const SERVICES: ServiceData[] = [
         industries: ["Logistics", "Transport", "Security", "Government", "Utilities"],
         accent: B.electric,
         badge: "Licensed",
+        tag: 'Licensed',
     },
     {
         id: "digital-oilfield", icon: "industrial", filter: "Digital Oilfield",
@@ -41,8 +43,9 @@ export const SERVICES: ServiceData[] = [
         features: ["SCADA systems & integration", "Instrumentation & automation", "Real-time data acquisition", "Remote monitoring & control", "Operational dashboards", "Reliability & safety alignment"],
         stats: [{n: 1, suf: "", label: "Integrated Platform"}, {n: 24, suf: "/7", label: "Data Insight"}],
         industries: ["Oil & Gas", "Industrial", "Utilities", "Manufacturing"],
-        accent: "#0e8f8d",
+        accent: "#00B8B8",
         badge: "Industrial",
+        tag: null,
     },
     {
         id: "ip-security", icon: "camera", filter: "IP Security",
@@ -54,6 +57,7 @@ export const SERVICES: ServiceData[] = [
         industries: ["Banking", "Government", "Education", "Healthcare", "Facilities"],
         accent: "#0066aa",
         badge: "Most Popular",
+        tag: 'Core',
     },
     {
         id: "engineering", icon: "shield", filter: "Engineering",
@@ -65,6 +69,7 @@ export const SERVICES: ServiceData[] = [
         industries: ["Energy", "Industrial", "Infrastructure", "Public Sector"],
         accent: "#7c3aed",
         badge: "Engineering",
+        tag: null,
     },
     {
         id: "it-consulting", icon: "network", filter: "IT Consulting",
@@ -76,5 +81,6 @@ export const SERVICES: ServiceData[] = [
         industries: ["Enterprise", "SMEs", "Public Sector", "Technology"],
         accent: B.orange,
         badge: "R&D",
+        tag: null,
     },
 ];

@@ -38,7 +38,7 @@ export default function Certifications() {
                     {certs.map((c) => (
                         <div
                             key={c}
-                            className="rounded-full border-[1.5px] border-[#e8edf3] bg-white px-5 py-[10px] font-['DM_Sans',sans-serif] text-[13px] font-semibold text-[#0d3d3d] transition-all duration-200 hover:border-[#339a99] hover:text-[#339a99]"
+                            className="rounded-full border-[1.5px] border-[#e8edf3] bg-white px-5 py-[10px] font-['DM_Sans',sans-serif] text-[13px] font-semibold text-[#333333] transition-all duration-200 hover:border-[#00CCCC] hover:text-[#00CCCC]"
                         >
                             {c}
                         </div>

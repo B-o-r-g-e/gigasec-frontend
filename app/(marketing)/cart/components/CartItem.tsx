@@ -35,7 +35,7 @@ export default function CartItem({item, vis, i, onIncrease, onDecrease, onRemove
                 {/* Product image placeholder */}
                 <div
                     className="w-[80px] h-[80px] rounded-xl flex items-center justify-center flex-shrink-0 overflow-hidden"
-                    style={{background: "linear-gradient(135deg,#0d3d3d,#339a99)"}}
+                    style={{background: "linear-gradient(135deg,#333333,#00CCCC)"}}
                 >
                     {item.image ? (
                         <Image

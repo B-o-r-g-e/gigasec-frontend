@@ -47,7 +47,7 @@ export default function CaseStudiesSection() {
             tag: "Renewable Energy",
             title: "Solar Energy Solutions",
             result: "Experience Gallery",
-            color: "#0d3d3d",
+            color: "#333333",
             href: "#",
         },
         {
@@ -61,7 +61,7 @@ export default function CaseStudiesSection() {
             tag: "IP Security",
             title: "Hazardous Environment CCTV",
             result: "15m Perimeter Light Solution",
-            color: "#0d3d3d",
+            color: "#333333",
             href: "#",
         },
         {
@@ -75,7 +75,7 @@ export default function CaseStudiesSection() {
             tag: "Industrial Services",
             title: "Movable Yard Solution Design",
             result: "Petrolink Drilling Data Transmission",
-            color: "#0d3d3d",
+            color: "#333333",
             href: "#",
         },
         {
@@ -101,11 +101,11 @@ export default function CaseStudiesSection() {
                     <motion.div
                         variants={headerVariants}
                     >
-                        <div className="mb-3 font-['Space_Mono',monospace] text-[11px] tracking-[3px] text-[#339a99]">
+                        <div className="mb-3 font-['Space_Mono',monospace] text-[11px] tracking-[3px] text-[#00CCCC]">
                             EXPERIENCE GALLERY
                         </div>
 
-                        <h2 className="max-w-[28rem] font-['Syne',sans-serif] text-[clamp(1.75rem,6vw,3rem)] font-extrabold leading-[1.15] tracking-[-0.5px] text-[#0d3d3d]">
+                        <h2 className="max-w-[28rem] font-['Syne',sans-serif] text-[clamp(1.75rem,6vw,3rem)] font-extrabold leading-[1.15] tracking-[-0.5px] text-[#333333]">
                             Project Highlights
                         </h2>
                     </motion.div>
@@ -115,10 +115,10 @@ export default function CaseStudiesSection() {
                         variants={headerVariants}
                         whileHover={{ x: 6 }}
                         transition={{ duration: 0.22, ease: "easeOut" }}
-                        className="flex items-center gap-1.5 font-['DM_Sans',sans-serif] text-[14px] font-semibold text-[#339a99]"
+                        className="flex items-center gap-1.5 font-['DM_Sans',sans-serif] text-[14px] font-semibold text-[#00CCCC]"
                     >
                         View More
-                        <ArrowRight size={16} color="#339a99" />
+                        <ArrowRight size={16} color="#00CCCC" />
                     </motion.a>
                 </div>
 
@@ -176,8 +176,8 @@ function CaseCard({
                 transition={{ duration: 0.25, ease: "easeOut" }}
                 style={{
                     background: hovered
-                        ? "linear-gradient(90deg, #339a99, rgba(0,153,204,0.4))"
-                        : "linear-gradient(90deg, #0d3d3d, #339a99)",
+                        ? "linear-gradient(90deg, #00CCCC, rgba(0,153,204,0.4))"
+                        : "linear-gradient(90deg, #333333, #00CCCC)",
                 }}
             />
 
@@ -187,7 +187,7 @@ function CaseCard({
                     animate={{ y: hovered ? -2 : 0 }}
                     transition={{ duration: 0.22, ease: "easeOut" }}
                     style={{
-                        color: "#339a99",
+                        color: "#00CCCC",
                         background: hovered
                             ? "rgba(0,153,204,0.15)"
                             : "rgba(0,51,102,0.07)",
@@ -203,7 +203,7 @@ function CaseCard({
                     className="mb-6 font-['Syne',sans-serif] text-[19px] font-bold leading-[1.3] tracking-[-0.3px]"
                     animate={{ x: hovered ? 4 : 0 }}
                     transition={{ duration: 0.22, ease: "easeOut" }}
-                    style={{ color: hovered ? "#fff" : "#0d3d3d" }}
+                    style={{ color: hovered ? "#fff" : "#333333" }}
                 >
                     {title}
                 </motion.h3>
@@ -216,17 +216,17 @@ function CaseCard({
                         background: hovered ? "rgba(0,153,204,0.12)" : "#f8fafc",
                     }}
                 >
-                    <Check size={16} color="#339a99" />
+                    <Check size={16} color="#00CCCC" />
                     <span
                         className="font-['DM_Sans',sans-serif] text-[14px] font-semibold"
-                        style={{ color: hovered ? "#fff" : "#0d3d3d" }}
+                        style={{ color: hovered ? "#fff" : "#333333" }}
                     >
             {result}
           </span>
                 </motion.div>
 
                 <motion.div
-                    className="mt-5 flex items-center gap-1.5 font-['DM_Sans',sans-serif] text-[13px] font-semibold text-[#339a99]"
+                    className="mt-5 flex items-center gap-1.5 font-['DM_Sans',sans-serif] text-[13px] font-semibold text-[#00CCCC]"
                     animate={{ x: hovered ? 6 : 0 }}
                     transition={{ duration: 0.22, ease: "easeOut" }}
                 >
@@ -235,7 +235,7 @@ function CaseCard({
                         animate={{ x: hovered ? 4 : 0 }}
                         transition={{ duration: 0.22, ease: "easeOut" }}
                     >
-                        <ArrowRight size={14} color="#339a99" />
+                        <ArrowRight size={14} color="#00CCCC" />
                     </motion.div>
                 </motion.div>
             </div>

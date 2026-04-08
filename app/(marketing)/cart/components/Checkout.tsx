@@ -261,7 +261,7 @@ export default function CheckoutForm({onBack, onComplete, total}: CheckoutFormPr
                             style={{
                                 fontWeight: 700,
                                 fontSize: 16,
-                                background: "linear-gradient(135deg,#339a99,#227a79)",
+                                background: "linear-gradient(135deg,#00CCCC,#00b8b8)",
                                 boxShadow: "0 8px 32px rgba(51,154,153,0.4)"
                             }}
                             onMouseEnter={e => {

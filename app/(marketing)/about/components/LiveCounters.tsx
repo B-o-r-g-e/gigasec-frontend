@@ -19,7 +19,7 @@ export default function LiveCounters() {
             ref={ref}
             className="relative overflow-hidden py-16 sm:py-24"
             style={{
-                background: `linear-gradient(135deg, ${B.navyDark} 0%, ${B.navy} 50%, #1a5958 100%)`,
+                background: `linear-gradient(135deg, ${B.navyDark} 0%, ${B.navy} 56%, #4d4d4d 100%)`,
             }}
         >
             {/* Background grid */}

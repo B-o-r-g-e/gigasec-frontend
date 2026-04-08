@@ -112,7 +112,7 @@ export default function EachBlogBody({blog, avatar, author, iDSection}: EachBlog
                              style={{background: B.navy, border: `1.5px solid ${B.electric}30`}}>
                             <div className="flex flex-col sm:flex-row items-start gap-5 sm:gap-6">
                                 <div className="w-16 h-16 rounded-full flex items-center justify-center shrink-0"
-                                     style={{background: "linear-gradient(135deg,#339a99,#1a5958)"}}>
+                                     style={{background: "linear-gradient(135deg,#00CCCC,#00b8b8)"}}>
                                     <span className={`${syne.className}`}
                                           style={{
                                               fontWeight: 800,
@@ -239,7 +239,7 @@ export default function EachBlogBody({blog, avatar, author, iDSection}: EachBlog
 
                             {/* CTA card */}
                             <div className="rounded-[20px] p-6" style={{
-                                background: "linear-gradient(135deg,#0d3d3d,#1a5958)",
+                                background: "linear-gradient(135deg,#333333,#4d4d4d)",
                                 border: "1px solid rgba(51,154,153,0.3)"
                             }}>
                                 <div className={`${spaceMono.className}`}

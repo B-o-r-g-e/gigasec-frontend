@@ -87,7 +87,7 @@ export default function Footer() {
             <div className="border-b border-white/10 py-16">
                 <div className="mx-auto grid max-w-[1280px] grid-cols-1 items-center gap-16 px-8 md:grid-cols-2">
                     <div>
-                        <div className="mb-4 font-['Space_Mono',monospace] text-[10px] tracking-[3px] text-[#339a99]">
+                        <div className="mb-4 font-['Space_Mono',monospace] text-[10px] tracking-[3px] text-[#00CCCC]">
                             CONTACT US
                         </div>
 
@@ -98,7 +98,7 @@ export default function Footer() {
                         <div className="flex flex-col gap-[14px]">
                             {contactItems.map(({ icon: ContactIcon, text }) => (
                                 <div key={text} className="flex items-center gap-3">
-                                    <ContactIcon size={18} color="#339a99" />
+                                    <ContactIcon size={18} color="#00CCCC" />
                                     <span className="font-['DM_Sans',sans-serif] text-[15px] text-white/70">
                     {text}
                   </span>
@@ -122,7 +122,7 @@ export default function Footer() {
                                 onChange={handleChange("name")}
                                 onBlur={handleBlur("name")}
                                 aria-invalid={Boolean(errors.name)}
-                                className={`w-full rounded-[8px] border bg-white/5 px-[18px] py-[14px] font-['DM_Sans',sans-serif] text-[14px] text-white outline-none transition-colors duration-200 placeholder:text-white/40 focus:border-[#339a99] ${
+                                className={`w-full rounded-[8px] border bg-white/5 px-[18px] py-[14px] font-['DM_Sans',sans-serif] text-[14px] text-white outline-none transition-colors duration-200 placeholder:text-white/40 focus:border-[#00CCCC] ${
                                     errors.name ? "border-red-500/70" : "border-white/10"
                                 }`}
                             />
@@ -140,7 +140,7 @@ export default function Footer() {
                                 onChange={handleChange("email")}
                                 onBlur={handleBlur("email")}
                                 aria-invalid={Boolean(errors.email)}
-                                className={`w-full rounded-[8px] border bg-white/5 px-[18px] py-[14px] font-['DM_Sans',sans-serif] text-[14px] text-white outline-none transition-colors duration-200 placeholder:text-white/40 focus:border-[#339a99] ${
+                                className={`w-full rounded-[8px] border bg-white/5 px-[18px] py-[14px] font-['DM_Sans',sans-serif] text-[14px] text-white outline-none transition-colors duration-200 placeholder:text-white/40 focus:border-[#00CCCC] ${
                                     errors.email ? "border-red-500/70" : "border-white/10"
                                 }`}
                             />
@@ -158,7 +158,7 @@ export default function Footer() {
                                 onChange={handleChange("service")}
                                 onBlur={handleBlur("service")}
                                 aria-invalid={Boolean(errors.service)}
-                                className={`w-full rounded-[8px] border bg-white/5 px-[18px] py-[14px] font-['DM_Sans',sans-serif] text-[14px] text-white outline-none transition-colors duration-200 placeholder:text-white/40 focus:border-[#339a99] ${
+                                className={`w-full rounded-[8px] border bg-white/5 px-[18px] py-[14px] font-['DM_Sans',sans-serif] text-[14px] text-white outline-none transition-colors duration-200 placeholder:text-white/40 focus:border-[#00CCCC] ${
                                     errors.service ? "border-red-500/70" : "border-white/10"
                                 }`}
                             />
@@ -171,7 +171,7 @@ export default function Footer() {
 
                         <button
                             onClick={handleSubmit}
-                            className="flex items-center justify-center gap-2 rounded-[8px] bg-[#339a99] px-4 py-[15px] font-['DM_Sans',sans-serif] text-[15px] font-bold text-white shadow-[0_8px_24px_rgba(0,153,204,0.35)] transition-all duration-200 hover:-translate-y-[2px]"
+                            className="flex items-center justify-center gap-2 rounded-[8px] bg-[#00CCCC] px-4 py-[15px] font-['DM_Sans',sans-serif] text-[15px] font-bold text-white shadow-[0_8px_24px_rgba(0,153,204,0.35)] transition-all duration-200 hover:-translate-y-[2px]"
                         >
                             Send Message
                             <ArrowRight size={16} color="#fff" />
@@ -236,7 +236,7 @@ export default function Footer() {
                                 <div key={l} className="mb-[10px]">
                                     <a
                                         href="#"
-                                        className="font-['DM_Sans',sans-serif] text-[14px] text-white/50 no-underline transition-colors duration-200 hover:text-[#339a99]"
+                                        className="font-['DM_Sans',sans-serif] text-[14px] text-white/50 no-underline transition-colors duration-200 hover:text-[#00CCCC]"
                                     >
                                         {l}
                                     </a>

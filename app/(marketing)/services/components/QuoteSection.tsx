@@ -120,7 +120,7 @@ export default function QuoteSection() {
 
     return (
         <section id="quote" ref={ref} className="bg-[#f5f7fa] py-20 sm:py-24">
-            <div className="max-w-[1300px] mx-auto px-4 sm:px-6 lg:px-10">
+            <div className="max-w-325 mx-auto px-4 sm:px-6 lg:px-10">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 items-start">
 
                     {/* Left */}
@@ -289,7 +289,7 @@ export default function QuoteSection() {
                             <button
                                 className={`${syne.className} w-full`}
                                 style={{
-                                background: `linear-gradient(135deg, ${B.electric}, #227a79)`,
+                                background: `linear-gradient(135deg, ${B.electric}, #00b8b8)`,
                                 color: "#fff", border: "none", borderRadius: 10, padding: "16px",
                                 fontWeight: 700, fontSize: 15,
                                 cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", gap: 8,

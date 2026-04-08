@@ -13,7 +13,7 @@ type memberItem = {
 export default function TeamCard({ member, i, vis }: {member:memberItem, i: number, vis: boolean}) {
     const [hov, setHov] = useState(false);
     const initials = member.name.split(" ").map(n => n[0]).join("").slice(0, 2);
-    const colors = ["#339a99", "#1a6b6a", "#1a5958", "#0d3d3d", "#33b3b2", "#1a7a79"];
+    const colors = ["#00CCCC", "#00B8B8", "#66E0E0", "#333333", "#33CCCC", "#4D4D4D"];
     const bg = colors[i % colors.length];
 
     return (

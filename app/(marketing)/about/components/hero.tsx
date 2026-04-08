@@ -28,7 +28,7 @@ export default function AboutHero() {
                         <br />
 
                         <span
-                            className="bg-[linear-gradient(90deg,#339a99_0%,#339a99_50%,#99ddff_100%)] bg-clip-text text-transparent"
+                            className="bg-[linear-gradient(90deg,#00CCCC_0%,#00CCCC_50%,#99ddff_100%)] bg-clip-text text-transparent"
                         >
                             Excellence
                         </span>

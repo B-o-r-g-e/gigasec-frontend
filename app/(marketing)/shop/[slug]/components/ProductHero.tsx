@@ -312,7 +312,7 @@ export default function ProductHero({currentProduct}: ProductHeroProps) {
                                     style={{
                                         fontWeight: 700,
                                         fontSize: 16,
-                                        background: adding ? B.green : "linear-gradient(135deg,#339a99,#227a79)",
+                                        background: adding ? B.green : "linear-gradient(135deg,#00CCCC,#00B8B8)",
                                         boxShadow: adding ? "0 8px 28px rgba(16,185,129,0.4)" : "0 8px 28px rgba(51,154,153,0.4)",
                                         transform: adding ? "scale(1.02)" : "scale(1)"
                                     }}

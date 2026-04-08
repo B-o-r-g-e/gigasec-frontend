@@ -4,6 +4,8 @@ import {B} from "@/theme/Colors";
 import {Icon} from "@/icons/Icon";
 import {dMSans, spaceMono, syne} from "@/theme/fonts";
 import {AUTHORS} from "@/app/(marketing)/blog/components/blogs";
+import Link from "next/link";
+import {slugify} from "@/app/(marketing)/blog/[slug]/components/functions";
 
 type postStype = {
     id: number;
@@ -30,9 +32,9 @@ export function FeaturedCardBig({vis, post, delay}: {
             onMouseEnter={() => setHov(true)}
             onMouseLeave={() => setHov(false)}
             className={`rounded-[20px] overflow-hidden cursor-pointer
-            transition-all duration-[400ms]
-            ${vis ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-[60px]"}
-            ${hov && vis ? "-translate-y-[8px]" : ""}
+            transition-all duration-400
+            ${vis ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-15"}
+            ${hov && vis ? "-translate-y-2" : ""}
         `}
             style={{
                 background: hov ? B.navy : "#fff",
@@ -79,76 +81,77 @@ export function FeaturedCardBig({vis, post, delay}: {
             </div>
 
             {/* Content */}
-            <div className="p-8">
-                <h3
-                    className={`${syne.className} font-bold text-[1.3rem] leading-[1.35] mb-[14px] tracking-[-0.3px] transition-colors duration-300`}
-                    style={{
-                        color: hov ? "#fff" : B.navy
-                    }}
-                >
-                    {post.title}
-                </h3>
+            <Link href={`/blog/${slugify(post.title)}`}>
+                <div className="p-8">
+                    <h3
+                        className={`${syne.className} font-bold text-[1.3rem] leading-[1.35] mb-[14px] tracking-[-0.3px] transition-colors duration-300`}
+                        style={{
+                            color: hov ? "#fff" : B.navy
+                        }}
+                    >
+                        {post.title}
+                    </h3>
 
-                <p
-                    className={`${dMSans.className} text-[14px] leading-[1.7] mb-6`}
-                    style={{
-                        color: hov ? "rgba(255,255,255,0.65)" : B.gray
-                    }}
-                >
-                    {post.excerpt}
-                </p>
+                    <p
+                        className={`${dMSans.className} text-[14px] leading-[1.7] mb-6`}
+                        style={{
+                            color: hov ? "rgba(255,255,255,0.65)" : B.gray
+                        }}
+                    >
+                        {post.excerpt}
+                    </p>
 
-                <div className="flex justify-between items-center">
-                    <div>
-                        <div
-                            className={`${dMSans.className} text-[13px] font-semibold`}
-                            style={{
-                                color: hov ? "#fff" : B.charcoal
-                            }}
-                        >
-                            {author?.name ?? "Unknown Author"}
+                    <div className="flex justify-between items-center">
+                        <div>
+                            <div
+                                className={`${dMSans.className} text-[13px] font-semibold`}
+                                style={{
+                                    color: hov ? "#fff" : B.charcoal
+                                }}
+                            >
+                                {author?.name ?? "Unknown Author"}
+                            </div>
+
+                            <div
+                                className={`${dMSans.className} flex items-center gap-[6px] text-[12px] mt-[2px]`}
+                                style={{
+                                    color: hov
+                                        ? "rgba(255,255,255,0.5)"
+                                        : B.gray
+                                }}
+                            >
+                                {post.date} ·
+                                <Icon name="clock" size={12} color={B.electric}/>
+                                {post.read} read
+                            </div>
                         </div>
 
                         <div
-                            className={`${dMSans.className} flex items-center gap-[6px] text-[12px] mt-[2px]`}
-                            style={{
-                                color: hov
-                                    ? "rgba(255,255,255,0.5)"
-                                    : B.gray
-                            }}
-                        >
-                            {post.date} ·
-                            <Icon name="clock" size={12} color={B.electric}/>
-                            {post.read} read
-                        </div>
-                    </div>
-
-                    <div
-                        className={`${dMSans.className} flex items-center gap-[6px] text-[13px] font-semibold
+                            className={`${dMSans.className} flex items-center gap-[6px] text-[13px] font-semibold
                           transition-transform duration-300
                           ${hov ? "translate-x-[4px]" : ""}
                     `}
-                        style={{
-                            color: B.electric
-                        }}
-                    >
-                        Read <Icon name="arrow" size={14} color={B.electric}/>
+                            style={{
+                                color: B.electric
+                            }}
+                        >
+                            Read <Icon name="arrow" size={14} color={B.electric}/>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </Link>
         </div>
     )
 }
 
 export function FeaturedCardSmall({delay, vis, post}: { delay: number, vis: boolean, post: postStype }) {
-    const [hov, setHov] = useState(false);
     return (
         <div
             className={`group flex rounded-[16px] overflow-hidden cursor-pointer
-    transition-all duration-[400ms]
-    ${vis ? "opacity-100 translate-x-0" : "opacity-0 translate-x-[60px]"}
-    hover:translate-x-[6px]
-  `}
+                        transition-all duration-[400ms]
+                ${vis ? "opacity-100 translate-x-0" : "opacity-0 translate-x-[60px]"}
+                hover:translate-x-[6px]
+            `}
             style={{
                 background: "#fff",
                 border: `1.5px solid ${B.lightgray}`,
@@ -179,53 +182,55 @@ export function FeaturedCardSmall({delay, vis, post}: { delay: number, vis: bool
             />
 
             {/* Content */}
-            <div className="flex-1 px-[24px] py-[24px] pl-[20px]">
+            <Link href={`/blog/${slugify(post.title)}`}>
+                <div className="flex-1 px-6 py-6 pl-5">
 
-    <span
-        className={`${spaceMono.className} text-[9px] tracking-[2px] px-[10px] py-[3px] rounded-full
-            group-hover:text-[color:var(--bright)]`}
-        style={{
-            color: B.electric,
-            background: "rgba(51,154,153,0.08)"
-        }}
-        onMouseEnter={e => {
-            e.currentTarget.style.color = B.bright;
-            e.currentTarget.style.background =
-                "rgba(51,154,153,0.15)";
-        }}
-        onMouseLeave={e => {
-            e.currentTarget.style.color = B.electric;
-            e.currentTarget.style.background =
-                "rgba(51,154,153,0.08)";
-        }}
-    >
-      {post.cat}
-    </span>
+                <span
+                    className={`${spaceMono.className} text-[9px] tracking-[2px] px-2.5 py-0.75 rounded-full
+                        group-hover:text-(--bright)`}
+                    style={{
+                        color: B.electric,
+                        background: "rgba(51,154,153,0.08)"
+                    }}
+                    onMouseEnter={e => {
+                        e.currentTarget.style.color = B.bright;
+                        e.currentTarget.style.background =
+                            "rgba(51,154,153,0.15)";
+                    }}
+                    onMouseLeave={e => {
+                        e.currentTarget.style.color = B.electric;
+                        e.currentTarget.style.background =
+                            "rgba(51,154,153,0.08)";
+                    }}
+                >
+                  {post.cat}
+                </span>
 
-                <h3
-                    className={`${syne.className} font-bold text-[1rem] leading-[1.4] my-[12px] mb-[8px]
+                    <h3
+                        className={`${syne.className} font-bold text-[1rem] leading-[1.4] my-[12px] mb-[8px]
                         tracking-[-0.2px] transition-colors duration-300
                         text-[color:var(--navy)]
                         group-hover:text-white`}
-                    style={{
-                        "--navy": B.navy
-                    } as CSSProperties}
-                >
-                    {post.title}
-                </h3>
+                        style={{
+                            "--navy": B.navy
+                        } as CSSProperties}
+                    >
+                        {post.title}
+                    </h3>
 
-                <div
-                    className={`${dMSans.className} flex items-center gap-1.5 text-[12px]
+                    <div
+                        className={`${dMSans.className} flex items-center gap-1.5 text-[12px]
                         text-[color:var(--gray)]
                         group-hover:text-white/50`}
-                    style={{
-                        "--gray": B.gray
-                    } as CSSProperties}
-                >
-                    <Icon name="clock" size={12} color={B.electric}/>
-                    {post.read} read · {post.date}
+                        style={{
+                            "--gray": B.gray
+                        } as CSSProperties}
+                    >
+                        <Icon name="clock" size={12} color={B.electric}/>
+                        {post.read} read · {post.date}
+                    </div>
                 </div>
-            </div>
+            </Link>
         </div>
     )
 }

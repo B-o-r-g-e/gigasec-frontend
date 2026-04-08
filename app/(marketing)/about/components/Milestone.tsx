@@ -2,14 +2,14 @@
 import {useState} from "react";
 
 const B = {
-    navy:     "#0d3d3d",
-    navyDark: "#061e1e",
-    electric: "#339a99",
-    bright:   "#4dbdbc",
-    orange:   "#FF6600",
-    offwhite: "#F5F7FA",
+    navy:     "#333333",
+    navyDark: "#262626",
+    electric: "#00CCCC",
+    bright:   "#66E0E0",
+    orange:   "#00B8B8",
+    offwhite: "#FEFEFE",
     white:    "#FFFFFF",
-    charcoal: "#1a2332",
+    charcoal: "#333333",
     gray:     "#6B7280",
     lightgray:"#e8edf3",
 };

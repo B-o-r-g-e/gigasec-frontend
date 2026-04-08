@@ -2,7 +2,7 @@
 import {useEffect, useState} from "react";
 
 const BRAND = {
-    electric: "#339a99",
+    electric: "#00CCCC",
 };
 
 export default function FloatingParticles({ count = 18 }) {

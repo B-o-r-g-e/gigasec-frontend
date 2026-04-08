@@ -13,7 +13,7 @@ export default function ContactHero() {
 
     return (
         <section className="min-h-[52vh] relative flex items-center overflow-hidden pt-[72px]"
-                 style={{background: `linear-gradient(145deg, ${B.navyDark} 0%, ${B.navy} 55%, #1a5958 100%)`}}
+                 style={{background: `linear-gradient(145deg, ${B.navyDark} 0%, ${B.navy} 62%, #4d4d4d 100%)`}}
         >
             {/* Grid overlay */}
             <div
@@ -114,7 +114,7 @@ export default function ContactHero() {
                 <svg viewBox="0 0 1440 80" fill="none" className="block w-full">
                     <path
                         d="M0 80 L0 40 Q360 0 720 40 Q1080 80 1440 40 L1440 80 Z"
-                        fill="#F5F7FA"
+                        fill="#FEFEFE"
                     />
                 </svg>
             </div>

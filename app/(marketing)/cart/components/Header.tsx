@@ -14,7 +14,7 @@ export default function CartHeader({ itemCount }: { itemCount: number }) {
     return (
         <section
             className="pt-[64px] sm:pt-[72px]"
-            style={{ background: "linear-gradient(145deg,#061e1e,#0d3d3d)" }}
+            style={{ background: "linear-gradient(145deg,#262626,#333333)" }}
         >
             <div className="max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-10 py-10 sm:py-12 lg:py-14">
                 {/* Breadcrumb */}
@@ -58,7 +58,7 @@ export default function CartHeader({ itemCount }: { itemCount: number }) {
 
             <div style={{ marginBottom: -1 }}>
                 <svg viewBox="0 0 1440 50" fill="none" className="block w-full">
-                    <path d="M0 50 L0 25 Q360 0 720 25 Q1080 50 1440 25 L1440 50 Z" fill="#F5F7FA" />
+                    <path d="M0 50 L0 25 Q360 0 720 25 Q1080 50 1440 25 L1440 50 Z" fill="#FEFEFE" />
                 </svg>
             </div>
         </section>

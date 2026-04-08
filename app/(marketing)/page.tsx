@@ -1,14 +1,14 @@
-import Hero from "@/app/components/hero";
-import TrustedByStrip from "@/app/components/trusted-by";
-import ServicesSection from "@/app/components/services";
-import StatsSection from "@/app/components/statsSection";
-import WhySection from "@/app/components/whyUs";
-import CaseStudiesSection from "@/app/components/caseStudy";
-import CTAStrip from "@/app/components/ctaStrip";
-import BlogSection from "@/app/components/blogPreview";
-import Certifications from "@/app/components/certifications";
-import Footer from "@/app/components/footer";
-import TestimonialsSection from "@/app/components/testimonials";
+import Hero from "@/app/(marketing)/components/hero";
+import TrustedByStrip from "@/app/(marketing)/components/trusted-by";
+import ServicesSection from "@/app/(marketing)/components/services";
+import StatsSection from "@/app/(marketing)/components/statsSection";
+import WhySection from "@/app/(marketing)/components/whyUs";
+import CaseStudiesSection from "@/app/(marketing)/components/caseStudy";
+import CTAStrip from "@/app/(marketing)/components/ctaStrip";
+import Certifications from "@/app/(marketing)/components/certifications";
+import Footer from "@/app/(marketing)/components/footer";
+import TestimonialsSection from "@/app/(marketing)/components/testimonials";
+import MethodSection from "@/app/(marketing)/components/methodSection";
 
 export default function Home() {
   return (
@@ -19,10 +19,10 @@ export default function Home() {
               <ServicesSection />
               <StatsSection />
               <WhySection />
-              <CaseStudiesSection />
+              {/*<CaseStudiesSection />*/}
               <TestimonialsSection />
               <CTAStrip />
-              <BlogSection />
+              <MethodSection />
               <Certifications />
               <Footer />
           </section>

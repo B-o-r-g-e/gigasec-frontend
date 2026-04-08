@@ -9,9 +9,9 @@ import { Icon } from "@/icons/Icon";
 import { useCart } from "@/context/CartContext";
 
 const BRAND = {
-    navy: "#0d3d3d",
-    electric: "#339a99",
-    charcoal: "#1A1A2E",
+    navy: "#333333",
+    electric: "#00CCCC",
+    charcoal: "#333333",
     gray: "#6B7280",
 };
 
@@ -25,21 +25,21 @@ const navlinks = [
 ];
 
 function useScrolled(threshold = 40) {
-    const [scrolled, setScrolled] = useState(() => {
-        // During SSR `window` is undefined — default to false.
-        if (typeof window === "undefined") return false;
-        return window.scrollY > threshold;
-    });
+    const [scrolled, setScrolled] = useState(false);
 
     useEffect(() => {
-        const handleScroll = () => setScrolled(window.scrollY > threshold);
+        const handleScroll = () => {
+            setScrolled(window.scrollY > threshold);
+        };
 
-        // Sync immediately in case the lazy initial state above
-        // ran on the server (where window is undefined).
+        // ✅ Run immediately on mount
         handleScroll();
 
         window.addEventListener("scroll", handleScroll, { passive: true });
-        return () => window.removeEventListener("scroll", handleScroll);
+
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        };
     }, [threshold]);
 
     return scrolled;
@@ -135,8 +135,8 @@ function Sidebar() {
                                         href={link.url}
                                         className={`flex items-center justify-between border-b py-4 text-[15px] font-semibold tracking-[0.2px] transition-colors duration-200 ${
                                             isCurrent
-                                                ? "text-[#339a99]"
-                                                : "text-[#1a2332] hover:text-[#339a99]"
+                                                ? "text-[#00CCCC]"
+                                                : "text-[#333333] hover:text-[#00CCCC]"
                                         }`}
                                         onClick={() => setIsOpen(false)}
                                     >
@@ -153,27 +153,27 @@ function Sidebar() {
                                 <div
                                     className="relative flex w-full cursor-pointer items-center gap-3 rounded-lg px-4 py-3 transition-all duration-200"
                                     style={{
-                                        background: "rgba(51,154,153,0.12)",
-                                        border: "1px solid rgba(51,154,153,0.3)",
+                                        background: "rgba(0,204,204,0.12)",
+                                        border: "1px solid rgba(0,204,204,0.3)",
                                     }}
                                     onMouseEnter={(e) =>
-                                        (e.currentTarget.style.background = "rgba(51,154,153,0.2)")
+                                        (e.currentTarget.style.background = "rgba(0,204,204,0.2)")
                                     }
                                     onMouseLeave={(e) =>
                                         (e.currentTarget.style.background =
-                                            "rgba(51,154,153,0.12)")
+                                            "rgba(0,204,204,0.12)")
                                     }
                                 >
-                                    <Icon name="cart" size={20} color="#339a99" />
+                                    <Icon name="cart" size={20} color="#00CCCC" />
                                     <span
-                                        className={`${dMSans.className} text-[14px] font-semibold text-[#1a2332]`}
+                                        className={`${dMSans.className} text-[14px] font-semibold text-[#333333]`}
                                     >
                                         Cart
                                     </span>
                                     {cartCount > 0 && (
                                         <div
                                             className={`${dMSans.className} ml-auto flex h-6 w-6 items-center justify-center rounded-full text-[11px] font-bold text-white`}
-                                            style={{ background: "#FF6600" }}
+                                            style={{ background: "#00B8B8" }}
                                         >
                                             {cartCount}
                                         </div>
@@ -182,7 +182,7 @@ function Sidebar() {
                             </Link>
 
                             <a
-                                className={`${dMSans.className} inline-flex items-center justify-center gap-2 rounded-lg border-[1.5px] px-5 py-3 text-[14px] font-semibold tracking-[0.3px] no-underline transition-all duration-200 hover:border-[#339a99] hover:text-[#339a99]`}
+                                className={`${dMSans.className} inline-flex items-center justify-center gap-2 rounded-lg border-[1.5px] px-5 py-3 text-[14px] font-semibold tracking-[0.3px] no-underline transition-all duration-200 hover:border-[#00CCCC] hover:text-[#00CCCC]`}
                                 href="/login"
                                 onClick={() => setIsOpen(false)}
                             >
@@ -205,11 +205,11 @@ export function MobileMenu() {
         <nav
             className={`fixed left-0 right-0 top-0 z-50 border-b px-8 py-4 transition-all duration-300 ease-in-out md:hidden ${
                 scrolled
-                    ? "border-[#339a99]/20 shadow-[0_10px_30px_rgba(0,20,51,0.18)]"
+                    ? "border-[#00CCCC]/20 shadow-[0_10px_30px_rgba(0,20,51,0.18)]"
                     : "border-transparent"
             }`}
             style={{
-                backgroundColor: scrolled ? BRAND.navy : "rgba(13,61,61,0)"
+                backgroundColor: scrolled ? BRAND.navy : "rgba(51,51,51,0)"
             }}
         >
             <div className="flex items-center justify-between">
@@ -239,12 +239,12 @@ export default function Navbar() {
             id="hero"
             className={`fixed left-0 right-0 top-0 z-50 hidden border-b px-8 py-4 transition-all duration-300 ease-in-out md:block ${
                 scrolled
-                    ? "border-[#339a99]/20 shadow-[0_10px_30px_rgba(0,20,51,0.18)]"
+                    ? "border-[#00CCCC]/20 shadow-[0_10px_30px_rgba(0,20,51,0.18)]"
                     : "border-transparent"
             }`}
             style={{
                 /* Same fix as MobileMenu above */
-                backgroundColor: scrolled ? BRAND.navy : "rgba(13,61,61,0)",
+                backgroundColor: scrolled ? BRAND.navy : "rgba(51,51,51,0)",
                 backdropFilter: scrolled ? "blur(12px)" : "none",
                 WebkitBackdropFilter: scrolled ? "blur(12px)" : "none",
             }}
@@ -271,8 +271,8 @@ export default function Navbar() {
                                     href={link.url}
                                     className={`rounded-lg border px-4 py-2 text-[14px] font-medium tracking-[0.5px] transition-all duration-200 ${
                                         isCurrent
-                                            ? "border-[#1a6b6b] bg-[#0b2f31] text-[#35c9c3]"
-                                            : "border-transparent text-white/85 hover:text-[#339a99]"
+                                            ? "border-[#00B8B8] bg-[rgba(0,204,204,0.14)] text-[#66E0E0]"
+                                            : "border-transparent text-white/85 hover:text-[#00CCCC]"
                                     }`}
                                 >
                                     {link.text}
@@ -284,7 +284,7 @@ export default function Navbar() {
                     <div className="flex items-center gap-1">
                         <Link
                             href="/contact"
-                            className={`${dMSans.className} rounded-[6px] bg-[#339a99] px-[22px] py-[10px] text-[14px] font-semibold tracking-[0.5px] text-white shadow-[0_4px_16px_rgba(51,154,153,0.35)] transition-all duration-200 hover:-translate-y-[1px] hover:bg-[#227a79]`}
+                            className={`${dMSans.className} rounded-[6px] bg-[#00CCCC] px-[22px] py-[10px] text-[14px] font-semibold tracking-[0.5px] text-white shadow-[0_4px_16px_rgba(0,204,204,0.35)] transition-all duration-200 hover:-translate-y-[1px] hover:bg-[#00B8B8]`}
                         >
                             Get a Quote
                         </Link>
@@ -293,21 +293,21 @@ export default function Navbar() {
                             <div
                                 className="relative ml-2 cursor-pointer rounded-md px-3 py-2 transition-all duration-200"
                                 style={{
-                                    background: "rgba(51,154,153,0.12)",
-                                    border: "1px solid rgba(51,154,153,0.3)",
+                                    background: "rgba(0,204,204,0.12)",
+                                    border: "1px solid rgba(0,204,204,0.3)",
                                 }}
                                 onMouseEnter={(e) =>
-                                    (e.currentTarget.style.background = "rgba(51,154,153,0.2)")
+                                    (e.currentTarget.style.background = "rgba(0,204,204,0.2)")
                                 }
                                 onMouseLeave={(e) =>
-                                    (e.currentTarget.style.background = "rgba(51,154,153,0.12)")
+                                    (e.currentTarget.style.background = "rgba(0,204,204,0.12)")
                                 }
                             >
-                                <Icon name="cart" size={20} color="#339a99" />
+                                <Icon name="cart" size={20} color="#00CCCC" />
                                 {cartCount > 0 && (
                                     <div
                                         className={`${dMSans.className} absolute -right-1.5 -top-1.5 flex h-5 w-5 items-center justify-center rounded-full text-[11px] font-bold text-white`}
-                                        style={{ background: "#FF6600" }}
+                                        style={{ background: "#00B8B8" }}
                                     >
                                         {cartCount}
                                     </div>

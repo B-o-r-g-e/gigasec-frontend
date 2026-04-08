@@ -345,7 +345,7 @@ export default function ContactForm() {
                                 type="button"
                                 className="flex items-center justify-center gap-2 text-white rounded-lg py-4 font-bold text-[15px] transition-all duration-[350ms] [transition-timing-function:cubic-bezier(0.34,1.56,0.64,1)]"
                                 style={{
-                                    background: `linear-gradient(135deg, ${B.electric}, #227a79)`,
+                                    background: `linear-gradient(135deg, ${B.electric}, #00b8b8)`,
                                     boxShadow: "0 8px 32px rgba(51,154,153,0.4)",
                                     opacity: vis ? 1 : 0,
                                     transform: vis ? "scale(1)" : "scale(0.9)",

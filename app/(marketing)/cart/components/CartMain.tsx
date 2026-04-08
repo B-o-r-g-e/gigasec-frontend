@@ -234,7 +234,7 @@ export default function CartMain() {
 
                                 {/* Total */}
                                 <div className="flex justify-between items-center py-5 mb-6 rounded-xl px-4"
-                                     style={{background: "linear-gradient(135deg,#0d3d3d,#1a5958)"}}>
+                                     style={{background: "linear-gradient(135deg,#333333,#4d4d4d)"}}>
                                     <span className={`${syne.className}`} style={{
                                         fontWeight: 800,
                                         fontSize: 16,
@@ -254,7 +254,7 @@ export default function CartMain() {
                                             style={{
                                                 fontWeight: 700,
                                                 fontSize: 16,
-                                                background: "linear-gradient(135deg,#339a99,#227a79)",
+                                                background: "linear-gradient(135deg,#00CCCC,#00b8b8)",
                                                 boxShadow: "0 8px 32px rgba(51,154,153,0.4)"
                                             }}
                                             onMouseEnter={e => {

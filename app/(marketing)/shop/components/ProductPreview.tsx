@@ -41,7 +41,7 @@ export default function ProductPreview({product: p, onClose, onAddToCart}: Produ
             >
                 {/* Left */}
                 <div
-                    className="flex items-center justify-center relative min-h-[220px] sm:min-h-[340px] bg-[linear-gradient(135deg,#F5F7FA,#e8edf3)] overflow-hidden">
+                    className="flex items-center justify-center relative min-h-[220px] sm:min-h-[340px] bg-[linear-gradient(135deg,#FEFEFE,#e8edf3)] overflow-hidden">
                     {p.image ? (
                         <Image
                             src={p.image}
@@ -52,7 +52,7 @@ export default function ProductPreview({product: p, onClose, onAddToCart}: Produ
                         />
                     ) : (
                         <div className="w-24 h-24 rounded-[24px] flex items-center justify-center
-                                        bg-[linear-gradient(135deg,#0d3d3d,#339a99)]
+                                        bg-[linear-gradient(135deg,#333333,#00CCCC)]
                                         shadow-[0_20px_48px_rgba(13,61,61,0.25)]
                         ">
                             <Icon name="shield" size={48} color="rgba(255,255,255,0.9)"/>
@@ -61,7 +61,7 @@ export default function ProductPreview({product: p, onClose, onAddToCart}: Produ
 
                     {p.badge && (
                         <div
-                            className="absolute top-5 left-5 text-white text-[9px] tracking-[1.5px] px-[10px] py-1 rounded-full font-mono bg-[#0d3d3d]">
+                            className="absolute top-5 left-5 text-white text-[9px] tracking-[1.5px] px-[10px] py-1 rounded-full font-mono bg-[#333333]">
                             {p.badge}
                         </div>
                     )}
@@ -73,19 +73,19 @@ export default function ProductPreview({product: p, onClose, onAddToCart}: Produ
                     {/* Close */}
                     <button
                         onClick={handleClose}
-                        className="float-right w-8 h-8 rounded-full flex items-center justify-center bg-[#F5F7FA] hover:bg-[#e8edf3] transition-colors"
+                        className="float-right w-8 h-8 rounded-full flex items-center justify-center bg-[#FEFEFE] hover:bg-[#e8edf3] transition-colors"
                     >
                         <Icon name="close" size={16} color="#6B7280"/>
                     </button>
 
                     {/* Brand */}
                     <span
-                        className="inline-block text-[9px] tracking-[2px] px-[10px] py-[3px] rounded-full mb-3 font-mono bg-[#339a991a] text-[#339a99]">
+                        className="inline-block text-[9px] tracking-[2px] px-[10px] py-[3px] rounded-full mb-3 font-mono bg-[#00CCCC1a] text-[#00CCCC]">
                         {p.brand}
                     </span>
 
                     {/* Title */}
-                    <h2 className="font-black text-[clamp(1.05rem,4.5vw,1.2rem)] leading-[1.35] tracking-[-0.3px] mt-3 mb-2 text-[#0d3d3d] font-['Syne',sans-serif]">
+                    <h2 className="font-black text-[clamp(1.05rem,4.5vw,1.2rem)] leading-[1.35] tracking-[-0.3px] mt-3 mb-2 text-[#333333] font-['Syne',sans-serif]">
                         {p.name}
                     </h2>
 
@@ -110,7 +110,7 @@ export default function ProductPreview({product: p, onClose, onAddToCart}: Produ
                     </div>
 
                     {/* Price */}
-                    <div className="font-black text-[clamp(1.4rem,6vw,1.8rem)] leading-none text-[#0d3d3d] font-['Syne',sans-serif]">
+                    <div className="font-black text-[clamp(1.4rem,6vw,1.8rem)] leading-none text-[#333333] font-['Syne',sans-serif]">
                         ₦{p.price.toLocaleString()}
                     </div>
 
@@ -126,7 +126,7 @@ export default function ProductPreview({product: p, onClose, onAddToCart}: Produ
                             <span
                                 key={t}
                                 className="text-[11px] px-[10px] py-[2px] rounded-full border
-                                          bg-[#F5F7FA] border-[#e8edf3] text-gray-500
+                                          bg-[#FEFEFE] border-[#e8edf3] text-gray-500
                                           font-['DM_Sans',sans-serif]"
                             >
                                 {t}
@@ -143,20 +143,20 @@ export default function ProductPreview({product: p, onClose, onAddToCart}: Produ
                         <div className="flex items-center rounded-lg overflow-hidden border-[1.5px] border-[#e8edf3]">
                             <button
                                 onClick={() => setQty((q) => Math.max(1, q - 1))}
-                                className="w-9 h-9 font-bold text-[16px] bg-[#F5F7FA] text-[#0d3d3d]
+                                className="w-9 h-9 font-bold text-[16px] bg-[#FEFEFE] text-[#333333]
                                             hover:bg-[#e8edf3] transition-colors font-['Syne',sans-serif]"
                             >
                                 −
                             </button>
 
                             <span
-                                className="w-10 text-center font-bold text-[15px] text-[#0d3d3d] font-['Syne',sans-serif]">
+                                className="w-10 text-center font-bold text-[15px] text-[#333333] font-['Syne',sans-serif]">
                                 {qty}
                             </span>
 
                             <button
                                 onClick={() => setQty((q) => q + 1)}
-                                className="w-9 h-9 font-bold text-[16px] bg-[#F5F7FA] text-[#0d3d3d]
+                                className="w-9 h-9 font-bold text-[16px] bg-[#FEFEFE] text-[#333333]
                                         hover:bg-[#e8edf3] transition-colors font-['Syne',sans-serif]"
                             >
                                 +
@@ -169,7 +169,7 @@ export default function ProductPreview({product: p, onClose, onAddToCart}: Produ
                         onClick={() => onAddToCart(qty)}
                         className="w-full flex items-center justify-center gap-2 py-[12px] sm:py-[14px] rounded-[10px]
                                   font-bold text-[14px] sm:text-[15px] text-white
-                                  bg-[linear-gradient(135deg,#339a99,#227a79)]
+                                  bg-[linear-gradient(135deg,#00CCCC,#00B8B8)]
                                   shadow-[0_8px_24px_rgba(51,154,153,0.35)]
                                   hover:scale-[1.02] hover:shadow-[0_12px_32px_rgba(51,154,153,0.5)]
                                   transition-all duration-300

@@ -16,7 +16,7 @@ export default function TrustBar() {
     return (
         <section
             ref={ref}
-            className="py-14 border-t border-[rgba(51,154,153,0.1)] bg-[linear-gradient(135deg,#061e1e,#0d3d3d)]"
+            className="py-14 border-t border-[rgba(51,154,153,0.1)] bg-[linear-gradient(135deg,#262626,#333333)]"
         >
             <div className="max-w-[1280px] mx-auto px-10 flex justify-around flex-wrap gap-6">
                 {items.map((item, i) => (
@@ -29,7 +29,7 @@ export default function TrustBar() {
                     >
                         <div
                             className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0 bg-[rgba(51,154,153,0.15)]">
-                            <Icon name={item.icon} size={16} color="#339a99"/>
+                            <Icon name={item.icon} size={16} color="#00CCCC"/>
                         </div>
 
                         <span className="text-sm font-medium text-white/75 font-['DM_Sans',sans-serif]">

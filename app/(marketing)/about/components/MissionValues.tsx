@@ -56,7 +56,7 @@ export default function MissionValues() {
                         <div
                             className="rounded-xl p-6 sm:p-8"
                             style={{
-                                background: `linear-gradient(135deg, ${B.navy}, #1a5958)`,
+                                background: `linear-gradient(135deg, ${B.navy}, #4d4d4d)`,
                                 opacity: vis ? 1 : 0,
                                 transform: vis ? "translateY(0)" : "translateY(30px)",
                                 transition: "all 0.9s cubic-bezier(0.22,1,0.36,1) 0.3s",

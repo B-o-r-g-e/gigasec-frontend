@@ -6,7 +6,7 @@ export default function ServicesBackground({children}: { children: ReactNode }) 
     return (
         <section style={{
             minHeight: "72vh", position: "relative",
-            background: `linear-gradient(150deg, ${B.deep} 0%, #061e1e 50%, #0d3d3d 100%)`,
+            background: `linear-gradient(150deg, ${B.deep} 0%, #262626 50%, #333333 100%)`,
             display: "flex", alignItems: "center", overflow: "hidden", paddingTop: 72,
         }}>
             <div className="absolute inset-0 pointer-events-none

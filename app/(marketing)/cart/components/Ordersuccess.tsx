@@ -8,7 +8,7 @@ export default function OrderSuccess() {
     return (
         <div className="text-center py-24 max-w-[600px] mx-auto" style={{ animation: "successReveal 0.8s cubic-bezier(0.34,1.56,0.64,1)" }}>
             <div className="w-28 h-28 rounded-full flex items-center justify-center mx-auto mb-8"
-                 style={{ background: "linear-gradient(135deg,#339a99,#4dbdbc)", boxShadow: "0 16px 48px rgba(51,154,153,0.4)" }}>
+                 style={{ background: "linear-gradient(135deg,#00CCCC,#66E0E0)", boxShadow: "0 16px 48px rgba(51,154,153,0.4)" }}>
                 <Icon name="check" size={52} color="#fff" />
             </div>
             <h2 className={`${syne.className} mb-4`} style={{ fontWeight: 800, fontSize: "clamp(2rem,4vw,2.8rem)", color: B.navy, letterSpacing: -0.5 }}>

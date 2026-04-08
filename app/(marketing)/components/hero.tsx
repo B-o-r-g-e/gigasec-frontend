@@ -2,7 +2,7 @@
 import {useEffect, useState} from "react";
 import {ShieldCheck} from "lucide-react";
 import {syne} from "@/theme/fonts";
-import Typewriter from "@/app/components/typewriter";
+import Typewriter from "@/app/(marketing)/components/typewriter";
 import Badge from "@/components/ui/Badge";
 import Subheading from "@/components/ui/Subheading";
 import PrimaryButton from "@/components/ui/PrimaryButton";
@@ -30,7 +30,7 @@ export default function Hero() {
                                 }`}
                             >
                                 Empowering{" "}
-                                <span className="bg-[linear-gradient(135deg,#339a99,#339a99)] bg-clip-text text-transparent">
+                                <span className="bg-[linear-gradient(135deg,#00CCCC,#00CCCC)] bg-clip-text text-transparent">
                                     operational excellence
                                 </span>{" "}
                                 with <Typewriter words={["Security", "Automation", "Remote Monitoring", "Energy", "Sustainability"]} />
@@ -48,8 +48,8 @@ export default function Hero() {
                                     visible ? "translate-y-0 opacity-100" : "translate-y-5 opacity-0"
                                 }`}
                             >
-                                <PrimaryButton link={"#contact"} text="Contact Us" />
-                                <SecondaryButton link={"#services"} text="View Our Services" />
+                                <PrimaryButton link={"/contact"} text="Contact Us" />
+                                <SecondaryButton link={"/services"} text="View Our Services" />
                             </div>
                         </div>
                     </div>

@@ -34,7 +34,7 @@ export default function ProductsGrid() {
     if (sort === "Rating") filtered = [...filtered].sort((a, b) => b.rating - a.rating);
 
     return (
-        <section id="products" ref={ref} className="bg-[#F5F7FA] py-16 sm:py-20 pb-24 sm:pb-32">
+        <section id="products" ref={ref} className="bg-[#FEFEFE] py-16 sm:py-20 pb-24 sm:pb-32">
             <div className="max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-10">
 
                 {/* Filter + sort */}
@@ -62,8 +62,8 @@ export default function ProductsGrid() {
                                     onClick={() => setCat(c)}
                                     className={`text-[13px] px-4 py-[7px] rounded-lg border transition-all duration-300
                                         ${active
-                                        ? "bg-[#0d3d3d] text-white border-[#339a99] scale-105 shadow-[0_4px_16px_rgba(13,61,61,0.2)] font-bold"
-                                        : "bg-white text-gray-500 border-[#e8edf3] font-medium hover:border-[#339a99]/40"
+                                        ? "bg-[#333333] text-white border-[#00CCCC] scale-105 shadow-[0_4px_16px_rgba(13,61,61,0.2)] font-bold"
+                                        : "bg-white text-gray-500 border-[#e8edf3] font-medium hover:border-[#00CCCC]/40"
                                     }
                                     `}
                                 >
@@ -83,8 +83,8 @@ export default function ProductsGrid() {
                             value={sort}
                             onChange={(e) => setSort(e.target.value)}
                             className="text-[13px] px-3 py-[7px] rounded-lg cursor-pointer
-                                      border-[1.5px] border-[#e8edf3] bg-white text-[#1a2332]
-                                      outline-none focus:border-[#339a99]"
+                                      border-[1.5px] border-[#e8edf3] bg-white text-[#333333]
+                                      outline-none focus:border-[#00CCCC]"
                         >
                             {["Default", "Price: Low", "Price: High", "Rating"].map((s) => (
                                 <option key={s}>{s}</option>

@@ -1,4 +1,4 @@
-export default function OrbBg({ color = "#339a99", top, right, size = 600, opacity = 0.12 }: {color?: string; top?: string; right?: string, size?: number, opacity?: number}) {
+export default function OrbBg({ color = "#00CCCC", top, right, size = 600, opacity = 0.12 }: {color?: string; top?: string; right?: string, size?: number, opacity?: number}) {
     return (
         <div
             className="absolute rounded-full pointer-events-none

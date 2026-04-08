@@ -60,7 +60,7 @@ export default function RelatedProducts({relatedProduct}: RelatedProductsProps) 
                                      boxShadow: hov ? "0 28px 56px rgba(13,61,61,0.15)" : "0 4px 16px rgba(0,0,0,0.04)"
                                  }}>
                                 <div className="h-45 flex items-center justify-center transition-all duration-400"
-                                     style={{background: `linear-gradient(135deg,#0d3d3d,#339a99)`}}>
+                                     style={{background: `linear-gradient(135deg,#333333,#00CCCC)`}}>
                                     {/*<Icon name="shield" size={60} color="rgba(255,255,255,0.8)"/>*/}
                                     <Image className="h-full w-full object-cover object-fit"
                                            src={p.image ?? "/products/cctv.jpeg"}

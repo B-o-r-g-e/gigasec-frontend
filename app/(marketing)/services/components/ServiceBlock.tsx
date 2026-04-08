@@ -3,7 +3,7 @@ import {Icon, type IconName} from "@/icons/Icon";
 import {useInView} from "@/hooks/useInView";
 import {useCountUp} from "@/hooks/useCountUp";
 import {useState} from "react";
-import { dMSans,syne } from "@/theme/fonts";
+import {dMSans, syne} from "@/theme/fonts";
 
 interface ServiceStat {
     n: number;
@@ -25,7 +25,7 @@ interface ServiceData {
     badge: string | null;
 }
 
-export default function ServiceBlock({svc, index, filter}: {svc: ServiceData; index: number; filter: string}) {
+export default function ServiceBlock({svc, index, filter}: { svc: ServiceData; index: number; filter: string }) {
     const [ref, vis] = useInView<HTMLDivElement>(0.08);
     const [expanded, setExpanded] = useState(false);
     const [hov, setHov] = useState(false);
@@ -34,18 +34,17 @@ export default function ServiceBlock({svc, index, filter}: {svc: ServiceData; in
     const isEven = index % 2 === 0;
 
     return (
-        <div
-            ref={ref}
-            className={`
-        ${isVisible ? "block" : "hidden"}
-        mb-[2px]
-        transition-all duration-900
-        ${vis ? "opacity-100 translate-x-0" : `opacity-0 ${isEven ? "-translate-x-20" : "translate-x-20"}`}
-      `}
-            style={{
-                transitionTimingFunction: "cubic-bezier(0.22,1,0.36,1)",
-                transitionDelay: `${(index % 3) * 80}ms`,
-            }}
+        <div ref={ref}
+             id={svc.id}
+             className={`${isVisible ? "block" : "hidden"} mb-[2px]
+                        transition-all duration-900
+                        ${vis ? "opacity-100 translate-x-0" : `opacity-0 
+                        ${isEven ? "-translate-x-20" : "translate-x-20"}`}
+            `}
+             style={{
+                 transitionTimingFunction: "cubic-bezier(0.22,1,0.36,1)",
+                 transitionDelay: `${(index % 3) * 80}ms`,
+             }}
         >
             {/* Card */}
             <div
@@ -112,7 +111,7 @@ export default function ServiceBlock({svc, index, filter}: {svc: ServiceData; in
                         </div>
 
                         {/* Title */}
-                        <h2 className={`${syne.className} font-extrabold text-[1.7rem] leading-tight mb-1 text-[#0d3d3d]`}>
+                        <h2 className={`${syne.className} font-extrabold text-[1.7rem] leading-tight mb-1 text-[#333333]`}>
                             {svc.title}
                         </h2>
 
@@ -135,7 +134,7 @@ export default function ServiceBlock({svc, index, filter}: {svc: ServiceData; in
                             {svc.industries.map((ind, i) => (
                                 <span
                                     key={ind}
-                                    className={`${dMSans.className} text-xs font-medium px-3 py-1 rounded-full border bg-[#f5f7fa] text-[#0d3d3d]`}
+                                    className={`${dMSans.className} text-xs font-medium px-3 py-1 rounded-full border bg-[#f5f7fa] text-[#333333]`}
                                     style={{
                                         transform: hov ? `translateY(${-i}px)` : "none",
                                         transition: `transform 0.4s ease ${i * 40}ms`,
@@ -149,7 +148,7 @@ export default function ServiceBlock({svc, index, filter}: {svc: ServiceData; in
                         {/* Stats */}
                         <div className="flex flex-wrap gap-6 sm:gap-8 mb-8">
                             {svc.stats.map((s) => {
-                                const n = useCountUp({ target: s.n, duration: 1800, active: vis });
+                                const n = useCountUp({target: s.n, duration: 1800, active: vis});
 
                                 return (
                                     <div
@@ -192,7 +191,7 @@ export default function ServiceBlock({svc, index, filter}: {svc: ServiceData; in
                             <button
                                 onClick={() => setExpanded((x) => !x)}
                                 className={`${dMSans.className} 
-                                inline-flex items-center justify-center gap-2 px-5 py-3 rounded-lg border text-sm font-semibold transition-all hover:border-[color:var(--accent)] w-full sm:w-auto`}
+                                inline-flex cursor-pointer items-center justify-center gap-2 px-5 py-3 rounded-lg border text-sm font-semibold transition-all hover:border-[color:var(--accent)] w-full sm:w-auto`}
                             >
                                 {expanded ? "Less" : "Details"}
                                 <span

@@ -5,7 +5,7 @@ import { useInView } from "framer-motion";
 import { ArrowRight, Shield } from "lucide-react";
 import Image from "next/image";
 
-function BlogSection() {
+function MethodSection() {
     const ref = useRef(null);
     const inView = useInView(ref, { amount: 0.1, once: true });
 
@@ -63,21 +63,21 @@ function BlogSection() {
                     }`}
                 >
                     <div>
-                        <div className="mb-3 font-['Space_Mono',monospace] text-[11px] tracking-[3px] text-[#339a99]">
+                        <div className="mb-3 font-['Space_Mono',monospace] text-[11px] tracking-[3px] text-[#00CCCC]">
                             OUR METHOD
                         </div>
 
-                        <h2 className="max-w-[32rem] font-['Syne',sans-serif] text-[clamp(1.75rem,6vw,3rem)] font-extrabold leading-[1.15] tracking-[-0.5px] text-[#0d3d3d]">
+                        <h2 className="max-w-[32rem] font-['Syne',sans-serif] text-[clamp(1.75rem,6vw,3rem)] font-extrabold leading-[1.15] tracking-[-0.5px] text-[#333333]">
                             From Requirement to Handover
                         </h2>
                     </div>
 
                     <a
                         href="#"
-                        className="flex items-center gap-1.5 font-['DM_Sans',sans-serif] text-[14px] font-semibold text-[#339a99] no-underline"
+                        className="flex items-center gap-1.5 font-['DM_Sans',sans-serif] text-[14px] font-semibold text-[#00CCCC] no-underline"
                     >
                         See the Process
-                        <ArrowRight size={16} color="#339a99" />
+                        <ArrowRight size={16} color="#00CCCC" />
                     </a>
                 </div>
 
@@ -119,13 +119,13 @@ function BlogCard({
             }`}
             style={{
                 background: "#f8fafc",
-                border: `1.5px solid ${hovered ? "#339a99" : "transparent"}`,
+                border: `1.5px solid ${hovered ? "#00CCCC" : "transparent"}`,
                 transform: hovered ? "translateY(-4px)" : "none",
                 boxShadow: hovered ? "0 16px 40px rgba(0,51,102,0.12)" : "none",
                 transitionDelay: `${delay}ms`,
             }}
         >
-            <div className="relative flex h-40 items-center justify-center bg-[linear-gradient(135deg,#0d3d3d,#339a99)]">
+            <div className="relative flex h-40 items-center justify-center bg-[linear-gradient(135deg,#333333,#00CCCC)]">
                 {image ? (
                     <Image
                         src={image}
@@ -143,7 +143,7 @@ function BlogCard({
 
             <div className="p-7">
                 <div className="mb-[14px] flex items-center justify-between">
-                    <span className="rounded-full bg-[rgba(0,153,204,0.1)] px-[10px] py-[3px] font-['Space_Mono',monospace] text-[10px] tracking-[2px] text-[#339a99]">
+                    <span className="rounded-full bg-[rgba(0,153,204,0.1)] px-[10px] py-[3px] font-['Space_Mono',monospace] text-[10px] tracking-[2px] text-[#00CCCC]">
                       {cat}
                     </span>
 
@@ -152,7 +152,7 @@ function BlogCard({
                     </span>
                     </div>
 
-                    <h3 className="mb-4 font-['Syne',sans-serif] text-[16px] font-bold leading-[1.4] tracking-[-0.2px] text-[#0d3d3d]">
+                    <h3 className="mb-4 font-['Syne',sans-serif] text-[16px] font-bold leading-[1.4] tracking-[-0.2px] text-[#333333]">
                         {title}
                     </h3>
 
@@ -164,4 +164,4 @@ function BlogCard({
     );
 }
 
-export default BlogSection;
+export default MethodSection;

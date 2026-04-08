@@ -45,7 +45,7 @@ export default function Suggested() {
                                  }}>
                                 {/* Image */}
                                 <div className="h-30 flex items-center justify-center"
-                                     style={{background: "linear-gradient(135deg,#0d3d3d,#339a99)"}}>
+                                     style={{background: "linear-gradient(135deg,#333333,#00CCCC)"}}>
                                     <Icon name="shield" size={36} color="rgba(255,255,255,0.8)"/>
                                 </div>
                                 <div className="p-5">

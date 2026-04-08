@@ -7,12 +7,12 @@ export default function BulkCTA() {
     const [ref, vis] = useInView(0.2);
 
     return (
-        <section ref={ref} id="contact" className="bg-[#F5F7FA] py-16 sm:py-20">
+        <section ref={ref} id="contact" className="bg-[#FEFEFE] py-16 sm:py-20">
             <div className="max-w-[900px] mx-auto px-5 sm:px-10">
                 <div
                     className="rounded-2xl sm:rounded-[24px] px-6 sm:px-12 lg:px-16 py-10 sm:py-14 lg:py-16 text-center relative overflow-hidden transition-all duration-[900ms]"
                     style={{
-                        background: "linear-gradient(135deg,#0d3d3d,#1a5958)",
+                        background: "linear-gradient(135deg,#333333,#4d4d4d)",
                         opacity: vis ? 1 : 0,
                         transform: vis ? "translateY(0) scale(1)" : "translateY(30px) scale(0.97)"
                     }}>
@@ -31,7 +31,7 @@ export default function BulkCTA() {
                     }}/>
                     <div className="relative z-[2]">
                         <div className={`${spaceMono.className} text-[10px] sm:text-[11px] tracking-[3px] mb-3 sm:mb-4`}
-                             style={{color: "#339a99"}}>TRADE & BULK ORDERS
+                             style={{color: "#00CCCC"}}>TRADE & BULK ORDERS
                         </div>
                         <h2 className={`${syne.className} font-black text-white tracking-[-0.5px] mb-4`}
                             style={{fontSize: "clamp(1.6rem,6vw,2.8rem)", lineHeight: 1.15}}>Ordering for
@@ -45,7 +45,7 @@ export default function BulkCTA() {
                             <a href="#"
                                className={`${dMSans.className} inline-flex w-full sm:w-auto items-center justify-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 rounded-lg font-bold text-[14px] sm:text-[15px] text-white no-underline transition-all duration-300`}
                                style={{
-                                   background: "#339a99",
+                                   background: "#00CCCC",
                                    boxShadow: "0 8px 28px rgba(51,154,153,0.4)"
                                }}
                                onMouseEnter={e => {
@@ -65,8 +65,8 @@ export default function BulkCTA() {
                                    border: "1.5px solid rgba(255,255,255,0.3)"
                                }}
                                onMouseEnter={e => {
-                                   e.currentTarget.style.borderColor = "#339a99";
-                                   e.currentTarget.style.color = "#339a99";
+                                   e.currentTarget.style.borderColor = "#00CCCC";
+                                   e.currentTarget.style.color = "#00CCCC";
                                }}
                                onMouseLeave={e => {
                                    e.currentTarget.style.borderColor = "rgba(255,255,255,0.3)";

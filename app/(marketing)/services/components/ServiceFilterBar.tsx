@@ -18,9 +18,9 @@ export default function FilterBar({ active, setActive }: { active: string; setAc
     return (
         <div
             ref={ref}
-            className="bg-white border-b border-[#e8edf3] sticky top-[72px] z-50 shadow-[0_4px_24px_rgba(0,0,0,0.06)]"
+            className="bg-white/95 backdrop-blur-md border-b sticky top-20 z-40 border-[#e8edf3] shadow-[0_4px_24px_rgba(0,0,0,0.06)]"
         >
-            <div className="max-w-[1300px] mx-auto px-4 sm:px-6 lg:px-10 flex gap-2 overflow-x-auto h-14 sm:h-16 items-center">
+            <div className="max-w-325 mx-auto px-4 sm:px-6 lg:px-10 flex gap-2 overflow-x-auto h-14 sm:h-16 items-center">
                 {FILTERS.map((f, i) => (
                     <button
                         key={f}
@@ -29,8 +29,8 @@ export default function FilterBar({ active, setActive }: { active: string; setAc
               whitespace-nowrap rounded-lg px-4 sm:px-5 py-2 text-sm
               transition-all duration-300
               ${active === f
-                            ? "bg-[#0d3d3d] text-white font-bold scale-105 shadow-[0_4px_20px_rgba(13,61,61,0.25)]"
-                            : "bg-transparent text-gray-500 font-medium hover:bg-[#f5f7fa] hover:text-[#0d3d3d]"
+                            ? "bg-[#333333] text-white font-bold scale-105 shadow-[0_4px_20px_rgba(13,61,61,0.25)]"
+                            : "bg-transparent text-gray-500 font-medium hover:bg-[#f5f7fa] hover:text-[#333333]"
                         }
               ${vis ? "opacity-100" : "opacity-0"}
             `}

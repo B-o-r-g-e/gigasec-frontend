@@ -9,7 +9,7 @@ export default function CTAStrip() {
     const inView = useInView(ref, { amount: 0.3, once: true });
 
     return (
-        <section ref={ref} className="bg-[#339a99] py-[72px]">
+        <section ref={ref} className="bg-[#00CCCC] py-[72px]">
             <div className="mx-auto flex max-w-[1280px] flex-wrap items-center justify-between gap-8 px-8">
                 <div
                     className={`transition-all duration-500 ${
@@ -34,10 +34,10 @@ export default function CTAStrip() {
                 >
                     <a
                         href="#contact"
-                        className="flex items-center gap-2 rounded-[8px] bg-white px-[30px] py-[15px] font-['DM_Sans',sans-serif] text-[15px] font-bold text-[#0d3d3d] no-underline shadow-[0_8px_24px_rgba(0,0,0,0.15)] transition-all duration-200 hover:-translate-y-[2px]"
+                        className="flex items-center gap-2 rounded-[8px] bg-white px-[30px] py-[15px] font-['DM_Sans',sans-serif] text-[15px] font-bold text-[#333333] no-underline shadow-[0_8px_24px_rgba(0,0,0,0.15)] transition-all duration-200 hover:-translate-y-[2px]"
                     >
                         Contact Us
-                        <ArrowRight size={16} color="#0d3d3d" />
+                        <ArrowRight size={16} color="#333333" />
                     </a>
 
                     <a

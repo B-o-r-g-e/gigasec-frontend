@@ -18,7 +18,7 @@ export default function AboutCTA(){
                 <div
                     className="relative overflow-hidden rounded-[24px] md:rounded-[28px] px-6 sm:px-10 lg:px-[72px] py-12 sm:py-16 lg:py-[80px]"
                     style={{
-                        background: `linear-gradient(135deg, ${B.navy}, #1a5958)`,
+                        background: `linear-gradient(135deg, ${B.navy}, #4d4d4d)`,
                         opacity: vis ? 1 : 0,
                         transform: vis
                             ? "translateY(0) scale(1)"
@@ -94,7 +94,7 @@ export default function AboutCTA(){
                         >
                             {/* Start project */}
                             <a
-                                href="#contact"
+                                href="/contact"
                                 onMouseEnter={() => setHov1(true)}
                                 onMouseLeave={() => setHov1(false)}
                                 className="inline-flex items-center justify-center gap-[10px] whitespace-nowrap rounded-[10px] px-[36px] py-[17px] font-['DM_Sans',sans-serif] font-bold text-[16px] text-white no-underline w-full sm:w-auto"
