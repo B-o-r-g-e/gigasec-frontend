@@ -3,7 +3,6 @@ import TrustedByStrip from "@/app/(marketing)/components/trusted-by";
 import ServicesSection from "@/app/(marketing)/components/services";
 import StatsSection from "@/app/(marketing)/components/statsSection";
 import WhySection from "@/app/(marketing)/components/whyUs";
-import CaseStudiesSection from "@/app/(marketing)/components/caseStudy";
 import CTAStrip from "@/app/(marketing)/components/ctaStrip";
 import Certifications from "@/app/(marketing)/components/certifications";
 import Footer from "@/app/(marketing)/components/footer";

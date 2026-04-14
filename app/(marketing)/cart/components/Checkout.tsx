@@ -5,6 +5,8 @@ import {B} from "@/theme/Colors";
 import {dMSans, spaceMono, syne} from "@/theme/fonts";
 import {Icon} from "@/icons/Icon";
 import {useCart} from "@/context/CartContext";
+import {useAuth} from "@/context/AuthContext";
+import {usePathname, useRouter} from "next/navigation";
 
 type CheckoutFormProps = {
     onBack: () => void;
@@ -40,6 +42,9 @@ export default function CheckoutForm({onBack, onComplete, total}: CheckoutFormPr
     const [errors, setErrors] = useState<CheckoutErrors>({});
     const [touched, setTouched] = useState<Partial<Record<CheckoutField, boolean>>>({});
     const [submitAttempted, setSubmitAttempted] = useState(false);
+    const {isLoggedIn} = useAuth()
+    const router = useRouter();
+    const pathname = usePathname()
     const normalizeSpaces = (value: string) => value.replace(/\s+/g, " ").trim();
     const isValidEmail = (value: string) =>
         /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(value);
@@ -115,6 +120,11 @@ export default function CheckoutForm({onBack, onComplete, total}: CheckoutFormPr
         });
     };
     const handleSubmit = () => {
+        if (!isLoggedIn) {
+            router.push(`/login?redirect=${encodeURIComponent(pathname)}`)
+            return;
+        }
+
         setSubmitAttempted(true);
         const normalizedForm: CheckoutFormState = {
             firstName: normalizeSpaces(form.firstName),

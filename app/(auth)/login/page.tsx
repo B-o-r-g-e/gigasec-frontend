@@ -1,5 +1,10 @@
+import {Suspense} from "react";
+import AuthPage from "@/app/(auth)/login/components/authPage";
+
 export default function LoginPage() {
     return (
-        <div>Something</div>
+        <Suspense fallback={<div />}>
+            <AuthPage />
+        </Suspense>
     )
 }

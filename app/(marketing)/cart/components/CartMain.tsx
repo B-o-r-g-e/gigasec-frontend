@@ -1,6 +1,6 @@
 'use client'
 import {useInView} from "@/hooks/useInView";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {Icon} from "@/icons/Icon";
 import {dMSans, spaceMono, syne} from "@/theme/fonts";
 import {B} from "@/theme/Colors";
@@ -10,6 +10,8 @@ import CheckoutForm from "@/app/(marketing)/cart/components/Checkout";
 import EmptyCart from "@/app/(marketing)/cart/components/EmptyCart";
 import OrderSuccess from "@/app/(marketing)/cart/components/Ordersuccess";
 import {useCart} from "@/context/CartContext";
+import {useAuth} from "@/context/AuthContext";
+import {usePathname, useRouter} from "next/navigation";
 
 
 export default function CartMain() {
@@ -18,7 +20,6 @@ export default function CartMain() {
     const [couponApplied, setCouponApplied] = useState(false);
     const [couponError, setCouponError] = useState(false);
     const [checkoutStep, setCheckoutStep] = useState(1); // 1=cart, 2=details, 3=success
-
 
     const {cart, updateQty, removeFromCart} = useCart();
     const subtotal = cart.reduce((sum, i) => sum + i.price * i.qty, 0);
@@ -37,9 +38,27 @@ export default function CartMain() {
         }
     };
 
+    const {isLoggedIn} = useAuth();
+    const router = useRouter();
+    const pathname = usePathname()
+
+    useEffect(() => {
+        if (!isLoggedIn && checkoutStep > 1) {
+            setCheckoutStep(1);
+        }
+    }, [isLoggedIn, checkoutStep]);
+
+    const handleProceedToCheckout = () => {
+        if (!isLoggedIn) {
+            router.push(`/login?redirect=${encodeURIComponent(pathname)}`);
+            return;
+        }
+        setCheckoutStep(2);
+    };
+
     return (
         <section ref={ref} className="py-12 md:py-16" style={{background: B.offwhite}}>
-            <div className="max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-10">
+            <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
                 {checkoutStep === 3 ? (
                     <OrderSuccess/>
                 ) : (
@@ -83,9 +102,12 @@ export default function CartMain() {
                             )}
 
                             {checkoutStep === 2 && (
-                                <CheckoutForm onBack={() => setCheckoutStep(1)} onComplete={() => setCheckoutStep(3)}
-                                              total={total}/>
-                            )}
+                                <CheckoutForm
+                                    onBack={() => {
+                                        setCheckoutStep(1)
+                                    }} onComplete={() => setCheckoutStep(3)}
+                                    total={total}/>)
+                            }
                         </div>
 
                         {/* Right — Order summary */}
@@ -249,7 +271,7 @@ export default function CartMain() {
 
                                 {/* Checkout button */}
                                 {checkoutStep === 1 && cart.length > 0 && (
-                                    <button onClick={() => setCheckoutStep(2)}
+                                    <button onClick={handleProceedToCheckout}
                                             className={`${syne.className} w-full flex items-center justify-center gap-3 py-4 rounded-xl text-white border-none cursor-pointer transition-all duration-300`}
                                             style={{
                                                 fontWeight: 700,

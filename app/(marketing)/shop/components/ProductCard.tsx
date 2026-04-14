@@ -5,6 +5,8 @@ import Image from "next/image";
 import type {Product} from "@/app/(marketing)/shop/components/products";
 import Link from "next/link";
 import {slugify} from "@/app/(marketing)/blog/[slug]/components/functions";
+import {usePathname, useRouter} from "next/navigation";
+import {useAuth} from "@/context/AuthContext";
 
 type CartEntry = {
     id: string | number;
@@ -25,12 +27,20 @@ export default function ProductCard({product: p, i, vis, onAddToCart, onPreview,
     const [adding, setAdding] = useState(false);
     const inCart = cart.find(c => c.id === p.id);
     const discount = p.oldPrice ? Math.round((1 - p.price / p.oldPrice) * 100) : null;
+    const {isLoggedIn} = useAuth();
+
+    const router = useRouter();
+    const pathname = usePathname()
 
     const handleAdd = () => {
+        if (!isLoggedIn) {
+            router.push(`/login?redirect=${encodeURIComponent(pathname)}`)
+        }
+
         onAddToCart();
         setAdding(true);
         setTimeout(() => setAdding(false), 1200);
-    };
+    }
 
     const badgeBg: Record<string, string> = {
         "Best Seller": "#00B8B8",
@@ -46,7 +56,7 @@ export default function ProductCard({product: p, i, vis, onAddToCart, onPreview,
             onMouseEnter={() => setHov(true)}
             onMouseLeave={() => setHov(false)}
             className={`group bg-white rounded-[20px] overflow-hidden relative transition-all duration-500
-                        ${vis ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-[50px] scale-[0.92]"}
+                        ${vis ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-12.5 scale-[0.92]"}
                         ${hov ? "shadow-[0_28px_56px_rgba(13,61,61,0.15)] border-[#00CCCC]" : "shadow-[0_4px_16px_rgba(0,0,0,0.05)] border-[#e8edf3]"}
                         border-[1.5px]
                       `}
@@ -110,8 +120,8 @@ export default function ProductCard({product: p, i, vis, onAddToCart, onPreview,
             </div>
 
             {/* Content */}
-            <Link href={`/shop/${slugify(p.name)}`}>
-                <div className="p-6">
+            <div className="p-6">
+                <Link href={`/shop/${slugify(p.name)}`}>
 
                     {/* Brand + Category */}
                     <div className="flex items-center gap-2 mb-2.5">
@@ -157,50 +167,51 @@ export default function ProductCard({product: p, i, vis, onAddToCart, onPreview,
                         </span>
                         ))}
                     </div>
+                </Link>
 
-                    {/* Price + CTA */}
-                    <div className="flex flex-col gap-3 pt-4 border-t border-[#e8edf3] sm:flex-row sm:items-center sm:justify-between">
 
-                        {/* Price */}
-                        <div>
-                            <div
-                                className="font-black text-[clamp(1.05rem,4vw,1.3rem)] leading-none text-[#333333] font-['Syne',sans-serif]">
-                                ₦{p.price.toLocaleString()}
-                            </div>
-                            {p.oldPrice && (
-                                <div
-                                    className="text-[12px] mt-1 line-through text-gray-500 font-['DM_Sans',sans-serif]">
-                                    ₦{p.oldPrice.toLocaleString()}
-                                </div>
-                            )}
+                {/* Price + CTA */}
+                <div
+                    className="flex flex-col gap-3 pt-4 border-t border-[#e8edf3] sm:flex-row sm:items-center sm:justify-between">
+
+                    {/* Price */}
+                    <div>
+                        <div
+                            className="font-black text-[clamp(1.05rem,4vw,1.3rem)] leading-none text-[#333333] font-['Syne',sans-serif]">
+                            ₦{p.price.toLocaleString()}
                         </div>
+                        {p.oldPrice && (
+                            <div
+                                className="text-[12px] mt-1 line-through text-gray-500 font-['DM_Sans',sans-serif]">
+                                ₦{p.oldPrice.toLocaleString()}
+                            </div>
+                        )}
+                    </div>
 
-                        {/* Button */}
-                        <button
-                            onClick={handleAdd}
-                            className={`z-50 flex w-full items-center justify-center gap-[6px] px-3 py-[9px] rounded-lg font-bold text-[12px] sm:w-auto sm:px-4 sm:text-[13px] transition-all duration-300
+                    {/* Button */}
+                    <button
+                        onClick={handleAdd}
+                        className={`cursor-pointer z-50 flex w-full items-center justify-center gap-1.5 px-3 py-2.25 rounded-lg font-bold text-[12px] sm:w-auto sm:px-4 sm:text-[13px] transition-all duration-300
                                   ${adding ? "bg-emerald-500 text-white scale-105 border-emerald-500" :
-                                inCart ? "bg-[#00CCCC1a] text-[#00CCCC] border-[#00CCCC]" :
-                                    "bg-[#00CCCC] text-white border-[#00CCCC]"
-                            }
+                            inCart ? "bg-[#00CCCC1a] text-[#00CCCC] border-[#00CCCC]" :
+                                "bg-[#00CCCC] text-white border-[#00CCCC]"
+                        }
                                   border-[1.5px]
                        `}
-                        >
-                            {adding ? (
-                                <>
-                                    <Icon name="check" size={15} color="#fff"/> Added!
-                                </>
-                            ) : (
-                                <>
-                                    <Icon name="cart" size={15} color="currentColor"/>
-                                    {inCart ? "Add More" : "Add to Cart"}
-                                </>
-                            )}
-                        </button>
-                    </div>
+                    >
+                        {adding ? (
+                            <>
+                                <Icon name="check" size={15} color="#fff"/> Added!
+                            </>
+                        ) : (
+                            <>
+                                <Icon name="cart" size={15} color="currentColor"/>
+                                {inCart ? "Add More" : "Add to Cart"}
+                            </>
+                        )}
+                    </button>
                 </div>
-            </Link>
-
+            </div>
         </div>
     )
 }

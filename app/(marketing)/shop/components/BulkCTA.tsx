@@ -2,9 +2,22 @@
 import {useInView} from "@/hooks/useInView";
 import {Icon} from "@/icons/Icon";
 import {dMSans, spaceMono, syne} from "@/theme/fonts";
+import {useState} from "react";
+import {usePathname, useRouter} from "next/navigation";
 
 export default function BulkCTA() {
     const [ref, vis] = useInView(0.2);
+    const [isLoggedIn, setIsLoggedIn] = useState(false)
+    const router = useRouter();
+    const pathname = usePathname();
+
+    const handleRequest = () => {
+        if (isLoggedIn) {
+            router.push("/");
+        } else {
+            router.push(`/login?redirect=${encodeURIComponent(pathname)}`)
+        }
+    }
 
     return (
         <section ref={ref} id="contact" className="bg-[#FEFEFE] py-16 sm:py-20">
@@ -42,22 +55,22 @@ export default function BulkCTA() {
                             management for contractors, integrators, and enterprise buyers.
                         </p>
                         <div className="flex gap-3 sm:gap-4 justify-center flex-wrap">
-                            <a href="#"
-                               className={`${dMSans.className} inline-flex w-full sm:w-auto items-center justify-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 rounded-lg font-bold text-[14px] sm:text-[15px] text-white no-underline transition-all duration-300`}
-                               style={{
-                                   background: "#00CCCC",
-                                   boxShadow: "0 8px 28px rgba(51,154,153,0.4)"
-                               }}
-                               onMouseEnter={e => {
-                                   e.currentTarget.style.transform = "translateY(-3px) scale(1.03)";
-                                   e.currentTarget.style.boxShadow = "0 12px 36px rgba(51,154,153,0.55)";
-                               }}
-                               onMouseLeave={e => {
-                                   e.currentTarget.style.transform = "none";
-                                   e.currentTarget.style.boxShadow = "0 8px 28px rgba(51,154,153,0.4)";
-                               }}>
+                            <div onClick={handleRequest}
+                                 className={`${dMSans.className} inline-flex cursor-pointer w-full sm:w-auto items-center justify-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 rounded-lg font-bold text-[14px] sm:text-[15px] text-white no-underline transition-all duration-300`}
+                                 style={{
+                                     background: "#00CCCC",
+                                     boxShadow: "0 8px 28px rgba(51,154,153,0.4)"
+                                 }}
+                                 onMouseEnter={e => {
+                                     e.currentTarget.style.transform = "translateY(-3px) scale(1.03)";
+                                     e.currentTarget.style.boxShadow = "0 12px 36px rgba(51,154,153,0.55)";
+                                 }}
+                                 onMouseLeave={e => {
+                                     e.currentTarget.style.transform = "none";
+                                     e.currentTarget.style.boxShadow = "0 8px 28px rgba(51,154,153,0.4)";
+                                 }}>
                                 Request Trade Account <Icon name="arrow" size={16} color="#fff"/>
-                            </a>
+                            </div>
                             <a href="tel:+2341234567"
                                className={`${dMSans.className} inline-flex w-full sm:w-auto items-center justify-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 rounded-lg font-semibold text-[14px] sm:text-[15px] text-white no-underline transition-all duration-200`}
                                style={{
