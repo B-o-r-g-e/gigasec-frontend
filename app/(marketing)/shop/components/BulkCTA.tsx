@@ -21,7 +21,7 @@ export default function BulkCTA() {
 
     return (
         <section ref={ref} id="contact" className="bg-[#FEFEFE] py-16 sm:py-20">
-            <div className="max-w-[900px] mx-auto px-5 sm:px-10">
+            <div className="max-w-225 mx-auto px-5 sm:px-10">
                 <div
                     className="rounded-2xl sm:rounded-[24px] px-6 sm:px-12 lg:px-16 py-10 sm:py-14 lg:py-16 text-center relative overflow-hidden transition-all duration-[900ms]"
                     style={{

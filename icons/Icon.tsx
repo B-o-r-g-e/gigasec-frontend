@@ -48,6 +48,8 @@ export type IconName =
     | "logout"
     | "signIn"
     | "signOut"
+    | "download"
+    | "play"
 
 type IconProps = {
     name: IconName;
@@ -104,6 +106,8 @@ export const Icon = ({ name, size = 24, color = "currentColor" }: IconProps) => 
         logout:   <><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round"/><polyline points="16 17 21 12 16 7" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/><line x1="21" y1="12" x2="9" y2="12" stroke={color} strokeWidth="2" strokeLinecap="round"/></>,
         signIn:   <><path d="M15 3h4a2 2 0 012 2v14a2 2 0 01-2 2h-4" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round"/><polyline points="10 17 15 12 10 7" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/><line x1="15" y1="12" x2="3" y2="12" stroke={color} strokeWidth="2" strokeLinecap="round"/></>,
         signOut:  <><path d="M9 3H5a2 2 0 00-2 2v14a2 2 0 002 2h4" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round"/><polyline points="14 7 9 12 14 17" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/><line x1="21" y1="12" x2="9" y2="12" stroke={color} strokeWidth="2" strokeLinecap="round"/></>,
+        download: <><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4" stroke={color} strokeWidth="2" fill="none"/><polyline points="7 10 12 15 17 10" stroke={color} strokeWidth="2" strokeLinecap="round" fill="none"/><line x1="12" y1="15" x2="12" y2="3" stroke={color} strokeWidth="2" strokeLinecap="round"/></>,
+        play:     <><circle cx="12" cy="12" r="10" fill="none" stroke={color} strokeWidth="2"/><polygon points="10 8 16 12 10 16 10 8" fill={color}/></>,
 };
     return (
         <svg width={size} height={size} viewBox="0 0 24 24" fill="none">
