@@ -4,6 +4,8 @@ import {useInView} from "@/hooks/useInView";
 import {useCountUp} from "@/hooks/useCountUp";
 import {useState} from "react";
 import {dMSans, syne} from "@/theme/fonts";
+import Link from "next/link";
+import {slugify} from "@/app/(marketing)/blog/[slug]/components/functions";
 
 interface ServiceStat {
     n: number;
@@ -199,9 +201,14 @@ export default function ServiceBlock({svc, index, filter}: { svc: ServiceData; i
                                         expanded ? "rotate-45" : ""
                                     }`}
                                 >
-                  <Icon name="plus" size={15}/>
-                </span>
+                                    <Icon name="plus" size={15}/>
+                                </span>
                             </button>
+                            <div className="inline-flex cursor-pointer items-center justify-center px-5 py-3 rounded-lg border text-sm font-semibold transition-all hover:border-accent sm:w-auto`}">
+                                <Link href={`/services/${slugify(svc.title)}`}>
+                                    <Icon name="arrow" size={15}/>
+                                </Link>
+                            </div>
                         </div>
                     </div>
 
@@ -213,7 +220,7 @@ export default function ServiceBlock({svc, index, filter}: { svc: ServiceData; i
                         }}
                     >
                         <div className="text-xs uppercase tracking-[2px] text-gray-500 mb-6 font-semibold">
-                            What's Included
+                            What&#39;s Included
                         </div>
 
                         <div className="flex flex-col gap-1">
@@ -237,8 +244,8 @@ export default function ServiceBlock({svc, index, filter}: { svc: ServiceData; i
                                         <Icon name="check" size={14} color={svc.accent}/>
                                     </div>
                                     <span className="text-sm font-medium text-gray-700">
-                    {f}
-                  </span>
+                                        {f}
+                                    </span>
                                 </div>
                             ))}
                         </div>

@@ -10,26 +10,24 @@ import FAQ from "@/app/(marketing)/services/[slug]/components/FAQ";
 import RelatedServices from "@/app/(marketing)/services/[slug]/components/relatedServices";
 import QuoteCTA from "@/app/(marketing)/services/[slug]/components/QuoteCTA";
 import MiniFooter from "@/components/layout/MiniFooter";
+import {match} from "node:assert";
 
 export default async function EachService({params}: { params: { slug: string } }) {
     const {slug} = await params;
-    const relatedServices: ServiceData[] = []
     const currentService = SERVICES.find((serv) => slugify(serv.title) === slug)
 
     if (!currentService) {
         return <div>Service not found</div>
     }
 
-    SERVICES.forEach(serv => {
-        const k = serv.industries.filter(industry =>
-            currentService.industries.includes(industry)
-        ).length
-
-        if (k > 0 && serv.id !== currentService.id) relatedServices.push(serv)
-    })
-
-    // console.log(relatedServices.map(p => p.title))
-
+    const relatedServices = SERVICES
+        .filter(serv => serv.id !== currentService.id)
+        .map(serv => ({
+            ...serv,
+            matchCount: serv.industries.filter(industry => currentService.industries.includes(industry)).length
+        }))
+        .filter(serv => serv.matchCount > 0)
+        .sort((a, b) => b.matchCount - a.matchCount)
 
     return (
         <section>

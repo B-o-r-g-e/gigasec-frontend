@@ -233,12 +233,12 @@ export const SERVICES: ServiceData[] = [
         features: ["SCADA systems & integration", "Instrumentation & automation", "Real-time data acquisition", "Remote monitoring & control", "Operational dashboards", "Reliability & safety alignment"],
         stats: [{n: 1, suf: "", label: "Integrated Platform"}, {n: 24, suf: "/7", label: "Data Insight"}],
         industries: ["Oil & Gas", "Industrial", "Utilities", "Manufacturing", "Government", "Transport"],
-        accent: "#00B8B8",
+        accent: B.electric,
         badge: "Industrial",
         tag: null,
         content: {
             subline: "Industrial automation and digital oilfield systems engineered for uptime, safety, and control.",
-            accentColor: "#00B8B8",
+            accentColor: B.electric,
             heroStats: [
                 {n: 150, suf: "+", label: "Critical Assets Connected"},
                 {n: 24, suf: "/7", label: "Remote Monitoring"},
@@ -381,12 +381,12 @@ export const SERVICES: ServiceData[] = [
         features: ["CCTV & video surveillance", "Access control & time attendance", "Auto gates & perimeter protection", "Fire alarm systems", "Smart home/building automation", "Two-way radio systems"],
         stats: [{n: 6, suf: "+", label: "Core Systems"}, {n: 1, suf: "", label: "Unified View"}],
         industries: ["Banking", "Government", "Education", "Healthcare", "Facilities"],
-        accent: "#0066aa",
+        accent: B.electric,
         badge: "Most Popular",
         tag: 'Core',
         content: {
             subline: "Enterprise-grade IP surveillance and integrated physical security systems for high-risk environments.",
-            accentColor: "#0066aa",
+            accentColor: B.electric,
             heroStats: [
                 {n: 5000, suf: "+", label: "Cameras Installed"},
                 {n: 340, suf: "", label: "Sites Secured"},
@@ -531,12 +531,12 @@ export const SERVICES: ServiceData[] = [
         features: ["Renewable energy systems", "Electrical installations", "Fabrication services", "RFID deployment", "Site surveys & engineering design", "Commissioning & support"],
         stats: [{n: 1, suf: "", label: "End-to-End Delivery"}, {n: 100, suf: "%", label: "Standards Driven"}],
         industries: ["Energy", "Industrial", "Infrastructure", "Public Sector"],
-        accent: "#7c3aed",
+        accent: B.electric,
         badge: "Engineering",
         tag: null,
         content: {
             subline: "Engineering execution from design to commissioning for power, infrastructure, and industrial sites.",
-            accentColor: "#7c3aed",
+            accentColor: B.electric,
             heroStats: [
                 {n: 280, suf: "+", label: "Projects Delivered"},
                 {n: 96, suf: "%", label: "On-time Delivery"},
@@ -684,7 +684,7 @@ export const SERVICES: ServiceData[] = [
         tag: null,
         content: {
             subline: "Advisory, integration, and managed technology services that accelerate secure digital transformation.",
-            accentColor: B.orange,
+            accentColor: B.electric,
             heroStats: [
                 {n: 220, suf: "+", label: "Projects Delivered"},
                 {n: 35, suf: "+", label: "Enterprise Clients"},

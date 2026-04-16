@@ -13,7 +13,7 @@ export default function RelatedServices({relatedServices}: { relatedServices: Se
 
     return (
         <section ref={ref} className="py-16 bg-white sm:py-20">
-            <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-10">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
                 <div className={`${spaceMono.className}`} style={{
                     fontSize: 11,
                     color: B.electric,

@@ -33,7 +33,7 @@ export default function TrustedByStrip() {
                     transition={{ duration: 0.55, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
                     className={`${spaceMono.className} text-center text-[10px] tracking-[0.32em] text-slate-500 lg:text-left`}
                 >
-                    OEM PARTNERS
+                    OEM CLIENTS
                 </motion.span>
 
                 <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-5 lg:justify-end">
